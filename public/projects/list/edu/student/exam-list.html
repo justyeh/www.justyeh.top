@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>统一考试-考试列表</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+	<div class="main-wrap clearfix">
+		<div class="logo">
+			<img src="img/logo.png" alt="蓝桥软件学院"/>
+		</div>
+		<div class="user-menu">
+			<a href="?c=home&m=info">个人首页</a>
+			<span class="username">刘夏天</span>
+			<img class="circle" src="img/head2.png"/>
+			<div class="user-second-menu">
+				<a href="?c=slogin&m=out">退出登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+    <div class="page-wrap">
+        <div class="side">
+				<img class="head circle" src="img/head2.png"/>
+				<p class="name">刘夏天</p>
+				<ul>
+					<li >
+						<a href="?c=home&m=list">
+							<i class="left-a"></i>
+							<span>学习路线</span>
+						</a>
+					</li>
+					<li  class="act" >
+						<a href="?c=stu&m=info&id=">
+							<i class="left-b"></i>							
+							<span>课堂</span>
+						</a>
+					</li>
+					<li >
+						<a href="?c=stu&m=rlist">
+							<i class="left-c"></i>
+							<span>考试回顾</span>
+						</a>
+					</li>
+					<li>
+						<a href="?c=uexam&m=list">
+							<i class="left-d"></i>
+							<span>统一考试</span>
+						</a>
+					</li>
+				</ul>
+			</div>        <div class="page-main lq-exam">
+            <div class="lq-tabs">
+                <ul class="clearfix">
+                    <li><a href="?c=uexam&m=nlist">考试通知</a></li>
+                    <li class="act"><a href="?c=uexam&m=list">考试列表</a></li>
+                </ul>
+            </div><!--tab切换-->
+
+            <form class="testForm clearfix">
+                <div class="group">
+                    <label>考试名称</label>
+                    <input type="text" />
+                </div>
+                <div class="group">
+                    <label>得分率（%）</label>
+                    <div class="drop-menu noselect">
+                        <p class="show">全部</p>
+                        <div class="drop-inner">
+                            <ul>
+                                <li><a href="javascript:;" data-val="0">全部</a></li>
+                                <li><a href="javascript:;" data-val="1">80以上（含80）</a></li>
+                                <li><a href="javascript:;" data-val="2">60 至 80之间（含60）</a></li>
+                                <li><a href="javascript:;" data-val="3">60 以下</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <label>参考考试状况</label>
+                    <div class="drop-menu noselect">
+                        <p class="show">全部</p>
+                        <div class="drop-inner">
+                            <ul>
+                                <li><a href="javascript:;" data-val="0">全部</a></li>
+                                <li><a href="javascript:;" data-val="1">正常</a></li>
+                                <li><a href="javascript:;" data-val="2">缺考</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <label>考试日期</label>
+                    <input type="text" readonly="" onclick="" id="startTime"/><span class="splite"></span><input type="text"  readonly="" id="endTime"/>
+                </div>
+                <button type="submit" class="subBtn">搜索</button>
+            </form>
+
+            <div class="table">
+                <table>
+                    <tr>
+                        <th style="width:60px"></th>
+                        <th style="width:512px;">考试名称</th>
+                        <th>得分率(%)</th>
+                        <th>参加考试情况</th>
+                        <th>考试时间</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="testTitle"><a href="" class="c-blue">考试名称，考试名称考试名称，考试名称考试名称，考试名称考试名称，考试名称</a></td>
+                        <td>1</td>
+                        <td>正常</td>
+                        <td>2017-07-20</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="testTitle"><a href="" class="c-blue">考试名称，考试名称考试名称，考试名称考试名称，考试名称考试名称，考试名称</a></td>
+                        <td>22</td>
+                        <td>正常</td>
+                        <td>2017-07-20</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="testTitle"><a href="" class="c-blue">考试名称，考试名称考试名称，考试名称考试名称，考试名称考试名称，考试名称</a></td>
+                        <td>4</td>
+                        <td>正常</td>
+                        <td>2017-07-20</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="testTitle c-ligh-gray">考试名称，考试名称考试名称，考试名称考试名称，考试名称考试名称，考试名称</td>
+                        <td></td>
+                        <td><span class="c-danger">缺考</span></td>
+                        <td>2017-07-20</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="pager text-c">
+                <span class="current prev">«</span>
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <span>...</span>
+                <a href="#">6</a>
+                <a href="#">»</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">	
+	<div class="main-wrap">
+		<ul class="link-item clearfix">
+			<li><a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a></li>
+			<li><a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a></li>
+			<li><a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a></li>
+			<li><a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a></li>
+			<li><a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a></li>
+			<li><a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a></li>
+			<li><a target="_blank" href="http://www.54youwei.com/">有为招聘</a></li>
+		</ul>
+		<div class="clearfix">			
+			<div class="info-box">
+				<p>电话：4006-588-662     传真：010-68208666 </p>
+				<p>主办：工业和信息化部人才交流中心  </p>
+				<p>京公网安备 11010802020352号 </p>
+			</div>
+			<div class="info-box">
+				<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+				<p>支持：国信世纪人才服务（北京）有限公司</p>
+				<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="return-top" title="返回顶部"><span>返回顶部</span></div>
+<!--<script src="../../js/libs/require.min.js" data-main="../../js/examList.js"></script>-->
+
+<script src="js/libs/jquery-1.9.1.min.js"></script>
+<script src="js/libs/laydate/laydate.js"></script>
+<script src="js/libs/jquery.dropmenu.js"></script>
+<script>
+    $(function(){
+        /*时间选择器*/
+        var startDate = laydate.render({
+            elem:'#startTime',
+            min: '2016-01-01', //设定最小日期为当前日期
+            max: '2099-01-01', //最大日期
+            done:function (value,date) {
+                if( value !== '' ){
+                    endDate.config.min.year = date.year;
+                    endDate.config.min.month = date.month - 1;
+                    endDate.config.min.date = date.date;
+                }else{
+                    endDate.config.min.year = '';
+                    endDate.config.min.month = '';
+                    endDate.config.min.date = '';
+                }
+            }
+        })
+        var endDate = laydate.render({
+            elem:'#endTime',
+            max: '2099-01-01', //最大日期
+            done:function(value,date){
+                if( value !== '' ){
+                    startDate.config.max.year = date.year;
+                    startDate.config.max.month = date.month - 1;
+                    startDate.config.max.date = date.date;
+                }else{
+                    startDate.config.max.year = '';
+                    startDate.config.max.month = '';
+                    startDate.config.max.date = '';
+                }
+            }
+        })
+        //下拉列表
+        $(".drop-menu").dropmenu({
+            selected: function(tar) {
+                //$this->vars['tar']['closest']('.drop-menu').find('input').val($this->vars['tar']['data']('val'));
+            }
+        });
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>未报名首页</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="page">
+	
+	<div class="header">
+	<div class="main-wrap clearfix">
+		<div class="logo">
+			<img src="img/logo.png" alt="蓝桥软件学院">
+		</div>
+		<div class="user-menu">
+			<a href="?c=home&amp;m=info">个人首页</a>
+			<span class="username">刘夏天</span>
+			<img class="circle" src="img/head2.png">
+			<div class="user-second-menu">
+				<a href="?c=slogin&amp;m=out">退出登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <div class="banner">
+        <div class="wrap200 clearfix">
+            <div class="avatar fl">
+                <img src="img/head.jpg" width="100" height="100" alt=""/>
+            </div>
+            <div class="user-info">
+                <p class="name">张三，<span>早上好</span><label class="ml20">欢迎来到蓝桥在线课堂</label></p>
+                <div class="text">
+                    <input type="text" name="" value="" placeholder="我是签名心情。。。" class="inputTxt" maxlength="40"/><i></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-wrap p0">
+        <div class="indexMain clearfix">
+            <div class="indexL fl">
+                <div class="userBasic">
+                    <p class="title">我的专业</p>
+                    <div class="profession noSign">
+                        <p>好想拥有一整套专门为我量身定制的专属课程，还有蓝桥导师们的专业指导，参加真实企业项目检验自己的学习成果...</p>
+                        <p><a href="#" class="c-green">在线报名</a> 成为正式蓝桥学员，为实现我的梦想保驾护航！</p>
+                    </div>
+                    <p class="title">我的进度</p>
+                    <div class="my-progress">
+                        <p class="fs16 t1">正在学习第1门课程：Java程序设计基础</p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="indexR fl">
+                <div class="learnCnt">
+                    <p>正在学习</p>
+                    <p class="chapterName">java基础</p>
+                    <p class="secName mt20">String字符串</p>
+                    <a href="?c=home&m=list&eid={$course_id}"><button type="button" class="startBtn mt20">开始学习</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-box mt25">
+            <ul class="clearfix">
+                    <li>
+                        <a href="{$row['url']}">
+                            <p class="cover"><img src="img/index/1.jpg" alt="{$row['name']}" width="285" height="150"></p>
+                            <div class="lecturer relative learned">
+                                <img src="img/head.jpg" width="32" height="32" class="avaer"/>
+                                <span>Java程序设计基础</span>
+                                <label></label>
+                            </div>
+                        </a>
+                    </li>
+            </ul>
+        </div><!-- 展示所有课程 -->
+    </div>
+    <div class="footer">	
+	<div class="main-wrap">
+		<ul class="link-item clearfix">
+			<li><a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a></li>
+			<li><a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a></li>
+			<li><a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a></li>
+			<li><a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a></li>
+			<li><a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a></li>
+			<li><a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a></li>
+			<li><a target="_blank" href="http://www.54youwei.com/">有为招聘</a></li>
+		</ul>
+		<div class="clearfix">			
+			<div class="info-box">
+				<p>电话：4006-588-662     传真：010-68208666 </p>
+				<p>主办：工业和信息化部人才交流中心  </p>
+				<p>京公网安备&emsp;11010802020352号 </p>
+			</div>
+			<div class="info-box">
+				<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱&ensp;100846</p>
+				<p>支持：国信世纪人才服务（北京）有限公司</p>
+				<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<!--<div class="return-top">return-top</div>-->
+
+<div class="dialog hide">
+    <div class="main">
+        <div class="content">
+            <a href="javascript:;" class="close"></a>
+            <div class="classCnt">
+                <p class="name">JAVA开发基础</p>
+                <span class="line"></span>
+                <div class="classDetail">
+                    <p class="ch1">第一章：欢迎学习PHP</p>
+                    <p class="ch2">1.2：PHP可以做什么</p>
+                </div>
+                <a href="#" target="_blank" class="a b1">继续上次课程</a>
+            </div>
+            <div class="classCnt">
+                <p class="name">PHP进阶篇</p>
+                <span class="line"></span>
+                <div class="classDetail">
+                    <p class="ch1">第一章：PHP提高目标</p>
+                    <p class="ch2">1.2：PHP可以做什么</p>
+                </div>
+                <a href="#" target="_blank" class="a b2">开始新课程</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/libs/require.min.js" data-main="js/index.js"></script>
+</body>
+</html>

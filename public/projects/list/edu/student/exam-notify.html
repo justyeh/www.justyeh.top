@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>统一考试-考试通知</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+	<div class="main-wrap clearfix">
+		<div class="logo">
+			<img src="img/logo.png" alt="蓝桥软件学院"/>
+		</div>
+		<div class="user-menu">
+			<a href="?c=home&m=info">个人首页</a>
+			<span class="username">刘夏天</span>
+			<img class="circle" src="img/head2.png"/>
+			<div class="user-second-menu">
+				<a href="?c=slogin&m=out">退出登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+    <div class="page-wrap">
+        <div class="side">
+				<img class="head circle" src="img/head2.png"/>
+				<p class="name">刘夏天</p>
+				<ul>
+					<li >
+						<a href="?c=home&m=list">
+							<i class="left-a"></i>
+							<span>学习路线</span>
+						</a>
+					</li>
+					<li  class="act" >
+						<a href="?c=stu&m=info&id=">
+							<i class="left-b"></i>							
+							<span>课堂</span>
+						</a>
+					</li>
+					<li >
+						<a href="?c=stu&m=rlist">
+							<i class="left-c"></i>
+							<span>考试回顾</span>
+						</a>
+					</li>
+					<li>
+						<a href="?c=uexam&m=list">
+							<i class="left-d"></i>
+							<span>统一考试</span>
+						</a>
+					</li>
+				</ul>
+			</div>        <div class="page-main lq-exam">
+            <div class="lq-tabs">
+                <ul class="clearfix">
+                    <li class="act"><a href="?c=uexam&m=nlist">考试通知</a></li>
+                    <li><a href="?c=uexam&m=list">考试列表</a></li>
+                </ul>
+            </div><!--tab切换-->
+            <div class="testNotice">
+                                                    <div class="testListBox clearfix">
+                        <div class="testFlag fl c-danger">
+                                                            <span class="fs16 c-ligh-gray">被取消</span>
+                                                                                                                                                                    </div>
+                        <div class="testTitle fl fs16">
+                            考试一                        </div>
+                        <div class="testTime fl">
+                                                            <span class="showTime">11月01日 11:01~11:18</span>
+                                                                                                                                                                    </div>
+                        <div class="testOperate fr">
+                            <a href="?c=uexam&m=ndetail&nid=2" class="c-blue">查看详情</a>
+                        </div>
+                    </div>
+                                    <div class="testListBox clearfix">
+                        <div class="testFlag fl c-danger">
+                                                                                                                                                <span class="fs16 c-ligh-gray">已结束</span>
+                                <span class="c-green mt10">已参加考试</span>
+                                                                                </div>
+                        <div class="testTitle fl fs16">
+                            考试二                        </div>
+                        <div class="testTime fl">
+                                                                                                                                                <span class="showTime">11月01日 10:28~10:28</span>
+                                                                                </div>
+                        <div class="testOperate fr">
+                            <a href="?c=uexam&m=ndetail&nid=3" class="c-blue">查看详情</a>
+                        </div>
+                    </div>
+                                    <div class="testListBox clearfix">
+                        <div class="testFlag fl c-danger">
+                                                                                                                                                <span class="fs16 c-ligh-gray">已结束</span>
+                                <span class="c-green mt10">已参加考试</span>
+                                                                                </div>
+                        <div class="testTitle fl fs16">
+                            sdg                        </div>
+                        <div class="testTime fl">
+                                                                                                                                                <span class="showTime">11月01日 10:11~10:28</span>
+                                                                                </div>
+                        <div class="testOperate fr">
+                            <a href="?c=uexam&m=ndetail&nid=1" class="c-blue">查看详情</a>
+                        </div>
+                    </div>
+                                                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl c-danger">
+                        <span class="fs16">考试中</span>
+                        <span class="mt10">已进行 <em>30</em> 分钟</span>
+                    </div>
+                    <div class="testTitle fl fs16">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">今天 10:00~12:00</span>
+                        <p class="c-danger mt10">已经错过时间，不能进入考场了</p>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="c-blue">查看详情</a>
+                    </div>
+                </div><!--考试中 （不能进入考场）-->
+
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl c-blue">
+                        <span class="fs16">考试中</span>
+                        <span class="mt10">已进行 <em>20</em> 分钟</span>
+                    </div>
+                    <div class="testTitle fl fs16">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">今天 10:00~12:00</span>
+                        <p class="c-blue mt10">考试已开始，请及时进入考场</p>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="btn">进入考场</a>
+                    </div>
+                </div><!--考试中 （能进入考场）-->
+
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl c-green">
+                        <span class="fs16">考试前</span>
+                        <span class="mt10">距开始 <em>20</em> 分钟</span>
+                    </div>
+                    <div class="testTitle fl fs16">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">今天 10:00~12:00</span>
+                        <p class="c-green mt10">考试已开始，请及时进入考场</p>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="btn">进入考场</a>
+                    </div>
+                </div><!--考试前-->
+
+
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl">
+                        <span class="fs16 c-ligh-gray">被取消</span>
+                    </div>
+                    <div class="testTitle fl fs16 c-ligh-gray">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">明天 10:00~12:00</span>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="c-blue">查看详情</a>
+                    </div>
+                </div><!--被取消-->
+
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl">
+                        <span class="fs16 c-ligh-gray">已结束</span>
+                        <span class="c-green mt10">已参加考试</span>
+                    </div>
+                    <div class="testTitle fl fs16 c-ligh-gray">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">明天 10:00~12:00</span>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="c-blue">查看详情</a>
+                    </div>
+                </div><!--已结束(已参加考试)-->
+
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl">
+                        <span class="fs16 c-ligh-gray">已结束</span>
+                        <span class="c-danger mt10">缺考</span>
+                    </div>
+                    <div class="testTitle fl fs16 c-ligh-gray">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">明天 10:00~12:00</span>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="c-blue">查看详情</a>
+                    </div>
+                </div><!--已结束(缺考)-->
+                <!--<div class="testListBox clearfix">
+                    <div class="testFlag fl">
+                        <span class="fs16 c-green">考试前</span>
+                        <span class="mt10">距开始 <em>99</em>天</span>
+                    </div>
+                    <div class="testTitle fl fs16">
+                        考试名字考试名字考试名字考试名字考试名字考试名字
+                    </div>
+                    <div class="testTime fl">
+                        <span class="showTime">11月11日 10:00~12:00</span>
+                    </div>
+                    <div class="testOperate fr">
+                        <a href="#" class="c-blue">查看详情</a>
+                    </div>
+                </div><!--考试前-->
+            </div><!--考试通知列表-->
+
+<!--
+            <div class="testNotice text-c">
+                <p class="fs18 mt40">目前还没有考试安排</p>
+                <p class="c-green mt10">那就抓紧时间，痛快滴学它一习</p>
+                <p class="c-green mt10">下次考试来临时，定能从容取得优异成绩！</p>
+            </div>--><!--暂未考试通知列表-->
+
+        </div>
+
+    </div>
+
+    <div class="footer">	
+	<div class="main-wrap">
+		<ul class="link-item clearfix">
+			<li><a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a></li>
+			<li><a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a></li>
+			<li><a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a></li>
+			<li><a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a></li>
+			<li><a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a></li>
+			<li><a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a></li>
+			<li><a target="_blank" href="http://www.54youwei.com/">有为招聘</a></li>
+		</ul>
+		<div class="clearfix">			
+			<div class="info-box">
+				<p>电话：4006-588-662     传真：010-68208666 </p>
+				<p>主办：工业和信息化部人才交流中心  </p>
+				<p>京公网安备 11010802020352号 </p>
+			</div>
+			<div class="info-box">
+				<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+				<p>支持：国信世纪人才服务（北京）有限公司</p>
+				<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="return-top" title="返回顶部"><span>返回顶部</span></div>
+<script src="js/libs/require.min.js" data-main="js/index.js"></script>
+</body>
+</html>

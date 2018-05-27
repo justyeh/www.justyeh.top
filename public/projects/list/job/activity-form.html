@@ -1,0 +1,313 @@
+
+<!-- saved from url=(0054)http://lanqiao.54youwei.com/index.php?c=Operate&m=send -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<title>添加/修改活动</title>
+<link rel="stylesheet" type="text/css" href="css/public.css">
+<link rel="stylesheet" type="text/css" href="css/member.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/uploadify.css">
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="https://cdn.bootcss.com/webuploader/0.1.1/webuploader.min.js"></script>
+
+<style type="text/css">
+    .uploadify {
+        top: 0;
+        left: 0;
+        height: 120px;
+        width: 120px;
+        border: solid 1px #E3E3E3;
+        text-align: center;
+        line-height: 120px;
+        font-size: 18px;
+        color: #666;
+        background: no-repeat center / cover;
+    }
+
+    .uploadify input {
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .group .images li {
+        width: 500px;
+        height: 160px;
+    }
+
+    .group .images li img {
+        width: 500px;
+        height: 160px;
+    }
+</style>
+
+
+<div class="formContainer">
+    <div class="header">
+        <h1>修改/添加活动</h1>
+    </div>
+    <form action="?c=Operate&m=send" method="post" id="activityForm"
+          enctype="multipart/form-data">
+        <input type="hidden" name="c" value="Operate">
+        <input type="hidden" name="m" value="send">
+        <input type="hidden" name="id" value="">
+        <div class="form_layout">
+            <!--活动名称-->
+            <div class="form_block clearfix">
+                <div class="layout_l">
+                    <p><span>*</span>活动名称：</p>
+                </div>
+                <div class="layout_r">
+                    <input type="text" name="title" class="textInput" value="">
+                    <p id="errname" class="errorTip"></p>
+                </div>
+            </div>
+
+            <div class="form_block clearfix">
+                <div class="layout_l">
+                    <p><span>*</span>活动图片：</p>
+                </div>
+                <div class="layout_r">
+                    <div class="group">
+                        <div id="upload" class="uploadify"
+                             style="background-image: url()">
+                            <input type="file" name="image" accept="image/gif,image/jpg,image/jpeg,image/png"
+                                   onchange="handleChange(this)">
+                        </div>
+                        <input id="isUpload" type="hidden" name="img" value="">
+                        <ul class="images clearfix" style="margin-left: 0;"></ul>
+                    </div>
+                    <p id="errimg" class="errorTip"></p>
+                </div>
+            </div>
+
+            <!--活动地址：-->
+            <div class="form_block clearfix">
+                <div class="layout_l">
+                    <p><span>*</span>活动地址：</p>
+                </div>
+                <div class="layout_r">
+                    <input type="text" name="url" class="textInput" value="">
+                    <p id="errurl" class="errorTip"></p>
+                </div>
+            </div>
+            <div class="form_block clearfix">
+                <div class="layout_l">
+                    <p>是否智能制造</p>
+                </div>
+                <div class="layout_r">
+                    <input type="radio" name="is_smart" value="1" checked="checked"><label
+                            class="pright10">是</label>
+                    <input type="radio" name="is_smart" value="0"><label> 否</label>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <input class="submit" type="submit" value="提交">
+            </div>
+        </div>
+    </form>
+</div>
+
+<input type="hidden" value="" id="act_id">
+
+<script type="text/javascript">
+
+    function handleChange(fileInput) {
+        // 检查是否为图像类型
+        var simpleFile = fileInput.files[0];
+        if (!/image\/\w+/.test(simpleFile.type)) {
+            $("#errimg").html("文件格式错误");
+            return false;
+        }
+
+        if (simpleFile.size > 1024 * 1024 * 2) {
+            $("#errimg").html("图片的大小限制为2M");
+            //注意清空input的值
+            if (fileInput.outerHTML) {
+                fileInput.outerHTML = fileInput.outerHTML;
+            } else {
+                fileInput.value = "";
+            }
+            return false;
+        }
+
+        var reader = new FileReader();
+        reader.readAsDataURL(simpleFile);
+        reader.onload = function (e) {
+            $(fileInput).parent().css("backgroundImage", "url(" + e.target.result + ")");
+            $("#isUpload").val("1")
+            $("#errimg").html("");
+        }
+    }
+
+    $(function () {
+
+        /*$("#upload").uploadify({
+         "auto": true,
+         "buttonText": "上传图片",
+         "multi": true,
+         "formData": {"sessid" : "30au8kj5v60imc5b0j4o0t38c3"},
+         "fileTypeExts": "*.gif; *.jpg; *.png",
+         "fileSizeLimit": "500KB",
+         "queueSizeLimit": 5,
+         "swf": "js/third/uploadify/uploadify.swf",
+         "uploader": "?c=Operate&m=sendactimg&op=activity&id=" + actID + ";sessid=" + sessid,//后台处理程序的相对路径
+         "onUploadSuccess": function (file, jdata, response) {
+         console.log(jdata)
+
+         var data = $.parseJSON(jdata);
+         if (data.code == 1) {
+         var tempalte = '<li>';
+         tempalte += '<img data-isUp="0" src="' + data.url + '" alt="图片"/>';
+         tempalte += '<input type="hidden" name="img[]" value="' + data.file_path + '"/>';
+         tempalte += '<a href="#" class="img-close"></a>';
+         tempalte += '</li>';
+         $(".images").prepend(tempalte);
+         //删除图片
+         $(".img-close").on("click", function () {
+         $(this).closest("li").remove();
+         });
+         } else {
+         $(".images").closet("div").find(".errorMsg").html(result.resultMsg);
+         }
+         }
+         });*/
+
+        /*
+         var actID = $("#act_id").val();
+         //视频上传相关函数
+         var uploader = WebUploader.create({
+         server: "?c=Operate&m=sendactimg&op=activity&id=" + actID,//文件接受服务端
+         pick: {
+         id: "#upload",
+         multiple: false//多文件选择
+         },
+         fileVal: 'video',//设置文件上传域的name
+         auto: true,
+         fileNumLimit: 5,
+         duplicate: true,
+         fileSingleSizeLimit: 2 * 1024 * 1024,
+         accept: {
+         title: 'Images',
+         extensions: 'gif,jpg,jpeg,bmp,png',
+         mimeTypes: 'image/gif,image/jpg,image/jpeg,image/png'
+         }
+         });
+
+         uploader.on("error", function (type) {
+         console.log(type)
+         if (type == "Q_TYPE_DENIED") {
+         $("#errimg").html("文件格式错误");
+         return false;
+         }
+         if (type == "F_EXCEED_SIZE") {
+         $("#errimg").html("文件大小超过限制");
+         }
+         });
+
+         //上传成功
+         uploader.on('uploadSuccess', function (file, res) {
+         var data = res;
+         if (data.code == 1) {
+         var tempalte = '<li>';
+         tempalte += '<img data-isUp="0" src="' + data.url + '" alt="图片"/>';
+         tempalte += '<input type="hidden" name="img[]" value="' + data.url + '"/>';
+         tempalte += '<a href="javascript:;" class="img-close"></a>';
+         tempalte += '</li>';
+         $(".images").prepend(tempalte);
+         } else {
+         $(".images").closet("div").find(".errorMsg").html(result.resultMsg);
+         }
+         });
+
+         uploader.on('uploadSuccess', function (file, res) {
+         if (res.code == 1) {
+         $("#upload").css({
+         'background-image':res.url
+         });
+         $("#upload")
+         } else {
+         $("#errimg").html(res.msg);
+         }
+         });
+
+
+         });
+
+         $("#upload").on(".img-close", "click", function () {
+         var obj = $(this);
+         var isUP = obj.parent().find("img").attr("data-isUp");
+         if (isUP == 1) {
+         var imgID = obj.parent().find("img").attr("id");
+         $.ajax({
+         url: "?c=Operate&m=delactimg&id=" + imgID,
+         dataType: "json",
+         success: function (res) {
+         if (res.code == "1") {
+         obj.closest("li").remove();
+         }
+         }
+         });
+         } else {
+         obj.closest("li").remove();
+         }
+         });*/
+
+        $(".layout_r input[type=text]").keyup(function () {
+            if ($(this).val().trim() != "") {
+                $(this).parent().find(".errorTip").html("");
+            }
+        });
+
+
+        $("#activityForm").submit(function () {
+            var flag = true;
+            if ($("input[name=title]").val().trim() == "") {
+                $("#errname").html("请输入活动名称");
+                flag = false;
+            }
+            if ($("#isUpload").val().length == 0) {
+                $("#errimg").html("请上传活动图片");
+                flag = false;
+            }
+            if (!IsURL($("input[name=url]").val().trim())) {
+                $("#errurl").html("请输入合法的活动url地址");
+                flag = false;
+            }
+            return flag;
+        });
+    });
+
+
+    //清空表单
+    function clearForm() {
+        $(':input', 'form')
+                .not(':button, :submit, :reset, :hidden')
+                .val('')
+                .removeAttr('checked')
+                .removeAttr('selected');
+    }
+
+    function IsURL(str_url) {
+        var strRegex = /^((https|http|ftp|rtsp|mms)?:\/\/)?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5]$)|([0-9a-z_!~*'()-]+\.)*([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\.[a-z]{2,6})(:[0-9]{1,4})?((\/?)|(\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+\/?)$/;
+        var re = new RegExp(strRegex);
+        return re.test(str_url);
+    }
+</script>
+
+</body>
+</html>

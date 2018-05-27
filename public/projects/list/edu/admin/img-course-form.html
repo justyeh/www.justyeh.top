@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragram" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>添加图文课程片段</title>		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js//browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">	
+		<link rel="stylesheet" href="css/editormd.min.css">
+		<style>
+		    #test-editormd select{display:inline-block;}
+		    .dialog{display:none;}
+		    /*标签*/
+		    div.tagsinput { border:1px solid #e6e6e6; background: #FFF;width:300px;overflow-y: auto;min-height: auto !important; }
+			div.tagsinput:focus{border-color:#c9c9c9 !important;}
+			div.tagsinput span.tag { -moz-border-radius:15px; -webkit-border-radius:15px; display: block; float: left; padding:0 10px; height:22px;line-height:22px;text-decoration:none; background: #eee; color: #666; margin: 5px;font-size:13px;}
+			div.tagsinput span.tag a { font-weight: bold; color: #666; text-decoration:none; font-size: 11px;  }
+			div.tagsinput input { width:80px; margin:0px; font-family: helvetica; font-size: 13px; border:1px solid transparent; padding:5px; background: transparent; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
+			div.tagsinput div { display:block; float: left; }
+			.tags_clear { clear: both; width: 100%; height: 0px; }
+			.not_valid { background: #FBD8DB !important; color: #90111A !important;}
+			/*编辑器弹框*/
+			.layui-layer{border-radius:3px !important;}
+			#addCourseForm .layui-inline{margin-bottom: 15px;}
+			.get-summary-btn{position: absolute;top: 0px;right: 0;z-index: 10;}
+			
+			.upload-dialog{position: fixed;top: 0;left: 0;bottom: 0;right: 0;z-index: 1000;display: none;background: rgba(255,255,255,0.2);}
+			.upload-dialog .layui-layer{width: 460px;height: 300px;top: 50%;left: 50%;margin: -150px 0 0 -230px;background: #fff;}
+			.upload-dialog #filePicker{border: 1px solid #dfdfdf;border-radius: 2px;color: #666;display: inline-block;height: 38px;line-height: 38px;width: 150px;text-align: center;overflow: hidden;position: relative;vertical-align: middle;cursor: pointer;}
+			.upload-dialog #filePicker:hover{color: #333;border-color: #aaa;}
+			.upload-dialog #filePicker i{color: #5fb878;font-size: 20px;margin: -2px 5px 0 0;vertical-align: top;}
+		</style>
+	</head>
+	<body class="uploader-page">
+		<div class="main-wrapper">
+		
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>            <div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li  class="act" ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> 
+		  	<div class="content-wrapper ">		  		
+	  			<button class="layui-btn layui-btn-normal" type="button" id="goList" data-href="?c=lexam&m=list&flag=2">返回列表</button>
+	  			<fieldset class="layui-elem-field mt10">
+  					<legend>添加图文课程片段 </legend>  					<div class="layui-field-box">
+  						  							<form class="layui-form" id="addCourseForm" action="?c=lesson&m=save&type=1" method="post" enctype="multipart/form-data">
+  							  						<div class="layui-form info-form">			               
+				                <div class="layui-form-item" style="margin-bottom: 0;">
+				                    <label class="layui-form-label">科目-章-节</label>
+				                   	<div class="layui-inline">
+				                        <select name="subject_id" lay-verify="required" data-msg="请选择科目" id="subject" lay-filter="subject">
+				                        	<option value="">请选择</option>
+																							<option value="1" >JavaWeb技术综合运用</option>
+									      													<option value="3" >持久层框架</option>
+									      													<option value="5" >C语言</option>
+									      													<option value="16" >软件测试技术基础课程</option>
+									      													<option value="67" >Java面向对象程序设计</option>
+									      													<option value="102" >Java点穴——高级专题探究</option>
+									      													<option value="110" >Oracle开发与运维技术实践</option>
+									      													<option value="118" >Spring框架</option>
+									      													<option value="187" >Web前端技术综合应用</option>
+									      													<option value="448" >JAVA</option>
+									      													<option value="500" >JAVASE项目</option>
+									      													<option value="509" >JAVA进阶项目</option>
+									      													<option value="540" >web</option>
+									      													<option value="556" >mybatis</option>
+									      													<option value="609" >CEP课程</option>
+									      													<option value="610" >人文365</option>
+									      											</select>     
+				                    </div>
+				                    <div class="layui-inline">
+				                        <select name="chapter_id" lay-verify="required" data-msg="请选择章" id="chapter" lay-filter="chapter">
+				                          	<option value="">请选择</option>
+											<br />
+<b>Notice</b>:  Undefined index: chapter_list in <b>/web/newedu/apps/themes/default/templates/admin/course_part_save_photo.tpl.php</b> on line <b>74</b><br />
+										</select>     
+				                    </div>
+				                    <div class="layui-inline">
+				                        <select name="section_id" lay-verify="required" data-msg="请选择节" id="section">
+				                          	<option value="">请选择</option>
+											<br />
+<b>Notice</b>:  Undefined index: section_list in <b>/web/newedu/apps/themes/default/templates/admin/course_part_save_photo.tpl.php</b> on line <b>82</b><br />
+}
+										</select>
+				                    </div>
+				                    <div class="layui-inline">
+				                    	<input type="hidden" name="author_id" value="" id="author_id"/>
+								      	<label class="layui-form-label">讲师(作者)</label>
+									    <div class="layui-input-inline relative tealist" style="width: 300px;">
+									   		<input maxlength="12" name="author" class="layui-input" lay-verify="isFillInStore" autocomplete="off" type="text" id="autoCompleteInput"  placeholder="讲师(作者)" value=""/>
+									    </div>
+								    </div>
+				                </div>
+				               
+				               	<div class="layui-form-item"  style="margin-bottom: 0;">
+								    <div class="layui-inline">
+								      	<label class="layui-form-label">知识产权</label>
+									    <div class="layui-input-inline" style="width: 300px;">
+									   		<select name="property_right" lay-verify="required" data-msg="请选择知识产权">
+					                          	<option value="">请选择</option>
+												<option value="0" >自有</option>
+												<option value="1" >引进</option>							
+											</select> 
+									    </div>
+								    </div>
+								    <div class="layui-inline">
+								      	<label class="layui-form-label">资源名称</label>
+									    <div class="layui-input-inline" style="width: 300px;">
+									   		<input maxlength="50" name="name" class="layui-input" lay-verify="required" data-msg="请填写资源名称" maxlength="30" autocomplete="off" type="text" placeholder="资源名称" value=""/>
+									    </div>
+								    </div>
+				                </div>
+				                
+				                <!--文本-->
+				                <div class="layui-form-item">
+							    	<label class="layui-form-label">图文内容</label>
+							    	 <div class="layui-input-block relative" id="editormd">
+							    		<textarea style="position: absolute;left: -9999px;" name="content" id="content" lay-verify="required" data-msg="请输入图文内容"></textarea>
+								    </div>
+							  	</div>
+							  	
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">摘要</label>
+								    <div class="layui-input-block relative">
+								      	<textarea maxlength="250" name="content_desc" lay-verify="required" data-msg="请填写摘要" placeholder="摘要" style="min-height: 60px;" class="layui-textarea"></textarea>
+								    	<button class="layui-btn layui-btn-primary layui-btn-small get-summary-btn" id="getSummaryBtn" type="button">从图文内容获取</button>
+								    </div>
+							  	</div>
+							  	
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">标签</label>
+								    <div class="layui-input-block">
+								      	<input name="label" lay-verify="required" data-msg="请填写标签" class="layui-input" type="text" id="tags" value=""/>	
+								    </div>
+							  	</div>
+							  	
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">备注</label>
+								    <div class="layui-input-block">
+								      	<textarea maxlength="250" name="spare" placeholder="请输入备注信息" style="min-height: 60px;" class="layui-textarea"></textarea>
+								    </div>
+							  	</div>
+							  	
+							  	<div class="layui-form-item">
+				                    <div class="layui-input-block">
+				                        <button class="layui-btn" type="button" lay-submit lay-filter="addCourseForm">提交审核</button>
+				                    </div>
+				                </div>
+			            	</div>
+			            </form>
+  					</div>
+	  			</fieldset>
+		 	</div><!-- content wrapper end-->
+		</div><!-- page wrapper end-->
+		
+		<div class="upload-dialog">
+			<div class="layui-layer layui-layer-page layer-anim-05">
+				<div class="layui-layer-title">从本机导入</div>
+				<div class="layui-field-box">
+					<blockquote class="layui-elem-quote c-danger">注意：当前操作只要成功选择 .md 文件就会冲掉当前正在编辑的课程片段，请确定是否保存当前编辑的课程片段后，再进行导入操作。</blockquote>
+					<p class="mt10">请选择要导入的.md文档</p>
+					<div class="layui-form-item mt10">
+						<div id="filePicker">上传.md文件</div>
+					</div>
+				</div>
+				<span class="layui-layer-setwin">
+					<a href="javascript:;" onclick="closeDilaog()" class="layui-layer-ico layui-layer-close layui-layer-close1"></a>
+				</span>
+				<div class="layui-layer-btn layui-layer-btn-r">
+					<a onclick="closeDilaog()" class="layui-layer-btn0">关闭</a>
+				</div>
+				<span class="layui-layer-resize"></span>
+			</div>
+		</div>
+		
+		<!--script-->
+		<script src="js/jquery-1.9.1.min.js"></script>		
+		<script src="js/jquery-accordion-menu.js"></script>
+		<script src="js/layui/layui.all.js"></script>
+		<script src="js/public.js"></script>	
+		<script src="js/editormd.min.js" ></script>
+		<script src="js/jquery.tagsinput.js"></script>
+		<script src="js/yehAutoComplete/yehAutoComplete.js"></script>	
+		<script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>
+		<script src="js/addCourse.js"></script>
+		<script type="text/javascript">
+			
+			function closeDilaog(){
+				$(".upload-dialog").fadeOut('fast');
+			}
+			function doUploader(){
+				var uploader = WebUploader.create({
+	                server: '?c=lesson&m=uploadfile&type=3',//文件接受服务端
+	                pick:  {
+	                    id:"#filePicker",//选择文件的dom元素
+	                    multiple:false//多文件选择
+	                },
+	                fileVal:'md',//设置文件上传域的name
+	                auto:true,    //自动上传
+	                //fileNumLimit:3, //文件上传数量的限制
+	                duplicate:true, //是否允许重复的文件
+	                fileSingleSizeLimit:10 * 1024 * 1024, //单个文件大小限制
+	            });
+	           /* uploader.on("error",function (type){
+	                if (type=="Q_TYPE_DENIED"){
+	                    alert("文件格式错误")
+	                }
+	                if(type=="F_EXCEED_SIZE"){
+	                    alert("文件大小超过限制")
+	                }
+	            });*/
+	            uploader.on('fileQueued', function(file) {  
+				    if(file.ext != "md"){
+				        layer.msg('请上传.md格式的文件',{icon:5,anim:6,time:1000})
+				        uploader.reset();////重置uploader
+				        return false;
+				    }
+				});
+	            uploader.on('uploadStart',function(){
+	            	layer.load(1, {shade: [0.6,'#000'],});
+	            })
+	            uploader.on('uploadSuccess', function(file,res) {
+	                layer.closeAll();
+					if(res.code == 0){
+						layer.msg(res.msg,{icon:5,anim:6,time:1000})
+						return false;
+					}
+					closeDilaog();
+					mdEditor.setMarkdown(res.content)
+	            });
+	            uploader.on('uploadComplete', function(file) {
+	                uploader.reset();
+	            });
+			}
+			
+			//导入本地md文件
+			function importMD(){
+				$(".upload-dialog").fadeIn(function(){
+					doUploader();
+				})
+			}
+			//导出md到本地
+			function exportMD(){
+				layer.confirm('确定导出.md文件？',{btn: ['确定','取消'],shade: [0.2,'#fff']},function(){
+					layer.closeAll();
+					layer.load(1, {shade: [0.6,'#000'],});
+					$.ajax({
+						type:'post',
+						url:'?c=lesson&m=uploadfile&type=4',
+						data:{md:mdEditor.getMarkdown()},
+						dataType:'json',
+						success:function(res){
+							layer.closeAll();
+							if(res.code != 1){
+								layer.msg(res.msg,{icon:5,anim:6,time:1000})
+								return false;
+							}
+							window.location.href=res.url;
+						}
+					});
+				})
+			}
+			
+			$(function(){
+				
+				$("#getSummaryBtn").click(function(){
+					$(this).prev().val($(".editormd-preview").text().replace(/(^\s+)|(\s+$)|(\n\n)*/g,"").substring(0,100))
+				});
+				
+				/*tagsInput组件 API>http://www.jq22.com/jquery-info426*/
+				$('#tags').tagsInput({
+					width:'auto',
+					maxChars:12
+				});//生成标签
+				
+				/*markdown编辑器*/
+				mdEditor = editormd("editormd", {
+				    width   : "auto",
+				    height : 400,
+				    syncScrolling : true,
+				    path : "js/editormd/lib/", 
+				    tex              : true,		//科学公式
+				    //tocm             : true,		//自动生成目录(下拉菜单) 		           
+				    //taskList         : true,		//GFM 任务列表 	           
+				    codeFold         : true,		//代码折叠
+				    searchReplace    : true,		//搜索替换
+				    //htmlDecode       : "style,script,iframe", //识别和解析HTML标签 
+				    flowChart        : true, 		//流程图
+				    sequenceDiagram  : true, 		//uml
+				    toolbarIcons : function() {		
+				    	return ["bold", "del", "italic", "quote", "|", "h1", "h2", "h3", "h4", "h5", "h6", "|", "list-ul", "list-ol", "hr", "|", "link", "image", "code", "code-block", "table", "html-entities", "|", "preview", "fullscreen", "clear", "search", "|","importMD", "exportMD","|", "help", "|"]			   
+				    },
+				     // 指定一个FontAawsome的图标类
+				    toolbarIconsClass : {
+				    	importMD : "fa-cloud-download",
+				        exportMD : "fa-cloud-upload" ,
+				    },
+				    // 自定义按钮的提示文本，即title属性
+				    lang : {
+				    	toolbar:{
+				    		importMD:'从本地导入',
+				    		exportMD:'导出到本地',
+				    	}
+				    },
+				    // 自定义工具栏按钮的事件处理
+				    toolbarHandlers : {
+				    	importMD : function(){
+				    		importMD();
+				    	},
+				    	exportMD : function(){
+				    		exportMD();
+				    	}
+				    },
+				    //启动本地图片上传功能
+				    imageUpload : true,
+					imageFormats : ["jpg", "jpeg", "gif", "png"],
+					imageUploadURL : "?c=lesson&m=uploadfile&type=2",
+					//saveHTMLToTextarea : true
+					/*onchange : function() {
+						console.log(1)
+                        $("#content").val(mdEditor.getMarkdown());
+                    }*/
+				});
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="renderer" content="webkit">
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <title>学生详情</title>
+        <link href="" type="image/x-icon" rel="SHORTCUT ICON"/>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+        <link rel="stylesheet" type="text/css" href="css/member.css"/>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/third/jquery/jquery.validate-1.13.1.js"></script>
+        <script src="js/third/jquery/jquery_validate_extend_cn.js"></script>
+        <script src="js/public.js"></script>
+        <script src="js/member.js"></script>
+    </head>
+    <body>
+        <div class="main mt50">
+            <!--<img src="images/back_icon.png" id="pageback" class="page-back"/>-->
+            <div class="main-cnt clearfix">
+                <div class="mainL fl">
+                    <p class="picture"><img src="images/head.jpg" alt="头像"/></p>
+                    <p class="message mt10"><a href="javascript:;" id="msgAdd">系统消息</a></p>
+                    <p class="mt10">
+                        <span class="name">杨小测</span>
+                        <span>中华女子学院</span>
+                        <span>14级</span>
+                        <span>计算机</span>
+                    </p>
+                    <div class="memberinfo">
+                        <p>
+                            <label>电话</label>
+                            18856432079 </p>
+                        <p>
+                            <label>邮箱</label>
+                            123@qq.com </p>
+                        <p>
+                            <label>最后登录时间</label>
+                            2017-09-04 </p>
+                    </div>
+                </div>
+                <!-- 简历内容右侧 -->
+                <div class="mainR fl">
+                    <input type="hidden" value="79" id="uid"/>
+                    <div class="basicInfo">
+                        <p class="bigName"></p>
+                        <p class="detail mt10"><span>性别：女</span><span>身高： 164 </span></p>
+                        <p class="detail mt10">
+                            <span>出生年月：1994-02-25</span><span>籍贯：北京</span></p>
+                        <p class="btn" style="font-weight:bold;font-size: 14px;">
+                                                            审核通过
+                            
+                        </p>
+                    </div>
+                    <div class="joblist">
+                        <div class="listTd clearfix">
+                            <span class="l1">期望行业</span>
+                            <span class="l2">期望职位</span>
+                            <span class="l3">期望薪资</span>
+                            <span class="l4">期望城市</span>
+                            <span class="l4">期望工作性质</span>
+                            <span class="l4">关注职位</span>
+                            <span class="l4">投递职位</span>
+                            <span class="l4">站内信</span>
+                            <span class="l4">评论</span>
+                        </div>
+                        <ul class="list clearfix">
+                            <li>
+                                <span class="l1">IT|通信|电子|互联网</span>
+                                <span class="l2">互联网/电子商务</span>
+                                <span class="l3">面议</span>
+                                <span class="l4">北京</span>
+                                <span class="l1">全职</span>
+                                <span class="l4">1</span>
+                                <span class="l4">1</span>
+                                <span class="l4">1</span>
+                                <span class="l4">0</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skillList">
+                        <h4>我的技能</h4>
+                        <p class="skill">
+                                                            <em>没有数据</em>
+                                                    </p>
+                    </div>
+
+                    <div class="skillList">
+                        <h4>奖项证书</h4>
+                        <ul class="education">
+                                                            <li>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="skillList">
+                        <h4>教育背景</h4>
+                        <ul class="education">
+                                                            <li>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="skillList">
+                        <h4>工作经历</h4>
+                        <ul class="education">
+                                                            <li>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="skillList">
+                        <h4>项目经历</h4>
+                        <ul class="education">
+                                                            <li>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="skillList">
+                        <h4>掌握语言</h4>
+                        <p class="language">
+                                                            <em>没有数据</em>
+                                                    </p>
+                    </div>
+                    <div class="skillList bt0">
+                        <h4>自我介绍</h4>
+                        <div class="self-intro">
+                            <p></p>
+                        </div>
+
+                        <div class="skillList">
+                            <h4>兴趣爱好</h4>
+                            <p class="skill">
+                                                                    <em>没有数据</em>
+                                                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 弹出层 -->
+        <div class="dialog">
+            <div class="box">
+                <div class="box-head">
+                    <p>推送信息</p>
+                    <a href="javascript:;" class="close"></a>
+                </div>
+                <div class="box-body">
+                    <form method="post" action="" id="message">
+                        <div class="group">
+                            <label style="vertical-align: top;">内容：</label>
+                            <textarea id="content" name="content"></textarea>
+                            <p class="errorMsg"></p>
+                        </div>
+                        <div class="group">
+                            <label>&nbsp;</label>
+                            <input type="submit" name="" value="发送" class="button"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

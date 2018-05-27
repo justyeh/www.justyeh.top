@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>课程管理</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+</head>
+<body class="edit-course">
+	<div class="page">
+		
+		<div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>		
+		<input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li class="act">
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7-act.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>		
+		<div class="main">
+			<div class="page-title">课程管理</div>
+			<div class="form pt50">
+				<form action="?c=online&m=edit&id=95" method="post" enctype="multipart/form-data">
+					<div class="group">
+						<label class="label">课程标题</label>
+						<div class="input">
+							<input type="text" name="title" value="0904-钱三" />
+						</div>
+					</div>
+					<div class="group">
+						<label class="label">课程简介</label>
+						<div class="input">
+							<textarea name="intro" rows="" cols="" style="width: 310px;">快来快来快来快来快来快来快来快来快来快来快来快来快来快来快来快来快来</textarea>
+						</div>
+					</div>
+					<div class="group">
+						<label class="label">课程封面</label>
+						<div class="input">
+							<label class="file" style="background-image: url(../../upload/photo/2017/09/04/1504492231.5356.png);">
+								<input type="file" name="cover" accept="image/gif,image/jpeg,image/png,image/jpg" />
+							</label>
+							<input type="hidden" name="cover_link" value="../../upload/photo/2017/09/04/1504492231.5356.png" />
+						</div>
+					</div>
+					<div class="group">
+						<label class="label">课程目录</label>
+						<div class="input c-list">
+
+														<div class="item bg">
+								<div>
+									<p class="title">第一课-钱钱钱</p>
+									<a data-title="" href="javascript:;" class="c-main"><img src="img/icon/edit.png"/>编辑</a>
+								</div>
+								<div class="c-info">
+									<p>当前文件：<span class="file-name">视频3.mp4</span></p>
+									<div class="c-main upload-btn"><img src="img/icon/upload.png"/>上传视频</div>
+								</div>
+								<input type="hidden" data-key="title" name="link[59][title]" value="第一课-钱钱钱" />
+								<input type="hidden" data-key="name" name="link[59][name]" value="视频3.mp4" />
+								<input type="hidden" data-key="video" name="link[59][video]" value="2017/09/04/1504492295.1095.mp4" />
+								<input type="hidden" data-key="time" name="link[59][time]" value="774" />
+							</div>
+													</div>
+						<div class="input">
+							<input type="hidden" name="list" value="1" />
+						</div>
+						<a href="javascript:;" class="add-link">+&ensp;添加</a>
+					</div>
+					<div class="group">
+						<button class="btn btn-main">保存</button>
+					</div>
+				</form>
+			</div>	
+		</div>
+	</div>
+	
+	<input type="hidden" name="imgSrc" id="imgSrc" value="img/" />
+
+	<div class="modal confirm edit-title">
+		<div class="content">
+			<a class="close" data-method="cancle"></a>
+			<p>修改课程名称</p>
+			<input type="text" name="course_title" value="" />
+			<div class="btns">
+				<button class="btn btn-default" data-method="cancle">取消</button>
+				<button class="btn btn-main" data-method="ok">确定</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal confirm new-course">
+		<div class="content">
+			<a class="close" href="javascript:;" data-method="cancle"></a>
+			<p>新建课程</p>
+			<input type="text" name="course_name" value="" />
+			<div class="btns">
+				<button class="btn btn-default" data-method="cancle">取消</button>
+				<button class="btn btn-main" data-method="ok">确定</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="js/libs/require.min.js" data-main="js/app/course.js"></script>
+</body>
+</html>

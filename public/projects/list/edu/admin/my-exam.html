@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>我的试题</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">
+		
+	</head>
+	<body>
+		
+		<div class="main-wrapper">
+
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>			<div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li  class="act" ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>			
+		  	<div class="content-wrapper ">
+	  			
+	  			<fieldset class="layui-elem-field">
+  					<legend>我的试题</legend>
+  					<div class="layui-field-box">
+  						
+  						<a href="?c=questions&m=save" class="layui-btn layui-btn-normal">添加试题</a>
+
+						<div class="layui-tab layui-tab-card link-tab">
+						  	<ul class="layui-tab-title">
+								<li  class="layui-this" ><a href="?c=questions&m=list&status=2&flag=2">待审核</a></li>
+							    <li ><a href="?c=questions&m=list&status=7&flag=2">被退回</a></li>
+							    <li ><a href="?c=questions&m=list&status=6&flag=2">被下线</a></li>
+						  	</ul>
+						  	<div class="layui-tab-content">
+								<div class="selecter" id="selecter">
+						  			<form class="layui-form clearfix" id="personForm" action="?c=questions&m=list&flag=2&status=2" method="get">
+										<input type="hidden" name="c" value="questions">
+										<input type="hidden" name="m" value="list">
+										<input type="hidden" name="status" value="2">
+										<input type="hidden" name="flag" value="2">
+			  							<div class="layui-form-item">
+										    <label class="layui-form-label">题目</label>
+										    <div class="layui-input-block">
+										      <input maxlength="12" type="text" class="layui-input" name="subject"  value="" >
+										    </div>
+										</div>
+										<div class="layui-form-item">
+										    <label class="layui-form-label">题型</label>
+										    <div class="layui-input-block">
+										      	<select name="type">
+
+											        <option value="0">全部</option>
+																											<option value="1" >单选</option>
+																											<option value="2" >多选</option>
+																											<option value="3" >简答</option>
+																											<option value="4" >程序设计</option>
+																											<option value="5" >任务</option>
+													
+										      	</select>
+										    </div>
+										</div>
+										<div class="layui-form-item">
+										    <label class="layui-form-label">难度</label>
+										    <div class="layui-input-block">
+										      	<select name="difficulty">
+
+											        <option value="0">全部</option>
+																											<option value="1" >简单</option>
+																											<option value="2" >中等</option>
+																											<option value="3" >较难</option>
+																											<option value="4" >很难</option>
+																											<option value="5" >竞赛</option>
+													
+										      	</select>
+										    </div>
+										</div>
+										<div class="layui-form-item xl">
+										    <label class="layui-form-label">科目-章-节</label>
+										   	<div class="layui-input-inline">
+										      	<select id="subject" lay-filter="subject" name="subject_id">
+											        <option value="">全部</option>
+																											<option value="1"  >JavaWeb技术综合运用</option>
+																											<option value="3"  >持久层框架</option>
+																											<option value="5"  >C语言</option>
+																											<option value="16"  >软件测试技术基础课程</option>
+																											<option value="67"  >Java面向对象程序设计</option>
+																											<option value="102"  >Java点穴——高级专题探究</option>
+																											<option value="110"  >Oracle开发与运维技术实践</option>
+																											<option value="118"  >Spring框架</option>
+																											<option value="187"  >Web前端技术综合应用</option>
+																											<option value="448"  >JAVA</option>
+																											<option value="500"  >JAVASE项目</option>
+																											<option value="509"  >JAVA进阶项目</option>
+																											<option value="540"  >web</option>
+																											<option value="556"  >mybatis</option>
+																											<option value="609"  >CEP课程</option>
+																											<option value="610"  >人文365</option>
+																							      	</select>
+									    	</div>
+									    	<div class="layui-input-inline">
+										      	<select id="chapter" lay-filter="chapter" name="chapter_id">
+											        <option value="">全部</option>
+																							      	</select>
+									    	</div>
+									    	<div class="layui-input-inline">
+										      	<select id="section" name="section_id">
+											        <option value="">全部</option>
+																							      	</select>
+									    	</div>
+										</div>
+										<div class="layui-form-item ml">
+										    <label class="layui-form-label">最新操作</label>
+										    <div class="layui-input-inline">
+										      	<input type="text" class="layui-input" placeholder="起始" id="startTime" readonly name="time_start"  value=""  >
+										    </div>
+										    <div class="layui-form-mid">~</div>
+										    <div class="layui-input-inline">
+										      	<input type="text" class="layui-input" placeholder="截止" id="endTime" readonly name="time_end"  value=""  >
+										    </div>
+										</div>
+										<button class="layui-btn" lay-submit>搜索</button>
+									</form>
+						  		</div> 
+					  		</div> 
+					  	</div> 
+
+						
+						<!--待审核表格-->
+						<table class="layui-table">
+						  	<thead>
+							    <tr>
+							      	<th></th>
+
+							      	<th>资源ID</th>
+							      	<th width="20%">题目</th>
+							      	<th>题型</th>
+							      	<th>科目-章-节</th>
+							      	<th>难度</th>
+							      	<th>最新操作</th>
+							      	<th>资源状态</th>
+							    </tr> 
+						  	</thead>
+							<tbody>
+															<tr>
+								    <td>1</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100828">TE100828</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">多选测试题目</div></div></td>
+								    <td>多选</td>
+								    <td><div class="txt-ellipsis"><div class="content">Java面向对象程序设计 - 3程序设计基础 - 3.7简单字符串运用</div></div></td>
+								    <td>较难</td>
+								    <td>2017-11-02</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>2</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100827">TE100827</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">1</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">JavaWeb技术综合运用 - JSP基础语法 - JSP页面元素</div></div></td>
+								    <td>简单</td>
+								    <td>2017-11-02</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>3</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100826">TE100826</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">again&ensp;01</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">C语言 - 第04章 使用数组进行数据的批量处理 - Part03 数组元素的初始化</div></div></td>
+								    <td>中等</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>4</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100825">TE100825</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">again</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">C语言 - 第02章 运算符和程序结构 - Part02 算术运算符和表达式</div></div></td>
+								    <td>中等</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>5</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100824">TE100824</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">qq</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">CEP课程 - CEP《求职技巧与就业准备》 - 简历制作01</div></div></td>
+								    <td>较难</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>6</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100823">TE100823</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">eee</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">JAVA - 第五章：日升月落——使用循环结构 - break/continue的使用</div></div></td>
+								    <td>中等</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>7</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100822">TE100822</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">aaaaaaaaaaaaaaaaaaa</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">Oracle开发与运维技术实践 - 基本数据查询 - SCOTT方案</div></div></td>
+								    <td>很难</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>8</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100821">TE100821</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">1</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">JavaWeb技术综合运用 - AJAX - AJAX的作用</div></div></td>
+								    <td>简单</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>9</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100820">TE100820</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">1</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">JavaWeb技术综合运用 - AJAX - AJAX的作用</div></div></td>
+								    <td>简单</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+															<tr>
+								    <td>10</td>
+
+								    <td><a class="c-link" href="?c=questions&m=detail&id=100819">TE100819</a></td>
+								    <td><div class="txt-ellipsis"><div class="content">aaaaaaaaaaaaa</div></div></td>
+								    <td>单选</td>
+								    <td><div class="txt-ellipsis"><div class="content">JavaWeb技术综合运用 - AJAX - AJAX的作用</div></div></td>
+								    <td>简单</td>
+								    <td>2017-11-01</td>
+								    <td>待审核</td>
+								</tr>
+														</tbody>
+						</table>
+
+												<div class="pager fr">
+																							<span class="current prev">«</span>
+																															<span class="current">1</span>
+																															<a href="?c=questions&m=list&flag=2&status=2&p=1">2</a>
+																															<a href="?c=questions&m=list&flag=2&status=2&p=1">»</a>
+																					</div>
+						  					</div>
+	  			</fieldset>
+		 	</div><!-- content wrapper end-->
+		</div><!-- page wrapper end-->
+		
+		
+		
+		<!--script-->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-accordion-menu.js"></script>
+		<script src="js/layui/layui.js"></script>
+		<script src="js//public.js"></script>
+		<script src="js//listPage.js"></script>
+	</body>
+</html>

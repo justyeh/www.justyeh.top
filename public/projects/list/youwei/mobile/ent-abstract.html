@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>有为</title>
+        <link rel="stylesheet" href="css/frozen.css">
+        <link rel="stylesheet" href="css/youwei.css"/>
+        <style type="text/css">
+        	body{
+        		background-color: #224A6F;
+        	}
+        	header{
+        		background-color: #224A6F !important;
+        	}
+        	#companyDetail #entDesc {
+        		padding: 20px 0 20px 0;
+        	}
+        	#companyDetail #entDesc .ui-col-2{
+        		text-align: center;
+        	}
+        	#companyDetail #entDesc .ui-col-2 img{
+        		widows: 80px;
+        		height: 80px;
+        		border-radius: 5px;
+        		-moz-border-radius: 5px;
+        		-webkit-border-radius: 5px;
+        	}
+        	#companyDetail #entDesc .ui-col-3 h3{
+        		font-size: 20px;
+        	}
+        	#companyDetail #entDesc .ui-col-3 p{
+        		font-size: 16px;
+        	}
+        	#companyDetail #entDescDetail{
+        		background-color: #FFFFFF;
+        		border-radius: 10px;
+        		-moz-border-radius: 10px;
+        		-webkit-border-radius: 10px;
+        		width: 96%;
+        		margin: 0 auto;
+        		padding-bottom: 260px;
+        	}
+        	p.desc{
+        		font-size: 16px;
+        		color: #666666;
+        		line-height: 26px;
+        	}
+        </style>
+    </head>
+    <body ontouchstart="">
+        <header class="ui-header ui-header-positive">
+            <i class="ui-icon-return" onclick="history.back()"></i>
+        </header>
+        
+        <section class="ui-container" id="companyDetail">
+        	<div id="entDesc">
+        		<div class="ui-row-flex ui-whitespace" class="imgBlock">
+				    <div class="ui-col ui-col-2">
+				    	<img src="img/defaultHead.jpg" />
+					</div>
+				    <div class="ui-col ui-col-3">
+				    	<h3>阿里妈妈</h3>
+				    	<P>规模：100-500人</P>
+				    	<P>性质：民营</P>
+					</div>
+				</div>
+        	</div>
+        	
+           <div class="ui-tab" id="entDescDetail">
+			    <ul class="ui-tab-nav ui-border-b">
+			        <li   onclick="window.location='ent-abstract.html';" style="cursor:pointer;">简介</li>
+					<li class="current"  onclick="window.location='ent-job.html';"  style="cursor:pointer;">职位</li>
+			    </ul>
+			    <ul class="ui-tab-content" style="width:200%">
+			        <li class="ui-whitespace">
+			        	<p class="desc">企业介绍:百度（Nasdaq：BIDU）是全球最大的中文搜索引擎
+							、最大的中文网站。2000年1月由李彦宏创立于北京中关村，致力于向人们提供“简单，可依赖”
+							的信息获取方式。“百度”二字源于中国宋朝词人辛弃疾的《青玉案·元夕》词句“众里寻他千百度”
+							，象征着百度对中文信息检索技术的执著追求。
+			        	</p>
+					</li>
+			        <li>
+			        	样式未知
+						<!--<ul class="ui-list ui-list-one ui-list-link ui-border-tb">
+						    <li class="ui-border-t">
+						        <div class="ui-list-thumb">
+						            <span style="background-image:url(img/defaultHead.jpg)"></span>
+						        </div>
+						        <div class="ui-list-info">
+						            <h4 class="ui-nowrap">JAVA开发</h4>
+						            <div class="ui-txt-info"></div>
+						        </div>
+						    </li>
+						</ul>-->
+					</li>
+			    </ul>
+			</div>
+			
+        </section>
+        
+        <script src="js/zepto.min.js"></script>
+        <script src="js/frozen.js"></script>
+        <script>
+       		/*(function (){
+	            var tab = new fz.Scroll('.ui-tab', {
+	                role: 'tab'
+	            });
+	            tab.on('beforeScrollStart', function(fromIndex, toIndex) {
+	                console.log(fromIndex,toIndex);// from 为当前页，to 为下一页
+	            })
+	        })();*/
+        </script>
+    </body>
+</html>

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>管理后台</title>
+    <link href="" type="image/x-icon" rel="SHORTCUT ICON" />
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/frame.ver2.js"></script>
+    <style type="text/css">
+        body {
+            overflow-y: hidden;
+        }
+        .f_top .logo{
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	color: #fff;
+        	font-size: 20px;
+        	line-height: 50px;
+        	padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <div class="f_top">
+            <div class="top_wrap">
+            	<p class="logo"> 求职招聘后台管理系统</p>
+                <span>你好，adminOne<a class="ml60" href="?c=admin&m=outlogin">退出</a></span>
+            </div>
+           
+            <ul class="opededFrame clearfix"></ul>
+        </div>
+        <div class="f_left">
+            <ul>
+                <li>
+                    <a id="stuMng" data-src="stu.html" href="javascript:;" title="学生管理">
+                        <img src="images/stu_manage.png" />学生管理
+                    </a>
+                </li>
+                 <li>
+                    <a id="stuMng" data-src="stu-detail.html" href="javascript:;" title="学生详情">
+                        <img src="images/stu_manage.png" />学生详情
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="ent.html" href="javascript:;" title="企业管理">
+                        <img src="images/ent_manage.png" />企业管理
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="ent-detail.html" href="javascript:;" title="企业详情">
+                        <img src="images/ent_manage.png" />企业详情
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="ent-form.html" href="javascript:;" title="添加企业">
+                        <img src="images/ent_manage.png" />添加企业
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="activity.html" href="javascript:;" title="活动管理">
+                        <img src="images/ent_manage.png" />活动管理
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="sys-message.html" href="javascript:;" title="系统消息">
+                        <img src="images/ent_manage.png" />系统消息
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="position.html" href="javascript:;" title="职位管理">
+                        <img src="images/ent_manage.png" />职位管理
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="comment.html" href="javascript:;" title="评论管理">
+                        <img src="images/ent_manage.png" />评论管理
+                    </a>
+                </li>
+                
+                <li>
+                    <a id="entMng" data-src="data-grab.html" href="javascript:;" title="信息抓取">
+                        <img src="images/ent_manage.png" />信息抓取
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="operation-data.html" href="javascript:;" title="运营数据">
+                        <img src="images/ent_manage.png" />运营数据
+                    </a>
+                </li>
+                <li>
+                    <a id="entMng" data-src="data-count.html" href="javascript:;" title="数据统计分析">
+                        <img src="images/ent_manage.png" />数据统计
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="f_main">
+            <iframe id="indexFrame" scrolling="auto" frameborder="0" src="data-count.html"></iframe>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".admin_logo").click(function () {
+                window.location.href = "?c=admin&m=main";
+            });
+        });
+        function tiggerStu() {
+            $("#stuMng").trigger("click");
+        }
+        function tiggerHr() {
+            $("#entMng").trigger("click");
+        }
+        function tiggerJob() {
+            $("#opeMng").trigger("click");
+            $("#c_jobMng").trigger("click");
+        }
+        function tiggerComment() {
+            $("#opeMng").trigger("click");
+            $("#c_commMng").trigger("click");
+        }
+    </script>
+</body>
+
+</html>

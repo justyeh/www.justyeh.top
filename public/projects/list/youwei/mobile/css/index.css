@@ -1,0 +1,264 @@
+﻿@charset "UTF-8";
+body{
+	background:url(../img/bg.jpg) no-repeat top center;
+	background-size:100%;
+}
+.ui-row-flex{
+    font-size: 12px;
+}
+.ui-row-flex #left{
+	text-align:  center;
+}
+.ui-row-flex #left img{
+	width: 60px;
+	height: 60px;
+}
+.ui-row-flex #middle img{
+	width: 14px;
+	height: 14px;
+}
+.ui-row-flex #right img{
+	width: 14px;
+	height: 14px;
+}
+.ui-row-flex #right{
+	text-align: right;
+}
+
+.ui-tab-content>li{
+	padding: 10px 0;
+	background-color: #FFFFFF;
+}
+.ui-dialog{
+	z-index:111;
+}
+.ui-dialog-close{
+	font-size:18px;
+	color: #fff;						
+	display: block;
+	line-height: 36px;
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	padding: 0 8px;
+	background-color: #04acf7;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border: 0px;
+}
+.ui-dialog-cnt{
+	width:90%;
+	color:#666;
+	background:#fff;
+	border-radius:10px;
+	top:15%;
+	left:5%;
+	
+}
+.ui-border-b{
+	border:0;
+}
+.ui-dialog-ft{
+	border-top:0;
+	height:60px;
+	font-size:20px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.form-input-gray{
+	border:1px solid #ddd;
+}
+.form-input-blue{
+	border:1px solid #18b4ed;
+}
+.ui-form-item{	
+	border-radius:5px;
+	/*box-shadow:0px 0.5px 0px #ddd;*/
+}
+.ui-dialog-ft button{
+	color:#fff;
+}
+.ui-form .ui-form-item input{
+	color:#18b4ed;
+}			
+.t15{
+	margin-top:15px;
+}
+.codeImg{
+	background:#ddd;
+	color:#333;
+	font-size:12px;
+}
+.btn-blue{
+	background-color:#18b4ed;
+}
+.btn-gray{
+	background-color:#e1e1e1;
+}
+.t30{
+	margin-top:30px;
+}
+.ui-dialog-hd{
+	height:58px;
+	line-height:78px;
+}
+.ui-dialog-hd h3{
+	font-size:18px;
+}
+.close{				
+	color: #fff;						
+	display: block;
+	line-height: 30px;
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	padding: 0px 7px;
+	background-color: #04acf7;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border: 0px;
+}
+.close img{
+	width:9px;
+	vertical-align:middle;
+}
+input { margin-top:12px;}
+.ent_block{
+	position: relative;
+	height: 88px;
+	background-color: #fff;
+	margin: 0 15px 6px 15px;	
+}
+
+.ent_block a{
+	position: absolute;
+	top: 0;
+	height: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.ui-row-flex .ui-col-7{
+	text-align: center;
+}
+
+.ui-row-flex .ui-col-7 img {
+    width: 66px !important;
+    height: 66px !important;
+    padding-top: 9px;
+   
+}
+
+
+.ui-row-flex .ui-col-3 h2{
+	padding-top: 20px;
+	padding-bottom: 12px;
+	font-size: 14px;
+	line-height: 16px;
+	color: #333;
+	font-weight: 600;
+	white-space:nowrap;
+}
+.ui-row-flex .ui-col-3 p{
+	font-size: 12px;
+	line-height: 12px;
+	color: #2d2d2d;
+	padding-bottom: 5px;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+}
+.ui-row-flex .jobNum{
+	color: #04acf7;
+}
+.ui-row-flex .personNum{
+	color: #fe8900;
+	padding-left: 3px;
+}
+.ui-btn-lg {
+    height: 45px;
+    font-size: 14px;
+    width: 330px;
+    margin: 0 auto;
+}
+
+
+
+/*专题页面头部*/
+.index-head{
+	position:relative;
+	/*height:258px;*/
+}
+.user-login{
+	position:absolute;
+	top:30px;
+	right:24px;	
+	z-index:111;
+}
+.user-login img{
+	width:26px;
+}
+.wxInfo{
+	
+	padding:30px;	
+}
+.wx-close{
+	position:absolute;
+	top:18px;
+	right:18px;
+}
+.wx-close img{
+	width:11px;
+	
+}
+.wxPic{
+	width:105px;
+}
+/*二维码关注按钮*/
+.attention {
+	margin: 0 15px;
+}
+.attention button{
+	width: 100%;
+	margin: 6px auto 12px auto;
+	font-size: 14px;
+	color: #fff;
+	padding: 10px 0;
+	background-color: #04ACF7;
+	border-radius: 4px;
+	border: none;
+}
+
+/*二维码弹出效果*/
+.erCodeXCon{
+	position: relative;
+	bottom: 360px;
+	margin: 0 auto;
+	display: none;
+	background: rgba(0,0,0,0.8);
+	width: 240px;
+	height: 230px;
+	z-index: 99;
+	text-align: center;
+}
+.erCodeXCon img{
+	margin-top: 35px;
+	width: 155px;
+	height: 155px;
+}
+.erCodeXCon i {
+	position: absolute;
+	top: -30px;
+	right: 16px;
+}
+.erCodeXCon i img{
+	height: 14px;
+	width: 14px;
+}
+
+
+/*背景效果*/
+.bg_container{
+	position: relative;
+	padding-top: 80%;
+}

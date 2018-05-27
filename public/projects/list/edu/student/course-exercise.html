@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>课堂练习</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{$img_dir}favicon.ico" />
+	<link rel="stylesheet" href="{$css_dir}public.css">
+	<link rel="stylesheet" href="{$css_dir}index.css" />	
+</head>
+<body>
+	<div class="page">
+		{include file="header.tpl"}
+		
+		<div class="page-wrap">
+			{include file="left.tpl"}
+			
+			<div class="page-main">	
+				{include file="course_scs.tpl"} 
+
+				<a href="#" class="c-btn left"><img src="{$img_dir}icon/left.png" alt="上一节"></a>
+				<a href="#" class="c-btn right"><img src="{$img_dir}icon/right.png" alt="下一节"></a>
+				
+				<div class="p-main">
+					<p class="text-c mt25 fs22 c-title">{$check_info['name']}</p>
+					<div class="classWorkCnt">
+						{$check_info['info']}
+					</div>
+					<p class="text-c mt10"><a href="#" class="btn-green aBtn">开始本次练习</a></p>
+					<p class="text-c twice">已经挑战 3次</p>
+					<p class="text-c mt20"><span class="btn-gray aBtn">23:32:12</span></p>
+					<p class="text-c twice">已经挑战 4次</p>
+				</div>
+			</div>
+		</div>
+		
+		{include file="footer.tpl"}
+		
+	</div>
+	
+	<div class="return-top" title="返回顶部"></div>
+	
+	<script src="{js_dir}libs/require.min.js" data-main="{js_dir}video.js"></script>
+</body>
+</html>

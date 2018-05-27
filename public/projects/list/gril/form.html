@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>大学生男女比例调查-信息提交</title>
+		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	
+	<body>
+		
+		
+		<div class="page form">
+			<img class="bg" src="img/form_bg.jpg" />
+			<div class="options">
+				<div class="select-block clearfix">
+					<p>省份</p>
+					<div class="select" onchange="getCollege()">
+						<label>请选择省份</label>
+						<select id="city">
+							<option>内蒙古</option>
+						</select>
+					</div>
+					
+				</div>
+				
+				<div class="select-block clearfix" style="margin-bottom: 6.2%;">
+					<p>学校</p>
+					<div class="select">
+						<label>请选择学校</label>
+						<select id="school">
+							<option>内蒙古科技大学</option>
+						</select>
+					</div>
+				</div>
+				<img id="sub" src="img/form_submit.png" />
+			</div>
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		
+		<script src="js/toast.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				//selelct样式
+				$(".select select").on("change", function() {
+					$(this).parent().find("label").html($(this).find("option:selected").text());
+				});
+			
+				
+				$("#sub").click(function(){
+					window.location.href = 'result.html'
+				});
+			})
+			
+		</script>
+	</body>
+</html>

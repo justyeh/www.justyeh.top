@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>课后作业</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{$img_dir}favicon.ico" />
+    <link rel="stylesheet" href="{$css_dir}public.css">
+    <link rel="stylesheet" href="{$css_dir}index.css" />
+    <!--CodeMirro theme-->
+    <link href="{$css_dir}solarized-dark.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="page">
+
+    {include file="header.tpl"}
+
+    <div class="page-wrap">
+        {include file="left.tpl"}
+		   
+        {include file="course_scs.tpl"}
+        <div class="page-main btn0">	     
+        <div class="p-main">
+            <div class="text-c mt25 fs22 c-title">课后作业
+                {if $flag == 2}
+                    <span class="fs14 c-blue">（等待批阅）</span>
+                {/if}
+                {if $flag == 3}
+                    <span class="fs14">（已批阅 <label class="c-danger">不合格</label>），
+                        {if isset($repeat_url)}
+                            <a href="{$repeat_url}" class="c-blue">需要重做</a>
+                        {/if}
+                        </span>
+                {/if}
+                {if $flag == 4}
+                    <span class="fs14">（已批阅 <label class="c-green">合格</label>）</span>
+                {/if}
+            </div>
+            {if $flag == 1}
+            <form enctype="multipart/form-data" method="post">
+                <input type="hidden" name="id" value="{$id}" id="course_id">
+                {/if}
+                <div class="stuMain">
+                    {if isset($design) && $design}
+                    <p class="workTitle">一 程序设计</p>
+                    {foreach $design key=>row}
+                        <div class="content">
+                            <p class="t1">1.{$row['num']} 题目 {$row['subject']}</p>
+                            <div class="t-cnt">
+                                <div class="paper-attach">
+                                    {if isset($row['code'][0]) && is_array($row['code'][0])}
+                                        {foreach $row['code'][0] k=>v}
+                                            <div class="pre">
+                                                <pre><code class="css">{if isset($v['code'])}{/if}{$v['code']}</code></pre>
+                                                //<p>源码{$v['num']}</p>
+                                            </div>
+                                        {/foreach}
+                                    {/if}
+
+                                    {if isset($row['image'][0]) && $row['image'][0]}
+                                        {foreach $row['image'][0] k=>v}
+                                            <div class="img-list clearfix">
+                                                <div class="">
+                                                    <div data-lightbox="{$v['image']}" style="background-image: url({$v['s_image']});"></div>
+                                                    <p>图{$v['num']}</p>
+                                                </div>
+                                            </div>
+                                        {/foreach}
+                                    {/if}
+                                </div>
+
+                            </div><!--题目内容展示-->
+
+                            <div class="w-tip mt25 c-tips">我的答案：</div>
+                            <div class="code-wrap">
+                                <div class="t">
+                                    //--源码编辑区
+                                </div>
+                                <!-- <div class="drop-menu noselect">
+                                     <p class="show">js</p>
+                                     <div class="drop-inner">
+                                         <ul>
+                                             <li><a href="javascript:;" >js</a></li>
+                                             <li><a href="javascript:;" >css</a></li>
+                                             <li><a href="javascript:;" >html</a></li>
+                                         </ul>
+                                     </div>
+                                </div>-->
+                                <div class="code">
+                                    <div class="inner">
+                                        <div class="line-num"></div>
+                                        <input type="hidden" name="answer_4_p[{$row['id']}]" value="{$row['paper_detail_id']}">
+                                        {if $flag==1}<textarea name="answer_4[{$row['id']}]" value=" ">{/if}{if $flag>1}{$row['answer']}{/if}{if $flag==1}</textarea>{/if}
+                                    </div>
+                                </div>
+                            </div>
+                            {if $flag == 3 || $flag == 4}
+                                <div class="scoreCnt" style="padding:0px;">
+                                    <div class="w-tip mt25 c-tips fs16">1.{$row['num']} 老师评分 <span class="score"><em class="c-green">{$row['score']}</em>分</span></div>
+                                    <div class="w-tip c-tips fs16">老师评语：</div>
+                                    <div class="myAnswer">
+                                        {$row['comment']}
+                                    </div>
+                                </div>
+                            {/if}
+
+                        </div>
+                    {/foreach}
+                    {/if}
+                    {if isset($orders) && $orders}
+                    <p class="workTitle">二 任务</p>
+                    {foreach $orders key=>row}
+                        <div class="content">
+                            <p class="t1">2.{$row['num']} 题目 {$row['subject']} </p>
+                            <div class="t-cnt"></div><!--题目内容展示-->
+                            <div class="t-cnt">
+                                <div class="paper-attach">
+                                    {if isset($row['code']) && $row['code']}
+                                        {foreach $row['code'][0] k=>v}
+                                            <div class="pre">
+                                                <pre><code class="css">{$v['code']}</code></pre>
+                                                <p>源码{$v['num']}</p>
+                                            </div>
+                                        {/foreach}
+                                    {/if}
+
+                                    {if isset($row['image']) && $row['image']}
+                                        {foreach $row['image'][0] k=>v}
+                                            <div class="img-list clearfix">
+                                                <div class="">
+                                                    <div data-lightbox="{$v['image']}" style="background-image: url({$v['s_image']});"></div>
+                                                    <p>图{$v['num']}</p>
+                                                </div>
+                                            </div>
+                                        {/foreach}
+                                    {/if}
+                                </div>
+
+                            </div>
+                            <div class="w-tip mt25 c-tips">任务说明：</div>
+                            <div class="mt20">{$row['explain']}</div>
+                            <div class="w-tip mt25 c-tips">我的答案：</div>
+                            <input name="answer_5_p[{$row['id']}]"  type="hidden" value="{$row['paper_detail_id']}">
+                            <input name="answer_5[{$row['id']}]" id="answer_{$row['id']}" type="hidden" value=" ">
+                            <input type="hidden" name="answer_zip_5[{$row['id']}]" id="filename_{$row['id']}" />
+                            <div class="showFile">
+                                {if isset($row['down']) && $row['down']}
+                                    <a href="{$row['down']}" class="downFile">{$row['local_name']}<i class="icon-down"></i><label>下载文档</label></a>
+                                {else}
+                                    <a href="#" class="downFile">myzip.rar</a>
+                                {/if}
+                            </div>
+                            {if $flag == 1}
+                                <div class="picker" vid="{$row['id']}">上传</div>
+                            {/if}
+                            {if $flag == 3 || $flag == 4}
+                                <div class="scoreCnt" style="padding:0px;">
+                                    <div class="w-tip mt25 c-tips fs16">1.{$row['num']} 老师评分 <span class="score"><em class="c-green">{$row['score']}</em>分</span></div>
+                                    <div class="w-tip c-tips fs16">老师评语：</div>
+                                    <div class="myAnswer">
+                                        {$row['comment']}
+                                    </div>
+                                </div>
+                            {/if}
+
+                        </div>
+                    {/foreach}
+                    {/if}
+                </div>
+                {if $flag == 1}
+                    <div class="btnline">
+                        <button class="aBtn btn-green">提交作业</button>
+                    </div><input type="hidden" name="vid" id="vid">
+                    <input type="hidden" name="paper" value="{$paper_id}">
+                {/if}
+                {if $flag == 1}
+            </form>
+            {/if}
+        </div>
+
+        <a href="{$pre_url}" class="c-btn left"><img src="{$img_dir}icon/left.png" alt="上一节"></a>
+        <a href="{$next_url}" class="c-btn right"><img src="{$img_dir}icon/right.png" alt="下一节"></a>
+    </div>
+</div>
+
+    {include file="footer.tpl"}
+
+</div>
+
+<div class="return-top" title="返回顶部"></div>
+
+<script src="{$js_dir}libs/require.min.js" data-main="{$js_dir}exercise.js"></script>
+</body>
+
+</html>

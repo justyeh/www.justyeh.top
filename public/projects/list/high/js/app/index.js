@@ -1,0 +1,1 @@
+require.config({urlArgs:"v\x3d"+(new Date).getTime(),paths:{jquery:"libs/jquery-1.9.1.min",includejs:"libs/include",easyForm:"libs/jquery.easyForm"},shim:{easyForm:["jquery"]}});require(["jquery","includejs","easyForm"],function(a,b){b.replaceIncludeElements();a(function(){a(".checkbox").easyForm("checkbox")})});

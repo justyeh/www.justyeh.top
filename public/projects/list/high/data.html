@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>数据分析</title>
+    <link rel="shortcut icon" type="img/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="data-analysis">
+<div class="page">
+
+    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li class="act">
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8-act.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>
+    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>    <div class="main">
+        <div class="page-title">数据分析</div>
+
+        <div class="block">
+            <div class="title">访问量指标</div>
+            <div class="clearfix item-list">
+                <div class="item">
+                    <p class="p1">PV</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">UV</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">IP</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">访客</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">总访问量</p>
+                    <p class="p2">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="block" id="block1">
+            <div class="title">
+                <span>访问量曲线</span>
+                <div class="selector">
+                    <a data-key="y" href="javascript:;">年</a>
+                    <a data-key="m" href="javascript:;">月</a>
+                    <a data-key="d" class="act" href="javascript:;">日</a>
+                </div>
+            </div>
+            <div class="chart-wrap">
+                <div id="charts1"></div>
+                <div class="selector2">
+                    <button class="btn btn-default act" data-key="pv">PV</button>
+                    <button class="btn btn-default" data-key="uv">UV</button>
+                    <button class="btn btn-default" data-key="ip">IP</button>
+                    <button class="btn btn-default" data-key="visitor">访客</button>
+                    <button class="btn btn-default" data-key="totalVisits">总访问量</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="title">活跃用户指标</div>
+            <div class="clearfix item-list i-l-2">
+                <div class="item">
+                    <p class="p1">日活跃</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">周（7日）活跃</p>
+                    <p class="p2">0</p>
+                </div>
+                <div class="item">
+                    <p class="p1">月（30日）活跃</p>
+                    <p class="p2">49</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="block" id="block2">
+            <div class="title">
+                <span>活跃量趋势曲线</span>
+                <div class="selector">
+                    <a data-key="y" href="javascript:;">年</a>
+                    <a data-key="m" href="javascript:;">月</a>
+                    <a data-key="d" class="act" href="javascript:;">日</a>
+                </div>
+            </div>
+            <div class="chart-wrap">
+                <div id="charts2"></div>
+                <div class="selector2">
+                    <button class="btn btn-default act" data-key="daily">日活跃</button>
+                    <button class="btn btn-default w130" data-key="ios">iOS启动次数</button>
+                    <button class="btn btn-default w130" data-key="android">Android启动次数</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="block" id="onlineList">
+            <div class="title">
+                <span>当前在线用户</span>
+                <!--<div class="selector">
+                    <a data-key="year" href="javascript:;">年</a>
+                    <a data-key="month" href="javascript:;">月</a>
+                    <a data-key="day" class="act" href="javascript:;">日</a>
+                </div>-->
+            </div>
+            <input type="hidden" id="onlineTotal" name="total" value="20" />
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <td style="width: 20%;">序号</td>
+                        <td style="width: 25%;">用户名</td>
+                        <td style="width: auto;">入口</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td>88</td>
+                            <td>15222792977</td>
+                            <td>2017-09-04</td>
+                        </tr>
+                                                <tr>
+                            <td>87</td>
+                            <td>18856432079</td>
+                            <td>2017-08-30</td>
+                        </tr>
+                                                <tr>
+                            <td>71</td>
+                            <td>13222222222</td>
+                            <td>2017-08-29</td>
+                        </tr>
+                                                <tr>
+                            <td>60</td>
+                            <td>13691427788</td>
+                            <td>2017-07-29</td>
+                        </tr>
+                                                <tr>
+                            <td>59</td>
+                            <td>13691427788</td>
+                            <td>2017-07-29</td>
+                        </tr>
+                                                <tr>
+                            <td>58</td>
+                            <td>13691427788</td>
+                            <td>2017-07-28</td>
+                        </tr>
+                                                <tr>
+                            <td>57</td>
+                            <td>13691427788</td>
+                            <td>2017-07-28</td>
+                        </tr>
+                                                <tr>
+                            <td>56</td>
+                            <td>13691427788</td>
+                            <td>2017-07-28</td>
+                        </tr>
+                                                <tr>
+                            <td>55</td>
+                            <td>13691427788</td>
+                            <td>2017-07-28</td>
+                        </tr>
+                                                <tr>
+                            <td>54</td>
+                            <td>13691427788</td>
+                            <td>2017-07-28</td>
+                        </tr>
+                                            </tbody>
+                </table>
+                <p class="num">共20人</p>
+            </div>
+            <div class="pager" id="onlinePager"></div>
+        </div>
+
+        <div class="block pt20" id="rankList">
+            <div class="title">
+                <span>用户排行</span>
+                <div class="selector">
+                    <a data-key="year" href="javascript:;">年</a>
+                    <a data-key="month" href="javascript:;">月</a>
+                    <a data-key="day" class="act" href="javascript:;">日</a>
+                </div>
+            </div>
+            <input type="hidden" id="rankTotal" name="total" value="20" />
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <td style="width: 10%;">序号</td>
+                        <td style="width: 25%;">用户名</td>
+                        <td style="width: 20%;"><a id="countSort" class="sort">登录次数</a></td>
+                        <td style="width: auto;"><a id="timeSort" class="sort">在线时长</a> </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td>55</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>52</td>
+                            <td>15090633137</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>51</td>
+                            <td>15090633138</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>50</td>
+                            <td>15122222222</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>56</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>58</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>59</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>46</td>
+                            <td>13691427789</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>57</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                                <tr>
+                            <td>54</td>
+                            <td>13691427788</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <div class="pager" id="rankPager"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/template" id="onlineTableTpl">
+	{{ if(it && it.length>0){ }}
+		{{ for (var i = 0, l = it.length; i < l; i++) { }}
+			 <tr>
+		        <td>{{=it[i].id}}</td>
+		        <td>{{=it[i].username}}</td>
+		        <td>{{=it[i].entrance}}</td>
+		    </tr>
+		{{ } }}
+	{{ }else{ }}
+		<tr><td colspan="3" >暂无数据</td></tr>	
+	{{ } }}
+</script>
+
+
+<script type="text/template" id="rankTableTpl">
+    {{ if(it && it.length>0){ }}
+		{{ for (var i = 0, l = it.length; i < l; i++) { }}
+			 <tr>
+		        <td>{{=it[i].id}}</td>
+		        <td>{{=it[i].username}}</td>
+		        <td>{{=it[i].login_count}}</td>
+		        <td>{{=it[i].online_time}}</td>
+		    </tr>
+		{{ } }}
+	{{ }else{ }}
+		<tr><td colspan="4" >暂无数据</td></tr>	
+	{{ } }}
+</script>
+
+
+<script type="text/javascript">
+
+    var chart1InitData = {
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        categories: ['00点', '01点', '02点', '03点', '04点', '05点', '06点', '07点', '08点', '09点', '10点', '11点', '12点', '13点', '14点', '15点', '16点', '17点', '18点', '19点', '20点', '21点', '22点', '23点']
+    }
+
+    var chart2InitData = {
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        categories: ['00点', '01点', '02点', '03点', '04点', '05点', '06点', '07点', '08点', '09点', '10点', '11点', '12点', '13点', '14点', '15点', '16点', '17点', '18点', '19点', '20点', '21点', '22点', '23点']
+    }
+
+    var charts1Data = {
+        'pv': {
+            'd': [0,0,0,1,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0],
+            'm': [0,0,0,0,0,0,816,302,3668,929,1,0],
+            'y': [0,0,0,0,0,5716]        },
+        'uv': {
+            'd': [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,9,0,0,0,0,0,0],
+            'm': [0,0,0,0,0,0,10,14,32,10,1,0],
+            'y': [0,0,0,0,0,49]        },
+        'ip': {
+            'd': [0,0,8,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            'm': [0,0,0,0,0,0,2,1,16,18,1,0],
+            'y': [0,0,0,0,0,32]        },
+        'visitor': {
+            'd': [0,0,0,0,0,9,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+            'm': [0,0,0,0,0,0,10,14,32,10,1,0],
+            'y': [0,0,0,0,0,49]        },
+        'totalVisits': {
+            'd': [0,0,0,8,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,9,0,0,0],
+            'm': [0,0,0,0,0,0,816,302,3668,929,1,0],
+            'y': [0,0,0,0,0,5716]        }
+    }
+    var charts2Data = {
+        'daily': {
+            'd': [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            'm': [0,0,0,0,0,0,10,14,32,10,1,0],
+            'y': [0,0,0,0,0,49]        },
+        'ios': {
+            'd': [20, 3, 3, 5, 1, 3, 2, 7, 6, 1, 2, 3, 5, 2, 74, 3, 5, 1, 3, 2, 7, 6, 3, 5],
+            'm': [4, 3, 5, 1, 2, 5, 3, 2, 7, 6, 3, 1],
+            'y': [2014, 2015, 2016, 2017, 2012, 2013]
+        },
+        'android': {
+            'd': [30, 3, 5, 1, 3, 2, 7, 6, 3, 2, 7, 6, 1, 3, 5, 1, 3, 3, 5, 1, 2, 3, 5, 2],
+            'm': [3, 5, 1, 3, 2, 7, 6, 4, 3, 1, 2, 5],
+            'y': [2013, 2014, 2012, 2015, 2016, 2017]
+        }
+    }
+
+    var categoriesData = {
+        'y': ['2012年', '2013年', '2014年', '2015年', '2016年', '2017年'],
+        'm': ['1月', '2月', '1月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        'd': ['00点', '01点', '02点', '03点', '04点', '05点', '06点', '07点', '08点', '09点', '10点', '11点', '12点', '13点', '14点', '15点', '16点', '17点', '18点', '19点', '20点', '21点', '22点', '23点']
+    }
+</script>
+<script src="js/libs/require.min.js" data-main="js/app/dataAnalysis.js"></script>
+</body>
+</html>

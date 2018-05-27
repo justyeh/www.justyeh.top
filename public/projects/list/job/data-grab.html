@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="renderer" content="webkit">
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <title>运营数据</title>
+        <link href="" type="image/x-icon" rel="SHORTCUT ICON"/>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/pagination.css"/>
+
+        <style type="text/css">
+            td span {
+                display: inline-block;
+                padding-right: 5px;
+            }
+
+            #resumeMng tr th:first-child,
+            #resumeMng tr td:first-child {
+                text-align: center;
+            }
+
+            input[type=checkbox] {
+                display: inline-block;
+                vertical-align: middle;
+                margin: -2px 0 0 0;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!--主容器》用于显示数据-->
+        <div class="mainWarp">
+            <h2 class="mainTitle">相关网站</h2>
+            <input type="hidden" value="682" id="totalNum"/>
+            <!--数据展示-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="50%">网站名称</th>
+                        <th width="50%">招聘岗位</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                                            <tr>
+                            <td>
+                                <span class="w120">智联招聘</span>
+                                <!--a class="tab_a" href="javascript:;" data-addr="智联招聘"
+                                   onclick="editSite(1121,this)">编辑</a-->
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">删除</a-->
+                            </td>
+                            <td>
+                                <a class="tab_a" onclick="captureData('?c=capture&m=zhilian');">采集</a>
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">取消</a-->
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>
+                                <span class="w120">51job/前程无忧</span>
+                                <!--a class="tab_a" href="javascript:;" data-addr="智联招聘"
+                                   onclick="editSite(1121,this)">编辑</a-->
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">删除</a-->
+                            </td>
+                            <td>
+                                <a class="tab_a" onclick="captureData('?c=capture&m=51job');">采集</a>
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">取消</a-->
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>
+                                <span class="w120">拉勾网</span>
+                                <!--a class="tab_a" href="javascript:;" data-addr="智联招聘"
+                                   onclick="editSite(1121,this)">编辑</a-->
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">删除</a-->
+                            </td>
+                            <td>
+                                <a class="tab_a" onclick="captureData('?c=capture&m=lagou');">采集</a>
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">取消</a-->
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>
+                                <span class="w120">猎聘网</span>
+                                <!--a class="tab_a" href="javascript:;" data-addr="智联招聘"
+                                   onclick="editSite(1121,this)">编辑</a-->
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">删除</a-->
+                            </td>
+                            <td>
+                                <a class="tab_a" onclick="captureData('?c=capture&m=liepin');">采集</a>
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">取消</a-->
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>
+                                <span class="w120">Boss直聘</span>
+                                <!--a class="tab_a" href="javascript:;" data-addr="智联招聘"
+                                   onclick="editSite(1121,this)">编辑</a-->
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">删除</a-->
+                            </td>
+                            <td>
+                                <a class="tab_a" onclick="captureData('?c=capture&m=boss');">采集</a>
+                                <!--span class="tab_a">/</span>
+                                <a class="tab_a" href="#">取消</a-->
+                            </td>
+                        </tr>
+                                    </tbody>
+            </table>
+        </div>
+
+        <!--主容器》用于显示数据-->
+        <div class="mainWarp" id="table1">
+            <h2 class="mainTitle">招聘岗位</h2>
+            <input type="hidden" value="682" id="totalNum"/>
+            <!--div class="filter">
+                <a href="#" class="link_btn_active">导出excel</a>
+            </div-->
+            <!--数据展示-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="10%">编号</th>
+                        <th width="10%">网站名称</th>
+                        <th width="10%">发布时间</th>
+                        <th width="30%">公司名称</th>
+                        <th width="25%">招聘岗位</th>
+                        <th width="15%">招聘人数</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                                            <tr>
+                            <th width="10%">758</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-10-31</th>
+                            <th width="30%">北京封赏影视传媒有限公司</th>
+                            <th width="25%">前台/行政兼销售</th>
+                            <th width="15%">1人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">757</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">1901-12-14</th>
+                            <th width="30%">北京远中起航科技有限公司</th>
+                            <th width="25%">官方客服（额外的年休假 就近分配）</th>
+                            <th width="15%">4人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">756</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-11-03</th>
+                            <th width="30%">易鑫集团</th>
+                            <th width="25%">行政专员</th>
+                            <th width="15%">1人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">755</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-08-09</th>
+                            <th width="30%">北京恩德瑞奇科技有限公司</th>
+                            <th width="25%">销售代表</th>
+                            <th width="15%">3人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">754</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-11-01</th>
+                            <th width="30%">北京慧德嘉源教育咨询有限公司</th>
+                            <th width="25%">【外资】多媒体 平面设计 新媒体 实习生</th>
+                            <th width="15%">5人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">753</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-10-16</th>
+                            <th width="30%">北京瑞智华胜科技有限公司</th>
+                            <th width="25%">招聘专员</th>
+                            <th width="15%">1人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">752</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-10-27</th>
+                            <th width="30%">北京中汇恒达投资管理有限公司</th>
+                            <th width="25%">中汇金融急聘担保业务专员</th>
+                            <th width="15%">18人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">751</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-11-01</th>
+                            <th width="30%">天汇金泽国际资产管理(北京)有限公司</th>
+                            <th width="25%">急销售可立即上岗！无责底薪4K起双休+住宿</th>
+                            <th width="15%">10人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">750</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-11-02</th>
+                            <th width="30%">北京益民药业有限公司</th>
+                            <th width="25%">QC</th>
+                            <th width="15%">5人 </th>
+                        </tr>
+                                            <tr>
+                            <th width="10%">749</th>
+                            <th width="10%">zhilian</th>
+                            <th width="10%">2017-11-01</th>
+                            <th width="30%">北京博控佳业科技有限公司</th>
+                            <th width="25%">结构设计工程师</th>
+                            <th width="15%">1人 </th>
+                        </tr>
+                    
+                </tbody>
+            </table>
+            <div id="pager1" class="pager mtop20">
+            </div>
+        </div>
+
+
+        <div class="dialog" id="siteDialog">
+            <div class="dialog-wrap">
+                <div class="header1">
+                    <p>编辑网站</p>
+                </div>
+                <img class="close" src="images/close_icon.png" alt="关闭">
+                <div class="dialog_form_layout">
+                    <div class="block clearfix">
+                        <div class="layout_l">
+                            <p>网站名称</p>
+                        </div>
+                        <div class="layout_r">
+                            <input name="" id="site_name" placeholder="网站名称" class="textInput" style="width:300px;">
+                        </div>
+                    </div>
+                    <div class="block clearfix">
+                        <div class="layout_l">
+                            <p>网址</p>
+                        </div>
+                        <div class="layout_r">
+                            <input name="" id="site_addr" placeholder="网址" class="textInput" style="width: 300px;">
+                        </div>
+                    </div>
+                    <div>
+                        <input class="submit" onclick="subSiteEdit()" type="button" value="提交"></div>
+                </div>
+            </div>
+
+            <script src="js/jquery-1.9.1.min.js"></script>
+            <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+            <script src="//cdn.bootcss.com/dot/1.1.0/doT.min.js"></script>
+            <script src="js/jquery.pagination.js"></script>
+            <script src="js/public.js"></script>
+            <script src="js/capture.js"></script>
+            <script type="text/javascript">
+                var siteDialog;
+                $(function () {
+                    siteDialog = $("#siteDialog");
+                });
+                function editSite(id, obj) {
+
+                    var athis = $(obj);
+                    $("#site_name").val(athis.prev().text());
+                    $("#site_addr").val(athis.data("addr"));
+
+                    siteDialog.fadeIn();
+                }
+                function subSiteEdit() {
+                    $.post(url, postData, function () {
+
+                    });
+                }
+
+            </script>
+    </body>
+</html>

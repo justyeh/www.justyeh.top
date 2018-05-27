@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>学员列表</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+	<div class="page">
+		<div class="header">
+			<div class="main-wrap clearfix">
+				<div class="logo">
+					<a href="?c=student&m=list">
+						<img src="img/logo.png" />
+					</a>
+				</div>
+				<div class="user-menu">
+					<!--<a href="">我的学习</a>-->
+					<div class="drop">
+						<span>刘老师</span>
+						<a href="?c=tlogin&m=out">退出登录</a>
+					</div>
+					<img class="circle" src="img/head.png" />
+				</div>
+			</div>
+		</div>
+		<div class="page-wrap">
+			<div class="side">
+				<img class="head circle" src="img/head.png" />
+				<p class="name">刘老师</p>
+				<ul>
+					<li class="stu-mng act">
+						<div class="icon"></div>
+						<a href="?c=student&m=list">
+							<span>我的学生</span>
+						</a>
+					</li>
+					<li class="paper-mng ">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>我的待阅</span>
+						</a>
+					</li>
+					<li class="exam-mng">
+						<div class="icon"></div>
+						<a href="?c=teaquestions&m=questionlist&flag=1">
+							<span>统一考试</span>
+						</a>
+					</li>
+					<li class="stage-exam">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>阶段考试报名</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">
+
+				<div class="stu-list">
+					<div class="page-title">
+						<p>我的学生</p>
+					</div>
+					<form action="?c=student&m=list" method="get">
+						<input type="hidden" name="c" value="student" />
+						<input type="hidden" name="m" value="list" />
+						<div class="search-box clearfix">
+							<div class="item">
+								<input maxlength="12" type="text" name="name" id="" value="" placeholder="姓名" autocomplete="off" />
+							</div>
+							<div class="item">
+								<select name="class">
+									<option value="">全部班级</option>
+									<option value="2">王老师班级</option>
+									<option value="1">刘老师班级</option>
+								</select>
+							</div>
+							<button class="btn btn-main" type="submit">搜索</button>
+						</div>
+					</form>
+					<div class="table">
+						<a href="javascript:;" class="toggle"></a>
+						<table>
+							<tr>
+								<th style="width: 52px;"></th>
+								<th style="width: 70px;">姓名</th>
+								<th style="width: 350px;">最新学习状态</th>
+								<th style="width: 100px;">学习进度</th>
+								<th style="width: 100px;">课后作业
+									<br>完成率</th>
+								<th style="width: 110px;">最近上线时间</th>
+								<th style="width: 100px;">课时消耗</th>
+								<th style="width: 0px; display: none;">剩余天数</th>
+								<th style="width: 0px; display: none;">结课时间</th>
+								<th style="width: 0px; display: none;">班级</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>
+									<div data-id="15" class="stu-tip">刘二</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=15">Java程序设计基础/1Java简介/1.3硬件与程序</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-07-21</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>
+									<div data-id="14" class="stu-tip">刘一</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=14">Java程序设计基础/0课程介绍/谈谈课程</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-07-18</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>
+									<div data-id="8" class="stu-tip">王大侠</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=8">持久层框架/mybatis/mybatis总结</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-09-22</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">王老师班级</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>
+									<div data-id="7" class="stu-tip">刘丹</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=7">Java程序设计基础/1Java简介/1.1Java特点与历史</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-07-19</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>
+									<div data-id="6" class="stu-tip">刘红</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=6">测试使用课程/测试使用第二章/测试使用第二章第一节</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-08-31</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>
+									<div data-id="5" class="stu-tip">刘明</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=5">测试使用课程/测试使用第二章/测试使用第二章第一节</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-08-29</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>
+									<div data-id="4" class="stu-tip">王春天</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=4">测试使用课程/测试使用第一章/测试使用第一章第一节</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-08-26</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">王老师班级</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>
+									<div data-id="2" class="stu-tip">刘冬天</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=2">Java程序设计基础/2环境搭建及第一个java程序/2.1Windows开发环境</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-08-15</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>
+									<div data-id="1" class="stu-tip">刘夏天</div>
+								</td>
+								<td class="text-l">
+									<div class="text-dots">
+										<div class="content">
+											<a class="c-blue" href="学生详情.html?id=1">测试使用课程/测试使用第二章/测试使用第二章第一节</a>
+										</div>
+									</div>
+									<p class="c-main">学习中</p>
+								</td>
+								<td>0/8 0/3 0/2 0/1</td>
+								<td>0%</td>
+								<td>2017-11-03</td>
+								<td>100%</td>
+								<td style="display: none;">0</td>
+								<td style="display: none;">2017-08-31</td>
+								<td style="display: none;">刘老师班级</td>
+							</tr>
+						</table>
+					</div>
+					<div class="pager text-c">
+						<span class="current prev">«</span>
+						<span class="current">1</span>
+						<span class="current prev">»</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="footer">
+			<div class="main-wrap">
+				<ul class="link-item clearfix">
+					<li>
+						<a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.54youwei.com/">有为招聘</a>
+					</li>
+				</ul>
+				<div class="clearfix">
+					<div class="info-box">
+						<p>电话：4006-588-662 传真：010-68208666 </p>
+						<p>主办：工业和信息化部人才交流中心 </p>
+						<p>京公网安备 11010802020352号 </p>
+					</div>
+					<div class="info-box">
+						<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+						<p>支持：国信世纪人才服务（北京）有限公司</p>
+						<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/libs/require.min.js" data-main="js/list.js"></script>
+</body>
+
+</html>

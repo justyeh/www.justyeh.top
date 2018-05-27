@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>企业详情</title>
+    <link href="" type="image/x-icon" rel="SHORTCUT ICON" />
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/member.css"/>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/third/jquery/jquery.validate-1.13.1.js"></script>
+    <script src="js/third/jquery/jquery_validate_extend_cn.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/member.js"></script>
+    <style>
+        .job-table{
+            width: 100%;
+        }
+        .job-table th{
+            pbdding-bottom:25px;
+        }
+        .job-table td{
+            line-height: 34px;
+            font-size: 13px;
+            font-weight: bolder;
+            color: #252525;
+        }
+        .job-table td a{
+            color: #478ddf;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main mt50">
+    <div class="main-cnt clearfix">
+        <div class="mainL fl">
+            <p class="picture"><img src="../../upload/photo/2017/09/19/1505792383.1718.jpg" alt="公司LOGO"/></p>
+            <p class="mt35">
+                <img src="../../upload/photo/2017/09/19/1505792238.6672.jpg" alt="用户头像" width="80" height="80"/>
+            </p>
+            <p class="mt10">
+                <span class="name"></span>
+                <span>ID：83</span>
+                <span>演员</span>
+                <span></span>
+            </p>
+            <div class="memberinfo">
+                <p><label>注册时间</label>
+                    2017-09-19 11:35:12                </p>
+                <p>
+                    <label>最后登录时间</label>
+                    2017-09-25 10:07:08                </p>
+            </div>
+        </div>
+        <!-- 简历内容右侧 -->
+        <div class="mainR fl">
+            <input type="hidden" value="83" id="uid"/>
+            <div class="basicInfo">
+                <p class="bigName">映艺娱乐</p>
+                <p class="detail mt10">
+                    <span>公司性质：国企</span>
+                    <span>地址：映艺娱乐大厦</span>
+                </p>
+                <p class="detail mt10">
+                    <span>所属行业：媒体/出版/影视/文化传播</span>
+                    <span>公司规模：500人以上</span>
+                </p>
+                <p class="btn" style="font-weight:bold;font-size: 14px;">
+                    <a href="javascript:;" class="btnA check" data-type="0">审核通过</a>
+                    <a href="javascript:;" class="btnA nocheck" data-type="2">审核不通过</a>
+                </p>
+            </div>
+            <div class="skillList">
+                <h4>企业简介</h4>
+                <div class="self-intro">娱乐公司</div>
+            <div class="skillList appintro">
+                <h4>APP端申请认证信息</h4>
+                <div class="honor">
+                    <ul class="appInfo clearfix">
+                        <li>认证公司名：映艺娱乐</li>
+                        <li>手机号码：</li>
+                        <li>联系人：华仔</li>
+                        <li>联系QQ：</li>
+                    </ul>
+                </div>
+                <a href="javascript:;" class="notice">通知</a>
+            </div>
+            <div class="skillList appintro">
+                <h4>PC端申请认证信息</h4>
+                <div class="honor">
+                    <ul class="appInfo clearfix">
+                        <li>  </li>
+                        <li>注册号：000001</li>
+                        <li>法人代表：</li>
+                        <li>所在地区：</li>
+                    </ul>
+                </div>
+                <p class="comInfo mt20">企业简介：映艺娱乐有限公司(以下简称“映艺娱乐”)是由亚洲巨星刘德华先生一手创办的电影公司，于2002年创办，主要发展集中在电影投资、制作、及发行。</p>
+            </div>
+            <div class="skillList paper">
+                <h4><a href="javascript:showPaper(1);" class="p1" style="color:#333;">营业执照</a>
+                    <!--<span class="line">|</span>
+                    <a href="javascript:showPaper(2);" class="p2 other" style="color:#333;">其他证件</a>-->
+                </h4>
+                <span style="font-size:14px;font-weight:bolder;position: absolute;right: 30px;top: 14px;">已认证</span>
+                <div class="paperwork" id="paper">
+                    <ul class="clearfix">
+                        <li>
+                            <img src="../../upload/photo/camera.png" alt="证件"/>
+                        </li>
+                    </ul>
+                </div>
+                <!--
+                <div class="paperwork" id="other" style="display: none;">
+                    <ul class="clearfix">
+                        <li>
+                            <img src="" alt="证件"/>
+                        </li>
+                    </ul>
+                </div>-->
+
+            </div>
+            <div class="skillList bt0">
+                <h4 class="clearfix">发布职位<a href="?c=enterprise&m=job&id=83" style="color:#478ddf;float: right;margin-right: 30px;">添加职位</a></h4>
+                <table class="job-table">
+                    <thead>
+                        <tr>
+                            <th style="width:80px;">职位</th>
+                            <th style="width:60px;">ID</th>
+                            <th style="width:80px;">标签</th>
+                            <th style="width:70px;">最低学历</th>
+                            <th style="width:80px;">薪资水平</th>
+                            <th style="width:80px;">工作地点</th>
+                            <th style="width:80px;">申请人数</th>
+                            <th style="width:80px;">查看人数</th>
+                            <th style="width:100px;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                             </tbody>
+                </table>
+                <!-- <div class="joblist bt0">
+                    <div class="listTd work clearfix">
+                        <span class="l1">职位</span>
+                        <span class="l2">ID</span>
+                        <span class="l3">标签</span>
+                        <span class="l4">最低学历</span>
+                        <span class="l1">薪资水平</span>
+                        <span class="l4">工作地点</span>
+                        <span class="l4">申请人数</span>
+                        <span class="l4">查看人数</span>
+                        <span class="l4">操作</span>
+                    </div>
+                    <ul class="list clearfix">
+                
+                                            </ul>
+                </div>
+                 -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹出层 -->
+<div class="dialog">
+    <div class="box">
+        <div class="box-head">
+            <p>推送信息</p>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        <div class="box-body">
+            <form method="post" action="?send&m=message" id="message">
+                <div class="group">
+                    <label style="vertical-align: top;">内容：</label>
+                    <input type="hidden" value="83" id="id"/>
+                    <textarea id="content" name="content"></textarea>
+                    <p class="errorMsg"></p>
+                </div>
+                <div class="group">
+                    <label>&nbsp;</label>
+                    <input type="submit" name="" value="发送" class="button"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        //新添加了一个编辑链接，补充宽度
+        $(".list li").each(function(){
+            $(this).find("span").last().width(80);
+        });
+    });
+</script>
+</body>
+</html>

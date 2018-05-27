@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>添加试题</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">
+	</head>
+	<body>
+		
+		<div class="main-wrapper exam-page">
+			
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>			<div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li  class="act" ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>			
+		  	<div class="content-wrapper ">
+		  		<fieldset class="layui-elem-field">
+	  				<legend>添加试题</legend>
+	  				<div class="layui-field-box">
+  						<form id="examForm" class="layui-form exam-form" action="?c=questions&m=save&type=2" method="post" enctype="multipart/form-data">
+  							<div class="exam-header">
+																<div class="layui-form-item">
+									<label class="layui-form-label">题型</label>
+									<div class="layui-input-block">
+																					<select id="examType" lay-filter="examType"  name="type">
+																				      	 	<option  data-href="?c=questions&m=save&type=1" value="1">单选</option>
+									      										      	 	<option  selected="selected"  data-href="?c=questions&m=save&type=2" value="2">多选</option>
+									      										      	 	<option  data-href="?c=questions&m=save&type=3" value="3">简答</option>
+									      										      	 	<option  data-href="?c=questions&m=save&type=4" value="4">程序设计</option>
+									      										      	 	<option  data-href="?c=questions&m=save&type=5" value="5">任务</option>
+									      												</select>
+																			</div>
+								</div>
+
+								<div class="layui-form-item">
+									<label class="layui-form-label">难度</label>
+									<div class="layui-input-block">
+										<select name="difficulty" data-verify="required">
+											<option value="">全部</option>
+																					<option  value="1">简单</option>
+								      												<option  value="2">中等</option>
+								      												<option  value="3">较难</option>
+								      												<option  value="4">很难</option>
+								      												<option  value="5">竞赛</option>
+								      											</select>
+									</div>
+								</div>
+								<div class="layui-form-item xl">
+									<label class="layui-form-label">科目-章-节</label>
+									<div class="layui-input-inline">
+										<select id="subject" name="subject_id" data-verify="required" lay-filter="subject">
+											<option value="">全部</option>
+																					<option  value="1">JavaWeb技术综合运用</option>
+																					<option  value="3">持久层框架</option>
+																					<option  value="5">C语言</option>
+																					<option  value="16">软件测试技术基础课程</option>
+																					<option  value="67">Java面向对象程序设计</option>
+																					<option  value="102">Java点穴——高级专题探究</option>
+																					<option  value="110">Oracle开发与运维技术实践</option>
+																					<option  value="118">Spring框架</option>
+																					<option  value="187">Web前端技术综合应用</option>
+																					<option  value="448">JAVA</option>
+																					<option  value="500">JAVASE项目</option>
+																					<option  value="509">JAVA进阶项目</option>
+																					<option  value="540">web</option>
+																					<option  value="556">mybatis</option>
+																					<option  value="609">CEP课程</option>
+																					<option  value="610">人文365</option>
+																				</select>
+									</div>
+									<div class="layui-input-inline">
+										<select id="chapter" name="chapter_id" data-verify="required" lay-filter="chapter">
+											<option value="">全部</option>
+																				</select>
+									</div>
+									<div class="layui-input-inline">
+										<select id="section" name="section_id" data-verify="required">
+											<option value="">全部</option>
+																				</select>
+									</div>
+								</div>
+							</div>
+  							<div class="exam-main">
+  								<div class="layui-form-item">
+							    	<label class="layui-form-label">题目</label>
+								    <div class="layui-input-block">
+								      	<textarea data-autoheight="true" data-verify="required" class="layui-textarea" name="subject[content]"></textarea>
+								    </div>
+								    <div class="exam-selector" data-for="subject">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  										  						</div>
+							  	</div>
+
+							  	<!-- 选项1 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label" id="option1">选项1</label>
+								    <div class="layui-input-block">
+								      	<textarea data-verify="required" class="layui-textarea layui-textarea-s" name="option1[content]"></textarea>
+								      									    </div>
+								    <div class="exam-selector" data-for="option1">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  										  						</div>
+			  						<label class="question-option"><input type="checkbox" name="answer[]" value="1" />正确答案</label>
+							  	</div>
+
+							  	<!-- 选项2 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">选项2</label>
+								    <div class="layui-input-block">
+								      	<textarea data-verify="required" class="layui-textarea layui-textarea-s" name="option2[content]"></textarea>
+								      									    </div>
+								    <div class="exam-selector" data-for="option2">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  									  						</div>
+			  						<label class="question-option"><input type="checkbox" name="answer[]" value="2" />正确答案</label>
+							  	</div>
+
+							  	<!-- 选项3 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">选项3</label>
+								    <div class="layui-input-block">
+								      	<textarea data-verify="required" class="layui-textarea layui-textarea-s" name="option3[content]"></textarea>
+								      									    </div>
+								    <div class="exam-selector" data-for="option3">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  									  						</div>
+			  						<label class="question-option"><input type="checkbox" name="answer[]" value="3" />正确答案</label>
+							  	</div>
+							  	
+							  	<!-- 选项4 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">选项4</label>
+								    <div class="layui-input-block">
+								      	<textarea data-verify="required" class="layui-textarea layui-textarea-s" name="option4[content]"></textarea>
+								      									    </div>
+								    <div class="exam-selector" data-for="option4">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  									  						</div>
+			  						<label class="question-option"><input data-verify="required" type="checkbox" name="answer[]" value="4" />正确答案</label>
+							  	</div>
+							  	
+							  	<div class="exam-add-option">
+							    	<button class="layui-btn" type="button" id="addOptionBtn" onclick="addChoiceOption(this)">添加选项</button>
+							    	<div class="add-option-wrap">
+
+							    		<!-- 选项5 -->
+										
+										<!-- 选项6 -->
+																	    	</div>
+							  	</div>
+							  	
+							  	<div class="layui-form-item" style="background: rgba(243,243,255,0.9);">
+							    	<label class="layui-form-label">正确答案</label>
+ 
+							    	<input type="hidden" name="" id="rightAnswerInput" value="" data-verify="required" />
+							    								    	<div class="layui-form-text c-success bold" style="line-height: 38px;" id="rightAnswer">
+							    										尚未设置正确答案
+																		</div> 
+
+							  	</div>
+							  	
+							  	<!-- 解析 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">解析</label>
+								    <div class="layui-input-block">
+								      	<textarea data-autoheight="true" data-verify="required" class="layui-textarea" name="analysis[content]"></textarea>
+								    </div>
+								    <div class="exam-selector" data-for="analysis">
+			  							<ul>
+			  								<li><span data-type="code">添加源码</span></li>
+			  								<li><span data-type="img">添加图片</span></li>
+			  							</ul>
+			  							<i class="selector-drop"></i>
+			  						</div>
+			  						<div class="extend-item-wrap">
+			  									  						</div>
+							  	</div>
+							  	
+							  	<!-- 备注 -->
+							  	<div class="layui-form-item">
+							    	<label class="layui-form-label">备注</label>
+								    <div class="layui-input-block">
+								      	<textarea class="layui-textarea" name="spare"></textarea>
+								    </div>
+							  	</div>
+							  	
+  							</div>
+  							<div class="exam-form-btns clearfix">
+  								<button class="layui-btn layui-btn-primary fl" type="button" data-href="?c=questions&m=list&flag=2&status=2" id="goList">返回列表</button>
+  								<button class="layui-btn" type="button" onclick="subForm()">提交审核</button>
+  							</div>
+	  					</form>
+  					</div>
+	  			</fieldset>
+		 	</div><!-- content wrapper end-->
+		</div><!-- page wrapper end-->
+		
+		
+		<div class="img-viewer">
+			<div class="viewer">
+				<div id="main"></div>
+				<div class="operation-wrap">
+					<i id="imgIn" class="icon">-</i>
+					<i id="imgOut" class="icon">+</i>
+				</div>
+				<div id="viewerClose" class="layui-icon">&#x1006;</div>
+			</div>
+		</div>
+
+		<div class="code-edit-dialog">
+			<div class="main-wrap">
+				<textarea class="code-editor"></textarea>
+				<select class="language-select">
+					<option value="java">java</option>
+					<option value="php">php</option>
+				</select>
+				<button class="layui-btn" onclick="closeEditor()" style="right: 130px;">关闭</button>
+				<button class="layui-btn" onclick="subCode()">提交</button>
+			</div>
+		</div>
+		
+	</body>	
+	
+	
+	<!--require-->
+	<script src="js/jquery-1.8.0.min.js"></script>
+	<script src="js/jquery-accordion-menu.js"></script>
+	<!--iviewerjs-->
+	<script src="js/iviewer/jqueryui.js"></script>
+	<script src="js/iviewer/jquery.mousewheel.min.js"></script>
+	<script src="js/iviewer/jquery.iviewer.min.js"></script>
+	<!--public-->
+	<script src="js/layui/layui.all.js"></script>
+	<script src="js/public.js"></script>
+	<!--questions-->
+	<script src="js//apps/questions/base.js"></script>
+	<script src="js//apps/questions/choice.js"></script>
+	
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>统一考试-通知详情</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+		<div class="main-wrap clearfix">
+			<div class="logo">
+				<img src="img/logo.png" alt="蓝桥软件学院"/>
+			</div>
+			<div class="user-menu">
+				<a href="?c=home&m=info">个人首页</a>
+				<span class="username">刘夏天</span>
+				<img class="circle" src="img/head2.png"/>
+				<div class="user-second-menu">
+					<a href="?c=slogin&m=out">退出登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <div class="page-wrap">
+    	
+        <div class="side">
+			<img class="head circle" src="img/head2.png"/>
+			<p class="name">刘夏天</p>
+			<ul>
+				<li >
+					<a href="?c=home&m=list">
+						<i class="left-a"></i>
+						<span>学习路线</span>
+					</a>
+				</li>
+				<li  class="act" >
+					<a href="?c=stu&m=info&id=">
+						<i class="left-b"></i>							
+						<span>课堂</span>
+					</a>
+				</li>
+				<li >
+					<a href="?c=stu&m=rlist">
+						<i class="left-c"></i>
+						<span>考试回顾</span>
+					</a>
+				</li>
+				<li>
+					<a href="?c=uexam&m=list">
+						<i class="left-d"></i>
+						<span>统一考试</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+    
+        <div class="page-main lq-exam">
+            
+            <div class="clearfix">
+                <div class="exam-detail">
+                    <div class="status">
+                        <p class="fs16 c-ligh-gray">被取消</p>
+                    </div>
+                    <div class="examIntro">
+                        <p class="title fs20 c-ligh-gray">通知标题</p>
+                        <p class="mt20 c-ligh-gray">考试时间 今天 10:00~12:00</p>
+                        <p class="mt40 clearfix">考试说明<span class="fr">{$v['add_time']}</span></p>
+                        <p class="mt20">{$v['content']}</p>
+                        {if isset($row['info']) && $row['info']}
+                            {foreach $row['info'] k=>v}
+                                <p class="mt40 clearfix">补充说明<span class="fr"></span></p>
+                                <p class="mt20">{$v['content']}</p>
+                            {/foreach}
+                        {/if}
+                    </div>
+                </div>
+                <a href="#" class="backBtn">返回</a>
+            </div><!--被取消-->
+            
+            
+            <div class="clearfix">
+                <div class="exam-detail">
+                    <div class="status">
+                        <p class="fs16 c-ligh-gray">已结束</p>
+                        <p class="c-danger mt10">缺考</p>
+                    </div>
+                    <div class="examIntro">
+                        <p class="title fs20 c-ligh-gray">通知标题</p>
+                        <p class="mt20 c-ligh-gray">考试时间 今天 10:00~12:00</p>
+                        <p class="mt40 clearfix">考试说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                        <p class="mt40 clearfix">补充说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                    </div>
+                </div>
+                <a href="#" class="backBtn">返回</a>
+            </div><!--已结束缺考-->
+            
+            <div class="clearfix">
+                <div class="exam-detail">
+                    <div class="status">
+                        <p class="fs16 c-ligh-gray">已结束</p>
+                        <p class="c-green mt10">我已参加考试</p>
+                        <p class="mt10 c-ligh-gray">老师正在阅卷中</p>
+                    </div>
+                    <div class="examIntro">
+                        <p class="title fs20 c-ligh-gray">通知标题</p>
+                        <p class="mt20 c-ligh-gray">考试时间 今天 10:00~12:00</p>
+                        <p class="mt40 clearfix">考试说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                        <p class="mt40 clearfix">补充说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                    </div>
+                </div>
+                <a href="#" class="backBtn">返回</a>
+            </div><!--已结束老师阅卷-->
+            
+            <div class="clearfix">
+                <div class="exam-detail">
+                    <div class="status">
+                        <p class="fs16 c-danger">考试中</p>
+                        <p class="mt10 c-danger">已进行 <span class="fs20">20</span> 分钟</p>
+                    </div>
+                    <div class="examIntro">
+                        <p class="title fs20">通知标题</p>
+                        <p class="mt20 c-ligh-gray">考试时间 今天 10:00~12:00</p>
+                        <div class="tips mt20">注意：考试开始前30分钟，至考试开始后30分钟，允许进入考场，其他时间不能进入考场</div>
+                        <p class="mt40 clearfix">考试说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                        <p class="mt40 clearfix">补充说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                    </div>
+                </div>
+                <a href="#" class="backBtn">返回</a>
+                <span class="c-green fr e-warning">已经超过可进入考场时间，现无法进入考场</span>
+            </div><!--考试中-->
+            
+            
+            <div class="clearfix">
+                <div class="exam-detail">
+                    <div class="status">
+                        <p class="fs16 c-green">考试前</p>
+                        <p class="mt10 c-green">距开始 <span class="fs20">20</span> 分钟</p>
+                    </div>
+                    <div class="examIntro">
+                        <p class="title fs20">通知标题</p>
+                        <p class="mt20 c-ligh-gray">考试时间 今天 10:00~12:00</p>
+                        <div class="tips mt20">注意：考试开始前30分钟，至考试开始后30分钟，允许进入考场，其他时间不能进入考场</div>
+                        <p class="mt40 clearfix">考试说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                        <p class="mt40 clearfix">补充说明<span class="fr">2017年10月30日 12:30</span></p>
+                        <p class="mt20">考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试
+                            说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息，考试说明信息。</p>
+                    </div>
+                </div>
+                <a href="#" class="backBtn">返回</a>
+                <div class="fr e-warning c-green">现在可以进入考场了<a href="" class="btn">进入考场</a></div>
+            </div><!--考试前-->
+        </div>
+
+    </div>
+
+    <div class="footer">	
+		<div class="main-wrap">
+			<ul class="link-item clearfix">
+				<li><a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a></li>
+				<li><a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a></li>
+				<li><a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a></li>
+				<li><a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a></li>
+				<li><a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a></li>
+				<li><a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a></li>
+				<li><a target="_blank" href="http://www.54youwei.com/">有为招聘</a></li>
+			</ul>
+			<div class="clearfix">			
+				<div class="info-box">
+					<p>电话：4006-588-662     传真：010-68208666 </p>
+					<p>主办：工业和信息化部人才交流中心  </p>
+					<p>京公网安备 11010802020352号 </p>
+				</div>
+				<div class="info-box">
+					<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+					<p>支持：国信世纪人才服务（北京）有限公司</p>
+					<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+<!--通知信息弹框开始-->
+<div class="dialog noticeDialog hide">
+    <div class="main">
+        <div class="top">
+            <span>信息提示</span>
+            <a href="javascript:void(0)" class="close"></a>
+        </div>
+        <div class="text-c">
+            <p class="fs18 mt20">通知信息已失效！</p>
+            <p class="mt20"><span class="countDown">3</span> 秒后自动返回列表，可以手动返回</p>
+            <p class="button"><a href="" class="btn">返回列表</a></p>
+        </div>
+    </div>
+</div><!--通知信息弹框结束-->
+
+<div class="return-top" title="返回顶部"><span>返回顶部</span></div>
+<script src="js/libs/require.min.js" data-main="js/index.js"></script>
+</body>
+</html>

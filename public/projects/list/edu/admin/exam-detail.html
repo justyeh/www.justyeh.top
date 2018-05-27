@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>试题详情</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">	
+		<link href="js/highlight/ocean.min.css" rel="stylesheet">
+	</head>
+	<body class="exam-detail">
+		
+		<div class="main-wrapper">
+			
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>			<div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li  class="act" ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> 
+			
+		  	<div class="content-wrapper">	  			
+	  			<fieldset class="layui-elem-field mt10">
+  					<legend>试题详情 </legend>
+  					<div class="layui-field-box">  						
+  						<div class="layui-form info-form wrap-with-bg">			               
+			                <div class="layui-form-item">
+			                	<div class="layui-inline">
+			                		 <label class="layui-form-label">试题ID</label>
+				                    <div class="layui-input-inline" style="width:120px">
+				                        <p class="layui-input">TE100738</p>			                       
+				                    </div>
+			                	</div>
+			                	<div class="layui-inline">
+			                		<label class="layui-form-label">题型</label>
+			                		<div class="layui-input-inline" style="width:120px">
+				                        <p class="layui-input">多选题</p>			                       
+				                    </div>
+			                	</div>
+			                	<div class="layui-inline">
+			                		<label class="layui-form-label">难度</label>
+				                    <div class="layui-input-inline" style="width:120px">
+				                        <p class="layui-input">简单</p>			                       
+				                    </div>
+			                	</div>
+			                	<div class="layui-inline">
+			                		 <label class="layui-form-label">资源状态</label>
+				                    <div class="layui-input-inline" style="width:120px">
+				                        <p class="layui-input">待审核</p>			                       
+				                    </div>
+			                	</div>
+			                </div>
+			                <div class="layui-form-item">
+			                    <label class="layui-form-label">科目章节</label>
+			                    <div class="layui-input-block">
+			                        <p class="layui-input">JavaWeb技术综合运用-Servlet与MVC设计模式-Servlet</p>			                       
+			                    </div>
+			                </div>	
+			                <div class="layui-form-item">
+			                	<div class="layui-inline">
+				                    <label class="layui-form-label">提交人</label>
+				                    <div class="layui-input-inline" style="width:120px">
+				                        <p class="layui-input">邵会坤</p>			                       
+				                    </div>
+				                </div>
+				                <div class="layui-inline">
+				                    <label class="layui-form-label">首次入库</label>
+				                    <div class="layui-input-inline">
+				                        <p class="layui-input">2017-06-27 09:23</p>				                        
+				                    </div>
+				                </div>
+				                			                </div>
+			                <div class="layui-form-item">
+						    	<label class="layui-form-label">题目</label>
+							    <div class="layui-input-block">
+							      	<p class="layui-textarea">
+							      		GenericServlet抽象类实现了下列选项中的哪些接口（选择正确的两项）							      	</p>
+							      				                    								    </div>
+						  	</div>
+						</div>
+						
+												<div class="exam-content wrap-with-bg layui-form info-form">
+							<!--<p>多选</p>-->
+												  		<div class="layui-form-item">
+			                    <label class="layui-form-label">选项1</label>
+			                    <div class="layui-input-block">
+			                    	<p class="layui-textarea">Servlet接口</p>
+			                    	
+			                    				                    	
+			                    				                    </div>
+			                </div>
+			                					  		<div class="layui-form-item">
+			                    <label class="layui-form-label">选项2</label>
+			                    <div class="layui-input-block">
+			                    	<p class="layui-textarea">ServletConfig接口</p>
+			                    	
+			                    				                    	
+			                    				                    </div>
+			                </div>
+			                					  		<div class="layui-form-item">
+			                    <label class="layui-form-label">选项3</label>
+			                    <div class="layui-input-block">
+			                    	<p class="layui-textarea">ServletContext接口</p>
+			                    	
+			                    				                    	
+			                    				                    </div>
+			                </div>
+			                					  		<div class="layui-form-item">
+			                    <label class="layui-form-label">选项4</label>
+			                    <div class="layui-input-block">
+			                    	<p class="layui-textarea">ServletRequest接口</p>
+			                    	
+			                    				                    	
+			                    				                    </div>
+			                </div>
+			                			            </div>
+			            					  	
+						<div class="layui-form info-form wrap-with-bg">	
+							<div class="answerList" style="display:none;" id="rightAnswer">
+								<div class="allQuest mt10">
+																		<div class="layui-form-item">
+					                    <label class="layui-form-label">正确答案</label>
+					                    <div class="layui-input-block">
+					                        					                        <p class="layui-input">
+																																							选项1																																																				选项2																																																																																						</p>
+														                       
+					                    </div>
+					                </div>
+					                					                <div class="layui-form-item">
+					                    <label class="layui-form-label">试题解析</label>
+					                    <div class="layui-input-block">
+					                        <p class="layui-textarea"><br />
+(见解析图片1)<br />
+<br />
+上面是Servlet的继承实现图，由图可知，我们自己定义的Servlet，会依次继承HttpServlet、GenericServlet，而GenericServlet会实现ServletConfig、Servlet和Serializable接口。</p>			                       
+					                    						                    						                    	<div class="img-content clearfix">
+					                    						                    		<div class="img-item">
+					                    			<p>解析图片1</p>
+					                    			<div class="img" style="background-image: url(http://10.100.110.250:8084/newedu/upload/photo/questions/images/exam/20170406/1491471145528086129.png);"></div>
+					                    			<i class="layui-icon">&#xe615;</i>
+					                    		</div>
+					                    						                    	</div>
+					                    						                    </div>
+					                </div>
+					                <div class="layui-form-item">
+					                    <label class="layui-form-label">备注信息</label>
+					                    <div class="layui-input-block">
+					                    	<p class="layui-textarea">无</p>
+					                    </div>
+					                </div>
+								</div>
+							</div><!--正确答案-->
+							
+							<div class="layui-form-item">
+			                    <div class="layui-input-block clearfix">
+			                    	<button class="layui-btn layui-btn-primary" onClick="toggleDiv(this,'rightAnswer')"><i class="triggle"></i>正确答案等信息</button>
+			                    	<!-- <a  class="layui-btn layui-btn-normal" href="?c=questions&m=list&status=2">返回列表</a> -->
+			                    	<a  class="layui-btn layui-btn-normal" href="?c=questions&m=list&status=2&flag=1&subject=&type=2&difficulty=NULL&admin=&subject_id=NULL&chapter_id=NULL&section_id=NULL&time_key=up_time&time_start=&time_end=">返回列表</a>
+			                    	<div class="fr">
+			                    													<button class="layui-btn" type="button" onClick="handleClick('pass',100738)">审核通过</button>
+											<button class="layui-btn layui-btn-danger" type="button" onClick="handleClick('nopass',100738)">审核不合格，退回</button>
+																																	                    	</div>
+			                    </div>
+			                </div>
+			                
+			            </div>	
+  					</div>
+	  			</fieldset>
+		 	</div><!-- content wrapper end-->
+		</div><!-- page wrapper end-->
+		
+		
+		<div class="img-viewer">
+			<div class="viewer">
+				<div id="main"></div>
+				<div class="operation-wrap">
+					<i id="imgIn" class="icon">-</i>
+					<i id="imgOut" class="icon">+</i>
+				</div>
+				<div id="viewerClose" class="layui-icon">&#x1006;</div>
+			</div>
+		</div>
+		
+		
+		<!--script-->
+		<script src="js/jquery-1.8.0.min.js"></script>
+		<!--highlight-->
+		<script src="js/highlight/highlight.min.js"></script>
+		<!--iviewer-->
+		<script src="js/iviewer/jqueryui.js"></script>
+		<script src="js/iviewer/jquery.mousewheel.min.js"></script>
+		<script src="js/iviewer/jquery.iviewer.min.js"></script>
+		
+		<script src="js/jquery-accordion-menu.js"></script>
+		<script src="js/layui/layui.all.js"></script>
+		<script src="js/public.js"></script>		
+		<script src="js/pendingDetail.js"></script>
+		<script type="text/javascript">
+			var api = {url:"?c=lexam&m=exam&type=1"}
+			$(function(){
+				hljs.initHighlightingOnLoad();
+	
+				//图片放大查看
+				var imgViewer = $(".viewer #main").iviewer({
+				    src: "#"
+				});
+				$("#imgIn").click(function(){ 
+					imgViewer.iviewer('zoom_by', -1); 
+				});
+				$("#imgOut").click(function(){ 
+					imgViewer.iviewer('zoom_by', 1); 
+				});
+				$("#viewerClose").click(function(){ 
+					$(".img-viewer").fadeOut();
+				});
+				$(".img-item i").click(function(){
+					var src = $(this).parent().find(".img").css("background-image");
+					imgViewer.iviewer('loadImage',src.substring(5,src.length-2)); 
+					$(".img-viewer").fadeIn();
+				});
+			})
+		</script>
+	</body>
+</html>

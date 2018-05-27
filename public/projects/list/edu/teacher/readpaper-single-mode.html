@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>批阅试卷-逐题模式</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/correct-exam.css">
+	<link href="js/libs/highlight/solarized-dark.min.css" rel="stylesheet">
+</head>
+
+<body class="correct-exam">
+	<div class="page">
+		<div class="header">
+			<div class="main-wrap clearfix">
+				<div class="logo">
+					<a href="?c=student&m=list">
+						<img src="img/logo.png" />
+					</a>
+				</div>
+				<div class="user-menu">
+					<!--<a href="">我的学习</a>-->
+					<div class="drop">
+						<span>刘老师</span>
+						<a href="?c=tlogin&m=out">退出登录</a>
+					</div>
+					<img class="circle" src="img/head.png" />
+				</div>
+			</div>
+		</div>
+		<div class="page-wrap">
+			<div class="side">
+				<img class="head circle" src="img/head.png" />
+				<p class="name">刘老师</p>
+				<ul>
+					<li class="stu-mng ">
+						<div class="icon"></div>
+						<a href="?c=student&m=list">
+							<span>我的学生</span>
+						</a>
+					</li>
+					<li class="paper-mng act">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>我的待阅</span>
+						</a>
+					</li>
+					<li class="exam-mng">
+						<div class="icon"></div>
+						<a href="?c=teaquestions&m=questionlist&flag=1">
+							<span>统一考试</span>
+						</a>
+					</li>
+					<li class="stage-exam">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>阶段考试报名</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">
+				<div class="page-title">
+					<p>批阅试卷</p>
+					<p class="paper-id">TE100047</p>
+				</div>
+
+				<div class="question-box">
+					<!-- 题目 -->
+					<div class="title">现有表达式1+3+5+7+……+n&lt;2000，求最大的n。
+						<br />
+					</div>
+					<!-- 题目内容 -->
+					<!-- 解析： -->
+					<div class="ext-block">
+						<p>解析：</p>
+						<div class="main">
+							<div class="content">上述答案仅供参考。
+							</div>
+						</div>
+					</div>
+					<!-- 参考答案： -->
+					<div class="ext-block">
+						<p>参考答案：</p>
+						<div class="main">
+							<div class="paper-attach">
+								<div class="pre">
+									<pre><code class="css">public&ensp;static&ensp;void&ensp;main(String[]&ensp;args)&ensp;{
+&ensp;&ensp;&ensp;&ensp;int&ensp;count=0;&ensp;&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;for(int&ensp;i=1;;i+=2){
+&ensp;&ensp;&ensp;&ensp;count&ensp;+=&ensp;i;
+&ensp;&ensp;&ensp;&ensp;if(count>=2000){
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;System.out.println(i-2);
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;break;
+&ensp;&ensp;&ensp;&ensp;}
+&ensp;&ensp;&ensp;&ensp;}
+}</code></pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--答案+打分-->
+			<div class="page-main mt20" id="answerContent">
+				<div class="answer-list">
+					<form action="?c=check&m=save" method="post">
+						<input type="hidden" name="flag" value="">
+						<input type="hidden" name="paper_id" value="">
+						<input type="hidden" name="next" value="0" id="next">
+						<input type="hidden" name="question_id" value="100047">
+
+						<div class="answer-box curr" id="q1220_2_314">
+							<input type="hidden" name="user_ids[]">
+							<div class="title">答卷内容</div>
+							<div class="content">
+								<div class="paper-attach">
+									<div class="pre">
+										<pre><code class="css">学生2的1003卷子的答题，题型类型4</code></pre>
+									</div>
+								</div>
+							</div>
+							<div class="grade-box">
+								<div class="clearfix">
+									<div class="fl">
+										<p class="t">评分：</p>
+										<div class="grade">
+											<span></span>尚未打分</div>
+									</div>
+									<div class="fr clearfix">
+										<label class="label l10">
+											<input type="radio" name="s1220_2_314" value="10" />10</label>
+										<label class="label l9">
+											<input type="radio" name="s1220_2_314" value="9" />9</label>
+										<label class="label l8">
+											<input type="radio" name="s1220_2_314" value="8" />8</label>
+										<label class="label l7">
+											<input type="radio" name="s1220_2_314" value="7" />7</label>
+										<label class="big">
+											<input type="radio" name="s1220_2_314" value="6" />6</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="5" />5</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="4" />4</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="3" />3</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="2" />2</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="1" />1</label>
+										<label>
+											<input type="radio" name="s1220_2_314" value="0" />0</label>
+									</div>
+								</div>
+								<div class="comment-wrap">
+									<p class="t">评语：</p>
+									<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1220_2_314"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="answer-box" id="q1218_1_323">
+							<input type="hidden" name="user_ids[]">
+							<div class="title">答卷内容</div>
+							<div class="content">
+								<div class="paper-attach">
+									<div class="pre">
+										<pre><code class="css">啦啦啦</code></pre>
+									</div>
+								</div>
+							</div>
+							<div class="grade-box">
+								<div class="clearfix">
+									<div class="fl">
+										<p class="t">评分：</p>
+										<div class="grade">
+											<span></span>尚未打分</div>
+									</div>
+									<div class="fr clearfix">
+										<label class="label l10">
+											<input type="radio" name="s1218_1_323" value="10" />10</label>
+										<label class="label l9">
+											<input type="radio" name="s1218_1_323" value="9" />9</label>
+										<label class="label l8">
+											<input type="radio" name="s1218_1_323" value="8" />8</label>
+										<label class="label l7">
+											<input type="radio" name="s1218_1_323" value="7" />7</label>
+										<label class="big">
+											<input type="radio" name="s1218_1_323" value="6" />6</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="5" />5</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="4" />4</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="3" />3</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="2" />2</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="1" />1</label>
+										<label>
+											<input type="radio" name="s1218_1_323" value="0" />0</label>
+									</div>
+								</div>
+								<div class="comment-wrap">
+									<p class="t">评语：</p>
+									<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1218_1_323"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="answer-box" id="q_15_328">
+							<input type="hidden" name="user_ids[]">
+							<div class="title">答卷内容</div>
+							<div class="content">
+								未答题
+							</div>
+							<div class="grade-box">
+								<div class="clearfix">
+									<div class="fl">
+										<p class="t">评分：</p>
+										<div class="grade">
+											<span></span>尚未打分</div>
+									</div>
+									<div class="fr clearfix">
+										<label class="label l10">
+											<input type="radio" name="s_15_328" value="10" />10</label>
+										<label class="label l9">
+											<input type="radio" name="s_15_328" value="9" />9</label>
+										<label class="label l8">
+											<input type="radio" name="s_15_328" value="8" />8</label>
+										<label class="label l7">
+											<input type="radio" name="s_15_328" value="7" />7</label>
+										<label class="big">
+											<input type="radio" name="s_15_328" value="6" />6</label>
+										<label>
+											<input type="radio" name="s_15_328" value="5" />5</label>
+										<label>
+											<input type="radio" name="s_15_328" value="4" />4</label>
+										<label>
+											<input type="radio" name="s_15_328" value="3" />3</label>
+										<label>
+											<input type="radio" name="s_15_328" value="2" />2</label>
+										<label>
+											<input type="radio" name="s_15_328" value="1" />1</label>
+										<label>
+											<input type="radio" name="s_15_328" value="0" />0</label>
+									</div>
+								</div>
+								<div class="comment-wrap">
+									<p class="t">评语：</p>
+									<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment__15_328"></textarea>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="page-footer">
+			<div class="selector">
+				<div class="main-wrap">
+					<p class="t">待阅数量 3，已完成批阅
+						<span id="markedNum">0</span>
+					</p>
+					<div class="content">
+						<div class="question-list clearfix">
+							<a id="c1220_2_314" href="javascript:;" class="act"></a>
+							<a id="c1218_1_323" href="javascript:;"></a>
+							<a id="c_15_328" href="javascript:;"></a>
+						</div>
+						<button class="btn btn-main" type="button">
+							<img class="mr15" src="img/icon/read-4.png" />提交批阅结果</button>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="main-wrap">
+					<ul class="link-item clearfix">
+						<li>
+							<a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.54youwei.com/">有为招聘</a>
+						</li>
+					</ul>
+					<div class="clearfix">
+						<div class="info-box">
+							<p>电话：4006-588-662 传真：010-68208666 </p>
+							<p>主办：工业和信息化部人才交流中心 </p>
+							<p>京公网安备 11010802020352号 </p>
+						</div>
+						<div class="info-box">
+							<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+							<p>支持：国信世纪人才服务（北京）有限公司</p>
+							<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal">
+		<div class="main">
+			<a href="javascript:;" class="close"></a>
+			<p class="t">确认提交批阅结果吗？</p>
+			<div class="handle">
+				<a href="javascript:;" class="btn btn-main">确认，并继续批阅下一题</a>
+				<div class="clearfix">
+					<a href="javascript:;" class="btn btn-main fl">确认，并返回列表</a>
+					<a href="javascript:;" class="btn btn-main fr">取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var stuPapers = ['1220_2_314', '1218_1_323', '_15_328',]
+	</script>
+	<script src="js/libs/require.min.js" data-main="js/correct-exam.js"></script>
+</body>
+
+</html>

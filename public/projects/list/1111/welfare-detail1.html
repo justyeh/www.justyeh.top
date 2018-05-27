@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>优惠券</title>
+		<!--reset-->
+		<link href="css/public.css" rel="stylesheet">
+		
+		<style type="text/css">
+			body{
+				background: #f31e38;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="benefit">
+			<div class="banner">
+				<img src="img/benefit/banner.jpg"/>
+			</div>
+			<div class="main">
+				<div class="desc">
+					<p class="p1">蓝桥软件学院100元优惠券</p>
+					<p class="p2">剩 241 张 （已领用162 张）</p>
+					<p class="p2">每人限领一张，可与其他优惠叠加使用</p>
+					<div class="line"></div>
+					<a href="javascript:;" onclick="showDialog()">立即领取</a>
+					<p class="p3">有效期2016-11-11至2016-12-31</p>
+				</div>
+				<div class="about-lq">
+					<p class="p1">蓝桥软件学院介绍：</p>
+					<div class="text"></div>
+					<p>别人做不到的，别人不能做的，蓝桥可以做到！</p>
+					<p>学院课程：JAVA开发、UI界面设计、产品经理</p>
+					<div class="clearfix">
+						<p class="fl">学院优势：</p>
+						<div class="fl">
+							<p>政府项目，IT培训国家队</p>
+							<p>直通优质公司，就业高起点</p>
+							<p>独特的全人教育理念，提高就业力</p>
+						</div>
+					</div>
+					<p>学院基地：北京亦庄 东莞松山湖</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="dialog" id="dialogForm">
+			<div class="main">
+				<form id="form">
+					<div class="form">
+						<p class="t">填写信息,立即抢券！</p>
+						<div class="form-group">
+							<label>姓名:</label>
+							<input id="name" type="text" placeholder="您的姓名" />
+						</div>
+						<div class="form-group">
+							<label>手机号:</label>
+							<input id="phone" type="tel" placeholder="您的手机号" />
+						</div>
+						<div class="form-group">
+							<label>邮箱:</label>
+							<input id="mail" type="text" placeholder="您的邮箱" />
+						</div>
+						<button type="button" id="subForm">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+		
+		<div class="dialog" id="dialogSuccess">
+			<div class="main result">
+				<p class="t">恭喜你！领取成功！</p>
+				<div class="coupon">
+					<div class="detail">
+						<span class="sp1">¥ </span>
+						<span class="sp2">100</span>
+						<span class="sp3">满1人报名</span>
+					</div>
+					<p>有效期2016.11.11-2016.12.31</p>
+				</div>
+				<p class="p1">已经成功领取优惠券，请在<a href="">我的</a>里面查看</p>
+			</div>
+		</div>
+		
+		<div class="dialog" id="dialogFail">
+			<div class="main result">
+				<p class="t">领取失败...</p>
+				<div class="coupon fail">
+					<div class="detail">
+						<span class="sp1">¥ </span>
+						<span class="sp2">500</span>
+						<span class="sp3">蓝桥老学员</span>
+					</div>
+					<p>无使用期限，限领一张</p>
+				</div>
+				<p class="p1">没抢到没关系，最重要的是开心咯！</p>
+			</div>
+		</div>
+		
+		
+	</body>
+
+	<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+
+	<script type="text/javascript">
+		function showDialog(){
+			$("#dialogForm").fadeIn();
+		}
+		
+		$(function(){
+			
+			$("form input").focus(function(){
+				$("#dialogForm .main").css("top","-40px");
+			})
+			$("form input").blur(function(){
+				$("#dialogForm .main").css("top","60px");
+			})
+			
+			
+			$("#subForm").click(function(){
+				var _form = $("#form"),
+					_name = $("#name"),
+					_phone =  $("#phone"),
+					_mail = $("#mail")
+			
+				if(_name.val().length == 0){
+					alert('请填写姓名')
+					_name.focus();
+					return false;
+				}
+			
+				if( !/^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/.test(_phone.val()) ){
+					alert('请输入正确的手机号')
+					_phone.focus();
+					return false;
+				}
+			
+				if( !/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/.test(_mail.val()) ){
+					alert('请输入正确的邮箱地址')
+					_mail.focus();
+					return false;
+				}
+				$("#dialogForm").hide();
+				$("#dialogFail").fadeIn();
+				/*$.ajax({
+					type:"post",
+					url:"post.php",
+					data:'name='+_name.val()+'&tel=' + _tel.val(),
+					dataType:"json",
+					success:function(data){
+						if(data.code == '1'){
+							alert('鎻愪氦鎴愬姛!')
+						}else{
+							alert(data.msg)
+						}
+					},
+					error:function(){
+						alert('鎻愪氦澶辫触!');
+						}
+					});
+				});*/
+			})
+		});
+	</script>
+</html>

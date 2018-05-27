@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*添加图文*/
+.suggest-list {background: #fff none repeat scroll 0 0;border: 1px solid #c8d2d7;position: absolute;top:40px;left: -1px;width: 100%;z-index: 99;display:none;}
+.suggest-list li {color: #344659;cursor: pointer;height: 32px;line-height: 32px;padding-left: 12px;}
+.suggest-list li:hover, .suggest-list li.hover {background: #f4f4f4 none repeat scroll 0 0;}
+#test-editormd select{display:inline-block;}
+.dialog{display:none;}
+/*标签*/
+div.tagsinput { border:1px solid #e6e6e6; background: #FFF; padding:5px; width:300px; min-height:40px; overflow-y: auto;}
+div.tagsinput:focus{border-color:#c9c9c9 !important;}
+div.tagsinput span.tag { -moz-border-radius:15px; -webkit-border-radius:15px; display: block; float: left; padding:0 10px; height:22px;line-height:22px;text-decoration:none; background: #eee; color: #666; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px;}
+div.tagsinput span.tag a { font-weight: bold; color: #666; text-decoration:none; font-size: 11px;  }
+div.tagsinput input { width:80px; margin:0px; font-family: helvetica; font-size: 13px; border:1px solid transparent; padding:5px; background: transparent; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
+div.tagsinput div { display:block; float: left; }
+.tags_clear { clear: both; width: 100%; height: 0px; }
+.not_valid { background: #FBD8DB !important; color: #90111A !important;}
+/*编辑器弹框*/
+.layui-layer{border-radius:3px !important;}
+/*添加视频*/
+.showVideo{margin-left:110px;}	
+.relative .detail-info{position:absolute;top: 0;left: 550px;}
+.relative .detail-info p{line-height:30px;}
+.message{margin-top:30px;}
+.message>div{line-height:28px;margin-bottom:35px;}
+.message>div>p{font-size:12px;padding-left:5px;}
+.triggle{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:10px solid #C9C9C9;display:inline-block;margin-right:3px;}		    
+.tr-up{border-bottom:10px solid #C9C9C9;border-top:0;}	
+.showVideo{margin-left:110px;width:400px;height:300px;background:#eee;}	  
+/*操作记录*/
+.opReList{padding:30px;}
+.opReList li{margin-bottom:10px;}
+.opReList li p{line-height:26px;}
+.opReList li p span{padding-right:20px;color:#333 !important;}
+.c-666{color:#666;}
+/*图文详情*/
+.showpicTxt{margin-left:110px;width:400px;height:280px;border:1px solid #eee;padding:10px;}	 
+/*图文标签*/
+.summry{line-height:30px;height:180px;}
+.tctTags{margin-top:20px;}
+.tctTags label{display:inline-block;margin:0 10px;color:#666;} 
+/*试题详情*/
+.questions{margin-left:120px;margin-bottom:20px;}
+.answerList{margin-bottom:40px;}

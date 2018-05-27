@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>初级关卡</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/index.css" />	
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+	<div class="main-wrap clearfix">
+		<div class="logo">
+			<img src="img/logo.png" alt="蓝桥软件学院">
+		</div>
+		<div class="user-menu">
+			<a href="?c=home&amp;m=info">个人首页</a>
+			<span class="username">刘夏天</span>
+			<img class="circle" src="img/head2.png">
+			<div class="user-second-menu">
+				<a href="?c=slogin&amp;m=out">退出登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+		
+		<div class="page-wrap">
+			<div class="side">
+				<img class="head circle" src="img/head2.png">
+				<p class="name">刘夏天</p>
+				<ul>
+					<li>
+						<a href="?c=home&amp;m=list">
+							<i class="left-a"></i>
+							<span>学习路线</span>
+						</a>
+					</li>
+					<li>
+						<a href="?c=stu&amp;m=info&amp;id=670">
+							<i class="left-b"></i>							
+							<span>课堂</span>
+						</a>
+					</li>
+					<li class="act">
+						<a href="?c=stu&amp;m=rlist">
+							<i class="left-c"></i>
+							<span>考试回顾</span>
+						</a>
+					</li>
+					<li>
+						<a href="?c=uexam&amp;m=list">
+							<i class="left-d"></i>
+							<span>统一考试</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">	
+				
+				<div class="p-main">
+					<p class="text-c mt25 fs22 c-title">我是基础关卡名称</p>
+					<div class="classWorkCnt">						
+						1 本关卡为 必过关卡，通过后可开启后面的课程继续学习，未通过则不能开启后面的课程；<br/>
+						2 本次关卡为考试关卡，考试时间为 100 分钟，时间结束后，系统将自动提交试卷，请及时录入答题内容；<br/>
+						3 如本次挑战未通过，可再次挑战，每次练习间隔 100 分钟；
+					</div>
+					<p class="text-c mt10"><a href="#" class="btn-green aBtn">开始挑战</a></p>
+					<p class="text-c twice">已经挑战 3次，<a href="#" class="c-green">查看上次成绩</a></p>					
+				</div><!-- 开始挑战 -->
+				
+				<div class="p-main">
+					<p class="text-c stuBigIocn"><img src="img/stu-wait.png" alt="等待" width="120"></p>
+					<div class="classWorkCnt">						
+						<p class="text-c mt25 fs22 c-title">关卡成绩马上出来，请耐心等待...</p>
+					</div>
+					<p class="text-c mt20 fs14 c-gray">在等待成绩的同时，你可以...</p>
+					<p class="text-c mt20"><a href="#" class="btn-green aBtn">学习新课程</a></p>			
+				</div><!-- 等待成绩 -->
+				
+				<div class="p-main">
+					<p class="text-c stuBigIocn"><img src="img/stu-success.png" alt="等待" width="120"></p>
+					<div class="classWorkCnt text-c">						
+						<p class="mt25 fs22 c-title">恭喜，你已成功通过本次 <span>基础关卡</span></p>
+						<p class="fs16 mt20">你的通关成绩为</p>
+						<p class="mt20 fs22"><label class="score">62</label>分</p>
+					</div>
+					<p class="text-c mt20 fs14 c-gray">接下来，你可以...</p>
+					<p class="text-c mt20"><a href="#" class="btn-green aBtn">学习新课程</a><a href="#" class="btn-blue aBtn ml25">挑战进阶关卡</a></p>	
+					<p class="text-c twice">共经挑战 3次</p>	
+				</div><!-- 挑战成功 -->
+				
+				<a href="#" class="c-btn left"><img src="img/icon/left.png" alt="上一节"></a>
+				<a href="#" class="c-btn right"><img src="img/icon/right.png" alt="下一节"></a>
+			</div>
+		</div>
+		
+		{include file="footer.tpl"} 
+		
+	</div>
+	
+	<div class="return-top" title="返回顶部"></div>
+	
+	<script src="js/libs/require.min.js" data-main="js/exercise.js"></script>
+</body>
+</html>

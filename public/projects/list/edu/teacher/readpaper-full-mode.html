@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>批阅试卷-整卷模式</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/correct-exam.css">
+	<link href="js/libs/highlight/solarized-dark.min.css" rel="stylesheet">
+</head>
+
+<body class="correct-exam paper-mode">
+	<div class="page">
+		<div class="header">
+			<div class="main-wrap clearfix">
+				<div class="logo">
+					<a href="?c=student&m=list">
+						<img src="img/logo.png" />
+					</a>
+				</div>
+				<div class="user-menu">
+					<!--<a href="">我的学习</a>-->
+					<div class="drop">
+						<span>刘老师</span>
+						<a href="?c=tlogin&m=out">退出登录</a>
+					</div>
+					<img class="circle" src="img/head.png" />
+				</div>
+			</div>
+		</div>
+		<div class="page-wrap">
+			<div class="side">
+				<img class="head circle" src="img/head.png" />
+				<p class="name">刘老师</p>
+				<ul>
+					<li class="stu-mng <br />
+<b>Notice</b>:  Undefined index: left in <b>/web/newedu/apps/themes/default/templates/teacher/left.tpl.php</b> on line <b>5</b><br />
+">
+						<div class="icon"></div>
+						<a href="?c=student&m=list">
+							<span>我的学生</span>
+						</a>
+					</li>
+					<li class="paper-mng <br />
+<b>Notice</b>:  Undefined index: left in <b>/web/newedu/apps/themes/default/templates/teacher/left.tpl.php</b> on line <b>11</b><br />
+">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>我的待阅</span>
+						</a>
+					</li>
+					<li class="exam-mng">
+						<div class="icon"></div>
+						<a href="?c=teaquestions&m=questionlist&flag=1">
+							<span>统一考试</span>
+						</a>
+					</li>
+					<li class="stage-exam">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>阶段考试报名</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">
+
+				<div class="exam-info">
+					<p>考卷ID：
+						<span>1030</span>
+					</p>
+					<p>考试名称：
+						<span>第一章的中级基础关卡</span>
+					</p>
+					<p>考试时间：
+						<span>01:00</span>
+					</p>
+				</div>
+				<form action="?c=paper&m=save" method="post">
+					<input type="hidden" name="flag" value="9">
+					<input type="hidden" name="paper_id" value="1030">
+
+
+					<div class="question-list">
+						<h1>三、简答（共 2 题）</h1>
+
+						<div class="box">
+							<p class="index">1</p>
+							<div class="question-box">
+								<!-- 题目： -->
+								<div class="title">请解释Java跨平台的原理</div>
+								<!-- 解析： -->
+								<div class="ext-block">
+									<p>解析：</p>
+									<div class="main">
+										<div class="content">Java语言使用Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言编译程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。Java虚拟机在执行字节码时，把字节码解释成具体平台上的机器指令执行。这就是Java的能够“一次编译，到处运行”的原因。</div>
+									</div>
+								</div>
+								<!--说明-->
+								<!--<div class="ext-block">
+									<p>说明：</p>
+									<div class="main">
+										<div class="content"><br />
+<b>Notice</b>:  Undefined index: data in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>100</b><br />
+</div>
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>code</code></pre>
+												<p>源码<br />
+<b>Notice</b>:  Undefined index: v in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>104</b><br />
+</p>
+											</div>
+											<div class="img-list clearfix">
+												<div class="block">
+													<div data-lightbox="<br />
+<b>Notice</b>:  Undefined index: v in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>108</b><br />
+" style="background-image: url(<br />
+<b>Notice</b>:  Undefined index: v in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>108</b><br />
+);"></div>
+													<p>图<br />
+<b>Notice</b>:  Undefined index: v in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>109</b><br />
+</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>-->
+
+								<!--学生答案-->
+								<div class="ext-block">
+									<p>学生答案：</p>
+									<div class="main">
+										<div class="content">gfgfsfhfghgffghffhgf</div>
+										<!--<div class="paper-attach">
+											<div class="pre">
+												<pre><code>gfgfsfhfghgffghffhgf</code></pre>
+											</div>
+										</div>-->
+									</div>
+								</div>
+
+								<!--参考答案-->
+								<div class="ext-block">
+									<p>参考答案：</p>
+									<div class="main">
+										<div class="content">Java语言使用Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言编译程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。Java虚拟机在执行字节码时，把字节码解释成具体平台上的机器指令执行。这就是Java的能够“一次编译，到处运行”的原因。</div>
+										<!--																							<div class="paper-attach">
+													<div class="pre">
+														<pre><code><br />
+<b>Warning</b>:  Illegal string offset 'content' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>140</b><br />
+J</code></pre>
+													</div>
+												</div>
+																					-->
+									</div>
+								</div>
+
+							</div>
+
+
+							<div class="answer-box">
+								<div class="grade-box">
+									<div class="clearfix">
+										<div class="fl">
+											<p class="t">评分：</p>
+											<div class="grade">
+												<span></span>尚未打分</div>
+										</div>
+										<div class="fr clearfix">
+											<label class="label l10">
+												<input type="radio" name="s1224_14_296" value="10" />10</label>
+											<label class="label l9">
+												<input type="radio" name="s1224_14_296" value="9" />9</label>
+											<label class="label l8">
+												<input type="radio" name="s1224_14_296" value="8" />8</label>
+											<label class="label l7">
+												<input type="radio" name="s1224_14_296" value="7" />7</label>
+											<label class="big">
+												<input type="radio" name="s1224_14_296" value="6" />6</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="5" />5</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="4" />4</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="3" />3</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="2" />2</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="1" />1</label>
+											<label>
+												<input type="radio" name="s1224_14_296" value="0" />0</label>
+										</div>
+									</div>
+									<div class="comment-wrap">
+										<p class="t">评语：</p>
+										<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1224_14_296"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="box">
+							<p class="index">2</p>
+							<div class="question-box">
+								<!-- 题目： -->
+								<div class="title">一个教授逻辑学的教授，有三个学生，而且三个学生均非常聪明！&ensp;一天教授给他们出了一个题，教授在每个人脑门上贴了一张纸条并告诉他们，每个人的纸条上都写了一个正整数，且某两个数的和等于第三个！（每个人可以看见另两个数，但看不见自己的）&ensp;教授问第一个学生：你能猜出自己的数吗？回答：不能，问第二个，不能，第三个，不能，再问第一个，不能，第二个，不能，第三个：我猜出来了，是144！教授很满意的笑了。请问您能猜出另外两个人的数吗？</div>
+								<!-- 解析： -->
+								<div class="ext-block">
+									<p>解析：</p>
+									<div class="main">
+										<div class="content">略</div>
+									</div>
+								</div>
+								<!--说明-->
+								<!--<div class="ext-block">
+									<p>说明：</p>
+									<div class="main">
+										<div class="content"><br />
+<b>Notice</b>:  Undefined index: data in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>100</b><br />
+</div>
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>code</code></pre>
+												<p>源码<br />
+<b>Warning</b>:  Illegal string offset 'num' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>104</b><br />
+J</p>
+											</div>
+											<div class="img-list clearfix">
+												<div class="block">
+													<div data-lightbox="<br />
+<b>Warning</b>:  Illegal string offset 'image' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>108</b><br />
+J" style="background-image: url(<br />
+<b>Warning</b>:  Illegal string offset 'image' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>108</b><br />
+J);"></div>
+													<p>图<br />
+<b>Warning</b>:  Illegal string offset 'num' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>109</b><br />
+J</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>-->
+
+								<!--学生答案-->
+								<div class="ext-block">
+									<p>学生答案：</p>
+									<div class="main">
+										<div class="content">123456</div>
+										<!--<div class="paper-attach">
+											<div class="pre">
+												<pre><code>123456</code></pre>
+											</div>
+										</div>-->
+									</div>
+								</div>
+
+								<!--参考答案-->
+								<div class="ext-block">
+									<p>参考答案：</p>
+									<div class="main">
+										<div class="content">经过第一轮，说明任何两个数都是不同的。第二轮，前两个人没有猜出，说明任何一个数都不是其它数的两倍。现在有了以下几个条件： *&ensp;每个数大于0 *&ensp;两两不等 *&ensp;任意一个数不是其他数的两倍。 每个数字可能是另两个之和或之差，第三个人能猜出144，必然根据前面三个条件排除了其中的一种可能。假设：是两个数之差，即x－y＝144。这时条件1（x，y&amp;gt;0）和条件2（x！＝y）都满足，所以要否定x＋y必然要使条件3不满足，即x＋y＝2y，解得x＝y，不成立（不然第一轮就可猜出），所以不是两数之差。因此是两数之和，即x＋y＝144。同理，这时条件1，条件2都满足，必然要使条件3不满足，即x－y＝2y，两方程联立，可得x＝108，y＝36。
+										</div>
+										<!--																							<div class="paper-attach">
+													<div class="pre">
+														<pre><code><br />
+<b>Warning</b>:  Illegal string offset 'content' in <b>/web/newedu/apps/themes/default/templates/teacher/paper_detail.tpl.php</b> on line <b>140</b><br />
+�</code></pre>
+													</div>
+												</div>
+																					-->
+									</div>
+								</div>
+
+							</div>
+
+
+							<div class="answer-box">
+								<div class="grade-box">
+									<div class="clearfix">
+										<div class="fl">
+											<p class="t">评分：</p>
+											<div class="grade">
+												<span></span>尚未打分</div>
+										</div>
+										<div class="fr clearfix">
+											<label class="label l10">
+												<input type="radio" name="s1223_14_295" value="10" />10</label>
+											<label class="label l9">
+												<input type="radio" name="s1223_14_295" value="9" />9</label>
+											<label class="label l8">
+												<input type="radio" name="s1223_14_295" value="8" />8</label>
+											<label class="label l7">
+												<input type="radio" name="s1223_14_295" value="7" />7</label>
+											<label class="big">
+												<input type="radio" name="s1223_14_295" value="6" />6</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="5" />5</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="4" />4</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="3" />3</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="2" />2</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="1" />1</label>
+											<label>
+												<input type="radio" name="s1223_14_295" value="0" />0</label>
+										</div>
+									</div>
+									<div class="comment-wrap">
+										<p class="t">评语：</p>
+										<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1223_14_295"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="question-list">
+						<h1>四、程序设计（共 2 题）</h1>
+						<div class="box">
+							<p class="index">1</p>
+							<div class="question-box">
+								<!-- 题目： -->
+								<div class="title">输入一个数据n，计算斐波那契数列(Fibonacci)的第n个值
+									<br /> 1&ensp;&ensp;1&ensp;&ensp;2&ensp;&ensp;3&ensp;&ensp;5&ensp;&ensp;8&ensp;&ensp;13&ensp;&ensp;21&ensp;&ensp;34规律：一个数等于前两个数之和
+									<br />
+								</div>
+								<!-- 解析： -->
+								<div class="ext-block">
+									<p>解析：</p>
+									<div class="main">
+										<div class="content">见答案</div>
+									</div>
+								</div>
+								<!--学生答案-->
+								<div class="ext-block">
+									<p>学生答案：</p>
+									<div class="main">
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>gfhgfhgfghfhsfhg</code></pre>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--参考答案-->
+								<div class="ext-block">
+									<p>参考答案：</p>
+									<div class="main">
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>public&ensp;class&ensp;Fibonacci{
+&ensp;&ensp;public&ensp;static&ensp;void&ensp;main(String&ensp;args[]){
+&ensp;&ensp;&ensp;&ensp;int&ensp;n&ensp;=&ensp;Integer.parseInt(args[0]);
+&ensp;&ensp;&ensp;&ensp;int&ensp;n1&ensp;=&ensp;1;//第一个数
+&ensp;&ensp;&ensp;&ensp;int&ensp;n2&ensp;=&ensp;1;//第二个数
+&ensp;&ensp;&ensp;&ensp;int&ensp;sum&ensp;=&ensp;0;//和
+&ensp;&ensp;&ensp;&ensp;if(n&amp;lt;=0){
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;System.out.println(“参数错误!”);
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return;
+&ensp;&ensp;&ensp;&ensp;}
+&ensp;&ensp;&ensp;&ensp;if(n&amp;lt;=2){
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;sum&ensp;=&ensp;1;
+&ensp;&ensp;&ensp;&ensp;}else{
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;for(int&ensp;i=3;i&amp;lt;=n;i++){
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;sum&ensp;=&ensp;n1+n2;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;n1&ensp;=&ensp;n2;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;n2&ensp;=&ensp;sum;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}
+&ensp;&ensp;&ensp;&ensp;}
+&ensp;&ensp;&ensp;&ensp;System.out.println(sum);
+&ensp;&ensp;}
+}
+</code></pre>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="answer-box">
+								<div class="grade-box">
+									<div class="clearfix">
+										<div class="fl">
+											<p class="t">评分：</p>
+											<div class="grade">
+												<span></span>尚未打分</div>
+										</div>
+										<div class="fr clearfix">
+											<label class="label l10">
+												<input type="radio" name="s1222_14_294" value="10" />10</label>
+											<label class="label l9">
+												<input type="radio" name="s1222_14_294" value="9" />9</label>
+											<label class="label l8">
+												<input type="radio" name="s1222_14_294" value="8" />8</label>
+											<label class="label l7">
+												<input type="radio" name="s1222_14_294" value="7" />7</label>
+											<label class="big">
+												<input type="radio" name="s1222_14_294" value="6" />6</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="5" />5</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="4" />4</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="3" />3</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="2" />2</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="1" />1</label>
+											<label>
+												<input type="radio" name="s1222_14_294" value="0" />0</label>
+										</div>
+									</div>
+									<div class="comment-wrap">
+										<p class="t">评语：</p>
+										<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1222_14_294"></textarea>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="box">
+							<p class="index">2</p>
+							<div class="question-box">
+								<!-- 题目： -->
+								<div class="title">案例描述:实现效果图，背景图+多个H1标签(使用标签有:h1-hn,ul-li,dl-dt-dd,ol-li)
+									<br />
+									<br /> 效果图
+									<br />
+									<br /> (见题目图片1)
+								</div>
+								<div class="question-content">
+									<div class="paper-attach">
+
+										<div class="img-list clearfix">
+											<div class="block">
+												<div data-lightbox="http://10.100.110.250:8084/newedu/upload/photo/questions/images/exam/20170308/1488955784535076719.png"
+												 style="background-image: url(http://10.100.110.250:8084/newedu/upload/photo/questions/images/exam/20170308/1488955784535076719.png);"></div>
+												<p>图1</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 解析： -->
+								<div class="ext-block">
+									<p>解析：</p>
+									<div class="main">
+										<div class="content">略</div>
+									</div>
+								</div>
+								<!--学生答案-->
+								<div class="ext-block">
+									<p>学生答案：</p>
+									<div class="main">
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>aaaaaaaa</code></pre>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--参考答案-->
+								<div class="ext-block">
+									<p>参考答案：</p>
+									<div class="main">
+										<div class="paper-attach">
+											<div class="pre">
+												<pre><code>
+&amp;lt;!DOCTYPE	html&ensp;PUBLIC	&amp;quot;-//W3C//DTD&ensp;XHTML&ensp;1.1&ensp;Transitional//EN&amp;quot;&ensp;&amp;quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;&amp;gt;
+&amp;lt;html	xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&ensp;&amp;lt;meta&ensp;http-equiv=&amp;quot;Content-Type&amp;quot;&ensp;content=&amp;quot;text/html;&ensp;charset=gb2312&amp;quot;	/&amp;gt;
+&ensp;&amp;lt;title&amp;gt;常用于页面布局的块级标签练习&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&ensp;&ensp;&ensp;&amp;lt;div&amp;gt;&ensp;&ensp;&ensp;&ensp;&ensp;
+	&ensp;&amp;lt;h1&amp;gt;商品信息&amp;lt;/h1&amp;gt;&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;h2&amp;gt;产品类别&amp;lt;/h2&amp;gt;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;hr/&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;ul&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;数码&amp;lt;/li&amp;gt;	
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;ul&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;笔记本&amp;lt;/li&amp;gt;	
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;手机&amp;lt;/li&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;家电&amp;lt;/li&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;/ul&amp;gt;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;美容&amp;lt;/li&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&amp;lt;li&amp;gt;服装&amp;lt;/li&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&amp;lt;/ul&amp;gt;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&amp;lt;hr/&amp;gt;
+	&ensp;&amp;lt;dl&amp;gt;
+	&amp;lt;dt&amp;gt;联想电脑&amp;lt;/dt&amp;gt;
+	&amp;lt;dd&amp;gt;产品型号：&ensp;联想IdeaPad&ensp;Y450A-TFU(NBA纪念版)&ensp;&amp;lt;/dd&amp;gt;
+	&amp;lt;dd&amp;gt;价格：&ensp;4999元&ensp;&amp;lt;/dd&amp;gt;
+	&amp;lt;dd&amp;gt;所在地：&ensp;北京&ensp;&amp;lt;/dd&amp;gt;
+	&ensp;&amp;lt;/dl&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&amp;lt;hr/&amp;gt;
+	&amp;lt;h2&amp;gt;购物流程&amp;lt;/h2&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&amp;lt;ol&amp;gt;
+	&ensp;&ensp;&amp;lt;li&amp;gt;确认购买信息&amp;lt;/li&amp;gt;
+	&ensp;&ensp;&amp;lt;li&amp;gt;付款到淘宝&amp;lt;/li&amp;gt;
+	&ensp;&ensp;&amp;lt;li&amp;gt;确认收货&amp;lt;/li&amp;gt;
+	&ensp;&ensp;&amp;lt;li&amp;gt;付款给商家&amp;lt;/li&amp;gt;
+	&ensp;&ensp;&amp;lt;li&amp;gt;双方评价&amp;lt;/li&amp;gt;
+&ensp;&ensp;&ensp;&ensp;&amp;lt;/ol&amp;gt;
+&ensp;&ensp;&amp;lt;/div&amp;gt;&ensp;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;</code></pre>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="answer-box">
+								<div class="grade-box">
+									<div class="clearfix">
+										<div class="fl">
+											<p class="t">评分：</p>
+											<div class="grade">
+												<span></span>尚未打分</div>
+										</div>
+										<div class="fr clearfix">
+											<label class="label l10">
+												<input type="radio" name="s1221_14_293" value="10" />10</label>
+											<label class="label l9">
+												<input type="radio" name="s1221_14_293" value="9" />9</label>
+											<label class="label l8">
+												<input type="radio" name="s1221_14_293" value="8" />8</label>
+											<label class="label l7">
+												<input type="radio" name="s1221_14_293" value="7" />7</label>
+											<label class="big">
+												<input type="radio" name="s1221_14_293" value="6" />6</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="5" />5</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="4" />4</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="3" />3</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="2" />2</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="1" />1</label>
+											<label>
+												<input type="radio" name="s1221_14_293" value="0" />0</label>
+										</div>
+									</div>
+									<div class="comment-wrap">
+										<p class="t">评语：</p>
+										<textarea maxlength="250" placeholder="请输入评语（250字以内）" name="comment_1221_14_293"></textarea>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-footer">
+			<div class="submit-box">
+				<div class="clearfix">
+					<p class="t">待阅数量 4，已完成批阅
+						<span id="markedNum">0</span>
+					</p>
+					<button class="btn btn-main" type="button" id="subBtn">
+						<img class="mr15" src="img/icon/read-4.png" />提交批阅结果</button>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="main-wrap">
+					<ul class="link-item clearfix">
+						<li>
+							<a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.54youwei.com/">有为招聘</a>
+						</li>
+					</ul>
+					<div class="clearfix">
+						<div class="info-box">
+							<p>电话：4006-588-662 传真：010-68208666 </p>
+							<p>主办：工业和信息化部人才交流中心 </p>
+							<p>京公网安备 11010802020352号 </p>
+						</div>
+						<div class="info-box">
+							<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+							<p>支持：国信世纪人才服务（北京）有限公司</p>
+							<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal">
+		<div class="main">
+			<a href="javascript:;" class="close"></a>
+			<p class="t">确认提交批阅结果吗？</p>
+			<div class="handle">
+				<!--<a href="javascript:;" class="btn btn-main">确认，并继续批阅下一题</a>-->
+				<div class="clearfix">
+					<a href="javascript:;" class="btn btn-main fl">确认，并返回列表</a>
+					<a href="javascript:;" class="btn btn-main fr">取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/libs/require.min.js" data-main="js/correct-exam-paper.js"></script>
+</body>
+
+</html>

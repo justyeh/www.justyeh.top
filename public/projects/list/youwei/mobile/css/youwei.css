@@ -1,0 +1,493 @@
+﻿h2{
+	font-size: 20px;
+}
+p{
+	font-size: 14px;
+}
+
+body{
+	background-color: #F5F5F5;
+	color: #CCCCCC;
+	font-family: "微软雅黑";
+}
+
+/*header的背景色*/
+.ui-header-positive, .ui-footer-positive{
+	background-color: #04acf7;
+}
+
+/*返回图标样式*/
+header .ui-icon-return{
+	margin-left: 10px;
+	top: 6px;
+	font-size: 26px;
+	line-height: 30px;
+}
+/*返回图标后加字返回首页*/
+header span{
+        	position: absolute;
+        	margin-left: 22px;
+        	font-size: 16px;
+        	line-height: 44px;
+        }
+
+/*修改header的button样式*/
+header .headerBtn{
+	align-items: flex-start;
+	background-color:  #04acf7;
+	border: none;
+	box-sizing: border-box;
+	color: #fff;
+	display: block;
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: -15px;
+	min-width: 55px;
+	padding: 0 11px;
+	position: absolute;
+	right: 10px;
+	top: 22.5px;
+	text-align: center;
+}
+
+
+
+/*内容块样式(eg:个人详情页面)*/
+.divBlock{
+	margin-top: 14px;
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+.divBlock>h2{
+	color: #333333;
+	padding: 8px 0;
+}
+
+
+/*表单分隔块(eg:基本资料页面的自我介绍)*/
+.spliter {
+	background-color: #F5F5F5;
+	height: 50px;
+}
+.spliter h1{
+	color: #777;
+	font-size: 15px;
+	line-height: 50px;
+	padding-left: 10px;
+}
+@media (min-width:321px){
+	.spliter h1{
+		padding-left: 15px;
+	}
+}
+/*表单中的样式*/
+.ui-form .ui-form-item{
+	/*padding: 6px 0;*/
+}
+
+
+.ui-form-item{
+	height: 50px;
+	line-height: 50px;
+}
+
+
+.ui-form .ui-form-item label{
+	color: #777;
+	font-size: 14px;
+}
+.ui-form .ui-form-item input{
+	color: #999;
+	font-size: 14px;
+}
+.ui-form .ui-form-item textarea{
+	color: #999;
+	font-size: 14px;
+}
+.ui-form .ui-form-item select{
+	color: #999;
+	font-size: 14px;
+}
+
+
+#submitBtnDiv{
+	background-color: #F5F5F5 ;
+	margin-top:30px;
+}
+
+/*用于性别*/
+#radioGroup{
+	padding-left: 95px;
+}
+.ui-radio input:before {
+	content: '';
+	display: block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #dfe0e1;
+	border-radius: 13px;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	position: absolute;
+	left: 0;
+	top: 3px;
+}
+
+.ui-radio input:checked:after {
+	content: '';
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: #18b4ed;
+	border-radius: 7px;
+	position: absolute;
+	left: 5px;
+	top: 8px;
+
+}
+
+
+/*继续添加按钮的样式*/
+.addContentDivLink{
+	text-align:center;
+	width:100%;
+	padding-top:10px;
+	color:#04acf7;
+	font-size:15px;
+	cursor:pointer;
+}
+
+/*自定义dialog（取代alert）*/
+.customDialog{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+	background: rgba(0,0,0,.4);
+}
+.customDialog .dialog-cnt{
+	position: relative;
+	top: 160px;
+	margin: 0 auto;
+	border-radius: 6px;
+	width: 270px;
+	background-clip: padding-box;
+	background-color: rgba(253,253,253,.95);
+	pointer-events: auto;
+	font-size: 16px;
+}
+@media (min-height:600px){
+	.customDialog .dialog-cnt{
+		top: 200px;
+	}
+}	
+.customDialog .dialog-bd{
+	min-height: 60px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding: 18px;
+	display: block;
+	text-align: center;
+}
+.customDialog .dialog-bd h4{ 
+	font-size: 16px;
+	color: #333;
+}
+.customDialog .dialog-bd>div{
+	padding-top: 12px;
+	font-size: 14px;
+	color: #666;
+	text-align: left;
+}
+.customDialog  .dialog-ft{
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	display: -webkit-box;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-align: center;
+	border-top: 1px solid #e0e0e0;
+	height: 42px;
+	line-height: 42px;
+}
+.customDialog .dialog-ft button{
+	color: #00a5e0;
+	text-align: center;
+	width: 100%;
+	line-height: 41px;
+	background: transparent;
+	display: block;
+	margin: 0!important;
+	-webkit-box-flex: 1;
+}
+.customDialog #cancle{
+	border-bottom-left-radius: 6px;
+	border-right: 1px #e0e0e0 solid;
+}
+.customDialog #confirm{
+	border-bottom-right-radius: 6px;
+}
+.customDialog .dialog-ft button:hover{
+	background-color: #00a5e0;
+	color: #fff;
+	border: none;
+}
+        
+     
+
+
+
+
+/*基本资料页面*/
+#personaIntroduction{
+	height: 180px;
+	
+}
+#personaIntroduction textarea{
+	height: 175px;
+	padding: 10px 0;
+}
+#interest{
+	height: 80px;
+	
+}
+
+#interest textarea{
+	height: 75px;
+	padding: 10px 0;
+}
+
+/*标签按钮*/
+.badge{
+				border: 1px solid #92e8d7;
+			    color: #92e8d7;
+			    border-radius: 3px;
+				display: inline-block;
+			    text-align: center;
+			    font-size: 13px;
+			    height: 18px;
+			    line-height: 18px;
+			  	border-radius: 8px;
+			    padding: 0 8px;
+			    vertical-align: middle;
+			}
+
+
+/*继续添加荣誉*/
+#addAward{
+	background-color: #CCCCCC;
+	display: block;
+	width: 100%;
+	color: #04ACF7;
+	padding: 25px 10px;
+	font-size: 16px;
+	text-align: center;
+}
+#addAward p{
+	vertical-align: middle;
+}
+
+/*身份提示页面*/
+#entLogo{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+#entLogo div{
+	width: 90px;
+	height: 90px;
+	margin: 0 auto;
+}
+#hrIntroduce .ui-btn{
+	border: none !important;
+}
+
+#jobRequire ul li{
+	list-style-type: circle ;
+	font-size: 12px;
+	padding: 4px 4px;
+}
+.bottomStaticBtn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #4A545C;
+	font-size: 20px;
+	line-height: 50px;
+	text-align: center;
+	color: #FFF;
+	
+}
+
+
+/*删除荣誉、技能...*/
+.deleteDiv{
+	text-align:right;
+	width: 100%;
+	height: 44px;
+}
+.deleteDiv a{
+	color: #C0C0C0;
+	font-size: 14px;
+	line-height: 44px;
+	padding-right: 10px;
+}
+
+
+
+/*个人中心页面样式*/
+#personDetail #seekerLogo{
+	padding: 40px 0 20px 0;
+	text-align: center;
+	background-color: #04ACF7;
+	color: #FFFFFF;
+}
+#personDetail  #seekerLogo .seekerHead img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border:solid #FFFFFF 2px;
+}
+
+#personDetail #educational{
+	color: #FFFFFF;
+	padding: 14px 0;
+	text-align: left;
+	background-color: #059CE0;
+}
+
+
+#personDetail #basicInfo{
+	background-color: #FFFFFF;
+	padding: 10px 0;
+	color: #666;
+}
+#personDetail #basicInfo .ui-col{
+	padding: 2px 0;
+}
+
+#personDetail #seekerLogo h2{
+	font-size: 24px;
+}
+#personDetail #seekerLogo p{
+	font-size: 16px;
+}
+
+#personDetail .divBlock p{
+	color: #666;
+	padding: 5px 0;
+	font-size: 16px;
+}
+
+#personDetail .divBlock h2{
+	color: #333;
+	font-size: 18px;
+}
+#personDetail .divBlock h2>img{
+	padding-right: 10px;
+	padding-bottom: 3px;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+#personDetail #eduBackground .ui-col img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+#personDetail #eduBackground .ui-col h3{
+	color: #333333;
+	padding-bottom: 4px;
+}
+#personDetail #eduBackground .ui-col p{
+	font-size: 13px;
+	padding: 1px 0;
+}
+/*职位列表页面*/
+#jobList #right button{
+	border:1px solid #13cea9;
+	color:#13cea9;
+	border-radius:3px;
+	padding:1px 4px;
+	margin-bottom:0px;
+}
+
+
+
+/*个人中心页面*/
+#personCenter #personDesc{
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+	display: block;
+	height: 83px;
+	padding: 10px 0;
+}
+#personCenter .ui-col-5{
+	text-align: left;
+}
+
+#personCenter .ui-col-5>img{
+        		margin-left: 10px;
+        		margin-top: 9px;
+        		width: 65px;
+        		height: 65px;
+        		vertical-align: middle;
+        		border-radius: 50%;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+        	}
+
+#personCenter #personDesc .ui-col-3{
+	padding-left: 20px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+#personCenter #personDesc h3 {
+    color: #333333;
+    font-size: 18px;
+    line-height: 30px;
+    margin-top: 5px;
+}
+
+#personCenter #personDesc p {
+    color: #999;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+#personCenter .ui-list-info h4 a{
+	color: #333;
+	font-size: 16px;
+	width: 100%;
+	display: inline-block;
+}
+#personCenter .ui-list-thumb>span{
+	background-size: 36px 36px;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+#personCenter .ui-list li{
+	height: 50px;
+}
+#personCenter .ui-list-info{
+	padding-top: 3px;
+}
+#personCenter .ui-list-thumb>span{
+	margin-top: -5px;
+	display:inline-block;
+}
+
+
+
+

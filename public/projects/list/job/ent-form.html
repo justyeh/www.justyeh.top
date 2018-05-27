@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>新增企业</title>
+    <link href="" type="image/x-icon" rel="SHORTCUT ICON" />
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <style type="text/css">
+        #logo .errorTip{
+            position: absolute;
+            top: 18px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-new">
+    <h1 class="header">公司信息</h1>
+    <form action="?c=enterprise&m=add" method="post" id="entReg" enctype="multipart/form-data">
+        <div class="form_block clearfix " id="logo">
+            <h2 class="title">LOGO：</h2>
+            <div class="form-r">
+                <img src="images/upload_icon.png" id="entLogo"/>
+                <input type="file" name="logo" class="upload" id="imgInput"/>
+                <a href="javaScript:;">点击上传</a>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+
+
+        <div class="form_block clearfix">
+            <h2 class="title">企业名称：</h2>
+            <div class="form-r">
+                <input type="text" name="enterprise" class="input-text" placeholder="请输入企业名称"/>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+
+        <div class="form_block clearfix">
+            <h2 class="title">企业性质：</h2>
+            <div class="form-r">
+                <div class="select select256">
+                    <label></label>
+                    <select name="nature_id">
+                        <option value="0">企业性质</option>
+                                                <option value="1">国企</option>
+                                                <option value="2">外商独资</option>
+                                                <option value="3">代表处</option>
+                                                <option value="4">合资</option>
+                                                <option value="5">民营</option>
+                                                <option value="6">股份制企业</option>
+                                                <option value="7">上市公司</option>
+                                                <option value="8">国家机关</option>
+                                                <option value="9">事业单位</option>
+                                                <option value="10">其他</option>
+                                            </select>
+                    <span class="dropdown"></span>
+                </div>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+
+        <div class="form_block clearfix">
+            <h2 class="title">地点：</h2>
+            <div class="form-r">
+                <div id="province_city">
+                    <div class="select select120 mright12">
+                        <label></label>
+                        <select name="provice" id="province" onchange="getcity()">
+                            <option value="0">省</option>
+
+                            
+                            <option c_id="34" value="1">安徽</option>
+
+                            
+                            <option c_id="11" value="19">北京</option>
+
+                            
+                            <option c_id="50" value="38">重庆</option>
+
+                            
+                            <option c_id="35" value="79">福建</option>
+
+                            
+                            <option c_id="62" value="89">甘肃</option>
+
+                            
+                            <option c_id="44" value="104">广东</option>
+
+                            
+                            <option c_id="45" value="126">广西</option>
+
+                            
+                            <option c_id="52" value="141">贵州</option>
+
+                            
+                            <option c_id="46" value="151">海南</option>
+
+                            
+                            <option c_id="13" value="155">河北</option>
+
+                            
+                            <option c_id="23" value="167">黑龙江</option>
+
+                            
+                            <option c_id="41" value="181">河南</option>
+
+                            
+                            <option c_id="42" value="199">湖北</option>
+
+                            
+                            <option c_id="43" value="213">湖南</option>
+
+                            
+                            <option c_id="15" value="228">内蒙古</option>
+
+                            
+                            <option c_id="32" value="241">江苏</option>
+
+                            
+                            <option c_id="36" value="255">江西</option>
+
+                            
+                            <option c_id="22" value="267">吉林</option>
+
+                            
+                            <option c_id="21" value="277">辽宁</option>
+
+                            
+                            <option c_id="64" value="292">宁夏</option>
+
+                            
+                            <option c_id="63" value="297">青海</option>
+
+                            
+                            <option c_id="14" value="306">山西</option>
+
+                            
+                            <option c_id="37" value="318">山东</option>
+
+                            
+                            <option c_id="31" value="336">上海</option>
+
+                            
+                            <option c_id="51" value="356">四川</option>
+
+                            
+                            <option c_id="12" value="378">天津</option>
+
+                            
+                            <option c_id="54" value="397">西藏</option>
+
+                            
+                            <option c_id="65" value="405">新疆</option>
+
+                            
+                            <option c_id="53" value="420">云南</option>
+
+                            
+                            <option c_id="33" value="437">浙江</option>
+
+                            
+                            <option c_id="61" value="449">陕西</option>
+
+                                                    </select>
+                        <span class="dropdown"></span>
+                    </div>
+                    <div class="select select120">
+                        <label>市/地区</label>
+                        <select name="city_id" id="citys">
+                            <option value="0">市/地区</option>
+                        </select>
+                        <span class="dropdown"></span>
+                    </div>
+                    <span class="errorTip pt10" id="err_citys"></span>
+                </div>
+                <div id="detailAddr">
+                    <input type="text" name="address" class="input-text mt10" placeholder="请输入企业详细地址"/>
+                    <span class="errorTip" id="err_addr"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="form_block clearfix">
+            <h2 class="title">企业规模：</h2>
+            <div class="form-r">
+                <div class="select select256">
+                    <label>企业规模</label>
+                    <select name="scale_id">
+                        <option value="0">企业规模</option>
+                        
+                        <option value="1">0-50人</option>
+
+                        
+                        <option value="2">50-200人</option>
+
+                        
+                        <option value="3">200-500人</option>
+
+                        
+                        <option value="4">500人以上</option>
+
+                                            </select>
+                    <span class="dropdown"></span>
+                </div>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+        <div class="form_block clearfix">
+            <h2 class="title">企业邮箱：</h2>
+            <div class="form-r">
+                <input type="text" name="email" class="input-text" placeholder="请输入企业邮箱"/>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+        <div class="form_block clearfix">
+            <h2 class="title">HR手机：</h2>
+            <div class="form-r">
+                <input type="text" name="mobile" class="input-text" placeholder="请输入HR手机"/>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+        <div class="form_block clearfix">
+            <h2 class="title">HR姓名：</h2>
+            <div class="form-r">
+                <input type="text" name="real_name" class="input-text" placeholder="请输入HR姓名"/>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+        <div class="form_block clearfix">
+            <h2 class="title">企业介绍：</h2>
+            <div class="form-r">
+                <textarea name="info" class="intro" placeholder="请输入企业介绍"></textarea>
+                <span class="errorTip"></span>
+            </div>
+        </div>
+        <div class="form_block">
+            <input class="submit" type="submit" value="保存"/>
+        </div>
+    </form>
+</div>
+
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/companylist.js"></script>
+<script src="js/third/jquery/jquery.validate-1.13.1.js"></script>
+<script src="js/third/jquery/jquery_validate_extend_cn.js"></script>
+<script src="js/form_new.js"></script>
+<script type="text/javascript">
+    //图片预览效果
+    var entLogo = document.getElementById("entLogo");
+    var input = document.getElementById("imgInput");
+    if(typeof FileReader === 'undefined'){
+        alert("抱歉，你的浏览器版本过低，请升级到高版本")
+        input.setAttribute('disabled','disabled');
+    }else{
+        input.addEventListener('change',readFile,false);
+    }
+    function readFile(){
+        var file = this.files[0];
+        if(!/image\/\w+/.test(file.type)){
+            alert("请确保文件为图像类型")
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            $("#logo img").attr("src",this.result);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>000职位列表--有为</title>
+	<link rel="stylesheet" href="css/frozen.css">
+	<link rel="stylesheet" href="css/youwei.css"/>
+	<style type="text/css">
+		body{
+			background-image: url(img/ent_bg.jpg);
+			background-attachment: fixed;
+			background-size: 100% 100%;
+		}
+		header{
+			background-color: #224A6F !important;
+		}
+		#companyDetail #entDesc {
+			padding: 10px 0 20px 0;
+		}
+		#companyDetail #entDesc .ui-col-2{
+			text-align: center;
+		}
+		#companyDetail #entDesc .ui-col-2 img{
+			width: 100px;
+			height: 100px;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+		}
+		#companyDetail #entDesc .ui-col-3 h3{
+			font-size: 18px;
+			line-height:1.3em;
+			height:40px;
+		}
+		#companyDetail #entDesc .ui-col-3 p{
+			font-size: 16px;
+			margin-top:5px;
+		}
+		#companyDetail #entDescDetail{
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			width: 96%;
+			margin: 0 auto;
+			padding-bottom: 40px;
+		}
+		
+		table {
+			table-layout: fixed;
+		}
+		div, td {
+			word-break: break-all; word-wrap:break-word;
+		}
+
+		#jobList{
+			font-size: 12px;
+			padding:10px 0;
+		}
+		#jobList #left{
+			text-align:  center;
+			margin-left:-10px;
+		}
+		#jobList #left img{
+			width: 52px;
+			height: 52px;
+			margin-top: 7px;
+			border-radius:4px;
+		}
+		#jobList #middle img{
+			width: 14px;
+			height: 14px;
+			vertical-align: bottom;
+		}
+		#jobList #right img{
+			width: 14px;
+			height: 14px;
+			vertical-align: middle;
+			margin-top:-4px;
+			margin-right:3px;
+		}
+		#jobList #right{
+			text-align: right;
+		}
+		#jobList #right button{
+			margin-top: 5px;
+		}
+		#jobListTab .activeli{
+			border-bottom: #04ACF7 solid 2px;
+			color: #04ACF7;
+		}
+
+		.list-a{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+		}
+		#middle h3{
+			font-size:14px;
+		}
+
+		#middle	p{
+			color:#999;
+			font-size:11px;
+		}
+	</style>
+</head>
+<body ontouchstart="">
+<header class="ui-header ui-header-positive">
+	<i class="ui-icon-return" onclick="history.back()"></i>
+</header>
+
+<section class="ui-container" id="companyDetail">
+	<div id="entDesc">
+		<div class="ui-row-flex ui-whitespace" class="imgBlock">
+			<div class="ui-col ui-col-2" style="margin-left:-25px;">
+				<img src="img/ent_logo_1.png"/>
+			</div>
+			<div class="ui-col ui-col-3" style="margin-left:-10px;">
+				<h3 onclick="window.location='?c=user&m=center&id=100168'" style="cursor: pointer">000</h3>
+				<P>规模：200-500人</P>
+				<P>性质：代表处</P>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-tab" id="entDescDetail">
+		<ul class="ui-tab-nav ui-border-b">
+			<li   onclick="window.location='ent-abstract.html';" style="cursor:pointer;">简介</li>
+			<li class="current"  onclick="window.location='ent-job.html';"  style="cursor:pointer;">职位</li>
+		</ul>
+		<ul class="ui-tab-content" style="width:200%">
+			<li id="jonListContainer">
+												<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">44333333</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>实习</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="44333333" href="?c=work&m=detail&id=394"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">6666666</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>实习</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="6666666" href="?c=work&m=detail&id=393"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">55555</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>实习</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="55555" href="?c=work&m=detail&id=392"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">222222</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>实习</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="222222" href="?c=work&m=detail&id=391"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">1111111</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>兼职</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="1111111" href="?c=work&m=detail&id=390"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">444444</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>校招</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="444444" href="?c=work&m=detail&id=389"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">33333333</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>校招</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="33333333" href="?c=work&m=detail&id=388"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">222222</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>校招</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="222222" href="?c=work&m=detail&id=387"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">1111111</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>校招</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="1111111" href="?c=work&m=detail&id=386"></a>
+						</div>
+					</div>
+				</div>
+									<div class="ui-border-b" id="jobList">
+					<div class="ui-row-flex">
+						<div class="ui-col" id="left">
+							<a title="点击查看详情" href="?c=ent&m=detail&id=100168"><img src="img/ent_logo_1.png" /></a>
+						</div>
+						<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;">
+							<div class="ui-row-flex">
+								<div class="ui-col ui-col-3" id="middle">
+									<h3 style="height:24px;overflow: hidden;color:#00a5e0;">000</h3>
+									<P style="height:22px;overflow: hidden">44444</P>
+									<P style="height:16px;overflow: hidden">1222222</P>
+								</div>
+								<div class="ui-col ui-col-2 ui-whitespace-right" id="right">
+									<button>兼职</button>
+									<P style="height: 21px;"></P>
+									<p>11小时前</p>
+								</div>
+							</div>
+							<a class="list-a" title="44444" href="?c=work&m=detail&id=385"></a>
+						</div>
+					</div>
+				</div>
+												</li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="ui-loading-wrap" name="loading">
+		<p>正在加载中...</p>
+		<i class="ui-loading"></i>
+	</div>
+	<p style="text-align:center;" class="endList"></p>
+	<input type="hidden" name="typeId" value="0"/>
+	<input type="hidden" name="companyId" value="100168"/>
+</section>
+<script src="js/zepto.min.js"></script>
+<script src="js/frozen.js"></script>
+<script>
+	$(function(){
+		var pageNum = 0;
+		var cid = $("input[name='typeId']").val();
+		var companyId = $("input[name='companyId']").val();
+		//console.log(cid); return ;
+		$(window).on('scroll',function(){
+			if($(window).scrollTop()>=$(document).height()-$(window).height()){
+				pageNum++;
+				var url = '?c=ent&m=ajax&eid='+companyId+'&cid='+cid+'&p='+pageNum;
+				/*$.ajax({
+					type: 'POST',
+					url: url,
+					success: function(result){
+						var result = $.parseJSON(result);
+						if(result.length){
+							$.each(result, function(i, item) {
+								var isproofHtml = '';
+								if(item.isproof == 1){
+									var isproofHtml = '<img src="img/renzhen.png" />';
+								}
+								$("#jonListContainer").append('<div class="ui-border-b" id="jobList"><div class="ui-row-flex">'+
+									'<div class="ui-col" id="left"><a title="点击查看详情" href="?c=ent&m=detail&id='+item.eid+'"><img src="'+item.logo+'" /></a></div>'+
+									'<div class="ui-col ui-col-3" style="position:relative;margin-left:-5px;"><div class="ui-row-flex">'+
+									'<div class="ui-col ui-col-3" id="middle"><h3 style="height:24px;overflow: hidden;color:#00a5e0;">'+item.enterprise+''+isproofHtml+'</h3><p style="height:22px;overflow: hidden">'+item.job_name+'</p>'+
+									'<P style="height:16px;overflow: hidden">'+item.address+'</P></div><div class="ui-col ui-col-2 ui-whitespace-right" id="right"><button>'+item.tag+'</button>'+
+									'<P style="height: 21px;"></P><p>'+item.add_time+'</p></div></div>'+
+									'<a class="list-a" title="'+item.job_name+'" href="?c=work&m=detail&id='+item.id+'"></a>'+
+									'</div></div></div>');
+								if(i!=result.length-1 && result.length>=10){
+									$("div[name='loading']").show();
+
+								}
+								if(result.length<10){
+									$("div[name='loading']").hide();
+									$(".endList").html("已到尽头");
+								}
+							});
+
+
+						}else{
+							$("div[name='loading']").hide();
+						    $(".endList").html("已到尽头");
+						    return false;
+						}
+
+					}
+				});*/
+
+			}
+		})
+		$("div[name='loading']").hide();
+	})
+</script>
+</body>
+</html>

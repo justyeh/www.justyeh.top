@@ -1,0 +1,422 @@
+@charset "utf-8";
+
+/* 课程 */
+.route-body {
+    overflow-y: scroll;
+}
+.course-box {
+    position: relative;
+}
+
+.course-box .course-list {
+    background: #dfe6ee;
+    position: relative;
+    height: 177px;
+    overflow: hidden;
+}
+
+.course-box .course {
+    display: block;
+    width: 190px;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin: 70px 0 0 10px;
+    float: left;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.course-box .course.up,
+.course-box .course:hover {
+    margin-top: 40px;
+}
+
+.course-box .inner-list {
+    padding-right: 10px;
+}
+
+.course-box .course .poster {
+    height: 100px;
+    background: #eee no-repeat center / cover;
+}
+
+.course-box .course p {
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    text-align: center;
+}
+
+.course-box .course p.study-finished {
+    color: #63a8eb;
+}
+
+.course-box .course p.study-ongoing {
+    color: #3dc8b4;
+}
+
+.course-box .course p.study-notstart {
+    color: #8091a5;
+}
+
+.course-box .course p img {
+    margin: -2px 9px 0 0;
+}
+
+.course-box > p {
+    padding: 10px 30px;
+    border-bottom: solid 4px #3dc8b4;
+    color: #b0bac5;
+}
+
+.course-box .drop {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent #3dc8b4 transparent;
+    border-width: 9px;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+.course-box .drop.down {
+    border-color: #3dc8b4 transparent transparent transparent;
+    bottom: -18px;
+}
+
+/* 滚动条美化 */
+.ps-scrollbar-x-rail {
+    background: #f4f7fa !important;
+    opacity: 1 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    border: 1px solid #d2d6da;
+    border-width: 1px 0;
+    height: 7px !important;
+}
+
+.ps-scrollbar-x {
+	height: 5px !important;
+    background: #63a8eb !important;
+    cursor: e-resize;
+}
+
+/* 课程名称 */
+h2.course-name {
+    font-size: 22px;
+    color: #313541;
+    padding-left: 30px;
+    font-weight: normal;
+    padding-top: 10px;
+}
+
+/* TABS */
+.tabs {
+    padding-bottom: 100px;
+}
+.tabs .menu {
+    padding: 25px 30px 20px 30px;
+    border-bottom: solid 1px #dae0e6;
+}
+
+.tabs .menu a {
+    font-size: 18px;
+    color: #313541;
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.tabs .menu a.act {
+    color: #3dc8b4;
+}
+
+.tabs .content {
+    padding: 0 30px;
+}
+
+/* teacher */
+.tabs .teacher-box h3 {
+    font-weight: normal;
+    font-size: 16px;
+    color: #313541;
+    padding: 20px 0;
+}
+
+.tabs .teacher-box .desc {
+    color: #8091a5;
+    line-height: 20px;
+}
+
+.tabs .teacher-box .teacher {
+    float: left;
+    width: 50%;
+    position: relative;
+    min-height: 100px;
+    padding: 0 100px 0 120px;
+    margin-bottom: 30px;
+}
+
+.tabs .teacher-box .head {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    background: no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tabs .teacher-box .teacher .name {
+    line-height: 18px;
+    font-size: 16px;
+    color: #313541;
+    padding-bottom: 15px;
+}
+
+.tabs .teacher-box .teacher .text {
+    color: #8091a5;
+    line-height: 20px;
+    overflow: hidden;
+    height: 60px;
+}
+
+/* tree */
+.tree-box {
+    padding-top: 10px;
+}
+.tree-box .tree .level1 {
+    padding-left: 0;
+    border-top: none;
+}
+
+/*tree component*/
+.tree ul {
+    display: none;
+}
+.tree div.editable {
+    cursor: pointer;
+    background: url(../img/route/toggle_off.png) no-repeat right 20px center;
+}
+.tree .open > div.editable {
+    background-image: url(../img/route/toggle_on.png);
+}
+.tree .study-this > .editable {
+    background-image: url(../img/route/toggle_act_off.png);
+}
+.tree .study-this.open > .editable {
+    background-image: url(../img/route/toggle_act_on.png);
+}
+.tree li {
+    border-bottom: solid 1px #dae0e6;
+}
+.tree li > div {
+    position: relative;
+}
+.tree li > div p {
+    height: 50px;
+    line-height: 50px;
+    color: #313541;
+}
+/*.tree li>div p>img{margin-top: 17px;}*/
+.tree .study-this > div > p {
+    color: #3dc8b4 !important;
+}
+.tree .study-this > div > .study-unfinish {
+    display: none !important;
+}
+.tree li > div .p1 {
+    background-repeat: no-repeat;
+    background-position: left center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tree li > div .p2 {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    right: 400px;
+    width: 60px;
+    color: #b0bac5;
+}
+.tree li > div .p3 {
+    position: absolute;
+    top: 0;
+    text-align: left;
+    right: 0;
+    width: 370px;
+    color: #8091a5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tree li > div p span {
+    padding-right: 15px;
+}
+.tree a {
+    color: #3dc8b4 !important;
+}
+/*level0*/
+.tree > li {
+    margin-top: -1px;
+}
+.tree > li > div p {
+    height: 70px;
+    line-height: 70px;
+}
+.tree > li > div .p1 {
+    font-size: 20px;
+    padding-left: 40px;
+    background-image: url(../img/route/book1.png);
+}
+/*level1*/
+.tree .level1 {
+    border-top: solid 1px #dae0e6;
+    padding-left: 20px;
+    display: block;
+}
+.tree .level1 > li {
+    border: none;
+    margin: 10px 0;
+}
+.tree .level1 > li > div {
+    background-color: #f4f7fa;
+}
+.tree .level1 > li > div:hover {
+    background-color: #ebeff4;
+}
+.tree .level1 > li > div .p1 {
+    font-size: 16px;
+    padding-left: 40px;
+    background-image: url(../img/route/book2.png);
+    background-position: left 10px center;
+}
+/*level2*/
+.tree .level2 {
+    padding-left: 40px;
+}
+.tree .level2 > li > div .p1 {
+    font-size: 16px;
+    padding-left: 35px;
+    width: 355px;
+}
+.tree .level2 > li > div .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 50px;
+    width: 20px;
+    background: no-repeat left center / 20px auto;
+    z-index: 99;
+}
+.tree .level2 > li > div .icon.study-finished {
+    background-image: url(../img/route/study-finished.png);
+}
+.tree .level2 > li > div .icon.study-notstart {
+    background-image: url(../img/route/study-notstart.png);
+}
+.tree .level2 > li > div .icon.study-ongoing {
+    background-image: url(../img/route/study-ongoing.png);
+    z-index: 100;
+    background-color: #fff;
+}
+.tree .level2 > li > div .icon.study-unfinish {
+    background-image: url(../img/route/study-unfinish.png);
+}
+.tree .level2 > li > div .icon.study-this {
+    background-image: url(../img/route/flag.png);
+    left: -30px;
+}
+/*level3*/
+.tree .level3 {
+    margin-bottom: 10px;
+    padding-left: 35px;
+    border-top: solid 1px #dae0e6;
+}
+.tree .level3 > li:first-child {
+    margin-top: 10px;
+}
+.tree .level3 > li {
+    border-bottom: none;
+    border-left: solid 2px #dae0e6;
+    padding-left: 20px;
+}
+.tree .level3 > li > div {
+    border-bottom: 1px dashed #dae0e6;
+}
+.tree .level3 > li > div .p1 {
+    padding-left: 30px;
+    width: 300px;
+}
+.tree .level3 > li > div .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 50px;
+    width: 30px;
+    background: no-repeat left center / 18px auto;
+}
+.tree .level3 > li > div .icon.icon-video {
+    background-image: url(../img/route/icon-video.png);
+}
+.tree .level3 > li > div .icon.icon-task {
+    background-image: url(../img/route/icon-task.png);
+}
+.tree .level3 > li > div .icon.icon-practice {
+    background-image: url(../img/route/icon-practice.png);
+}
+/*stage：关卡*/
+.tree .stage > ul > li > div {
+    background-color: #fff;
+}
+.tree .stage > ul > li > div:hover {
+    background: #fff;
+}
+.tree .stage > ul > li {
+    border-bottom: solid 1px #dae0e6;
+    margin: 0;
+}
+.tree .stage > ul > li:last-child {
+    border-bottom-width: 0;
+}
+.tree .stage > ul > li .p1 {
+    background-position-x: 0;
+    padding-left: 30px;
+}
+.tree .stage > ul > li .stage-base .p1 {
+    background-image: url(../img/route/stage-base.png);
+}
+.tree .stage > ul > li .stage-advanced .p1 {
+    background-image: url(../img/route/stage-advanced.png);
+}
+.tree > .stage1 > div .p1 {
+    background-image: url(../img/route/stage.png) !important;
+}
+.tree .level1 > li.stage > div .p1 {
+    background-image: url(../img/route/stage.png);
+    background-size: 18px auto;
+    background-position-x: 12px;
+}
+.tree .level2 > li.stage > div .p1 {
+    background-image: url(../img/route/stage.png);
+    background-size: 18px auto;
+    background-position-x: 0;
+}
+.tree .stage3 > .level3 > li {
+    padding-left: 0;
+    border-left: none;
+    border-bottom-style: dashed;
+}
+.tree .stage3 > .level3 > li:last-child {
+    border-bottom-width: 1px;
+}
+.tree .stage3 > ul.level3 > li > div {
+    border: none;
+}

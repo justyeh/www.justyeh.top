@@ -1,0 +1,151 @@
+/*button*/
+
+.btn {
+    display: inline-block;
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 3px;
+    transition: background-color ease 0.2s;
+}
+
+.btn-small {
+    padding: 3px 6px;
+    border-radius: 2px;
+}
+
+.btn-large {
+    padding: 10px 20xp;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btn-default {
+    background: rgb(235, 235, 235);
+    color: rgb(80, 80, 80)
+}
+
+.btn-default:hover {
+    background: rgb(220, 220, 220);
+}
+
+.btn-main {
+    background: rgb(51, 204, 250);
+}
+
+.btn-main:hover {
+    background: rgb(31, 184, 230);
+}
+
+.btn-danger {
+    background: rgb(255, 64, 129);
+}
+
+.btn-danger:hover {
+    background: rgb(245, 54, 119);
+}
+
+.btn-group .btn {
+    margin: 0 5px;
+}
+
+.btn-group .btn:first-child {
+    margin-left: 0px;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0
+}
+
+
+/*登录*/
+
+.login {
+    background-color: #193c6d;
+    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
+    background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
+    background-image: -webkit-linear-gradient(135deg, #003073, #029797);
+    background-image: -moz-linear-gradient(45deg, #003073, #029797);
+    background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
+    background-image: -o-linear-gradient(45deg, #003073, #029797);
+    background-image: linear-gradient(135deg, #003073, #029797);
+    text-align: center;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.login #bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login .app {
+    justify-content: center;
+    align-items: center;
+}
+
+.login .head {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: 0 auto 20px auto;
+}
+
+.login .form {
+    width: 360px;
+    height: 400px;
+}
+
+.login .form-group {
+    margin-bottom: 25px;
+    position: relative;
+    font-size: 16px;
+}
+
+.login label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    line-height: 40px;
+    text-align: center;
+    color: #f7fafc;
+}
+
+.login input,
+.login button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.login input {
+    background: transparent;
+    border: solid 1px #f7fafc;
+    text-indent: 30px;
+}
+
+.login button:focus,
+.login input:focus {
+    box-shadow: 0 0 8px rgba(250, 250, 250, 0.9);
+}
+
+.login button {
+    border: none;
+    font-size: 20px;
+    background: rgba(42, 136, 197, 0.9);
+}
+
+.login button:hover {
+    background: rgba(42, 136, 197, 1);
+}

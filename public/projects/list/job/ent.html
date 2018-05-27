@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <link href="" type="image/x-icon" rel="SHORTCUT ICON" />
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pagination.css"/>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/third/laydate/laydate.js"></script>
+    <script src="js/jquery.pagination.js"></script>
+    <script src="js/companylist.js"></script>
+
+</head>
+<body>
+<!--条件搜索容器-->
+<div class="headerWarp">
+    <h2 class="mainTitle">检索</h2>
+
+    <input type="hidden" name="c" value="Enterprise" />
+    <input type="hidden" name="m" value="main" />
+    <input type="hidden" name="search" value="1" />
+    <div class="select select120 mright7">
+        <label></label>
+        <select name="province" id="province" onchange="getcity()">
+            <option value="0">省</option>
+                        <option c_id="34" value="1" c_name="安徽">安徽</option>
+                        <option c_id="11" value="19" c_name="北京">北京</option>
+                        <option c_id="50" value="38" c_name="重庆">重庆</option>
+                        <option c_id="35" value="79" c_name="福建">福建</option>
+                        <option c_id="62" value="89" c_name="甘肃">甘肃</option>
+                        <option c_id="44" value="104" c_name="广东">广东</option>
+                        <option c_id="45" value="126" c_name="广西">广西</option>
+                        <option c_id="52" value="141" c_name="贵州">贵州</option>
+                        <option c_id="46" value="151" c_name="海南">海南</option>
+                        <option c_id="13" value="155" c_name="河北">河北</option>
+                        <option c_id="23" value="167" c_name="黑龙江">黑龙江</option>
+                        <option c_id="41" value="181" c_name="河南">河南</option>
+                        <option c_id="42" value="199" c_name="湖北">湖北</option>
+                        <option c_id="43" value="213" c_name="湖南">湖南</option>
+                        <option c_id="15" value="228" c_name="内蒙古">内蒙古</option>
+                        <option c_id="32" value="241" c_name="江苏">江苏</option>
+                        <option c_id="36" value="255" c_name="江西">江西</option>
+                        <option c_id="22" value="267" c_name="吉林">吉林</option>
+                        <option c_id="21" value="277" c_name="辽宁">辽宁</option>
+                        <option c_id="64" value="292" c_name="宁夏">宁夏</option>
+                        <option c_id="63" value="297" c_name="青海">青海</option>
+                        <option c_id="14" value="306" c_name="山西">山西</option>
+                        <option c_id="37" value="318" c_name="山东">山东</option>
+                        <option c_id="31" value="336" c_name="上海">上海</option>
+                        <option c_id="51" value="356" c_name="四川">四川</option>
+                        <option c_id="12" value="378" c_name="天津">天津</option>
+                        <option c_id="54" value="397" c_name="西藏">西藏</option>
+                        <option c_id="65" value="405" c_name="新疆">新疆</option>
+                        <option c_id="53" value="420" c_name="云南">云南</option>
+                        <option c_id="33" value="437" c_name="浙江">浙江</option>
+                        <option c_id="61" value="449" c_name="陕西">陕西</option>
+                    </select>
+
+        <span class="dropdown"></span>
+    </div>
+    <div class="select select120 mright7">
+        <label></label>
+        <select name="city" id="citys">
+            <option value="0">市/地区</option>
+        </select>
+        <span class="dropdown"></span>
+    </div>
+    <div class="search">
+        <input name="nameid" type="text" placeholder="输入企业名称或ID" value="">
+        <button class="search_icon" type="button"></button>
+    </div>
+
+    <a href="?c=enterprise&m=add" class="link_btn_info fr">添加企业</a>
+
+</div>
+
+<!--主容器 用于显示数据-->
+<div class="mainWarp">
+    <h2 class="mainTitle">最新注册</h2>
+    <!--数据筛选-->
+    <div class="filter">
+        <a href="?c=enterprise&m=main&ischeck=0" data-key="ischeck=0" role="link" class="link_btn_default">未审核企业</a>
+        <a href="?c=enterprise&m=main&ischeck=1" data-key="ischeck=1" role="link" class="link_btn_default">已审核企业</a>
+        <a href="?c=enterprise&m=main&isproof=0" data-key="isproof=0" role="link" class="link_btn_default">未认证企业</a>
+        <a href="?c=enterprise&m=main&isproof=1" data-key="isproof=1" role="link" class="link_btn_default">已认证企业</a>
+        <!--<a href="?c=enterprise&m=main&ispost=1" data-key="ispost=1" role="link" class="link_btn_default">被申请企业</a>-->
+    </div>
+
+    <!--数据展示-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>头像</th>
+            <th>手机号</th>
+            <th>姓名</th>
+            <th>企业名称</th>
+            <th>企业性质</th>
+            <th>地点</th>
+            <th>公司规模</th>
+            <th>发布职位数</th>
+            <th>最后登录时间</th>
+            <th class="tab_w55">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr>
+            <td>83</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/09/19/1505792383.1718.jpg"></img></td>
+            <td>未填写</td>
+            <td>刘德华</td>
+            <td>映艺娱乐</td>
+            <td>国企</td>
+            <td>广州</td>
+            <td>500人以上</td>
+            <td>0</td>
+            <td>2017-09-25</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=83">查看</a></td>
+        </tr>
+                <tr>
+            <td>82</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/favicon.ico"></img></td>
+            <td>15222792977</td>
+            <td>键盘</td>
+            <td>电脑</td>
+            <td>未填写</td>
+            <td>东城区</td>
+            <td>未填写</td>
+            <td>0</td>
+            <td>2017-09-05</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=82">查看</a></td>
+        </tr>
+                <tr>
+            <td>78</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/09/04/1504503855.729.png"></img></td>
+            <td>15090633138</td>
+            <td>ROC_HR</td>
+            <td>roc_企业</td>
+            <td>国企</td>
+            <td>丰台区</td>
+            <td>500人以上</td>
+            <td>0</td>
+            <td>1970-01-01</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=78">查看</a></td>
+        </tr>
+                <tr>
+            <td>75</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/08/31/1504166762.1345.jpg"></img></td>
+            <td>13101100019</td>
+            <td>11111</td>
+            <td>name</td>
+            <td>外商独资</td>
+            <td>厦门</td>
+            <td>50-200人</td>
+            <td>0</td>
+            <td>1970-01-01</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=75">查看</a></td>
+        </tr>
+                <tr>
+            <td>74</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/08/31/1504163015.5811.png"></img></td>
+            <td>13222222222</td>
+            <td>老杨</td>
+            <td>火星人</td>
+            <td>民营</td>
+            <td>大兴区</td>
+            <td>0-50人</td>
+            <td>2</td>
+            <td>1970-01-01</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=74">查看</a></td>
+        </tr>
+                <tr>
+            <td>73</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/09/04/1504489443.57.jpg"></img></td>
+            <td>未填写</td>
+            <td>夏星星</td>
+            <td>蓝桥</td>
+            <td>代表处</td>
+            <td>石家庄</td>
+            <td>200-500人</td>
+            <td>0</td>
+            <td>2017-09-04</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=73">查看</a></td>
+        </tr>
+                <tr>
+            <td>72</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/08/30/1504086423.3048.png"></img></td>
+            <td>13222222222</td>
+            <td>小兰</td>
+            <td>兰巧巧手工</td>
+            <td>民营</td>
+            <td>西青区</td>
+            <td>0-50人</td>
+            <td>0</td>
+            <td>2017-09-06</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=72">查看</a></td>
+        </tr>
+                <tr>
+            <td>71</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/08/31/1504147196.6241.jpg"></img></td>
+            <td>未填写</td>
+            <td>杨测试</td>
+            <td>蓝桥</td>
+            <td>国企</td>
+            <td>合肥</td>
+            <td>0-50人</td>
+            <td>2</td>
+            <td>2017-09-01</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=71">查看</a></td>
+        </tr>
+                <tr>
+            <td>68</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/2017/08/30/1504085805.3717.jpg"></img></td>
+            <td>13691427788</td>
+            <td>YDM</td>
+            <td>58</td>
+            <td>合资</td>
+            <td>芜湖</td>
+            <td>200-500人</td>
+            <td>3</td>
+            <td>2017-09-13</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=68">查看</a></td>
+        </tr>
+                <tr>
+            <td>65</td>
+            <td><img class="tab_img" src="../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/../../upload/photo/favicon.ico"></img></td>
+            <td>未填写</td>
+            <td>HR杨</td>
+            <td>蓝桥</td>
+            <td>国企</td>
+            <td>大兴区</td>
+            <td>0-50人</td>
+            <td>0</td>
+            <td>2017-08-30</td>
+            <td><a class="tab_a" href="?c=enterprise&m=details&id=65">查看</a></td>
+        </tr>
+                </tbody>
+    </table>
+
+    <input type="hidden" id="total" value="22">
+    <div class="pager mtop20"><ul id="pager"></ul></div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        if($(".filter a").hasClass("link_btn_active")){
+            $(".mainWarp .mainTitle").text($(".filter .link_btn_active").text())
+        }
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>大学生男女比例调查-成绩</title>
+		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<style type="text/css">
+			.weixin{display: none;}
+		</style>
+	</head>
+	
+	<body>
+		<div class="page result5">
+			<img class="bg" src="img/result/result5_bg.jpg" />
+			<img class="boom" src="img/result/roll.png" />
+			<img class="foot" src="img/result/foot.png" />
+			<div class="btns clearfix">
+				<img onclick="showDialog()" src="img/result/flaunt.png" />
+				<img onclick="goRank()" class="fr" src="img/result/rank.png" />
+			</div>
+		</div>
+		
+		<div class="weixin">
+			<img class="colse" src="img/weixin_close.png"/>
+			<img class="main" src="img/weixin_main2.png" onclick="location.href='league.html'" />
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".weixin").click(function(){
+					$(this).hide();
+				})
+			});
+			function showDialog(){
+				$(".weixin").show();
+			}
+			function goRank(){
+				window.location.href = '?c=index&m=rank';
+			}
+		</script>
+	</body>
+</html>

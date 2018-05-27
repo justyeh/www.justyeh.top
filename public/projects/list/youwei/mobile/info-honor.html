@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>编辑我获得的荣誉--有为</title>
+    <link rel="stylesheet" href="css/frozen.css">
+    <link rel="stylesheet" href="css/youwei.css"/>
+    <style type="text/css">
+        input { margin-top:12px;}
+        .ui-form-item{
+        	height: 50px;
+        	line-height: 50px;
+        }
+        .ui-form-item label{
+        	color: #5f5f5f;
+        }
+        
+    </style>
+</head>
+<body ontouchstart="">
+<form method="post">
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>获得荣誉</h1>
+    <button class="headerBtn">保存</button>
+</header>
+
+<section class="ui-container" id="educationBG">
+
+    <div class="ui-form ui-border-t" id="honor_box">
+        
+					<div class="honor_block">
+						<div class="ui-border-b deleteDiv" >
+							<a href="javaScript:;"  data-id = "118">删除</a>
+						</div>
+						<div class="ui-form-item ui-form-item-show ui-border-b">
+							<label for="enrollmentDate">时间</label>
+							<input class="dateTiemSelecter" type="text" id="enrollmentDate" name="entrance_time[118]" value="2015-10-08">
+						</div>
+						<div class="ui-form-item ui-form-item-show ui-border-b" id="honor_detail">
+							<label for="institute">奖项</label>
+							<input type="text" id="institute" name="honor[118]" value="bab">
+						</div>
+						<div style="height: 10px;width: 100%;background-color: #F5F5F5;"></div>
+					</div>
+
+                        </div>
+	
+	<div class="addContentDivLink" onclick="SetHonor();">
+            继续添加荣誉
+        </div>
+    <div class="ui-btn-wrap" id="submitBtnDiv">
+        <button class="ui-btn-lg ui-btn-primary">保存</button>
+    </div>
+
+</section>
+</form>
+
+<script src="js/jquery.js"></script>
+<script src="dev/js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+    <script src="dev/js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+
+    <link href="dev/css/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css" />
+	<link href="dev/css/mobiscroll.animation-2.5.2.css" rel="stylesheet" type="text/css" />
+	<script src="dev/js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+	<script src="dev/js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+       	$(function () {
+			showdate();
+       	 });
+		var i = 1;
+		function SetHonor() {
+		
+			var html = '<div class="honor_block"><div class="ui-border-b deleteDiv" ><a href="javaScript:;" data-id = "">删除</a></div><div class="ui-form-item ui-form-item-show ui-border-b"><label for="enrollmentDate">时间</label><input class="dateTiemSelecter" type="text" id="enrollmentDate_' + i + '" name="entrance_time[\'a_' + i + '\']" value=""></div><div class="ui-form-item ui-form-item-show ui-border-b" id="honor_detail"><label for="institute">奖项</label><input type="text" id="institute" name="honor[\'a_' + i + '\']" value=""></div><div style="height: 10px;width: 100%;background-color: #F5F5F5;"></div></div>';
+			$("#honor_box").append(html);
+			i ++;
+			showdate();
+		}
+		function showdate(){
+			var currYear = (new Date()).getFullYear();	
+			var opt={};
+			opt.date = {preset : 'date'};
+			//opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
+			opt.datetime = {preset : 'datetime'};
+			opt.time = {preset : 'time'};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+		        display: 'modal', //显示方式 
+		        mode: 'scroller', //日期选择模式
+				lang:'zh',
+		        startYear:currYear - 30, //开始年份
+		        endYear:currYear + 30 //结束年份
+			};
+			$(".dateTiemSelecter").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+		}
+
+		$(document).on('click', '.deleteDiv a', function () {
+			if(confirm("确定删除吗？")){
+				$(this).parent().parent().remove();
+				var id = $(this).attr("data-id");
+				if(!isNaN(id)){
+					var url = "?c=user&m=delhonor&id="+id;
+					$.get(url, {} , function(data) {
+						var obj = $.parseJSON(data);
+						alert(obj.msg);
+					});
+				}
+		   	}
+		});
+
+
+
+
+</script>
+</body>
+</html>
+</html>

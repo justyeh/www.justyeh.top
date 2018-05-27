@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>编辑我的教育背景--有为</title>
+    <link rel="stylesheet" href="css/frozen.css">
+    <link rel="stylesheet" href="css/youwei.css"/>
+    
+    
+
+
+    <style type="text/css">
+        input { margin-top:12px;}
+    </style>
+</head>
+<body ontouchstart="">
+<form method="post">
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>教育背景</h1>
+    <button class="headerBtn">保存</button>
+</header>
+
+<section class="ui-container" id="educationBG">
+
+    <div class="ui-form ui-border-t">
+                                <input type="hidden" name="rank[a_2]" value="2">
+                <div class="spliter">
+                    <h1>本科</h1>
+                </div>
+                <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="college">
+                                                    大学
+                                                </label>
+                    <input type="text" id="college" name="school[a_2]" value="">
+                </div>
+                                                <div class="ui-form-item ui-form-item-show ui-border-b">
+                                <label for="institute">学院</label>
+                                <input type="text" id="institute" name="college[a_2]"
+                                       value="">
+                            </div>
+                                            <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="enrollmentDate">入学时间</label>
+                    <input  class="dateTiemSelecter" type="text" id="enrollmentDate" name="entrance_time[a_2]" value="">
+                </div>
+                <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="graduationDate">毕业时间</label>
+                                    <input  class="dateTiemSelecter" type="text" id="graduationDate" name="graduation_time[a_2]">
+                                </div>
+                                            
+                        <div class="ui-form-item ui-form-item-show ui-border-b">
+                            <label for="language">语言能力</label>
+                            <input type="text" id="language" name="language[a_2]" value=" 如英语四级，法语A1">
+                        </div>
+                        
+                        
+                        
+                        
+                        <div class="ui-form-item ui-form-item-show ui-border-b">
+                            <label for="institute">社团</label>
+                            <input type="text" id="institute" name="association[a_2]"
+                                   value="">
+                        </div>
+                        <div class="ui-form-item ui-form-item-show ui-border-b">
+                            <label for="institute">担当职务</label>
+                            <input type="text" id="institute" name="duties[a_2]"
+                                   value="">
+                        </div>
+                                                        <input type="hidden" name="rank[a_0]" value="0">
+                <div class="spliter">
+                    <h1>高中</h1>
+                </div>
+                <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="college">
+                                                    高中
+                                                </label>
+                    <input type="text" id="college" name="school[a_0]" value="">
+                </div>
+                                    <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="enrollmentDate">入学时间</label>
+                    <input  class="dateTiemSelecter" type="text" id="enrollmentDate" name="entrance_time[a_0]" value="">
+                </div>
+                <div class="ui-form-item ui-form-item-show ui-border-b">
+                    <label for="graduationDate">毕业时间</label>
+                                    <input  class="dateTiemSelecter" type="text" id="graduationDate" name="graduation_time[a_0]">
+                                </div>
+                                
+    </div>
+    <div class="ui-btn-wrap" id="submitBtnDiv">
+        <button type="submit" class="ui-btn-lg ui-btn-primary">保存</button>
+    </div>
+
+</section>
+</form>
+	<script src="js/jquery.js"></script>
+
+    <script src="dev/js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+    <script src="dev/js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+
+    <link href="dev/css/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css" />
+	<link href="dev/css/mobiscroll.animation-2.5.2.css" rel="stylesheet" type="text/css" />
+	<script src="dev/js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+	<script src="dev/js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+	
+	<script src="js/toast.js"></script>
+	
+	<script type="text/javascript">
+       	$(function () {
+			var currYear = (new Date()).getFullYear();	
+			var opt={};
+			opt.date = {preset : 'date'};
+			//opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
+			opt.datetime = {preset : 'datetime'};
+			opt.time = {preset : 'time'};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+		        display: 'modal', //显示方式 
+		        mode: 'scroller', //日期选择模式
+				lang:'zh',
+		        startYear:currYear - 50, //开始年份
+		        endYear:currYear + 10 //结束年份
+			};
+			$(".dateTiemSelecter").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+       	 });
+
+		function dd(){
+			var arrSchool = $("input[name^='school']");
+			for (var i = 1 ; i<arrSchool.length ; i++) {
+				if(arrSchool[i].value == ""){
+					toast("请填写学校名称", 800);
+					//arrSchool[i].focus();
+					return false;
+				}
+			}
+			
+			/*$("input[name^='school']").each(function(){
+	       		var val = $(this).val();
+	       		if(val == ""){
+					toast("请填写学校名称", 800);
+					$(this).focus();
+					return false;
+				}else{
+					return true;
+				}
+	       	});*/
+		}
+
+
+		 $("form").submit(function(event){
+       		
+	       		
+	       	//var flag = true;
+	       	$("input[name^='college']").each(function(){
+	       		var val = $(this).val();
+	       		if(val == ""){
+					toast("请填写学院名称", 800);
+					$(this).focus();
+					flag
+					return false;
+				}
+	       	});
+	       	
+	       	
+	       	/*$("input[name^='entrance_time']").each(function(){
+	       		var val = $(this).val();
+	       		if(val == ""){
+					toast("请填写入学时间名称", 800);
+					//$(this).focus();
+					return false;
+				}
+	       	});
+       		$("input[name^='graduation_time']").each(function(){
+	       		var val = $(this).val();
+	       		if(val == ""){
+					toast("请填写毕业时间名称", 800);
+					//$(this).focus();
+					return false;
+				}
+	       	});*/
+			
+			
+			return false;
+		});
+    </script>
+</body>
+</html>

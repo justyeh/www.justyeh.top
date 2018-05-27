@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>方向维护</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">
+		<link rel="stylesheet" href="js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+		<style>
+			.mainL {width:300px;height: 100%;overflow: auto;}
+			.mainR {margin-left:320px;}
+			.addsub{position: absolute;right: 0;top:0}
+			.subL{max-height:284px;overflow:hidden;position:absolute;}
+			.sublist table{margin-top:0;}
+			.sublist table td{height:42px;line-height:21px;word-wrap:break-word;word-break:break-all;overflow:hidden;}		
+			.sublist .desc{width:280px;max-height:42px;line-height:21px;text-align:left;overflow:hidden;position:relative;}
+			.sublist .desc::after {background: #fff none repeat scroll 0 0;content: "......";height: 20px;position: absolute;right: 0;text-align: center;top: 20px;width: 36px;}
+			.sublist tr:hover .desc::after{background: #f8f8f8;}
+			.btnX{position: absolute;left:230px;width:20px;height:20px;}	
+			.xR{background: url(img//icon/left.png) no-repeat top center;top:140px;background-size:cover;}	
+			.xL{background: url(img//icon/right.png) no-repeat top center;top:200px;background-size:cover;}		
+			.sub-des{max-height:269px;width:500px;overflow:hidden;position:absolute;}	
+			.accounts{padding-bottom:20px;max-height:240px;overflow:hidden;}
+			.accounts p{line-height:24px;}
+			.mainR .layui-elem-field{display: none;}
+			/*弹框*/			
+			.sublist{margin:20px;width:760px;display:none;}				
+			.subL .desc{text-align:center;width:145px;}				
+			.pager{position:fixed;bottom:50px;left:280px;;}
+			p.layui-input{overflow:hidden;}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="main-wrapper">
+
+			<!--<include src="header.tpl"></include>
+			<include src="silder.tpl"></include>-->
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>			<div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  class="act"  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>			<div class="content-wrapper">
+				<div class="page clearfix">
+					<div class="mainL fl">
+						<fieldset class="layui-elem-field">
+							<legend>方向列表</legend>
+							<div class="layui-field-box">
+																<p class="text-r">
+									<button class="layui-btn layui-btn-normal" onclick="addDir()">添加方向</button>
+								</p>
+																<table class="layui-table">
+									<thead>
+										<tr>
+											<th></th>
+											<th>方向名称</th>
+										</tr>
+									</thead>
+									<tbody>
+																													<tr><td>1</td><td><a href="javascript:showInfo(20)">hh</a></td></tr>
+																				<tr><td>2</td><td><a href="javascript:showInfo(19)">uuu</a></td></tr>
+																				<tr><td>3</td><td><a href="javascript:showInfo(15)">123422277</a></td></tr>
+																				<tr><td>4</td><td><a href="javascript:showInfo(8)">保留1</a></td></tr>
+																				<tr><td>5</td><td><a href="javascript:showInfo(7)">保留</a></td></tr>
+																				<tr><td>6</td><td><a href="javascript:showInfo(6)">软件测试</a></td></tr>
+																				<tr><td>7</td><td><a href="javascript:showInfo(5)">计算机专业核心</a></td></tr>
+																				<tr><td>8</td><td><a href="javascript:showInfo(4)">大数据</a></td></tr>
+																				<tr><td>9</td><td><a href="javascript:showInfo(3)">运维</a></td></tr>
+																				<tr><td>10</td><td><a href="javascript:showInfo(2)">保留</a></td></tr>
+																				<tr><td>11</td><td><a href="javascript:showInfo(1)">JavaEE工程师</a></td></tr>
+										
+																		</tbody>
+								</table>
+							</div>
+						</fieldset>
+
+					</div>
+					<!--详情-->
+					<div class="mainR">
+						<fieldset class="layui-elem-field" id="tipinfo">
+							<legend>方向详情</legend>
+							<div class="layui-field-box" style="padding: 30px 20px;">
+								<h4 class="fs24">详情展示区</h4>
+								<p class="fs18 pt10">请在左侧选择想查看的方向</p>
+							</div>
+						</fieldset><!--刚进入显示信息-->
+						
+						<fieldset class="layui-elem-field" id="addForm">
+							<legend>添加方向</legend>
+							<div class="layui-field-box">								
+								<form class="layui-form" action="?c=dir&m=save" method="post">
+									<input type="hidden" id="dirId" value="" name="id"/>
+									<input type="hidden"  name="old_sub" id="old_sub"/>
+									<div class="layui-form-item">
+										<label class="layui-form-label">名称</label>
+										<div class="layui-input-block">
+											<input name="title" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input" type="text" maxlength="50">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">涵盖科目</label>
+										<div class="layui-input-block relative">
+											<div class="layui-textarea">
+												<div class="accounts"></div>
+											</div>
+											<button type="button" class="layui-btn layui-btn-small addsub" onclick="showSub()">
+											  <i class="layui-icon">&#xe61f;</i>
+											</button>
+										</div>
+									</div>
+									<div class="layui-form-item layui-form-text">
+										<label class="layui-form-label">描述</label>
+										<div class="layui-input-block">
+											<textarea name="content" placeholder="请输入内容" class="layui-textarea" maxlength="250"></textarea>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-input-block">
+											<button class="layui-btn" lay-submit lay-filter="add">提交</button>
+											<!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+										</div>
+									</div>
+								</form>
+							</div>
+						</fieldset><!--添加方向-->
+						
+						<fieldset class="layui-elem-field" id="detailInfo">
+							<legend>方向详情</legend>
+							<div class="layui-field-box">	
+							</div>
+						</fieldset><!--详情信息-->
+					</div>
+				</div>
+			</div>
+			<!-- content wrapper end-->
+		</div>
+		<!-- page wrapper end-->
+		
+		<!--添加方向弹框-->
+		<div class="sublist clearfix relative" id="add">
+			<div class="fl" style="width:260px;">
+				<p style="height:53px;line-height: 53px;">已选科目</p>
+				<div class="subL">
+					<table class="layui-table" style="width:220px">	
+					 <colgroup>
+					    <col width="60">						  			
+					    <col>
+					  </colgroup>
+					  <thead>
+					    <tr>
+					      <th></th>
+					      <th>科目名称</th>
+					    </tr> 
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+				</div>
+				
+			</div>
+			<div class="fl subR" style="width:500px;">
+				<form class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-input-inline" style="width:400px;">
+							<input type="text" name="name" placeholder="请输入科目名称..." autocomplete="off" class="layui-input">
+						</div>
+						<button class="layui-btn" lay-submit lay-filter="search">查询</button>
+					</div>
+				</form>
+				<div class="sub-des">
+					<table class="layui-table">	
+					 <colgroup>
+					    <col width="50">	
+					    <col width="160">
+					    <col>
+					  </colgroup>
+					  <thead>
+					    <tr>
+					      <th></th>
+					      <th>科目名称</th>
+					      <th>描述</th>
+					    </tr> 
+					  </thead>
+					  <tbody>
+					  </tbody>
+					</table>
+					<!--分页-->
+					<div id="page" class="pager"></div>
+					<input type="hidden" value="" id="limit"/>
+				</div>
+				
+			</div>
+			<a class="btnX xR" onclick="selectSub()"></a>
+			<a class="btnX xL" onclick="qxSub()"></a>
+		</div>
+		
+		<!--方向详情模版-->
+		<script id="detailTpl" type="text/template">
+			<div class="detailInfo">
+				<div class="layui-form-item">
+					<label class="layui-form-label">名称</label>
+					<div class="layui-input-block">
+						<p class="layui-input">{{ d.name }}</p>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">涵盖科目</label>
+					<div class="layui-input-block">
+						<div class="layui-textarea">
+							<div class="accounts">
+								{{#  layui.each(d.subjects, function(index, item){ }}
+							    	<p><input type="hidden" name="sub[]" value="{{ item.id }}"/>{{ item.name }}</span>
+								{{#  }); }}
+							</div>
+						</div>											
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">描述</label>
+					<div class="layui-input-block">
+						<div class="layui-textarea">{{ d.intro }}</div>
+					</div>
+				</div>
+				<input type="hidden" id="detailId" value=""/>
+								<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" type="button" onclick="editInfo({{ d.id }})">编辑</button>											
+					</div>
+				</div>
+							</div>
+			
+		</script>
+
+		<!--script-->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-accordion-menu.js"></script>		
+		<script src="js/layui/layui.all.js" type="text/javascript"></script>
+		<script src="js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript"></script>
+		<script src="js/direction.js" type="text/javascript"></script>
+		<script type="text/javascript">			
+			layui.use(['form', 'layer','laytpl'], function() {
+				var form = layui.form(),
+					layer = layui.layer
+				//表单验证
+				form.verify({
+					title:function(value){
+						if(value.length<1){
+							return '请填写方向名称';
+						}else if(value.length>50){
+							return '最多可输入50个字符';
+						}
+					}
+				});
+				//表单提交
+				var isConfirm = false;
+				form.on('submit(add)', function(data) {	
+					/*if($(".accounts p").length<=0){
+						layer.msg('请选择涵盖科目',{icon:5,anim :6});
+						return false;
+					}*/
+					layer.confirm('确认提交添加（编辑）方向信息么？', {
+					  	btn: ['确定','取消'] //按钮
+					}, function(){
+						isConfirm = true;
+						isFormSave =  !0;
+						data.form.submit();//表单提交
+					});
+					return isConfirm;
+			    	
+				});
+				
+				//搜索
+				form.on('submit(search)', function(data) {
+					//layer.msg(JSON.stringify(data.field));
+					showPage();
+			    	return false;
+				});
+				
+				//滚动条
+				$(".subL,.sub-des,.accounts").perfectScrollbar();
+				
+				showFiled('#tipinfo');
+				
+			});
+			
+		</script>
+	</body>
+
+</html>

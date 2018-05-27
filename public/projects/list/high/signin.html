@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>报名管理</title>
+    <link rel="shortcut icon" type="img/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="sign">
+<div class="page">
+    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li class="act">
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4-act.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>    <div class="main">
+        <div class="page-title">报名管理</div>
+        <div class="filter">
+            <form action="?c=sign&m=list" method="get">
+                <input class="hidden" name="c" value="sign"/>
+                <input class="hidden" name="m" value="list"/>
+                <input type="text" name="keyword" value=""/>
+                <button class="btn">搜索</button>
+            </form>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <td style="width: 10%;">编号</td>
+                    <td style="width: 10%;">姓名</td>
+                    <td style="width: auto;">报名课程</td>
+                    <td style="width: 10%;">报名日期</td>
+                    <td style="width: 15%;">审核状态</td>
+                    <td style="width: 10%;" class="text-c">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>49</td>
+                        <td class="c-main">杨小文</td>
+                        <td>公共课新添加</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=49">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>48</td>
+                        <td class="c-main">杨小文</td>
+                        <td>0901</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=48">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>47</td>
+                        <td class="c-main">杨小文</td>
+                        <td>0904-钱二</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=47">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>46</td>
+                        <td class="c-main">杨小文</td>
+                        <td>课题（大鹏六一快乐）</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=46">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>45</td>
+                        <td class="c-main">杨小文</td>
+                        <td>0904-钱三</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=45">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>44</td>
+                        <td class="c-main">杨小文</td>
+                        <td>ytest</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=44">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>43</td>
+                        <td class="c-main">杨小文</td>
+                        <td>how are you </td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=43">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>42</td>
+                        <td class="c-main">杨小文</td>
+                        <td>666</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=42">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>41</td>
+                        <td class="c-main"></td>
+                        <td>测试</td>
+                        <td>2017-09-01</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=41">详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>40</td>
+                        <td class="c-main">杨小文</td>
+                        <td>ytest</td>
+                        <td>2017-08-30</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=sign&m=detail&id=40">详情</a>
+                        </td>
+                    </tr>
+                                    </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="pager">
+                                                                                                    <span class="current prev">«</span>
+                                                                                                                                    <span class="current">1</span>
+                                                                                                            <a href="?c=sign&m=list&p=1">2</a>
+                                                                                                            <a href="?c=sign&m=list&p=2">3</a>
+                                                                                                            <a href="?c=sign&m=list&p=3">4</a>
+                                                                                                            <a href="?c=sign&m=list&p=1">»</a>
+                                                        </div>
+    </div>
+
+</div>
+
+
+<script type="text/template" id="infoTpl">
+	<p class="title">创建时间：{{=it.add_time}}&emsp;&emsp;
+	{{? it.is_pass == '0' }}
+		未通过
+    {{?? it.is_pass == '1'}}
+		已通过
+    {{??}}
+		待审核
+    {{?}}</p>
+    <a href="javascript:;" class="close" data-method="close"></a>
+
+    <div class="block-t">基本信息</div>
+    <ul class="clearfix">
+        <li><span>姓名</span>{{=it.basic.name}}</li>
+        <li><span>性别</span>{{? it.basic.sex == '0' }}
+       		 男
+        {{??}}
+        	女
+        {{?}}</li>
+        <li><span>名族</span>{{=it.basic.nation}}</li>
+        <li><span>出生日期</span>{{=it.basic.birthday}}</li>
+        <li><span>政治面貌</span>{{=it.basic.political}}</li>
+        <li><span>身份证号码</span>{{=it.basic.card_id}}</li>
+        <li><span>手机</span>{{=it.basic.mobile}}</li>
+        <li><span>电子邮箱</span>{{=it.basic.email}}</li>
+        <li><span>通讯地址</span>{{=it.basic.address}}</li>
+        <li><span>现任职务</span>{{=it.basic.position}}</li>
+        <li><span>管理经验年限</span>{{=it.basic.experience}}</li>
+        <li><span>办公电话</span>{{=it.basic.tel}}</li>
+    </ul>
+    
+    <div class="block-t">教育背景<span>最高学历</span></div>
+	<ul class="clearfix">
+        <li><span>毕业院校</span>{{=it.school.school}}</li>
+        <li><span>专业</span>{{=it.school.major}}</li>
+        <li><span>起止时间</span>{{=it.school.start_time}}~{{=it.school.end_time}}</li>
+        <li><span>学位</span>{{=it.school.degree || ''}}</li>
+    </ul>
+    
+    <div class="block-t">企业情况</div>
+	<ul class="clearfix">
+        <li><span>企业名称</span>{{=it.ent.name}}</li>
+        <li><span>是否上市</span>{{? it.ent.is_list == '0' }}
+       		  否
+        {{??}}
+        	是
+        {{?}}</li>
+        <li><span>公司网址</span>{{=it.ent.website}}</li>
+        <li><span>所在区域</span>{{=it.ent.province}}{{=it.ent.city}}</li>
+        <li><span>是否设立党组织</span>{{? it.ent.is_party == '0' }}
+       		 否
+        {{??}}
+        	是
+        {{?}}</li>
+        <li><span>企业简介</span>{{=it.ent.info}}</li>
+        <li class="full"><span>领军理由</span>
+        	{{ if(it.ent.reason && it.ent.reason.length>0){ }}
+				{{ for (var i = 0, l = it.ent.reason.length; i < l; i++) { }}
+					<i class="reason">{{=it.ent.reason[i].reason}}</i>
+				{{ } }}
+			{{ } }}
+        </li>
+    </ul>
+
+    <div class="table grid-table">
+	{{ if(it.economy && it.economy.length>0){ }}
+		<div class="line">
+            {{ for (var i = 0, l = it.economy.length; i < l; i++) { }}
+				<p>{{=it.economy[i].year}}</p>
+			{{ } }}
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>资产总额（万元）</td>
+                    <td>年销售额（万元）</td>
+                    <td>员工人数（人）</td>
+                    <td>员工人数<br/>（与上一年比较）</td>
+                </tr>
+            </thead>
+            <tbody>
+            	 {{ for (var i = 0, l = it.economy.length; i < l; i++) { }}
+            	 	<tr>
+	                    <td>{{=it.economy[i].total_assets}}</td>
+	                    <td>{{=it.economy[i].annual_sales}}</td>
+	                    <td>{{=it.economy[i].total_man}}</td>
+	                    <td>{{=it.economy[i].year_growth_rate}}</td>
+	                </tr>
+				{{ } }}
+            </tbody>
+        </table>
+	{{ }else{ }}
+		<p>暂无数据</p>
+	{{ } }}
+    </div>
+
+    <div class="block-t">社会职务<span>请列出你所担任的社会职务或其他兼职，如人大代表、政协委员、或在协会团体中担任的职务</span></div>
+    <div class="table grid-table" style="padding-left: 50px;">
+        <table>
+            <thead>
+                <tr>
+                    <td>团体</td>
+                    <td>参加时间</td>
+                    <td>参加职位</td>
+                </tr>
+            </thead>
+            <tbody>
+            	{{ if(it.duty && it.duty.length>0){ }}
+					{{ for (var i = 0, l = it.duty.length; i < l; i++) { }}
+						<tr>
+		                    <td>{{=it.duty[i].name}}</td>
+		                    <td>{{=it.duty[i].time}}</td>
+		                    <td>{{=it.duty[i].position}}</td>
+		                </tr>
+					{{ } }}
+				{{ }else{ }}
+					<tr><td rowspan="3">暂无数据</td></tr>	
+				{{ } }}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="block-t">荣誉或奖励<span>企业和个人均可</span></div>
+    <div class="honor">
+        {{ if(it.honor && it.honor.length>0){ }}
+			{{ for (var i = 0, l = it.honor.length; i < l; i++) { }}
+				<p>{{=it.honor[i].info}}</p>
+			{{ } }}
+		{{ }else{ }}
+			<p>暂无数据</p>
+		{{ } }}
+    </div>
+    
+    <div class="block-t">推荐理由</div>
+    <div class="text">{{=it.reason.info}}</div>
+    
+    <div class="block-t">推荐单位</div>
+    <div class="text">{{=it.reason.ent}}</div>
+    
+    <div class="block-t">课程信息</div>
+    <ul class="clearfix">
+        <li><span>机构院校</span>{{=it.course.academy}} </li>
+        <li><span>课程名称</span>{{=it.course.title}}</li>
+        <li><span>授课教师</span>{{=it.course.lecturer}}</li>
+        <li><span>总课时</span>{{=it.course.total_time}}</li>
+        <li><span>开课日期</span>{{=it.course.start_time}}</li>
+        <li><span>开课地点</span>{{=it.course.address}}</li>
+    </ul>
+   
+</script>
+
+<div class="modal dialog detail-dialog">
+    <div class="content">
+	    <div id="info" class="info-wrap"></div>
+	    <form action="?c=sign&m=release" method="post">
+	        <div class="form">
+	    		<input type="hidden" id="entityId" name="id" value="{{=it.id}}" />
+	            <div class="text-r">
+                    <input type="hidden" id="isPass" name="is_pass" value="0" />
+                    <button class="btn btn-default" type="button" data-method="reject">审核不通过</button>
+                    <input type="hidden" id="isPass" name="is_pass" value="1" />
+                    <button class="btn btn-default"  type="button" data-method="pass">审核通过</button>
+	            </div>
+	            <div class="group">
+	                <label class="label">审核不通过原因</label>
+	                <div class="input">
+	                    <textarea name="no_pass_reason" rows="" cols="" id="rejectReason" class="radiu2" placeholder=""></textarea>
+	                </div>
+	            </div>
+	        </div>
+	    </form>
+	</div>
+</div>
+
+<script src="js/libs/require.min.js" data-main="js//app/verifyMng.js"></script>
+</body>
+</html>

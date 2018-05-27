@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>课堂练习未通过</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{$img_dir}favicon.ico" />
+    <link rel="stylesheet" href="{$css_dir}public.css">
+    <link rel="stylesheet" href="{$css_dir}index.css" />
+    <!--CodeMirro theme-->
+    <link href="{$css_dir}solarized-dark.min.css" rel="stylesheet">	
+</head>
+<body>
+<div class="page">
+
+    {include file="header.tpl"}
+
+    <div class="page-wrap">
+        {include file="left.tpl"}
+
+        <div class="page-main">
+            {include file="course_scs.tpl"}
+            <div class="p-main">
+               <p class="text-c fs22 c-title c-danger relative unpass">
+					<i class="icon-tips tips-once"></i>本次练习未通过
+				</p>	
+               <!-- <p class="text-c fs14 c-title mt10">(答对 {$ok_count} 题，答错 {$error_count} 题)</p>-->
+                {if isset($radio)}
+                <div class="stuMain">
+                    <p class="workTitle">一 单选题</p>
+                        {foreach $radio key=>row}
+                    <div class="content">
+                        <p class="t1">1.{$row['num']} {$row['subject']}</p>
+                        <!--<div class="t-cnt">{$row['explain']}</div>--><!--题目内容展示-->
+						<div class="titleOption">
+								{if isset($row['now_option'])}
+								{foreach $row['now_option'] ko=>vo}
+									<div class="list">
+										<label>{$vo['letter']}：{$vo['option']}</label>
+									</div>
+								{/foreach}	
+								{/if}
+								</div><!-- 选项展示区域 -->
+                        <div class="w-tip mt20 c-tips">
+                            {if $row['is_ok']==1}
+                            <div>我的答案： <label class="c-green fs16">{$row['my_answer_letters']}</label><span class="c-blue ml20">(正确)</span></div>
+                            {else}
+                            <div>我的答案： <label class="c-green fs16">{$row['my_answer_letters']}</label><span class="c-danger ml20">(错误)</span>                           
+                                <a href="javascript:;" class="cAnswer">查看正确答案</a>
+                                <span class="showAnswer">正确答案：{$row['answer_letters']}</span>
+                            </div> {/if}
+                        </div>
+                        <div class="analysis">
+                            <span class="jx">
+                            {$row['analysis']}
+                            </span>
+                        </div>
+                    </div>
+                        {/foreach}
+                    {/if}
+                    {if isset($multi)}
+                       <p class="workTitle">二 多选题</p>
+                        {foreach $multi key=>row}
+                            <div class="content">
+                                <p class="t1">2.{$row['num']} {$row['subject']}</p>
+                                <!--<div class="t-cnt">{$row['explain']}</div>--><!--题目内容展示-->
+								<div class="titleOption">
+								{if isset($row['now_option'])}
+								{foreach $row['now_option'] ko=>vo}
+									<div class="list">
+										<label>{$vo['letter']}：{$vo['option']}</label>
+									</div>
+								{/foreach}	
+								{/if}
+								</div><!-- 选项展示区域 -->
+                                <div class="w-tip mt20 c-tips">
+                                    {if $row['is_ok'] == 1}
+                                    <div>我的答案： <label class="c-green fs16">{$row['my_answer_letters']}</label><span class="c-blue ml20">(正确)</span></div>
+                                    {else}
+                                    <div>我的答案： <label class="c-green fs16">{$row['my_answer_letters']}</label><span class="c-danger ml20">(错误)</span>
+                                      
+                                        <a href="javascript:;" class="cAnswer">查看正确答案</a>
+                                        <span class="showAnswer">正确答案：{$row['answer_letters']}</span>
+                                    </div>  {/if}
+                                </div>
+                                <div class="analysis">
+                            <span class="jx">
+                            {$row['analysis']}
+                            </span>
+                                </div>
+                            </div>
+                        {/foreach}
+                        {/if}
+                    {if isset($simple)}
+                    <p class="workTitle">三、简答题</p>
+                        {foreach $simple key=>row}
+                    <div class="content">
+                        <p class="t1">3.{$row['num']} {$row['subject']}</p>
+                        <div class="t-cnt">{$row['explain']}</div><!--题目内容展示-->
+                        <div class="w-tip mt25 c-tips">{$row['answer']}</div>
+                        <div class="myAnswer">
+                                         {$row['my_answer']}
+                        </div>
+
+                        <div class="analysis">
+                            <span class="jx">{$row['analysis']}</span>
+                        </div>
+                    </div>
+                        {/foreach}
+                    {/if}
+                    {if isset($design)}
+                    <p class="workTitle">四、程序设计</p>
+                        {foreach $design key=>row}
+                    <div class="content">
+                        <p class="t1">3.{$row['num']} {$row['subject']}</p>
+                        <div class="t-cnt">{$row['explain']}</div><!--题目内容展示-->
+                        <!--<div class="w-tip mt25 c-tips">{$row['answer']}</div>-->
+						<div class="pre mt25">
+                            <pre><code class="css">{$row['answer']}</code> </pre>                                
+                       </div>
+                        <div class="myAnswer mt25">
+                            {$row['my_answer']}
+                        </div>
+                        <div class="analysis">
+                            <span class="jx">{$row['analysis']}</span>
+                        </div>
+                    </div>
+                        {/foreach}
+                    {/if}
+                </div>
+                <p class="text-c"><a class="aBtn btn-green" href="{$jump_url}">我知道了</a></p>
+
+            </div>
+
+            <a href="{$pre_url}" class="c-btn left"><img src="{$img_dir}icon/left.png" alt="上一节"></a>
+            <a href="{$next_url}" class="c-btn right"><img src="{$img_dir}icon/right.png" alt="下一节"></a>
+        </div>
+    </div>
+    {include file="footer.tpl"}
+
+</div>
+
+<div class="return-top" title="返回顶部"></div>
+
+<script src="{$js_dir}libs/require.min.js" data-main="{$js_dir}exercise.js"></script>
+</body>
+</html>

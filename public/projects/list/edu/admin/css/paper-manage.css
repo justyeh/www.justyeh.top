@@ -1,0 +1,46 @@
+@charset "utf-8";
+span.layui-input{border:0;line-height:38px;}	
+.statusExam{padding-left:10px;line-height:38px;}
+.statusExam label{display:inline-block;font-size:20px;}
+.c-red{color:#FF5722;}
+.c-green{color:#5FB878;}
+.ml0{margin-left:0;}
+.detailExam .layui-form-label{text-align:left !important;padding-left:10px;}
+.examT{font-size:18px;}	
+.detailExam .examInfo{border:0;color:#1E9FFF;display:inline-block;position:absolute;right:100px;}
+.detailExam .layui-form-item{margin-bottom:8px;}
+.detailExam .pl10{padding-left:10px;}
+.detailExam .classList{margin-left:2em;margin-bottom:20px;}
+.detailExam .classList p{line-height:38px;}
+.detailExam .intro {color:#888;margin-bottom:20px;}
+.examIntro .layui-form-item{margin-bottom:0;}
+.studentList .layui-table{margin: 0;}
+.studentList .table-box{overflow-y:auto;}
+.studentList .table-box tr:first-child td{border-top: none;}
+.selecter .setTime{width:60px;display:inline-block;margin:0 10px;text-align:center;padding-left:0;}
+.addStu{position:absolute;right:0;top:0;}
+.stuItem{line-height:24px;}
+.stuItem .layui-icon{color:red;font-size:20px;vertical-align:middle;visibility:hidden;}
+.stuItem:hover .layui-icon{visibility:visible;cursor:pointer;}
+.stu-class{max-height:240px;overflow-y:auto;}
+.layui-laypage-limits{display:none !important;}
+.classD .layui-form-item{margin-bottom:0;}
+.examClass{width:90px;padding-right:5px;}
+.stuItem span{padding:0 5px;}
+.intro .layui-form-label{width:auto;}
+
+/*某学生考卷详情*/
+.info-detail .layui-form-item{margin-bottom:0;}
+.exam-d-page .e-detail input{margin:0 5px;vertical-align:middle;}
+.exam-d-page .d-main .title{font-size:14px;padding-top:20px;}
+.exam-d-page .d-main .ques {padding:0 20px}
+.exam-d-page .d-main .ques .options{margin-top:20px;}
+.exam-d-page .d-main .ques .c-tips{padding:20px 0;}
+.exam-d-page .d-main .ques .showAnswer,.exam-d-page .d-main .ques .cAnswer{text-align: center; border: 1px solid #63a8eb;padding: 6px 15px;color: #63A8EB;border-radius: 100px;display: inline-block;margin-left: 15px;cursor: pointer;}
+.exam-d-page .d-main .ques .showAnswer{display:none;}
+.exam-d-page .d-main .ques .text{margin-top:20px;background:#fff;width:100%;max-height:150px; color:#667587;padding:10px;line-height: 24px;overflow-y: auto;border: 1px solid #DAE0E6;}
+.exam-d-page .d-main .ques .showFile{padding:5px 0;}
+.exam-d-page .d-main .ques .showFile .downFile{cursor:pointer;height:25px;line-height:25px;}
+.exam-d-page .d-main .ques .showFile .downFile:hover{color:#009688; }
+.exam-d-page .d-main .ques .showFile .downFile:hover:after{display:inline-block;margin-left:10px;background:#009688;color:#fff;border-radius:3px;padding:0 10px;border:0;content: '下载';}
+

@@ -1,0 +1,32 @@
+@charset "utf-8";
+.pager a, .pager span {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #e34e42;
+    font-size: 12px;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 5px 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+.pager .current,span.current {
+    color: #4972a0;
+    background-color: #eee;
+    border-color: #ddd;
+
+}
+
+.pager .current.prev, .pager .current.next{
+    color: #777;
+    border-color: #ddd;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+.pager a:hover, .pager span:hover{
+    color: #4972a0;
+    background-color: #eee;
+    border-color: #ddd;
+}

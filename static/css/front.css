@@ -1,0 +1,212 @@
+.app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app>.page-main {
+    flex: 1 0 auto;
+}
+
+.app>header,
+.app>footer {
+    flex: 0 0 auto;
+}
+
+.page {
+    width: 1200px;
+    margin: 50px auto;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(100, 100, 100, 0.4);
+}
+
+@media screen and (max-width: 1200px) {
+    .page {
+        width: 1080px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .page {
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+header {
+    background: #263238;
+    position: relative;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    padding: 0 100px;
+}
+
+header .site {
+    font-size: 56px;
+    color: rgba(250, 250, 250, 0.85);
+    padding: 50px 0 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+header .site img {
+    width: 120px;
+    border-radius: 100%;
+    margin-right: 20px;
+}
+
+header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(38, 50, 56);
+    font-size: 20px;
+}
+
+header a {
+    color: rgba(250, 250, 250, 0.4);
+    margin-right: 20px;
+    line-height: 60px;
+    height: 60px;
+    position: relative;
+    transition: all 0.2s ease-in;
+}
+
+header a.nuxt-link-exact-active {
+    color: rgba(250, 250, 250, 1);
+}
+
+header a.nuxt-link-exact-active::after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    height: 2px;
+    background: rgba(250, 250, 250, 0.8);
+}
+
+header a:last-child {
+    margin-right: 0
+}
+
+header .menu a:hover {
+    color: rgba(250, 250, 250, 1);
+}
+
+footer {
+    background: rgb(38, 50, 56);
+    padding: 50px 100px;
+    color: #fff;
+}
+
+footer div {
+    padding-bottom: 20px;
+}
+
+footer div:last-child {
+    padding-bottom: 0;
+}
+
+footer p {
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+footer a {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 960px) {
+    footer {
+        padding: 20px 10px;
+    }
+}
+
+
+/*????*/
+
+.error {
+    padding: 100px;
+    text-align: center;
+}
+
+.error .code {
+    font-size: 36px;
+}
+
+.error .messgae {
+    font-size: 30px;
+}
+
+.post .poster {
+    height: 420px;
+    background: no-repeat center / cover;
+}
+
+.post .title {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.post .info {
+    display: flex;
+    font-size: 16px;
+    padding: 0 30px;
+    color: #3084bb;
+}
+
+.post .info p {
+    padding-right: 10px;
+}
+
+.post .info p:last-child {
+    padding-left: 0;
+}
+
+.post .info p span:after {
+    content: '，'
+}
+
+.post .info p span:last-child:after {
+    content: ''
+}
+
+.post .content {
+    padding: 20px 30px;
+    line-height: 26px;
+}
+
+@media screen and (max-width: 960px) {
+    .post .poster {
+        height: 260px;
+    }
+    .post .title {
+        font-size: 24px;
+        padding: 15px 0
+    }
+    .post .info {
+        padding: 0 10px;
+        justify-content: center;
+        font-size: 14px;
+    }
+    .post .content {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .post .poster {
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .post .poster {
+        height: 180px;
+    }
+}

@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>公共课管理</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="course">
+<div class="page">
+
+    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li class="act">
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6-act.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>
+    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>
+    <div class="main">
+        <div class="page-title">公共课管理</div>
+        <div class="filter clearfix">
+            <form action="?c=public&m=list" class="fl" method="get">
+                <input class="hidden" name="c" id="" value="public"/>
+                <input class="hidden" name="m" id="" value="list"/>
+                <input type="text" name="keyword" id="" value=""/>
+                <button class="btn">搜索</button>
+            </form>
+            <div class="fr">
+            	<button class="btn btn-default" data-handle="?c=public&m=del"><img src="img/icon/del.png"/>删除</button>
+                <button class="btn btn-default" data-handle="?c=public&m=release">立即发布</button>
+                <button class="btn btn-default" data-handle="?c=public&m=cancel">取消发布</button>
+				<a href="?c=public&m=add" class="btn btn-main"><img src="img/icon/add.png"/>新增</a>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <td style="width: 12%;">
+                    	<label class="checkbox"><input type="checkbox" id="checkedAll" value=""/>全选</label>
+                    </td>
+                    <td style="width: auto;">课程名称</td>
+                    <td style="width: 12%;">开课时间</td>
+                    <td style="width: 12%;">发布状态</td>
+                    <td style="width: 18%;" class="text-c">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="94"/></label></td>
+                        <td>0904-钱二</td>
+                        <td>2017-09-03</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=94" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="93"/></label></td>
+                        <td>你好</td>
+                        <td>2017-08-31</td>
+                        <td>
+                                                            <span class="c-main">待发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=93" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="91"/></label></td>
+                        <td>0901</td>
+                        <td>2017-08-31</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=91" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="90"/></label></td>
+                        <td>0000</td>
+                        <td>2017-08-31</td>
+                        <td>
+                                                            <span class="c-main">待发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=90" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="88"/></label></td>
+                        <td>666</td>
+                        <td>2017-11-21</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=88" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="87"/></label></td>
+                        <td>公共课新添加</td>
+                        <td>2017-08-31</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=87" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="78"/></label></td>
+                        <td>发送到发送到</td>
+                        <td>2017-08-28</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=78" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="75"/></label></td>
+                        <td>公共课1</td>
+                        <td>2017-10-01</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=75" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="73"/></label></td>
+                        <td>已报名</td>
+                        <td>2017-06-15</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=73" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td><label class="checkbox"><input type="checkbox" name="id" value="72"/></label></td>
+                        <td>how are you </td>
+                        <td>2017-05-31</td>
+                        <td>
+                                                            <span class="c-info">已发布</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="?c=public&m=add&id=72" class="c-main">编辑</a>
+                            <!--<a href="" class="c-danger">详情</a>-->
+                        </td>
+                    </tr>
+                                    </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="pager">
+                                                                                                    <span class="current prev">«</span>
+                                                                                                                                    <span class="current">1</span>
+                                                                                                            <a href="?c=public&m=list&p=1">2</a>
+                                                                                                            <a href="?c=public&m=list&p=1">»</a>
+                                                        </div>
+    </div>
+</div>
+
+<script src="js/libs/require.min.js" data-main="js/app/listMng.js"></script>
+</body>
+</html>

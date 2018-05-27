@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>创建试卷</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/component-skin.css">
+	<link rel="stylesheet" href="js/layui/css/layui.css">
+</head>
+
+<body>
+
+	<div class="main-wrapper">
+
+		<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div> <div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li  class="act" ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+		<div class="content-wrapper ">
+			<fieldset class="layui-elem-field">
+				<legend>创建试卷第一步-设置属性</legend>
+				<!--<legend>编辑试卷1</legend>-->
+				<div class="layui-field-box">
+					<form class="layui-form" id="paperForm" action="?c=paper&m=info" method="POST">
+												<div class="layui-form-item">
+							<label class="layui-form-label">试卷名称</label>
+							<div class="layui-input-block">
+								<input type="text" name="name" value="" class="layui-input" lay-verify="required" maxlength="30">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">试卷类别</label>
+							<div class="layui-input-block">
+								<select name="type" lay-ignore class="layui-input" lay-verify="required">
+							    		<option value="">----试卷类别----</option>
+							    									    		<option value="1">节考</option>
+							    									    		<option value="2">章考</option>
+							    									    		<option value="3">科目考</option>
+							    									    		<option value="4">方向考</option>
+							    									    	</select>
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">方向-科目-章</label>
+							<div class="layui-input-inline">
+								<select name="direction_id" lay-ignore class="layui-input" lay-verify="required" id="direction">
+							    		<option value="">----试卷方向----</option>
+							    									    		<option value="20">hh</option>
+							    									    		<option value="19">uuu</option>
+							    									    		<option value="15">123422277</option>
+							    									    		<option value="8">保留1</option>
+							    									    		<option value="7">保留</option>
+							    									    		<option value="6">软件测试</option>
+							    									    		<option value="5">计算机专业核心</option>
+							    									    		<option value="4">大数据</option>
+							    									    		<option value="3">运维</option>
+							    									    		<option value="2">保留</option>
+							    									    		<option value="1">JavaEE工程师</option>
+							    									    	</select>
+							</div>
+							<div class="layui-input-inline">
+								<select name="subject_id" lay-ignore class="layui-input" id="subject">
+							    		<option value="null">----科目----</option>
+							    	</select>
+							</div>
+							<div class="layui-input-inline">
+								<select name="chapter_id" lay-ignore class="layui-input" id="chapter">
+							    		<option value="null">----章----</option>
+							    	</select>
+							</div>
+						</div>
+
+						
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit lay-filter="paperForm">下一步</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</fieldset>
+
+
+		</div>
+		<!-- content wrapper end-->
+	</div>
+	<!-- page wrapper end-->
+
+
+	<!--script-->
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-accordion-menu.js"></script>
+	<script src="js/layui-1.0.9/layui.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/apps/paper/step1.js"></script>
+
+</body>
+
+</html>

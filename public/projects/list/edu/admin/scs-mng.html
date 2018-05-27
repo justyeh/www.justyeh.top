@@ -1,0 +1,374 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="renderer" content="webkit">
+        <title>科目章节维护</title>
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <!--[if lte IE 9]>
+            <script src="js/browser-not-supported-ie10.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="css/public.css" type="text/css">
+        <link rel="stylesheet" href="css/component-skin.css" type="text/css">
+        <link rel="stylesheet" href="js/layui/css/layui.css" type="text/css">
+        <style type="text/css">
+    		.content-wrapper{padding: 0;}
+			.tree-wrapper{width: 300px;height: 100%;background: #eee;overflow: auto;position: relative;}
+			.form-wrapper{position: absolute;left: 300px;top: 0;bottom: 0;right: 0;overflow-y: auto;padding: 30px;}
+			.opera-wrap{padding-left: 20px;}
+			.tree-box .tree{position: absolute;top: 130px;left: 0;bottom: 60px;right: 0;overflow-y: scroll;overflow-x: hidden;}
+			.tree-box .tree i.c-link{display: none;}
+			.layui-elem-field{display: none;}
+			.relative .layui-btn{position: absolute;top: 0;right: 0;}
+			.pager{position: absolute;bottom: 15px;right: 30px;}
+			.layui-layer-content .tree{padding: 30px;}
+        </style>
+    </head>
+    <body>
+        <div class="main-wrapper">
+        	
+            <div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>            <div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  class="act"  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> 
+            
+            <div class="content-wrapper">
+            	
+            	<!--左侧-->
+                <div class="tree-wrapper layui-border-box pt20">
+                    
+                    <div class="opera-wrap">
+                                        		<button class="layui-btn layui-btn-normal" onclick="addSubject()">添加科目</button> 
+                    	<button class="layui-btn layui-btn-normal" id="addChapterOrSectionBtn" onclick="addChapterOrSection()" data-level="0">添加章、节</button>
+                                                <div class="layui-form mt10 pt10">
+							<div class="layui-form-item">
+								<div class="layui-input-inline">
+									<input maxlength="12" type="text" id="keyword" placeholder="" autocomplete="off" class="layui-input">
+								</div>
+								<button class="layui-btn" type="button" onclick="createSilderTree(0)">查询</button>
+							</div>
+						</div>
+                    </div>
+                    
+                   <div id="tree" class="tree-box"><ul class="tree"><li class=""><div class="node not-tree"><a data-pid="" href="JavaScript:;" data-id="610" data-level="0_0"><i class="layui-icon type1"></i><cite>610-人文365</cite></a></div></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="609" data-level="0_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>609-CEP课程</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="609" href="JavaScript:;" data-id="611" data-level="0_1_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>611-CEP《求职技巧与就业准备》</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="611" href="JavaScript:;" data-id="612" data-level="0_1_0_0"><i class="layui-icon type1"></i><cite>612-简历制作01</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="611" href="JavaScript:;" data-id="613" data-level="0_1_0_1"><i class="layui-icon type1"></i><cite>613-简历制作02</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="611" href="JavaScript:;" data-id="614" data-level="0_1_0_2"><i class="layui-icon type1"></i><cite>614-简历制作03</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="448" data-level="0_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>448-JAVA</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="449" data-level="0_2_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>449-第一章：从0开始——Java初体验</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="449" href="JavaScript:;" data-id="451" data-level="0_2_0_0"><i class="layui-icon type1"></i><cite>451-编写并运行第一个Java小程序</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="449" href="JavaScript:;" data-id="450" data-level="0_2_0_1"><i class="layui-icon type1"></i><cite>450-Java开发环境的搭建</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="452" data-level="0_2_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>452-第二章：把握世界，应对变化——变量的使用</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="452" href="JavaScript:;" data-id="454" data-level="0_2_1_0"><i class="layui-icon type1"></i><cite>454-使用变量进行编程</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="452" href="JavaScript:;" data-id="453" data-level="0_2_1_1"><i class="layui-icon type1"></i><cite>453-变量的基本使用</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="455" data-level="0_2_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>455-第三章：锅碗瓢盆——丰富的数据类型</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="455" href="JavaScript:;" data-id="457" data-level="0_2_2_0"><i class="layui-icon type1"></i><cite>457-类型转换</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="455" href="JavaScript:;" data-id="456" data-level="0_2_2_1"><i class="layui-icon type1"></i><cite>456-基本数据类型原理</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="458" data-level="0_2_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>458-第四章：鱼还是熊掌？——使用分支结构</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="458" href="JavaScript:;" data-id="462" data-level="0_2_3_0"><i class="layui-icon type1"></i><cite>462-switch-case的使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="458" href="JavaScript:;" data-id="461" data-level="0_2_3_1"><i class="layui-icon type1"></i><cite>461-逻辑运算符的使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="458" href="JavaScript:;" data-id="460" data-level="0_2_3_2"><i class="layui-icon type1"></i><cite>460-if-else的使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="458" href="JavaScript:;" data-id="459" data-level="0_2_3_3"><i class="layui-icon type1"></i><cite>459-分支逻辑</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="463" data-level="0_2_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>463-第五章：日升月落——使用循环结构</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="463" href="JavaScript:;" data-id="468" data-level="0_2_4_0"><i class="layui-icon type1"></i><cite>468-循环结构的解析</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="463" href="JavaScript:;" data-id="467" data-level="0_2_4_1"><i class="layui-icon type1"></i><cite>467-break/continue的使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="463" href="JavaScript:;" data-id="466" data-level="0_2_4_2"><i class="layui-icon type1"></i><cite>466-for循环的使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="463" href="JavaScript:;" data-id="465" data-level="0_2_4_3"><i class="layui-icon type1"></i><cite>465-循环控制变量</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="463" href="JavaScript:;" data-id="464" data-level="0_2_4_4"><i class="layui-icon type1"></i><cite>464-循环基本使用</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="469" data-level="0_2_5"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>469-第六章：物以类聚——数组</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="469" href="JavaScript:;" data-id="472" data-level="0_2_5_0"><i class="layui-icon type1"></i><cite>472-数组排序</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="469" href="JavaScript:;" data-id="471" data-level="0_2_5_1"><i class="layui-icon type1"></i><cite>471-扑克游戏</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="469" href="JavaScript:;" data-id="470" data-level="0_2_5_2"><i class="layui-icon type1"></i><cite>470-数组原理与基本使用</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="473" data-level="0_2_6"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>473-第七章：编程的艺术——方法和类的封装</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="473" href="JavaScript:;" data-id="475" data-level="0_2_6_0"><i class="layui-icon type1"></i><cite>475-扑克游戏重构</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="473" href="JavaScript:;" data-id="474" data-level="0_2_6_1"><i class="layui-icon type1"></i><cite>474-方法封装的好处</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="476" data-level="0_2_7"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>476-第八章：面向对象——程序设计</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="476" href="JavaScript:;" data-id="479" data-level="0_2_7_0"><i class="layui-icon type1"></i><cite>479-抽象类与接口</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="476" href="JavaScript:;" data-id="478" data-level="0_2_7_1"><i class="layui-icon type1"></i><cite>478-面向对象三性质</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="476" href="JavaScript:;" data-id="477" data-level="0_2_7_2"><i class="layui-icon type1"></i><cite>477-类与对象</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="480" data-level="0_2_8"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>480-第九章：常用的Java类——String</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="480" href="JavaScript:;" data-id="482" data-level="0_2_8_0"><i class="layui-icon type1"></i><cite>482-原理解析</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="480" href="JavaScript:;" data-id="481" data-level="0_2_8_1"><i class="layui-icon type1"></i><cite>481-仿写String类</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="483" data-level="0_2_9"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>483-第十章：可变长数组——ArrayList</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="483" href="JavaScript:;" data-id="485" data-level="0_2_9_0"><i class="layui-icon type1"></i><cite>485-讲解ArrayList类</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="483" href="JavaScript:;" data-id="484" data-level="0_2_9_1"><i class="layui-icon type1"></i><cite>484-仿写ArrayList类</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="486" data-level="0_2_10"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>486-第十一章：Java中的容器——集合框架的综合应用</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="486" href="JavaScript:;" data-id="488" data-level="0_2_10_0"><i class="layui-icon type1"></i><cite>488-使用HashMap</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="486" href="JavaScript:;" data-id="487" data-level="0_2_10_1"><i class="layui-icon type1"></i><cite>487-使用容器存储学生信息</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="489" data-level="0_2_11"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>489-第十二章：操作电脑中的数据——文件与I/O</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="489" href="JavaScript:;" data-id="492" data-level="0_2_11_0"><i class="layui-icon type1"></i><cite>492-字符流的应用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="489" href="JavaScript:;" data-id="491" data-level="0_2_11_1"><i class="layui-icon type1"></i><cite>491-文件内容处理</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="489" href="JavaScript:;" data-id="490" data-level="0_2_11_2"><i class="layui-icon type1"></i><cite>490-创建及获取文件信息</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="493" data-level="0_2_12"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>493-第十三章：网络内通信——Java网络编程</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="493" href="JavaScript:;" data-id="494" data-level="0_2_12_0"><i class="layui-icon type1"></i><cite>494-实现点对点通信</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="448" href="JavaScript:;" data-id="495" data-level="0_2_13"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>495-第十四章：齐头并进——多线程编程</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="495" href="JavaScript:;" data-id="499" data-level="0_2_13_0"><i class="layui-icon type1"></i><cite>499-多线程总结</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="495" href="JavaScript:;" data-id="498" data-level="0_2_13_1"><i class="layui-icon type1"></i><cite>498-线程协作</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="495" href="JavaScript:;" data-id="497" data-level="0_2_13_2"><i class="layui-icon type1"></i><cite>497-模拟售票系统</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="495" href="JavaScript:;" data-id="496" data-level="0_2_13_3"><i class="layui-icon type1"></i><cite>496-创建多个线程同时工作</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="500" data-level="0_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>500-JAVASE项目</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="500" href="JavaScript:;" data-id="501" data-level="0_3_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>501-学过的知识堆起来用——JavaSE小项目</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="501" href="JavaScript:;" data-id="504" data-level="0_3_0_0"><i class="layui-icon type1"></i><cite>504-功能完善</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="501" href="JavaScript:;" data-id="503" data-level="0_3_0_1"><i class="layui-icon type1"></i><cite>503-代码封装</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="501" href="JavaScript:;" data-id="502" data-level="0_3_0_2"><i class="layui-icon type1"></i><cite>502-实现基本功能</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="500" href="JavaScript:;" data-id="505" data-level="0_3_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>505-JavaSE小项目--QQ模拟项目</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="505" href="JavaScript:;" data-id="508" data-level="0_3_1_0"><i class="layui-icon type1"></i><cite>508-功能完善</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="505" href="JavaScript:;" data-id="507" data-level="0_3_1_1"><i class="layui-icon type1"></i><cite>507-实现基本功能</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="505" href="JavaScript:;" data-id="506" data-level="0_3_1_2"><i class="layui-icon type1"></i><cite>506-基本框架搭建</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="509" data-level="0_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>509-JAVA进阶项目</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="509" href="JavaScript:;" data-id="510" data-level="0_4_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>510-第一章 数据的本质</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="510" href="JavaScript:;" data-id="515" data-level="0_4_0_0"><i class="layui-icon type1"></i><cite>515-权限控制</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="510" href="JavaScript:;" data-id="514" data-level="0_4_0_1"><i class="layui-icon type1"></i><cite>514-诡异的变量交换</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="510" href="JavaScript:;" data-id="513" data-level="0_4_0_2"><i class="layui-icon type1"></i><cite>513-另类的乘除法
+</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="510" href="JavaScript:;" data-id="512" data-level="0_4_0_3"><i class="layui-icon type1"></i><cite>512-N进制的换算2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="510" href="JavaScript:;" data-id="511" data-level="0_4_0_4"><i class="layui-icon type1"></i><cite>511-N进制的换算1</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="509" href="JavaScript:;" data-id="516" data-level="0_4_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>516-第二章 Jvm内存管理</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="516" href="JavaScript:;" data-id="520" data-level="0_4_1_0"><i class="layui-icon type1"></i><cite>520-对象大逃亡</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="516" href="JavaScript:;" data-id="519" data-level="0_4_1_1"><i class="layui-icon type1"></i><cite>519-垃圾对象大搜捕</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="516" href="JavaScript:;" data-id="518" data-level="0_4_1_2"><i class="layui-icon type1"></i><cite>518-炸掉虚拟机2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="516" href="JavaScript:;" data-id="517" data-level="0_4_1_3"><i class="layui-icon type1"></i><cite>517-炸掉虚拟机1</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="509" href="JavaScript:;" data-id="521" data-level="0_4_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>521-第三章 深入类与对象</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="521" href="JavaScript:;" data-id="526" data-level="0_4_2_0"><i class="layui-icon type1"></i><cite>526-动态编译加载类</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="521" href="JavaScript:;" data-id="525" data-level="0_4_2_1"><i class="layui-icon type1"></i><cite>525-诡异的初始化值</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="521" href="JavaScript:;" data-id="524" data-level="0_4_2_2"><i class="layui-icon type1"></i><cite>524-另类的对象使用法2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="521" href="JavaScript:;" data-id="523" data-level="0_4_2_3"><i class="layui-icon type1"></i><cite>523-另类的对象使用法1</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="521" href="JavaScript:;" data-id="522" data-level="0_4_2_4"><i class="layui-icon type1"></i><cite>522-不能new出来的对象</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="509" href="JavaScript:;" data-id="527" data-level="0_4_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>527-第四章 自定义集合框架</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="527" href="JavaScript:;" data-id="532" data-level="0_4_3_0"><i class="layui-icon type1"></i><cite>532-队列结构实现</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="527" href="JavaScript:;" data-id="531" data-level="0_4_3_1"><i class="layui-icon type1"></i><cite>531-栈结构实现2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="527" href="JavaScript:;" data-id="530" data-level="0_4_3_2"><i class="layui-icon type1"></i><cite>530-栈结构实现1</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="527" href="JavaScript:;" data-id="529" data-level="0_4_3_3"><i class="layui-icon type1"></i><cite>529-双链表结构容器实现2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="527" href="JavaScript:;" data-id="528" data-level="0_4_3_4"><i class="layui-icon type1"></i><cite>528-双链表结构容器实现1</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="509" href="JavaScript:;" data-id="533" data-level="0_4_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>533-第五章 NIO的应用</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="538" data-level="0_4_4_0"><i class="layui-icon type1"></i><cite>538-修改超大文件部分内容</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="539" data-level="0_4_4_1"><i class="layui-icon type1"></i><cite>539-高性能网络聊天室1</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="537" data-level="0_4_4_2"><i class="layui-icon type1"></i><cite>537-使用NIO复制文件</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="536" data-level="0_4_4_3"><i class="layui-icon type1"></i><cite>536-使用NIO文件读取2</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="535" data-level="0_4_4_4"><i class="layui-icon type1"></i><cite>535-使用NIO文件读取1</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="533" href="JavaScript:;" data-id="534" data-level="0_4_4_5"><i class="layui-icon type1"></i><cite>534-初识NIO</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="540" data-level="0_5"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>540-web</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="540" href="JavaScript:;" data-id="541" data-level="0_5_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>541-WEB前端综述</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="541" href="JavaScript:;" data-id="542" data-level="0_5_0_0"><i class="layui-icon type1"></i><cite>542-WEB前端体系</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="540" href="JavaScript:;" data-id="543" data-level="0_5_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>543-HTML简介</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="543" href="JavaScript:;" data-id="545" data-level="0_5_1_0"><i class="layui-icon type1"></i><cite>545-HTML表格与表单</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="543" href="JavaScript:;" data-id="544" data-level="0_5_1_1"><i class="layui-icon type1"></i><cite>544-HTML标签使用</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="540" href="JavaScript:;" data-id="546" data-level="0_5_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>546-CSS简介</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="546" href="JavaScript:;" data-id="548" data-level="0_5_2_0"><i class="layui-icon type1"></i><cite>548-DIV+CSS布局</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="546" href="JavaScript:;" data-id="547" data-level="0_5_2_1"><i class="layui-icon type1"></i><cite>547-美化网页</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="540" href="JavaScript:;" data-id="549" data-level="0_5_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>549-JavaScript深入浅出</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="549" href="JavaScript:;" data-id="553" data-level="0_5_3_0"><i class="layui-icon type1"></i><cite>553-常见应用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="549" href="JavaScript:;" data-id="552" data-level="0_5_3_1"><i class="layui-icon type1"></i><cite>552-DOM</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="549" href="JavaScript:;" data-id="551" data-level="0_5_3_2"><i class="layui-icon type1"></i><cite>551-BOM</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="549" href="JavaScript:;" data-id="550" data-level="0_5_3_3"><i class="layui-icon type1"></i><cite>550-基础JS语法</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="540" href="JavaScript:;" data-id="554" data-level="0_5_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>554-jQuery简介</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="554" href="JavaScript:;" data-id="555" data-level="0_5_4_0"><i class="layui-icon type1"></i><cite>555-jQuery入门</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="556" data-level="0_6"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>556-mybatis</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="556" href="JavaScript:;" data-id="557" data-level="0_6_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>557-mybatis</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="563" data-level="0_6_0_0"><i class="layui-icon type1"></i><cite>563-日志与缓存</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="564" data-level="0_6_0_1"><i class="layui-icon type1"></i><cite>564-mybatis总结</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="562" data-level="0_6_0_2"><i class="layui-icon type1"></i><cite>562-接口映射与注解</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="561" data-level="0_6_0_3"><i class="layui-icon type1"></i><cite>561-结果映射</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="559" data-level="0_6_0_4"><i class="layui-icon type1"></i><cite>559-入门及使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="560" data-level="0_6_0_5"><i class="layui-icon type1"></i><cite>560-核心组件解读</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="557" href="JavaScript:;" data-id="558" data-level="0_6_0_6"><i class="layui-icon type1"></i><cite>558-mybatis简介</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="187" data-level="0_7"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>187-Web前端技术综合应用</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="281" data-level="0_7_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>281-HTML入门</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="302" data-level="0_7_0_0"><i class="layui-icon type1"></i><cite>302-HTML简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="305" data-level="0_7_0_1"><i class="layui-icon type1"></i><cite>305-HTML基本结构</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="307" data-level="0_7_0_2"><i class="layui-icon type1"></i><cite>307-HTML标签和属性</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="310" data-level="0_7_0_3"><i class="layui-icon type1"></i><cite>310-创建第一个网页</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="313" data-level="0_7_0_4"><i class="layui-icon type1"></i><cite>313-HTML头部标签</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="326" data-level="0_7_0_5"><i class="layui-icon type1"></i><cite>326-HTML主体标签</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="281" href="JavaScript:;" data-id="348" data-level="0_7_0_6"><i class="layui-icon type1"></i><cite>348-注释和特殊符号</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="282" data-level="0_7_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>282-HTML基本标签</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="282" href="JavaScript:;" data-id="349" data-level="0_7_1_0"><i class="layui-icon type1"></i><cite>349-文本控制</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="282" href="JavaScript:;" data-id="350" data-level="0_7_1_1"><i class="layui-icon type1"></i><cite>350-文本分段</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="282" href="JavaScript:;" data-id="351" data-level="0_7_1_2"><i class="layui-icon type1"></i><cite>351-建立列表</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="282" href="JavaScript:;" data-id="352" data-level="0_7_1_3"><i class="layui-icon type1"></i><cite>352-插入图像</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="282" href="JavaScript:;" data-id="353" data-level="0_7_1_4"><i class="layui-icon type1"></i><cite>353-插入超链接</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="284" data-level="0_7_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>284-表格应用及布局</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="284" href="JavaScript:;" data-id="354" data-level="0_7_2_0"><i class="layui-icon type1"></i><cite>354-表格</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="284" href="JavaScript:;" data-id="355" data-level="0_7_2_1"><i class="layui-icon type1"></i><cite>355-创建表格</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="284" href="JavaScript:;" data-id="356" data-level="0_7_2_2"><i class="layui-icon type1"></i><cite>356-表格标签属性</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="284" href="JavaScript:;" data-id="357" data-level="0_7_2_3"><i class="layui-icon type1"></i><cite>357-页面表格布局</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="286" data-level="0_7_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>286-框架及表单</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="286" href="JavaScript:;" data-id="358" data-level="0_7_3_0"><i class="layui-icon type1"></i><cite>358-框架</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="286" href="JavaScript:;" data-id="359" data-level="0_7_3_1"><i class="layui-icon type1"></i><cite>359-表单</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="287" data-level="0_7_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>287-CSS及常用样式</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="287" href="JavaScript:;" data-id="360" data-level="0_7_4_0"><i class="layui-icon type1"></i><cite>360-CSS简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="287" href="JavaScript:;" data-id="361" data-level="0_7_4_1"><i class="layui-icon type1"></i><cite>361-CSS基本结构、语法与使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="287" href="JavaScript:;" data-id="362" data-level="0_7_4_2"><i class="layui-icon type1"></i><cite>362-选择器</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="287" href="JavaScript:;" data-id="363" data-level="0_7_4_3"><i class="layui-icon type1"></i><cite>363-常用样式</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="289" data-level="0_7_5"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>289-BOX模型及CSS布局</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="289" href="JavaScript:;" data-id="364" data-level="0_7_5_0"><i class="layui-icon type1"></i><cite>364-Box模型</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="289" href="JavaScript:;" data-id="365" data-level="0_7_5_1"><i class="layui-icon type1"></i><cite>365-Box属性</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="289" href="JavaScript:;" data-id="366" data-level="0_7_5_2"><i class="layui-icon type1"></i><cite>366-页面布局</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="289" href="JavaScript:;" data-id="367" data-level="0_7_5_3"><i class="layui-icon type1"></i><cite>367-浮动和清除</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="289" href="JavaScript:;" data-id="368" data-level="0_7_5_4"><i class="layui-icon type1"></i><cite>368-局部布局</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="290" data-level="0_7_6"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>290-JavaScript入门</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="290" href="JavaScript:;" data-id="369" data-level="0_7_6_0"><i class="layui-icon type1"></i><cite>369-JavaScript概念</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="290" href="JavaScript:;" data-id="370" data-level="0_7_6_1"><i class="layui-icon type1"></i><cite>370-JavaScript基本结构和用法</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="290" href="JavaScript:;" data-id="371" data-level="0_7_6_2"><i class="layui-icon type1"></i><cite>371-JavaScript语法</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="290" href="JavaScript:;" data-id="372" data-level="0_7_6_3"><i class="layui-icon type1"></i><cite>372-JavaScript内置对象</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="293" data-level="0_7_7"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>293-JavaScript进阶</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="373" data-level="0_7_7_0"><i class="layui-icon type1"></i><cite>373-JavaScript自定义类和对象</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="374" data-level="0_7_7_1"><i class="layui-icon type1"></i><cite>374-BOM简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="375" data-level="0_7_7_2"><i class="layui-icon type1"></i><cite>375-document对象</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="376" data-level="0_7_7_3"><i class="layui-icon type1"></i><cite>376-树形菜单和切换特效</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="377" data-level="0_7_7_4"><i class="layui-icon type1"></i><cite>377-文档对象模型DOM</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="378" data-level="0_7_7_5"><i class="layui-icon type1"></i><cite>378-DOM事件处理机制</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="379" data-level="0_7_7_6"><i class="layui-icon type1"></i><cite>379-使用DOM操作表格</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="293" href="JavaScript:;" data-id="380" data-level="0_7_7_7"><i class="layui-icon type1"></i><cite>380-JavaScript操作CSS样式表</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="294" data-level="0_7_8"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>294-JavaScript应用</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="294" href="JavaScript:;" data-id="381" data-level="0_7_8_0"><i class="layui-icon type1"></i><cite>381-JavaScript正则表达式</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="294" href="JavaScript:;" data-id="382" data-level="0_7_8_1"><i class="layui-icon type1"></i><cite>382-表单验证</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="294" href="JavaScript:;" data-id="383" data-level="0_7_8_2"><i class="layui-icon type1"></i><cite>383-JSON简介</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="296" data-level="0_7_9"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>296-jQuery入门</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="384" data-level="0_7_9_0"><i class="layui-icon type1"></i><cite>384-jQuery简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="385" data-level="0_7_9_1"><i class="layui-icon type1"></i><cite>385-jQuery选择器</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="388" data-level="0_7_9_2"><i class="layui-icon type1"></i><cite>388-jQuery文档操作</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="389" data-level="0_7_9_3"><i class="layui-icon type1"></i><cite>389-jQuery事件</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="390" data-level="0_7_9_4"><i class="layui-icon type1"></i><cite>390-jQuery动画效果</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="296" href="JavaScript:;" data-id="391" data-level="0_7_9_5"><i class="layui-icon type1"></i><cite>391-jQuery AJAX</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="297" data-level="0_7_10"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>297-jQuery高级</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="297" href="JavaScript:;" data-id="394" data-level="0_7_10_0"><i class="layui-icon type1"></i><cite>394-jQuery特效及遍历</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="297" href="JavaScript:;" data-id="398" data-level="0_7_10_1"><i class="layui-icon type1"></i><cite>398-jQuery扩展和插件</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="298" data-level="0_7_11"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>298-Bootstrap入门实例教学</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="400" data-level="0_7_11_0"><i class="layui-icon type1"></i><cite>400-Bootstrap安装与使用</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="403" data-level="0_7_11_1"><i class="layui-icon type1"></i><cite>403-Bootstrap网格布局</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="406" data-level="0_7_11_2"><i class="layui-icon type1"></i><cite>406-体会布局—博客文章页设计</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="410" data-level="0_7_11_3"><i class="layui-icon type1"></i><cite>410-重要知识准备：基础样式及自定义简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="413" data-level="0_7_11_4"><i class="layui-icon type1"></i><cite>413-博客站点首页</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="416" data-level="0_7_11_5"><i class="layui-icon type1"></i><cite>416-交互效果：插件与js</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="420" data-level="0_7_11_6"><i class="layui-icon type1"></i><cite>420-参考资料汇集</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="298" href="JavaScript:;" data-id="425" data-level="0_7_11_7"><i class="layui-icon type1"></i><cite>425-通过GitHub Pages建立个人站点</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="187" href="JavaScript:;" data-id="301" data-level="0_7_12"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>301-LESS快速入门</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="301" href="JavaScript:;" data-id="442" data-level="0_7_12_0"><i class="layui-icon type1"></i><cite>442-什么是LESSCSS</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="301" href="JavaScript:;" data-id="443" data-level="0_7_12_1"><i class="layui-icon type1"></i><cite>443-LESS编译</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="118" data-level="0_8"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>118-Spring框架</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="118" href="JavaScript:;" data-id="156" data-level="0_8_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>156-Spring框架核心</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="157" data-level="0_8_0_0"><i class="layui-icon type1"></i><cite>157-spring概述</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="158" data-level="0_8_0_1"><i class="layui-icon type1"></i><cite>158-spring环境搭建</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="159" data-level="0_8_0_2"><i class="layui-icon type1"></i><cite>159-spring配置详解</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="160" data-level="0_8_0_3"><i class="layui-icon type1"></i><cite>160-spring概念详解</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="161" data-level="0_8_0_4"><i class="layui-icon type1"></i><cite>161-AOP编程实现</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="156" href="JavaScript:;" data-id="162" data-level="0_8_0_5"><i class="layui-icon type1"></i><cite>162-spring框架核心小结</cite></a></div></li></ul></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="" href="JavaScript:;" data-id="110" data-level="0_9"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>110-Oracle开发与运维技术实践</cite></a></div><ul><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="119" data-level="0_9_0"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>119-数据库入门</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="119" href="JavaScript:;" data-id="129" data-level="0_9_0_0"><i class="layui-icon type1"></i><cite>129-数据库简介</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="119" href="JavaScript:;" data-id="130" data-level="0_9_0_1"><i class="layui-icon type1"></i><cite>130-Oracle安装</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="120" data-level="0_9_1"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>120-Oracle开发工具</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="120" href="JavaScript:;" data-id="131" data-level="0_9_1_0"><i class="layui-icon type1"></i><cite>131-网络服务与开发工具</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="121" data-level="0_9_2"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>121-基本数据查询</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="121" href="JavaScript:;" data-id="132" data-level="0_9_2_0"><i class="layui-icon type1"></i><cite>132-SCOTT方案</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="121" href="JavaScript:;" data-id="133" data-level="0_9_2_1"><i class="layui-icon type1"></i><cite>133-基础查询</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="122" data-level="0_9_3"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>122-高级查询</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="122" href="JavaScript:;" data-id="134" data-level="0_9_3_0"><i class="layui-icon type1"></i><cite>134-组函数</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="122" href="JavaScript:;" data-id="135" data-level="0_9_3_1"><i class="layui-icon type1"></i><cite>135-子查询</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="122" href="JavaScript:;" data-id="136" data-level="0_9_3_2"><i class="layui-icon type1"></i><cite>136-多表连接查询</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="123" data-level="0_9_4"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>123-单行函数</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="123" href="JavaScript:;" data-id="137" data-level="0_9_4_0"><i class="layui-icon type1"></i><cite>137-单行函数介绍</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="124" data-level="0_9_5"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>124-数据操作与管理表</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="124" href="JavaScript:;" data-id="138" data-level="0_9_5_0"><i class="layui-icon type1"></i><cite>138-DML操作</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="124" href="JavaScript:;" data-id="139" data-level="0_9_5_1"><i class="layui-icon type1"></i><cite>139-事务</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="124" href="JavaScript:;" data-id="140" data-level="0_9_5_2"><i class="layui-icon type1"></i><cite>140-管理表</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="125" data-level="0_9_6"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>125-内置约束和视图</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="125" href="JavaScript:;" data-id="141" data-level="0_9_6_0"><i class="layui-icon type1"></i><cite>141-约束</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="125" href="JavaScript:;" data-id="142" data-level="0_9_6_1"><i class="layui-icon type1"></i><cite>142-数据库设计</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="125" href="JavaScript:;" data-id="143" data-level="0_9_6_2"><i class="layui-icon type1"></i><cite>143-视图</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="126" data-level="0_9_7"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>126-序列、索引、同义词和访问控制</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="126" href="JavaScript:;" data-id="144" data-level="0_9_7_0"><i class="layui-icon type1"></i><cite>144-序列</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="126" href="JavaScript:;" data-id="145" data-level="0_9_7_1"><i class="layui-icon type1"></i><cite>145-索引</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="126" href="JavaScript:;" data-id="146" data-level="0_9_7_2"><i class="layui-icon type1"></i><cite>146-同义词</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="126" href="JavaScript:;" data-id="147" data-level="0_9_7_3"><i class="layui-icon type1"></i><cite>147-权限</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="127" data-level="0_9_8"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>127-过程、函数、触发器</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="148" data-level="0_9_8_0"><i class="layui-icon type1"></i><cite>148-PLSQL基础语法</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="149" data-level="0_9_8_1"><i class="layui-icon type1"></i><cite>149-游标</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="150" data-level="0_9_8_2"><i class="layui-icon type1"></i><cite>150-例外</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="151" data-level="0_9_8_3"><i class="layui-icon type1"></i><cite>151-存储过程</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="152" data-level="0_9_8_4"><i class="layui-icon type1"></i><cite>152-存储函数</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="127" href="JavaScript:;" data-id="153" data-level="0_9_8_5"><i class="layui-icon type1"></i><cite>153-触发器</cite></a></div></li></ul></li><li class=""><div class="node"><i class="layui-icon arrow"></i><a data-pid="110" href="JavaScript:;" data-id="128" data-level="0_9_9"><i class="layui-icon type1"></i><i class="layui-icon type2"></i><cite>128-备份与恢复、SQL优化</cite></a></div><ul><li class=""><div class="node not-tree"><a data-pid="128" href="JavaScript:;" data-id="154" data-level="0_9_9_0"><i class="layui-icon type1"></i><cite>154-备份与恢复</cite></a></div></li><li class=""><div class="node not-tree"><a data-pid="128" href="JavaScript:;" data-id="155" data-level="0_9_9_1"><i class="layui-icon type1"></i><cite>155-SQL优化</cite></a></div></li></ul></li></ul></li></ul></div>
+                    <div id="layPage" class="text-r pager"></div>
+                </div>
+                
+                <!--右侧-->
+                <div class="form-wrapper">
+                	
+                    <!--默认显示-->
+                    <fieldset class="layui-elem-field" id="default">
+                        <legend>详情展示</legend>
+                        <div class="layui-field-box" style="padding: 30px 20px;">
+                            <p class="fs24"> 详情展示区</p>
+                            <p class="fs18 pt10">请在左侧选择想查看的 科目，章，或者 节</p>
+                        </div>
+                    </fieldset>
+                    	
+                    <!--添加科目-->
+                    <fieldset class="layui-elem-field" id="subjectBox">
+                        <legend>添加科目</legend>
+                        <div class="layui-field-box">
+                            <form class="layui-form" id="subjectForm" action="?c=subject&m=save" method="post">
+                            	<input type="hidden" name="id" value="" />
+                            	<input type="hidden" name="level" value="1" />
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">名称</label>
+                                    <div class="layui-input-block">
+                                        <input maxlength="50" type="text" name="name" lay-verify="required" data-msg="请输入名称" maxlength="30" placeholder="请输入名称" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">描述</label>
+                                    <div class="layui-input-block">
+                                        <textarea maxlength="250" name="info" placeholder="请输入描述" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit="" lay-filter="subjectForm">立即提交</button> 
+                                        <button type="button" onclick="abandonForm()" class="layui-btn layui-btn-primary">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+                    	
+                    <!--添加章节-->
+                    <fieldset class="layui-elem-field" id="chapterOrSectionBox">
+                        <legend>添加章节</legend>
+                        <div class="layui-field-box">
+                            <form class="layui-form" id="chapterOrSectionForm" action="?c=subject&m=save" method="post">
+                            	<input type="hidden" name="id" value="" />
+                            	<input type="hidden" name="pid" value="" />
+                            	<input type="hidden" name="grandpa" value="" />
+                            	<input type="hidden" name="level" value="" />
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">名称</label>
+                                    <div class="layui-input-block">
+                                        <input maxlength="50" type="text" name="name" lay-verify="required" data-msg="请输入名称" maxlength="30" placeholder="请输入名称" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                              	<div class="layui-form-item">
+                                    <label class="layui-form-label">父节点</label>
+                                    <div class="layui-input-block relative">
+                                        <input type="text" name="p_name" readonly="readonly" lay-verify="required" placeholder="请选择" autocomplete="off" class="layui-input">
+                                        <button type="button" id="showLayerTreeBtn" class="layui-btn" onclick="showLayerTree()"><i class="layui-icon"></i></button>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">排序</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="by_sort" lay-verify="default1" placeholder="默认值1" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">描述</label>
+                                    <div class="layui-input-block">
+                                        <textarea maxlength="250" name="info" placeholder="请输入描述" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit="" lay-filter="chapterOrSectionForm">立即提交</button> 
+                                        <button type="button" onclick="abandonForm()" class="layui-btn layui-btn-primary">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+                    
+                    <!--科目详情-->
+                    <fieldset class="layui-elem-field" id="subjectDetail">
+                        <legend>科目详情</legend>
+                        <div class="layui-field-box"></div>
+                    </fieldset>
+                    
+                    <!--章详情-->
+                    <fieldset class="layui-elem-field" id="chapterDetail">
+                        <legend>章详情</legend>
+                        <div class="layui-field-box"></div>
+                    </fieldset>
+                    	
+                    <!--节详情-->
+                    <fieldset class="layui-elem-field" id="sectionDetail">
+                        <legend>节详情</legend>
+                        <div class="layui-field-box"></div>
+                    </fieldset>
+                    
+                </div>
+            </div><!-- content wrapper end-->
+        </div><!-- page wrapper end-->
+        
+        
+        <!--科目详情模板-->
+       	<script id="subjectTpl" type="text/template">
+       		<div class="layui-form info-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-form-text">
+                        <p class="layui-input">{{d.name}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">描述</label>
+                    <div class="layui-form-text">
+                    	<div class="layui-textarea">{{d.info}}</div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">已被哪些<br>方向涵盖</label>
+                    <div class="layui-form-text">
+                    	<div class="layui-textarea">
+                    		{{#  layui.each(d.direction, function(index, item){ }}
+							    <p>{{ item.name }}</span>
+							{{#  }); }}
+                    	</div>
+                    </div>
+                </div>
+                                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" onclick="editForm('subjectBox','编辑科目')">编辑</button>
+                    </div>
+                </div>
+                           </div>
+       	</script>
+       	
+       	<!--章详情模板-->
+       	<script id="chapterTpl" type="text/template">
+       		<div class="layui-form info-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-form-text">
+                        <p class="layui-input">{{d.name}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所属科目</label>
+                    <div class="layui-form-text">
+                        <p class="layui-input"> {{d.p_name}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序</label>
+                    <div class="layui-form-text">
+                        <p class="layui-input">{{d.by_sort}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">描述</label>
+                    <div class="layui-form-text">
+                        <div class="layui-textarea">{{d.info}}</div>
+                    </div>
+                </div>
+                                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" onclick="editForm('chapterOrSectionBox','编辑章')">编辑</button>
+                    </div>
+                </div>
+                            </div>
+       	</script>
+       	
+       	<!--节详情模板-->
+       	<script id="sectionTpl" type="text/template">
+       		<div class="layui-form info-form">
+       			<input type="hidden" name="id" value="{{d.id}}" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-form-text">
+                       <p class="layui-input">{{d.name}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所属章</label>
+                    <div class="layui-form-text">
+                        <p class="layui-input">{{d.p_name}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序</label>
+                    <div class="layui-form-text">
+                       <p class="layui-input">{{d.by_sort}}</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">描述</label>
+                    <div class="layui-form-text">
+                    	<div class="layui-textarea">{{d.info}}</div>
+                    </div>
+                </div>
+                                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" type="button" onclick="editForm('chapterOrSectionBox','编辑节')">编辑</button>
+                    </div>
+                </div>
+                            </div>
+       	</script>
+        	
+        <!--core script-->
+        <script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-accordion-menu.js"></script>
+        <script src="js/layui/layui.all.js" type="text/javascript"></script>
+        <script src="js/jquery.pagination.js" type="text/javascript"></script>
+        <script src="js/public.js" type="text/javascript"></script>
+        <script src="js/subjectPage.js" type="text/javascript"></script>
+    </body>
+</html>

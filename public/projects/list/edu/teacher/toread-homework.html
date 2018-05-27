@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>我的待阅-逐题模式</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+	<div class="page">
+		<div class="header">
+			<div class="main-wrap clearfix">
+				<div class="logo">
+					<a href="?c=student&m=list">
+						<img src="img/logo.png" />
+					</a>
+				</div>
+				<div class="user-menu">
+					<!--<a href="">我的学习</a>-->
+					<div class="drop">
+						<span>刘老师</span>
+						<a href="?c=tlogin&m=out">退出登录</a>
+					</div>
+					<img class="circle" src="img/head.png" />
+				</div>
+			</div>
+		</div>
+		<div class="page-wrap">
+			<div class="side">
+				<img class="head circle" src="img/head.png" />
+				<p class="name">刘老师</p>
+				<ul>
+					<li class="stu-mng ">
+						<div class="icon"></div>
+						<a href="?c=student&m=list">
+							<span>我的学生</span>
+						</a>
+					</li>
+					<li class="paper-mng act">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>我的待阅</span>
+						</a>
+					</li>
+					<li class="exam-mng">
+						<div class="icon"></div>
+						<a href="?c=teaquestions&m=questionlist&flag=1">
+							<span>统一考试</span>
+						</a>
+					</li>
+					<li class="stage-exam">
+						<div class="icon"></div>
+						<a href="?c=check&m=list">
+							<span>阶段考试报名</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">
+
+				<div class="task">
+					<div class="page-title">
+						<a href="?c=check&m=list">关卡</a>
+						<a href="?c=check&m=list&flag=6" class="act">课后作业</a>
+						<a href="?c=check&m=unitylist&flag=13">统考试卷</a>
+					</div>
+
+					<div class="mode-switch clearfix">
+						<div class="main">
+							<p>当前阅卷模式：
+								<span class="c-main">逐题模式</span>
+							</p>
+							<button class="btn btn-main" id="modeSwitch" data-redirect="?c=check&m=paperlist&flag=6">变更为整卷模式</button>
+						</div>
+						<form action="?c=check&m=list" method="get">
+							<div class="search-box clearfix">
+								<input type="hidden" name="c" value="check">
+								<input type="hidden" name="m" value="list">
+								<input type="hidden" name="flag" value="6">
+								<div class="item">
+									<input maxlength="12" type="text" name="subject" id="" value="" placeholder="题目" autocomplete="off" />
+								</div>
+								<div class="item">
+									<select name="type">
+										<option value="">全部</option>
+										<option value="3">简答</option>
+										<option value="4">程序设计</option>
+										<option value="5">任务</option>
+									</select>
+								</div>
+								<button class="btn btn-main" type="submit">搜索</button>
+							</div>
+						</form>
+					</div>
+
+
+
+					<div class="table">
+						<table>
+							<colgroup width="45px"></colgroup>
+							<colgroup width="65px"></colgroup>
+							<colgroup width="172px"></colgroup>
+							<colgroup width="127px"></colgroup>
+							<colgroup width="92px"></colgroup>
+							<colgroup width="78px"></colgroup>
+							<colgroup width="78px"></colgroup>
+							<colgroup width="auto"></colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>操作</th>
+									<th>题目</th>
+									<th>最早提交时间</th>
+									<th>待批阅</th>
+									<th>题型</th>
+									<th>难度</th>
+									<th>科目/章/节</th>
+								</tr>
+							</thead>
+							<tbody>
+
+
+
+								<tr>
+									<td>1</td>
+									<td>
+										<a href="?c=check&m=detail&id=100015&flag=6" class="c-main">批阅</a>
+									</td>
+									<td class="text-l">
+										<div class="text-dots">
+											<div class="content">编写一个程序，随机产生20个0到50之间(包括0不包括50)的整数并且这些整数不能重复出现。 提示：需要用到Math类
+											</div>
+										</div>
+									</td>
+									<td>
+										<span class="c-danger">42天前</span>
+									</td>
+									<td>
+										<span class="bold">1</span>
+									</td>
+									<td>程序设计</td>
+									<td>中等</td>
+									<td class="text-l">
+										<div class="text-dots">
+											<div class="content">Java面向对象程序设计/4数组/4.3数组的常用操作、foreach</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>
+										<a href="?c=check&m=detail&id=100073&flag=6" class="c-main">批阅</a>
+									</td>
+									<td class="text-l">
+										<div class="text-dots">
+											<div class="content">编程打印（题目图片1）的图形
+											</div>
+										</div>
+									</td>
+									<td>
+										<span class="c-danger">42天前</span>
+									</td>
+									<td>
+										<span class="bold">1</span>
+									</td>
+									<td>程序设计</td>
+									<td>中等</td>
+									<td class="text-l">
+										<div class="text-dots">
+											<div class="content">Java面向对象程序设计/3程序设计基础/3.8控制流程</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="pager text-c">
+							<span class="current prev">«</span>
+							<span class="current">1</span>
+							<span class="current prev">»</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="main-wrap">
+				<ul class="link-item clearfix">
+					<li>
+						<a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.54youwei.com/">有为招聘</a>
+					</li>
+				</ul>
+				<div class="clearfix">
+					<div class="info-box">
+						<p>电话：4006-588-662 传真：010-68208666 </p>
+						<p>主办：工业和信息化部人才交流中心 </p>
+						<p>京公网安备 11010802020352号 </p>
+					</div>
+					<div class="info-box">
+						<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+						<p>支持：国信世纪人才服务（北京）有限公司</p>
+						<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>window.staticDir = 'js/'</script>
+	<script src="js/libs/require.min.js" data-main="js/task.js"></script>
+
+</body>
+
+</html>

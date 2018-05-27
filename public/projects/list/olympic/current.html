@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>2016程序猿奥运会</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	
+
+	<body>
+		<div class="page r-answer">
+			<div class="head">
+				<img src="img/header2.jpg"/>
+				<div class="days">
+					<img src="img/01@2x.png" class="num">
+					<p class="date">8月6日</p>
+				</div>
+				<p class="word">
+					恭喜你夺得本届程序猿奥运会<br />
+					 第<i class="num">0001</i>块金牌！ 
+				</p>
+			</div>
+			<div class="q-a">
+				正确题面：里约奥运会是第几届夏季奥运会？ 
+				<br />正确答案：31 
+			</div>
+			<div class="colorbar">
+				<p></p>
+			</div>
+			<div class="links">
+				<a href="javascript:;" onclick="showShare()">分享荣誉</a>
+				<a href="">再答一题</a>
+			</div>
+			<img src="img/logo.png" class="logo"/>
+		</div>
+		
+		<style type="text/css">
+			#dialog{
+				background: rgba(83,83,83,0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				opacity: 1;
+				transition: all 0.5s; 
+				-webkit-transition: all 0.5s; 
+				opacity: 0;
+				display: none;
+			}
+			#dialog .text{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 300px;
+				height: 195px;
+				margin-left: -150px;
+				margin-top: -100px;
+				background: #fff url(img/dia-bg.jpg) no-repeat top center;
+				background-size: auto 35px; 
+				overflow: hidden;
+				border-radius: 12px;
+				-webkit-border-radius: 12px;
+			}
+			#dialog .close{
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				width: 8px;
+				height: 9px;
+			}
+			#dialog .img{
+				display: block;
+				width: 135px;
+				height: auto;
+				margin: 55px auto 32px auto;
+			}
+			#dialog p{
+				color: #313131;
+				text-align: center;
+			}
+		</style>
+		<div id="dialog">
+			<div class="text">
+				<img src="img/close.png" class="close" onclick="hideShare()"/>
+				<img src="img/dia-img.png" class="img"/>
+				<p>快点击右上角&ensp;分享到朋友圈</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function showShare(){
+			document.getElementById("dialog").style.opacity = 1;
+			document.getElementById("dialog").style.display = "block";
+		}
+		function hideShare(){
+			document.getElementById("dialog").style.opacity = 0;
+			document.getElementById("dialog").style.display = "none"
+		}
+	</script>
+</html>

@@ -1,0 +1,319 @@
+@charset "utf-8";
+.main{
+    width:920px;
+    margin:0 auto;
+    box-shadow: 0 0 2px 2px #ccc;
+    padding:30px 0;
+    margin-bottom:40px;
+    position:relative;
+}
+.mt50{margin-top: 50px;}
+.main-cnt{
+    width:960px;
+}
+.mainL{
+    width:155px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.mainL .picture{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+.mainL .picture img{
+    width: 150px;
+    height: 150px;
+}
+.mainL .message{
+    font-size: 17px;
+    color:#478ddf;
+}
+.message a:link{
+    color:#478ddf;
+    font-weight: bold;
+}
+.mainL .name{
+    margin-top:14px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.mainL span{
+    display: block;
+    font-size: 16px;
+    line-height: 28px;
+}
+.memberinfo{
+    margin-top:25px;
+}
+.memberinfo p{
+    margin-bottom:15px;
+}
+.memberinfo p label{
+    display: block;
+    padding-bottom:5px;
+}
+/*右侧*/
+.mainR{
+    width:720px;
+    margin-left:25px;
+}
+.basicInfo{
+    margin-top:19px;
+    height: 130px;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative;
+    overflow: hidden;
+}
+.bigName{
+    font-size: 30px;
+    font-weight: bolder;
+}
+.basicInfo .detail{
+    margin-top:15px;
+    font-size: 14px;
+}
+.basicInfo .detail span{
+    min-width:175px;
+    display: inline-block;
+}
+.basicInfo .btn{
+    position: absolute;
+    right: 50px;
+    top:5px;
+}
+.basicInfo .btn .btnA{
+    margin-left:10px;
+    display: inline-block;
+    padding:4px 15px;
+    color:#fff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius:2px;
+}
+.check{
+    background: #3c83d6;
+    border:1px solid #1c63b7;
+}
+.nocheck{
+    background: #d33e46;
+    border:1px solid #c21e24;
+}
+/*期望行业*/
+.joblist{
+    margin-top:20px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 13px;
+}
+.listTd{
+    font-size: 12px;
+}
+.listTd span{
+    display: inline-block;
+    margin-bottom:20px;
+}
+.l1{
+    width:80px;
+
+}
+.l2{width:80px;}
+.l3{width:80px;}
+.l4{width:70px;}
+.mainR .list span{
+    display: inline-block;
+    height:34px;
+    /*line-height: 34px;*/
+    font-size: 13px;
+    font-weight: bolder;
+    color: #252525;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+    text-overflow: ellipsis;
+}
+.skillList{
+    margin-top:20px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.skillList h4{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.skillList .skill span{
+    display: inline-block;
+    width:140px;
+    font-size: 14px;
+    padding-bottom:10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.skillList .skill em{
+    display: block;
+    margin-top:8px;
+    color: #478ddf;
+}
+.pra-title{
+    width: 186px;
+    overflow: hidden;
+}
+.pra-title p{
+    font-size: 14px;
+    color:#373c40;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.pra-title p span{
+    font-size: 13px;
+    color: #414d58;
+    display: block;
+    margin-top:5px;
+}
+.pra-cnt{
+    margin-left:10px;
+    width:500px;
+    line-height: 22px;
+}
+.practice{
+    margin-bottom: 10px;
+}
+.honor{
+    font-size: 14px;
+}
+.honor dl{
+    float: left;
+    width:350px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.education{
+
+}
+.education li{
+    margin-bottom: 10px;
+}
+.education li span{
+    display:inline-block;
+    font-size: 14px;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+    text-overflow: ellipsis;
+    margin-right:10px;
+    width:auto;
+}
+.educationName{
+    color: #478ddf;
+    width:80px;
+}
+.education .a1{
+    /*width:85px;*/
+}
+.education .a2{
+    /*width:120px;*/
+}
+.education .a3{
+    /*width: 170px;*/
+}
+.education .a4{
+    /*width:130px;*/
+}
+.language em{
+    color: #478ddf;
+    font-size: 14px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.self-intro{
+    font-size: 14px;
+    line-height: 1.8em;
+    padding-right:20px;
+}
+.joy{
+    color: #478ddf;
+    font-size: 14px;
+}
+.joy span{
+    padding:0 5px;
+}
+.bt0{
+    border-bottom:0;
+}
+/*其它证件*/
+.mt35{
+    margin-top:35px;
+}
+.appInfo li{
+    float: left;
+    width: 350px;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.appintro{
+    position: relative;
+}
+.appintro .notice{
+    position: absolute;
+    right: 30px;
+    top:5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #478ddf;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #478ddf;
+}
+.comInfo{
+    padding-right:20px;
+    line-height: 1.8em;
+}
+.mt20{
+    margin-top:20px;
+}
+.list a{color: #478ddf;}
+.paperwork li{
+    float: left;
+    width: 220px;
+    height: 165px;
+    margin-right:20px;
+    margin-bottom: 10px;
+}
+.paperwork li img{
+    width: 220px;
+    height: 165px;
+    overflow: hidden;
+}
+.paper{
+    position: relative;
+}
+.paper .pass{
+    position: absolute;
+    right: 30px;
+    top: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #478ddf;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #478ddf;
+}
+.paper .line{
+    padding: 0 12px;
+    color: #dfdfdf;
+    font-weight: normal;
+    vertical-align: top;
+    display: inline-block;
+}
+.paper h4 .other{
+    font-weight: 500;
+}
+.work span{
+    display: inline-block;
+    padding:0;
+
+}

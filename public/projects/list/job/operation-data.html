@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="renderer" content="webkit">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>信息抓取</title>
+	<link href="" type="image/x-icon" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" type="text/css" href="css/public.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/pagination.css" />
+	<style type="text/css">
+		.link_btn_default.active {
+			background: #e34e42;
+			color: #fff;
+		}
+		.mainTitle span {
+			font-size: 14px;
+			color: #5b646c;
+		}
+		.tab-noborder {
+			width: 100%;
+		}
+		.tab-noborder .tr1 {
+			font-size: 18px;
+			color: #e34e42;
+		}
+		.tab-noborder .tr2 {
+			font-size: 50px;
+			color: #555;
+			font-weight: bold;
+		}
+		.mainWarp {
+			overflow: hidden;
+		}
+		.table-box {
+			margin-right: -30px;
+		}
+		.table-box .table-block {
+			float: left;
+			width: 50%;
+			padding-right: 30px;
+			box-sizing: border-box;
+		}
+		.charts {
+			height: 370px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="mainWarp">
+		<h2 class="mainTitle">访问量指标</h2>
+		<table class="tab-noborder">
+			<tr class="tr1">
+				<td width="20%">PV</td>
+				<td width="20%">UV</td>
+				<td width="20%">IP</td>
+				<td width="20%">访客</td>
+				<td width="20%">内容总浏览量</td>
+			</tr>
+			<tr class="tr2">
+				<td>128</td>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+				<td>16778</td>
+			</tr>
+		</table>
+	</div>
+
+
+
+	<div class="mainWarp charts-box" id="chart1">
+		<h2 class="mainTitle">每日访问量趋势曲线<span class="fr">2017/10/28至2017/11/03</span></h2>
+		<div class="charts" id="highcharts1"></div>
+		<div class="text-center">
+			<a href="javascript:;" class="link_btn_default active" data-filter="pv">PV</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="uv">UV</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="ip">IP</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="visitor">访客</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="totalVisitor">内容总浏览量</a>
+		</div>
+	</div>
+
+	
+	<div class="mainWarp charts-box" id="chart2">
+		<h2 class="mainTitle">时段访问量趋势曲线<span class="fr">2017/11/02至2017/11/03</span></h2>
+		<div class="charts" id="highcharts2"></div>
+		<div class="text-center">
+			<a href="javascript:;" class="link_btn_default active" data-filter="pv">PV</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="uv">UV</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="ip">IP</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="visitor">访客</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="totalVisitor">内容总浏览量</a>
+		</div>
+	</div>
+
+	<div class="mainWarp">
+		<h2 class="mainTitle">访问量指标<span class="fr">2017/11/03</span></h2>
+		<table class="tab-noborder">
+			<tr class="tr1">
+				<td width="20%">日活跃</td>
+				<td width="20%">周活跃</td>
+				<td width="20%">月活跃</td>
+				<td width="20%">IOS启动次数</td>
+				<td width="20%">Android启动次数</td>
+			</tr>
+			<tr class="tr2">
+				<td>2</td>
+				<td>0</td>
+				<td>51</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+	</div>
+
+
+	<div class="mainWarp charts-box" id="chart3">
+		<h2 class="mainTitle">每日活跃量趋势曲线<span class="fr">2017/10/28至2017/11/03</span></h2>
+		<div class="charts" id="highcharts3"></div>
+		<div class="text-center">
+			<a href="javascript:;" class="link_btn_default active" data-filter="day">日活跃</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="ios">IOS启动次数</a>
+			<a href="javascript:;" class="link_btn_default" data-filter="android">Android启动次数</a>
+		</div>
+	</div>
+
+	
+	<div class="mainWarp" id="table1">
+		<input type="hidden" name="total" value="25">
+		<h2 class="mainTitle">当前在线用户</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="40%">用户</th>
+					<th width="60%">访问入口</th>
+				</tr>
+			</thead>
+			<tbody>
+								<tr>
+					<td>13403160866</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>15222792977</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>17600082576</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>18856432079</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>15090633138</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>13101100019</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>13222222222</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>15010938675</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>13222222222</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+								<tr>
+					<td>18610315234</td>
+					<td><a href="http://localhost/job/public/admin/?c=admin&m=login" class="tab_a">http://localhost/job/public/admin/?c=admin&m=login</a></td>
+				</tr>
+							</tbody>
+		</table>
+		<div class="pager mtop20" id="pager1"></div>
+	</div>
+
+
+
+	<div class="mainWarp" id="table2">
+		<input type="hidden" name="total" value="0">
+		<h2 class="mainTitle">登录次数用户排名</h2>
+		<div class="filter">
+			<a href="javascript:;" class="link_btn_default" data-val="day" data-total="0">日</a>
+			<a href="javascript:;" class="link_btn_default active" data-val="week" data-total="0">周</a>
+			<a href="javascript:;" class="link_btn_default" data-val="mouth" data-total="25">月</a>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th wwid="15%">序号</th>
+					<th wwid="35%">用户名</th>
+					<th wwid="15%">登录次数</th>
+					<th wwid="35%">发布时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				 			</tbody>
+		</table>
+		<div class="pager mtop20" id="pager2"></div>
+	</div>
+
+
+	<div class="mainWarp" id="table3">
+		<input type="hidden" name="total" value="0">
+		<h2 class="mainTitle">在线时长用户排名</h2>
+		<div class="filter">
+			<a href="javascript:;" class="link_btn_default" data-val="day" data-total="0">日</a>
+			<a href="javascript:;" class="link_btn_default active" data-val="week" data-total="0">周</a>
+			<a href="javascript:;" class="link_btn_default" data-val="mouth" data-total="25">月</a>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th wwid="15%">序号</th>
+					<th wwid="35%">用户名</th>
+					<th wwid="15%">在线时长</th>
+					<th wwid="35%">发布时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				 			</tbody>
+		</table>
+		<div class="pager mtop20" id="pager3"></div>
+	</div>
+
+
+	<script id="table_type1_tpl" type="text/x-dot-template">
+		{{if( it && it.length>0 ){ }} 
+			{{ for (var i = 0; i <it.length; i++) { }} 
+				<tr>
+					<td>{{=it[i].username}}</td>
+					<td><a target="_blank" href="{{=it[i].in}}" class="tab_a">{{=it[i].in}}</a></td>
+				</tr>
+			{{ } }} 
+		{{ }else{ }}
+			<tr>
+				<td colspan="2" style="text-align: center;">（.—_—.）暂无数据。。。</td>
+			</tr>
+		{{ } }}
+	</script>
+
+	<script id="table_type2_tpl" type="text/x-dot-template">
+		{{if( it && it.length>0 ){ }} 
+			{{ for (var i = 0; i <it.length; i++) { }} 
+				<tr>
+					<td>{{=it[i].num}}</td>
+					<td>{{=it[i].username}}</td>
+					<td>{{=it[i].login_count}}</td>
+					<td>{{=it[i].add_time}}</td>
+				</tr>
+			{{ } }} 
+		{{ }else{ }}
+			<tr>
+				<td colspan="4" style="text-align: center;">（.—_—.）暂无数据。。。</td>
+			</tr>
+		{{ } }}
+	</script>
+
+	<script id="table_type3_tpl" type="text/x-dot-template">
+		{{if( it && it.length>0 ){ }} 
+			{{ for (var i = 0; i <it.length; i++) { }} 
+				<tr>
+					<td>{{=it[i].num}}</td>
+					<td>{{=it[i].username}}</td>
+					<td>{{=it[i].online_length}}</td>
+					<td>{{=it[i].add_time}}</td>
+				</tr>
+			{{ } }} 
+		{{ }else{ }}
+			<tr>
+				<td colspan="4" style="text-align: center;">（.—_—.）暂无数据。。。</td>
+			</tr>
+		{{ } }}
+	</script>
+	
+
+
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+	<script src="//cdn.bootcss.com/dot/1.1.0/doT.min.js"></script>
+	<script src="js/jquery.pagination.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+
+		var chart1InitData = {
+			data: [0,1,1,1,0,0,0]		}
+
+		var chart2InitData = {
+			data: [0,0,0,1,2,3,4,5,5,5,5,3,2,1,0,0,0,0,0,0,0,0,0,0]		}
+
+		var chart3InitData = {
+			data: [0,0,2,2,0,0,0]		}
+
+		var charts1Data = {
+			'pv': [0,1,0,0,0,2,0],
+			'uv': [0,0,1,0,2,0,0],
+			'ip': [0,0,0,1,0,2,0],
+			'visitor': [0,0,1,0,0,0,2],
+			'totalVisitor':[0,0,1,2,0,0,0]		}
+		
+		var charts2Data = {
+			'pv' : [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,3,0,0,0,0,0,0,0],
+			'uv' : [0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,0],
+			'ip' : [0,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,3,0,0,0,0,0],
+			'visitor'  : [0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,3,0,0,0,0,0,0,0],
+			'totalVisitor' : [0,0,0,0,1,0,2,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0],
+		}
+		var charts3Data = {
+			'day': [0,1,0,0,0,2,0],
+			'ios': [0,0,1,0,2,0,0],
+			'android': [0,1,2,0,0,0,0]		}
+		//表格数据
+		var tableData = {
+			onlineNow:{
+				p : 0,
+				tpl : $("#table_type1_tpl"),
+				wrap: $("#table1"),
+				url: '?c=message&m=online',
+			},
+			loginCount:{
+				p : 0,
+				tpl : $("#table_type2_tpl"),
+				wrap: $("#table2"),
+				url: '?c=message&m=user',
+			},
+			onlineTime:{
+				p : 0,
+				tpl : $("#table_type3_tpl"),
+				wrap: $("#table3"),
+				url: '?c=message&m=length',
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		
+		//分页函数
+		function setPage(el,total){
+			el.pagination(total,{
+				prev_text: "«",
+				next_text: "»",
+				num_edge_entries: 2,
+				num_display_entries: 4,
+				items_per_page:10,
+				callback: pageCallback,
+			});
+		}
+		
+		//翻页回调
+		function pageCallback(index,dom){
+			var id = $(dom).attr("id");
+			if(id === 'pager1'){
+				tableData.onlineNow.p = index;
+				OnlineNowList();
+			}else if(id === 'pager2'){
+				tableData.loginCount.p = index;
+				loginCountList();
+			}else if(id === 'pager3'){
+				tableData.onlineTime.p = index;
+				onlineTimeList();
+			}else{
+				console.error("未知的表格")
+			}
+			return false;
+		}
+
+		//当前在线
+		function OnlineNowList(){
+			var filter = {
+				p : tableData.onlineNow.p 
+			}
+			renderTable(tableData.onlineNow,filter)
+		}
+		//登陆次数排行
+		function loginCountList(){
+			var filter = {
+				p : tableData.loginCount.p,
+				time:$("#table2 .filter a.active").data("val")
+			}
+			renderTable(tableData.loginCount,filter)
+		}
+		//用户排行
+		function onlineTimeList(){
+			var filter = {
+				p : tableData.onlineTime.p,
+				time:$("#table3 .filter a.active").data("val")
+			}
+			renderTable(tableData.onlineTime,filter)
+		}
+
+		//渲染table的html
+		function renderTable(table,filter){
+			$.ajax({
+				url: table.url ,
+				method:'get',
+				dataType:'json',
+				data:filter,
+				success:function(res){
+					if(res.code != '200'){
+						alert(res.message)
+						return false;
+					}
+					var template = doT.template(table.tpl.html());
+					var html = template(res.data.list);
+					table.wrap.find("tbody").html(html);
+				},
+				error:function(){
+					alert('网络错误')
+				}
+			});
+		}
+
+		$(function () {
+
+			//设置分页
+			setPage($("#pager1"),parseInt($("#table1 input[name=total]").val()));
+			setPage($("#pager2"),parseInt($("#table2 input[name=total]").val()));
+			setPage($("#pager3"),parseInt($("#table3 input[name=total]").val()));
+
+			highcharts1 = new Highcharts.Chart({
+				chart: {
+					type: 'area',
+					renderTo: 'highcharts1'
+				},
+				title: {
+					text: '每日访问量趋势曲线图'
+				},
+				xAxis: {
+					allowDecimals: false,
+					labels: {
+						formatter: function () {
+							return this.value;
+						}
+					}
+				},
+				yAxis: {
+					title: {
+						text: '访问量'
+					},
+					labels: {
+						formatter: function () {
+							return this.value / 1000 + 'k';
+						}
+					}
+				},
+				tooltip: {
+					pointFormat: '星期 {point.x}的访问量是：{point.y}'
+				},
+				series: [{
+					name: '日期',
+					data:chart1InitData.data
+				}]
+			});
+
+
+			highcharts2 = new Highcharts.Chart({
+				chart: {
+					type: 'area',
+					renderTo: 'highcharts2'
+				},
+				title: {
+					text: '时段访问量趋势曲线'
+				},
+				xAxis: {
+					allowDecimals: false,
+					labels: {
+						formatter: function () {
+							return this.value;
+						}
+					}
+				},
+				yAxis: {
+					title: {
+						text: '访问量'
+					},
+					labels: {
+						formatter: function () {
+							return this.value / 1000 + 'k';
+						}
+					}
+				},
+				tooltip: {
+					pointFormat: '{point.x}：00的访问量是：{point.y}'
+				},
+				series: [{
+					name: '日期',
+					//data: { $this->vars['date_curve']['pv'] }
+					data:chart2InitData.data
+				}]
+			});
+
+			highcharts3 = new Highcharts.Chart({
+				chart: {
+					type: 'area',
+					renderTo: 'highcharts3'
+				},
+				title: {
+					text: '每日活跃量趋势曲线'
+				},
+				xAxis: {
+					allowDecimals: false,
+					labels: {
+						formatter: function () {
+							return this.value;
+						}
+					}
+				},
+				yAxis: {
+					title: {
+						text: '访问量'
+					},
+					labels: {
+						formatter: function () {
+							return this.value / 1000 + 'k';
+						}
+					}
+				},
+				tooltip: {
+					pointFormat: '星期 {point.x}的访问量是：{point.y}'
+				},
+				series: [{
+					name: '日期',
+					//data: { $this->vars['curve']['uv'] }
+					data:chart3InitData.data
+				}]
+			});
+
+			//筛选图表数据
+			$(".charts-box a[data-filter]").click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+
+				var wrap = $(this).closest(".charts-box");
+				var filter = $(this).data("filter");
+				
+				if(wrap.attr('id')==='chart1'){
+					highcharts1.series[0].setData(charts1Data[filter]);
+				}else if(wrap.attr('id')==='chart2'){
+					highcharts2.series[0].setData(charts2Data[filter]);
+				}else if(wrap.attr('id')==='chart3'){
+					highcharts3.series[0].setData(charts3Data[filter]);
+				}else{
+					console.error('未找到chart')
+				}
+			});
+
+			$("#table2 .filter a").click(function(){
+				var _self = $(this);
+				_self.addClass("active").siblings().removeClass("active");
+				renderTable(tableData.loginCount,{
+					p : 0,
+					time:_self.data("val")
+				});
+				setPage($("#pager2"),parseInt(_self.data("total")))
+			});
+
+			$("#table3 .filter a").click(function(){
+				var _self = $(this);
+				_self.addClass("active").siblings().removeClass("active");
+				renderTable(tableData.onlineTime,{
+					p : 0,
+					time:_self.data("val")
+				});
+				setPage($("#pager3"),parseInt(_self.data("total")))
+			})
+
+		});
+	</script>
+</body>
+
+</html>

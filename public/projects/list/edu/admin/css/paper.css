@@ -1,0 +1,295 @@
+@charset "utf-8";
+
+/*组卷页面样式*/
+
+[v-cloak] {
+    display: none;
+}
+
+.template-selector {
+    padding-bottom: 20px;
+}
+
+.template-selector .layui-input-inline {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.type-block {
+    padding: 20px 0;
+}
+
+.type-block .title p {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: top;
+    color: #777;
+    font-size: 16px;
+}
+
+.type-block .title .h3 {
+    font-weight: bold;
+    color: #333;
+    width: 120px;
+}
+
+.type-block .title b {
+    font-weight: bold;
+    color: #444;
+    padding-right: 10px;
+}
+
+/* STEP 2 */
+.block-list {
+    box-sizing: border-box;
+    width: 920px;
+    margin: 0 auto;
+}
+
+.type-block .range-list .range {
+    margin: 10px 0;
+}
+
+.type-block .range > p {
+    margin-right: 3px;
+    color: #777;
+}
+.type-block .range > p.bold {
+    color: #333;
+    width: 50px;
+    margin-right: 0;
+}
+
+.type-block .range > select,
+.type-block .range > div {
+    margin-right: 5px;
+}
+
+.type-block .range select {
+    height: 30px;
+    line-height: 30px;
+}
+
+.type-block .range .select-subject {
+    width: 80px;
+}
+
+.type-block .range .select-chapter {
+    width: 100px;
+}
+
+.type-block .range .select-section {
+    width: 120px;
+}
+
+.type-block .range .select-difficulty {
+    width: 65px;
+}
+
+.type-block .range .handle i,
+.type-block .range .num {
+    text-align: center;
+    color: #666;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.type-block .range .handle i {
+    width: 24px;
+    display: inline-block;
+}
+
+.type-block .range .num {
+    width: 100px;
+    overflow: hidden;
+}
+
+.type-block .range .num p {
+    line-height: 30px;
+}
+
+.submit {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.submit button {
+    padding: 0 30px;
+}
+
+@media (min-width: 1400px) {
+    .block-list {
+        width: 1100px;
+    }
+
+    .type-block .range > p {
+        margin-right: 8px;
+    }
+
+    .type-block .range > select,
+    .type-block .range > div {
+        margin-right: 10px;
+    }
+
+    .type-block .range .select-subject {
+        width: 110px;
+    }
+    .type-block .range .select-chapter {
+        width: 130px;
+    }
+    .type-block .range .select-section {
+        width: 170px;
+    }
+    .type-block .range .select-difficulty {
+        width: 85px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .block-list {
+        width: 1200px;
+    }
+    .type-block .range > p {
+        margin-right: 15px;
+    }
+
+    .type-block .range > select,
+    .type-block .range > div {
+        margin-right: 20px;
+    }
+}
+
+.paper-total p {
+    font-size: 16px;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    color: #777;
+    padding-right: 10px;
+}
+
+.paper-total p b {
+    font-weight: bold;
+    color: #444;
+}
+
+.vue-selector select {
+    margin-right: 3px;
+}
+
+.vue-number {
+    padding-left: 5px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    width: 45px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 2px;
+    cursor: text;
+}
+
+.vue-number div {
+    position: absolute;
+    right: 0;
+    height: 15px;
+    line-height: 15px;
+    width: 15px;
+    font-size: 14px;
+    text-align: center;
+    background: #e1e2e3;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.vue-number div.disable {
+    background: #f1f2f3;
+    cursor: not-allowed;
+}
+
+.vue-number div:first-child {
+    top: 0;
+}
+
+.vue-number div:last-child {
+    bottom: 0;
+}
+.vue-number div:hover {
+    background: #d1d2d3;
+}
+
+/* 第三步 */
+.step-3 .range-list .range {
+    margin: 20px 0;
+}
+.step-3 .type-block .range > div {
+    margin-right: 0;
+}
+.step-3 .type-block .title p {
+    font-size: 14px;
+    padding-left: 15px;
+}
+.step-3 .type-block .title b {
+    padding: 0 0 0 10px;
+}
+.step-3 .type-block .title p:first-child,
+.step-3 .type-block .title p:first-child b {
+    padding-left: 0;
+}
+.type-block > h3 {
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+}
+
+.statistic {
+    padding: 0 20px;
+    border: 1px solid #eee;
+}
+.statistic h2 {
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.statistic td p {
+    display: inline-block;
+    width: 120px;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+}
+.statistic td b {
+    color: #333;
+    font-weight: bold;
+}
+.statistic .flex {
+    padding: 10px 0 20px 0;
+}
+.statistic .flex input {
+    width: 200px;
+    margin: 0 5px;
+}
+
+/* 校验信息 */
+.verify-info > h2 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0 0 0;
+}
+
+.verify-info .type-block {
+    padding: 20px;
+}
+.verify-info .type-block .range p.c-danger {
+    padding-right: 10px;
+}

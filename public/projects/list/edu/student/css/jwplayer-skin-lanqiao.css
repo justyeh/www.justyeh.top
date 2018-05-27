@@ -1,0 +1,83 @@
+.jw-icon{font-family: 'jw-icons'; -webkit-font-smoothing: antialiased; font-style: normal; font-weight: normal; text-transform: none; background-color: transparent; font-variant: normal; -webkit-font-feature-settings: "liga"; -moz-font-feature-settings: "liga=1"; -moz-font-feature-settings: "liga"; -ms-font-feature-settings: "liga" 1; -o-font-feature-settings: "liga"; font-feature-settings: "liga"; -moz-osx-font-smoothing: grayscale}
+/*所有按钮的颜色*/
+.jw-skin-lanqiao .jw-button-color{color: #b3b3b3;}
+/*所有按钮hover的颜色*/
+.jw-skin-lanqiao .jw-button-color:hover{color:#fff;}
+/*右击水印*/
+.jw-rightclick{display: none !important;}
+/*设置所有元素的全局背景颜色。*/
+.jw-skin-lanqiao .jw-background-color{background: #fff;}
+/*设置controlbar的全局外观*/
+.jw-skin-lanqiao .jw-controlbar{height:50px;background: #09091a;padding: 0;margin: 0;}
+/*时间轴*/
+.jw-skin-lanqiao .jw-controlbar-center-group{position: absolute;left: 0;right: 0;padding: 0;height:6px;background: #737373;}
+/* 设置时间轴各组件组件的高度 */
+.jw-skin-lanqiao .jw-slider-time{background:#737373;height:6px !important;position:absolute;top: 0;}
+.jw-skin-lanqiao .jw-slider-time .jw-rail,
+.jw-skin-lanqiao .jw-slider-time .jw-buffer,
+.jw-skin-lanqiao .jw-slider-time .jw-progress{height: 6px;line-height: 6px;}
+/* 未播放时间轴的颜色 */
+.jw-skin-lanqiao .jw-rail{background-color: #737373; top: 0;}
+/* buffer缓冲时间轴的颜色 */
+.jw-skin-lanqiao .jw-buffer{display: none !important;}
+/* 已播放时间轴的颜色 */
+.jw-skin-lanqiao .jw-progress{background: #1fbad6;}
+/* 时间轴中圆点的样式*/
+.jw-skin-lanqiao .jw-slider-time .jw-knob{width: 10px; height: 10px; background-color: #fff; border-radius: 50%; -webkit-border-radius: 50%;display: none;}
+/* 时间轴上方播放时间tooltip * margin-left使tooltip与鼠标手型水平对齐 */
+.jw-skin-lanqiao .jw-slider-time .jw-slider-container,
+.jw-skin-lanqiao .jw-slider-time .jw-tooltip-time{height:6px;}
+.jw-skin-lanqiao .jw-controlbar-center-group .jw-slider-container .jw-overlay{left: 0;}
+.jw-skin-lanqiao .jw-controlbar-center-group .jw-slider-container .jw-tooltip-time{width: 200px;}
+.jw-skin-lanqiao .jw-time-tip{bottom:-24px; border-radius:1px; -webkit-border-radius: 1px; background: #2a2a2a; border: none !important; left: 0; color: #fff; position: relative; left: -48%;z-index:111}
+.jw-skin-lanqiao .jw-time-tip span{width: auto; height:20px; line-height: 20px; display: inline-block; text-overflow: ellipsis;white-space: nowrap;}
+/*设置播放控制按钮+时间轴+调节控制按钮垂直居中*/
+.jw-skin-lanqiao .jw-group{vertical-align: middle;}
+.jw-skin-lanqiao .jw-controlbar-left-group{position: absolute;top:12px;bottom: 0;left:22px;}
+.jw-skin-lanqiao .jw-controlbar-right-group{position: absolute;top:8px;right: 20px;bottom: 0;}
+/*播放暂停按钮*/
+.jw-skin-lanqiao .jw-icon-playback{height:34px;line-height: 34px;}
+/*播放进度文字*/
+.jw-skin-lanqiao .jw-text-elapsed{color: #bdbdbd;font-size: 16px;padding-left: 22px;height: 34px;line-height:34px;cursor: default;}
+/* 视频总时长文字 */
+.jw-skin-lanqiao .jw-text-duration{color: #bdbdbd;font-size: 16px;padding-right: 22px;height:34px;line-height:34px;cursor: default;}
+/* 音量调节按钮容器 */
+.jw-skin-lanqiao .jw-icon-volume{height:34px;line-height: 34px;margin-right:10px;padding: 0;width: 20px;text-align: center;}
+.jw-text-duration:before{content:"/";font-size: 16px;line-height: 34px;padding-right:10px;font-weight: bold;}
+.jw-skin-lanqiao .jw-icon-volume .jw-overlay{top: 0;left: 0;bottom: 0;right: 0;display: block;}
+/*进度条热点*/
+.jw-cue{background: #fff !important;border-radius:50% !important;width:10px !important;height: 10px !important;}
+/* 音量调节tooltip容器 */
+.jw-skin-lanqiao .jw-volume-tip{position: absolute;top: -114px;left: -7px;height: 110px;display: block;background: #09091a;width: 40px;/*border: solid 1px #333;*/}
+.jw-skin-lanqiao .jw-volume-tip .jw-slider-container{position: absolute;left: 0;width: 100%;top: 10px;height: 95px;}
+/*音量轴*/
+.jw-skin-lanqiao .jw-volume-tip .jw-rail,
+.jw-skin-lanqiao .jw-volume-tip .jw-buffer,
+.jw-skin-lanqiao .jw-volume-tip .jw-progress,
+.jw-skin-lanqiao .jw-volume-tip .jw-knob{width: 6px;}
+.jw-skin-lanqiao .jw-volume-tip .jw-knob{padding: 0;width: 8px; height: 8px; background-color: #fff; border-radius: 50%; -webkit-border-radius: 50%; position: absolute; left: 0; right: 0; margin: auto;}
+.jw-skin-lanqiao .jw-volume-tip .jw-rail{margin-top:-5px;}
+/* 全屏调节按钮 */
+.jw-skin-lanqiao .jw-icon-fullscreen{padding: 0 !important;height: 34px;line-height:34px;}
+/*中间大按钮的容器 */
+.jw-skin-lanqiao .jw-display-icon-container{border-radius: 50%;line-height: 3.75em;}
+.jw-skin-lanqiao .jw-display-icon-container .jw-icon{width:70px !important;height:70px !important;line-height:70px !important;}
+/*.jw-skin-lanqiao .jw-display-icon-container{background:url(../img/icon/icon-play.png) no-repeat top center;}*/
+/* 开始播放大按钮 */
+.jw-skin-lanqiao .jw-icon-display{/* color: #fff;*/vertical-align: middle;font-size:2em !important;}
+.jw-skin-lanqiao .jw-icon-display:before{top:2px;left:2px !important;}
+/* 重新播放大按钮 */
+.jw-skin-lanqiao.jw-state-complete .jw-icon-display{/*display: none !important;*/}
+.jw-slider-horizontal{height: 0.5em !important;}
+/*视频质量切换*/
+.jw-skin-lanqiao .jw-icon-volume{margin-right:5px !important;}
+.jw-icon-hd .jw-background-color{background: #09091a !important;}
+.jw-menu .jw-option{height: 2.2em !important;line-height: 2.2em !important;}
+.jw-menu .jw-option:hover,.jw-reset.jw-active-option{background: rgba(0,0,0,.6);color: #1fbad6 !important;}
+/*视频倍数切换*/
+.jw-skin-lanqiao .jw-icon-rewind{display:none !important;}			
+.jw-skin-lanqiao .jw-text-elapsed{padding-left:10px !important;}
+.jw-skin-lanqiao .jw-controlbar-left-group .jw-text-duration{display:inline-block !important;}
+.jw-skin-lanqiao .jw-controlbar-right-group .jw-text-duration{display:none !important;}
+.jw-skin-lanqiao .jw-icon-hd .jw-background-color,.jw-skin-lanqiao .jw-icon-playback-rate .jw-background-color{background: #09091a !important;padding:0.2em !important;}
+.jw-icon-playback-rate{margin-right:5px;}	

@@ -1,0 +1,117 @@
+@charset "utf-8";
+/*统一考试详情*/
+.lq-exam-page .lq-exam {padding:0 !important;}
+.lq-exam-page .lq-exam .c-ligh-gray{color:#8091A5 !important;}
+.lq-exam-page .lq-exam .exam-detail{margin:20px;border:1px solid #DFE6Ee;padding:20px;}
+.lq-exam-page .lq-exam .exam-detail .status{float:left;width:190px;padding-left:30px;}
+.lq-exam-page .lq-exam .exam-detail .examIntro{padding-left: 190px;line-height:20px;}
+.lq-exam-page .backBtn{display:inline-block;width:88px;height:32px;line-height:30px;text-align:center;border-radius:2px;background:#fff;border:1px solid #DFE6EE;color:#3f4a56;margin-left:20px;margin-bottom:38px;}
+.lq-exam-page .backBtn:before{display:inline-block;background:url(../img/icon/question-return.png) no-repeat;width:9px;height:15px;content:'';vertical-align:middle;margin-right:10px;margin-top:-4px}
+.lq-exam-page .lq-exam .exam-detail .tips{background:#ffeeee;color:#fc6c6c;padding:10px;}
+.lq-exam-page .lq-exam .e-warning{margin-right:20px;}
+.lq-exam-page .lq-exam .e-warning .btn{background:#3DC8B4;border:1px solid #3DC8B4;border-radius:2px;padding:0 20px;height:34px;color:#fff;text-align:center;display:inline-block;margin-left:20px;font-size:14px;width:auto}
+.lq-exam-page .lq-exam .exam-detail .stuList{border-top:1px solid #DFE6EE;border-bottom:1px solid #DFE6EE;padding:20px 0;margin:20px 0}
+.lq-exam-page .lq-exam .exam-detail .stuList i{font-style:normal;}
+.lq-exam-page .lq-exam .exam-detail .stuItem li{margin-top:10px;}
+.lq-exam-page .lq-exam .exam-detail .stuItem li:first-child{margin-top:0;}
+.lq-exam-page .lq-exam .exam-detail .stuItem span ,.lq-exam .exam-detail .stuItem em{display:inline-block;font-style:normal;}
+.lq-exam-page .lq-exam .exam-detail .stuItem .nameNo{color:#8091A5;width:60px}
+.lq-exam-page .lq-exam .exam-detail .stuItem .className{margin-left:10px;}
+.lq-exam-page .lq-exam .exam-detail .stuItem em{color:#3DC8B4;margin-left:20px;}
+.lq-exam-page .lq-exam .btn.againBtn{background:#fff;color: #3DC8B4;border-color:#3DC8B4;}
+.lq-exam-page .lq-exam .btn.cancle{background:#fff;color: #FC6C6C;border-color: #FC6C6C;}
+.lq-exam-page .lq-exam .exam-detail .table th , .lq-exam .exam-detail .table td{text-align:center;}
+.lq-exam-page .showPaper{padding-top:40px;padding-left:50px;}
+.lq-exam-page .showPaper .layui-form-label{width:auto;padding:0 10px 0 0;color:#667587;}
+.lq-exam-page .showPaper .layui-input{border:0;height:auto;}
+.lq-exam-page .showPaper .layui-form-item{margin-bottom:0;}
+.lq-exam-page .studentList .layui-table{margin: 0;}
+.lq-exam-page .studentList .table-box{overflow-y:auto;}
+.lq-exam-page .studentList .table-box tr:first-child td{border-top: none;}	
+.lq-exam-page .studentList .layui-table th,.lq-exam-page .studentList .layui-table td{text-align:center;word-break: break-all;}	
+/*待审核试卷详情*/
+.lq-exam-page .lq-test-detail{padding:20px;}
+.lq-exam-page .lq-test-detail .detailInfo{background:#F4F7FA;padding:20px 10px 10px 0;}
+.lq-exam-page .lq-test-detail .detailInfo >span{display:inline-block;min-width:160px;margin-bottom:15px;margin-left:20px}
+.lq-exam-page .lq-test-detail .detailInfo >span label{display:inline-block;min-width:60px;}
+.lq-exam-page .lq-test-detail .detailInfo >span label.type{width:100px;}
+.lq-exam-page .btn.btnBGreen{background:#fff;color: #3DC8B4;border:1px solid #3DC8B4;width:auto;padding:0 15px;}
+.lq-exam-page .btn.btnGreen{background:#3DC8B4;color:#fff;width:auto;padding:0 15px;}
+.lq-exam-page .btn.btnBRed{background:#fff;color: #FC6C6C;border:1px solid #FC6C6C;width:auto;padding:0 15px;}
+/*正式发布试卷详情*/
+.lq-exam-page .lq-test-detail .searchGroup{line-height:32px;}
+.lq-exam-page .lq-test-detail .searchGroup label{display:inline-block;margin-right:20px;}
+.lq-exam-page .lq-test-detail .searchGroup select{display:inline-block;width:150px;height:32px;}
+.lq-exam-page .lq-test-detail .table td,.lq-exam-page .lq-test-detail .table th{text-align:center;}
+.lq-exam-page .lq-test-detail .table .see{vertical-align:middle;display:inline-block;background:url(../img/icon/icon-see.png) no-repeat;width:20px;height:12px;margin-top:2px;}
+.lq-exam-page .lq-test-detail .pager{padding:25px 0;}
+.lq-exam-page .showPaperStructure h2{font-size:16px;margin-top:15px;}		
+.lq-exam-page .showPaperStructure h2 span{padding:0 8px;}
+.lq-exam-page .showPaperStructure h2 span:first-child{padding-left:0;}
+.lq-exam-page .showPaperStructure .boxTopic{padding:20px 20px 10px 20px;}
+.lq-exam-page .showPaperStructure .boxTopic li{margin-bottom:10px;}
+.lq-exam-page .showPaperStructure .boxTopic li span ,.showPaperStructure .boxTopic li label{padding:0 5px;}
+.lq-exam-page .totalNum{padding:20px 20px 0;border-top:1px solid #DFE6EE}	
+.lq-exam-page .lq-test-detail .layui-form-item .layui-form-label{padding-right:0;}		
+/*题目列表展示*/
+.lq-exam-page .lq-test-detail .topics{border:0;}
+.lq-exam-page .lq-test-detail .topics .layui-colla-title{height:auto;line-height:24px;background:#fff;margin:20px 0 0 0;}
+.lq-exam-page .lq-test-detail .topics .layui-colla-title label{padding-right:10px;}
+.lq-exam-page .lq-test-detail .topics .layui-colla-content,.topics .layui-colla-item{border-top:0;}
+.lq-exam-page .lq-test-detail .topics .info-form p.layui-textarea{min-height:34px;max-height:120px;overflow-y:auto;}
+.lq-exam-page .lq-test-detail .topics .info-form{border:1px solid #e6e6e6;padding:20px 20px 20px 0;background: rgba(243,243,255,0.7);}		
+.lq-exam-page .lq-test-detail .topicsList .showMBtn{position:absolute;display:inline-block;right:50%}
+.lq-exam-page .lq-test-detail .topicsList .title{font-size:22px;color:#313541;letter-spacing:0.19px;padding-bottom:10px;}
+.lq-exam-page .lq-test-detail .topicsList .title span{color:#667587;}
+.lq-exam-page .lq-test-detail .topicsList .title button{border:0;font-size:16px;color:#3F4A56;background:transparent;margin-top:3px;margin-right:10px;}
+.lq-exam-page .lq-test-detail .topicsList .title button i{display:inline-block;width:20px;height:20px;background:url(../img/icon/icon-unshow.png) no-repeat;vertical-align:middle;margin-top:-4px;margin-right:10px;}
+.lq-exam-page .lq-test-detail .topicsList .title button i.act{background:url(../img/icon/icon-show.png);}
+.lq-exam-page .lq-test-detail .layui-colla-title .layui-icon {display:inline-block;width:20px;height:20px;background:url(../img/icon/icon-unshow.png) no-repeat;vertical-align:middle;left:0;top:2px;}
+.lq-exam-page .lq-test-detail .layui-colla-title i.act{background:url(../img/icon/icon-show.png);}
+.lq-exam-page .lq-test-detail .topicsList div:first-child span{display:inline-block;}
+.lq-exam-page .lq-test-detail .img-viewer{position:fixed;}	
+.lq-exam-page .lq-test-detail .topicsList .layui-colla-title{padding-right:0;font-size:16px;color:#3F4A56;line-height:22px;}	
+.lq-exam-page .lq-test-detail .topicsList .layui-textarea{resize:none;}
+.lq-exam-page .lq-test-detail .feedback-msg{margin-top:30px;}
+.lq-exam-page .lq-test-detail .feedback-msg>div{line-height:28px;margin-bottom:35px;}
+.lq-exam-page .lq-test-detail .feedback-msg>div>p{font-size:12px;padding-left:5px;}
+/*正确答案*/
+.lq-exam-page .lq-test-detail .wrap-with-bg{background: rgba(243,243,255,0.7);padding: 15px 15px 1px 0;margin-bottom: 15px;}
+.lq-exam-page .lq-test-detail .exam-content{margin: 15px 0;}
+.lq-exam-page .lq-test-detail .code-content{margin: 15px 0 0 0;min-height: 100px;}
+.lq-exam-page .lq-test-detail .img-content .img-item{float: left;width: 120px;margin: 15px 15px 0 0;position: relative;}
+.lq-exam-page .lq-test-detail .img-content .img-item p{font-size: 14px;line-height: 14px;padding-bottom: 5px;}
+.lq-exam-page .lq-test-detail .img-content .img-item i{ font-size: 20px;height: 26px;line-height: 26px;position: absolute;right: 0;text-align: center;width: 26px;bottom: 0;color: #ff5722;background: #fff;cursor: pointer;}
+.lq-exam-page .lq-test-detail .img-content .img{background: no-repeat #eee center / cover;height: 120px;}
+.lq-exam-page .lq-test-detail .code-item{margin-top: 15px;}
+.lq-exam-page .lq-test-detail .code-item>p{line-height: 14px;padding-bottom: 5px;}
+.lq-exam-page .lq-test-detail .code-item pre{overflow-x: auto;line-height: 16px;}
+/*图片查看器弹窗样式*/
+.img-viewer{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,0.6);z-index: 10000;display: none;}
+.img-viewer .viewer{background: #eee;width: 800px;height: 500px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
+.img-viewer #main{position: absolute;top: 0;left: 0;width: 800px;height: 500px;overflow: hidden;}
+.img-viewer #main>img{cursor: all-scroll;}
+.img-viewer .operation-wrap{position: absolute;bottom: 0;right: 0;}
+.img-viewer .operation-wrap .icon{display: inline-block;border: solid 1px #1E9FFF;width: 20px;text-align: center;color: #1E9FFF;font-size: 20px;margin: 0 10px 10px 0;cursor: pointer;}
+.img-viewer #viewerClose{position: absolute;height: 60px;width: 60px;color: #fff;top: 0;right: -60px;background-color: rgba(0,0,0,0.8);font-size: 30px;text-align: center;line-height: 60px;cursor: pointer;}
+.iviewer_zoom_status.iviewer_common{position: absolute;bottom: 0;right: 80px;bottom: 12px;color: #1E9FFF;}
+/*试题详情*/
+.lq-exam-page .lq-test-detail .moreInfo{margin-top:20px}
+.lq-exam-page .lq-test-detail .btnBGray{color:#667587;border:1px solid #DFE6EE;display:inline-block;width:auto;padding:0 15px;border-radius:2px;background:#fff;}
+.lq-exam-page .lq-test-detail .btnBGray .icon-more{background:url(../img/icon/icon-success.png) no-repeat;display:inline-block;width:16px;height:9px;vertical-align:middle;margin-right:10px;margin-top:-4px}
+.lq-exam-page .lq-test-detail .btnBGray.act .icon-more{background:url(../img/icon/icon-success-more.png) no-repeat;;}
+.lq-exam-page .lq-test-detail .btnBGray.act {color:#3DC8B4;border-color: #3DC8B4;}
+
+/*发布考试*/
+.lq-exam-page .lq-test-detail form input[type='text'],.lq-exam-page .lq-test-detail form textarea{width:650px;resize:none;}
+.lq-exam-page .lq-test-detail .setTimeText{width:60px !important;margin:0 10px;display:inline-block;}
+.lq-exam-page .lq-test-detail form .stuCheck{padding:10px 0;width:650px;max-height:300px;overflow-y:auto;}
+.lq-exam-page .lq-test-detail form .addStu{position:absolute;right:100px;top:8px;}
+.lq-exam-page .lq-test-detail form .stuItem{padding:8px;position:relative;}
+.lq-exam-page .lq-test-detail form .stuItem:hover{background:#F4F7FA;}
+.lq-exam-page .lq-test-detail form .stuItem:hover i{visibility:visible;}
+.lq-exam-page .lq-test-detail form .stuItem span{display:inline-block;margin-right:10px;}
+.lq-exam-page .lq-test-detail form .stuItem i{position:absolute;right:20px;top:8px;display:inline-block;background:url(../img/icon/question-delete.png) no-repeat;width:18px;height:18px;vertical-align:middle;cursor:pointer;visibility:hidden;}
+.lq-exam-page .studentList .searchMain{margin-bottom:20px;}
+.lq-exam-page .studentList .searchMain input,.lq-exam-page .studentList .searchMain select{width:160px;height:30px;line-height:30px;text-indent:10px;margin-right:10px;}
+.lq-exam-page .studentList .searchMain button{height:30px;font-size:14px;line-height:30px;padding:0 20px;}

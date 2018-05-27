@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>用户管理</title>
+    <link rel="shortcut icon" type="img/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="user">
+<div class="page">
+    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li class="act">
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2-act.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>
+    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>
+    <div class="main">
+        <div class="page-title">用户管理</div>
+        <div class="filter">
+            <form action="" method="post">
+                <input class="hidden" name="c" id="" value="user"/>
+                <input class="hidden" name="m" id="" value="list"/>
+                <input type="text" name="keyword" id="" value=""/>
+                <button class="btn">搜索</button>
+                <div class="select abs-r">
+                    <label>显示全部用户</label>
+                    <select name="">
+                        <option value="">显示全部用户</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <td style="width: 10%;">编号</td>
+                    <td style="width: 10%;">姓名</td>
+                    <td style="width: auto;">企业名</td>
+                    <td style="width: 12%;">手机号</td>
+                    <td style="width: 12%;">邮箱</td>
+                    <td style="width: 14%;">首次登陆时间</td>
+                    <td style="width: 12%;">审核状态</td>
+                    <td style="width: 10%;" class="text-c">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>88</td>
+                        <td class="c-main">杨小文</td>
+                        <td>蓝桥-钱</td>
+                        <td>13057395739</td>
+                        <td>123@qq.com</td>
+                        <td>2017-09-04</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=88" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>86</td>
+                        <td class="c-main">杨小文</td>
+                        <td>蓝桥</td>
+                        <td>13222222222</td>
+                        <td>13222222222@163.com</td>
+                        <td>2017-09-01</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=86" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>85</td>
+                        <td class="c-main">杨个人1</td>
+                        <td>蓝桥1</td>
+                        <td>111</td>
+                        <td>111</td>
+                        <td>2017-08-29</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=85" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>83</td>
+                        <td class="c-main">钱三</td>
+                        <td>蓝桥</td>
+                        <td>1883748392</td>
+                        <td>232</td>
+                        <td>2017-08-29</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=83" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>82</td>
+                        <td class="c-main"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1970-01-01</td>
+                        <td>
+                                                            <span class="c-main">待审核</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=82" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>81</td>
+                        <td class="c-main">钱二</td>
+                        <td>蓝桥</td>
+                        <td>12345678901</td>
+                        <td>1111111111</td>
+                        <td>2017-08-29</td>
+                        <td>
+                                                            <span class="c-info">已通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=81" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>79</td>
+                        <td class="c-main"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1970-01-01</td>
+                        <td>
+                                                            <span class="c-main">待审核</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=79" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>78</td>
+                        <td class="c-main"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1970-01-01</td>
+                        <td>
+                                                            <span class="c-main">待审核</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=78" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>77</td>
+                        <td class="c-main"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1970-01-01</td>
+                        <td>
+                                                            <span class="c-main">待审核</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=77" >详情</a>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td>76</td>
+                        <td class="c-main"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1970-01-01</td>
+                        <td>
+                                                            <span class="c-danger">未通过</span>
+                                                    </td>
+                        <td class="text-c">
+                            <a href="javascript:;" data-handle="?c=user&m=detail&id=76" >详情</a>
+                        </td>
+                    </tr>
+                                    </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="pager">
+                                                                                                    <span class="current prev">«</span>
+                                                                                                                                    <span class="current">1</span>
+                                                                                                            <a href="?c=user&m=list&p=1">2</a>
+                                                                                                            <a href="?c=user&m=list&p=2">3</a>
+                                                                                                            <a href="?c=user&m=list&p=3">4</a>
+                                                                                                            <a href="?c=user&m=list&p=1">»</a>
+                                                        </div>
+    </div>
+
+</div>
+
+
+	
+
+<script type="text/template" id="infoTpl">
+	<p class="title">创建时间：{{=it.add_time}}&emsp;&emsp;
+	{{? it.is_pass == '0' }}
+		未通过
+    {{?? it.is_pass == '1'}}
+		已通过
+    {{??}}
+		待审核
+    {{?}}</p>
+    <a href="javascript:;" class="close" data-method="close"></a>
+    <ul class="clearfix">
+        <li><span>姓名</span>{{=it.name}}</li>
+        <li><span>手机</span>{{=it.mobile}}</li>
+        <li><span>性别</span>
+        {{? it.sex == '0' }}
+			男
+		{{??}} 
+			女
+		{{?}}</li>
+        <li><span>邮箱</span>{{=it.email}}</li>
+        <li><span>名族</span>{{=it.nation}}</li>
+        <li><span>办公电话</span>{{=it.tel}}</li>
+        <li><span>身份证号码</span>{{=it.card_id}}</li>
+        <li><span>通讯地址</span>{{=it.address}}</li>
+        <li><span>生日</span>{{=it.birthday}}</li>
+        <li><span>企业名称</span>{{=it.ent_name}}</li>
+        <li><span>毕业院校</span>{{=it.school}}</li>
+    </ul>
+</script>
+	
+<div class="modal dialog detail-dialog">
+    <div class="content">
+	    <div id="info" class="info-wrap"></div>
+	    <form action="?c=user&m=release" method="post">
+	        <div class="form">
+	    		<input type="hidden" id="entityId" name="id" value="{{=it.id}}" />
+	            <div class="text-r">
+                    <input type="hidden" id="isPass" name="is_pass" value="0" />
+                    <button class="btn btn-default" type="button" data-method="reject">审核不通过</button>
+                    <input type="hidden" id="isPass" name="is_pass" value="1" />
+                    <button class="btn btn-default"  type="button" data-method="pass">审核通过</button>
+	            </div>
+	            <div class="group">
+	                <label class="label">审核不通过原因</label>
+	                <div class="input">
+	                    <textarea name="no_pass_reason" rows="" cols="" id="rejectReason" class="radiu2" placeholder=""></textarea>
+	                </div>
+	            </div>
+	        </div>
+	    </form>
+	</div>
+</div>
+
+<script src="js/libs/require.min.js" data-main="js/app/verifyMng.js"></script>
+</body>
+</html>

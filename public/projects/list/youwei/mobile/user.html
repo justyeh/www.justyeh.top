@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>叶文祥的个人中心--有为</title>
+        <link rel="stylesheet" href="css/frozen.css">
+        <link rel="stylesheet" href="css/youwei.css"/>
+        <style type="text/css">
+        
+        	
+       		#personCenter #personDesc{
+       			background-color: #FFFFFF;
+       			margin-bottom: 10px;
+       			display: block;
+       			height: 83px;
+       			padding: 10px 0;
+			}
+        	#personCenter .ui-col-5{
+        		text-align: left;
+        	}
+        	#personCenter .ui-col-5>img{
+        		margin-left: 10px;
+        		margin-top: 9px;
+        		width: 65px;
+        		height: 65px;
+        		vertical-align: middle;
+        		border-radius: 50%;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+        	}
+        	#personCenter #personDesc .ui-col-3{
+        		text-align: left;
+        		vertical-align: middle;
+        		padding-left: 20px;
+        	}
+        	
+        	#personCenter #personDesc h3{
+        		padding-top: 7px;
+				color: #333333;
+				font-size: 17px;
+				line-height: 26px;
+			}
+			#personCenter #personDesc p{
+				color: #999;
+				font-size: 12px;
+				line-height:22px;
+			}
+        	
+        	#personCenter .ui-list-info h4 a{
+        		color: #333;
+        		font-size: 15px;
+        		font-weight: 500;
+				width: 100%;
+				display: inline-block;
+        	}
+			#personCenter .ui-list-thumb>span{
+				background-size: 36px 36px;
+				margin-top: 8px;
+				margin-left: 5px;
+			}
+			
+			#personCenter .ui-list li{
+				height: 50px;
+			}
+			#personCenter .ui-list-info{
+				padding-top: 3px;
+			}
+			#personCenter .ui-list-thumb>span{
+				margin-top: -5px;
+				display:inline-block;
+			}
+			
+        </style>
+    </head>
+    <body ontouchstart="">
+    	
+        <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" onclick="history.back()"></i>
+            <h1 onclick="window.location='?c=user&m=center';">个人中心</h1>
+            <button class="headerBtn" onclick="location.href='job-list.html'">职位</button>
+        </header>
+        
+        <section class="ui-container" id="personCenter">
+        	<di id="personDesc">
+        		<div class="ui-row-flex ui-whitespace">
+				    <div class="ui-col ui-col-5" onclick="window.location='?c=user&m=detail'" style="cursor: pointer;">
+				    	<img src="img/defaultHead.jpg" />
+					</div>
+				    <div class="ui-col ui-col-3">
+				    	<h3 onclick="window.location='?c=user&m=detail'" style="cursor: pointer;">叶文祥</h3>
+						<P>湖北工程学院</P>
+				    	<P>计算机&nbsp;</P>
+				    </div>
+				</div>
+        	</di>
+        	
+        	<div>
+        		<ul class="ui-list ui-list-one ui-list-link">
+				    <li>
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_1.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				            <h4 class="ui-nowrap">
+				            	<a href="info-send-log.html"> 投递记录</a>
+				            </h4>
+				        </div>
+				    </li>
+				    <li class="ui-border-t">
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_2.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				            <h4 class="ui-nowrap">
+				            	<a href="info-base.html"> 基本资料</a>
+				            </h4>
+				        </div>
+				    </li>
+				    <li class="ui-border-t">
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_3.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				            <h4 class="ui-nowrap"><a href="info-edu.html"> 教育背景</a></h4>
+				        </div>
+				    </li>
+				    <li class="ui-border-t">
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_4.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				        	<h4 class="ui-nowrap"><a href="info-honor.html"> 获得荣誉</a></h4>
+				        </div>
+				    </li>
+
+					<li class="ui-border-t">
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_5.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				        	<h4 class="ui-nowrap"><a href="info-skill.html">我的技能</a></h4>
+				        </div>
+				    </li>
+				   
+				    <li class="ui-border-t">
+				        <div class="ui-list-thumb">
+				            <span style="background-image:url(img/uf_6.jpg)"></span>
+				        </div>
+				        <div class="ui-list-info">
+				        	<h4 class="ui-nowrap"><a href="info-practice.html"> 社会实践</a></h4>
+				        </div>
+				    </li>
+
+					<li class="ui-border-t">
+						<div class="ui-list-thumb">
+							<span style="background-image:url(img/uf_8.jpg)"></span>
+						</div>
+						<div class="ui-list-info">
+							<h4 class="ui-nowrap"><a href="?c=login&m=mobile"> 更换账号</a></h4>
+						</div>
+					</li>
+				</ul>
+        	</div>
+        	
+        	<div style="text-align: center;margin: 10px;">
+        		<a href="user-info.html">查看简历</a>
+        	</div>
+        	
+        </section>
+        <script>
+       		
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>作者（讲师）列表</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<!--[if lte IE 9]>
+		    <script src="js/browser-not-supported-ie10.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/component-skin.css">
+		<link rel="stylesheet" href="js/layui/css/layui.css">
+		<style type="text/css">
+			.layui-layer-tips .layui-layer-content{height: auto !important;word-break:break-all;word-wrap:break-word;}
+			.pager{margin-bottom:10px}
+		</style>
+	</head>
+	<body>
+
+		<div class="main-wrapper">
+			<div class="main-header">
+	<!-- Logo -->
+    <a href="#" class="logo">
+      <img src="img/logo.png"><b>LQ Admin</b>
+    </a>
+    <div class="user">
+    	<img src="img/logo.png" />
+    	<span>super man</span>
+    	<ul>
+    		<!--<li><a href=""><i class="layui-icon">&#xe614;</i>修改密码</a></li>-->
+    		<li><a href="?c=login&m=out"><i class="layui-icon">&#xe609;</i>退出登录</a></li>
+    	</ul>
+    </div>
+   	<!--<a class="msg">
+      	<i class="icon-envelope"></i>
+     	<span class="msg-num">4</span>
+    </a>-->
+</div>			<div class="main-sidebar">
+    <div class="sidebar">
+    	<div id="jquery-accordion-menu" class="jquery-accordion-menu black">
+    		<ul id="menu-list">
+    			
+    			<!-- <li class="act">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>重要反馈通知</a>
+                    <ul class="submenu">
+                       	<li><a href="javascript:;">重要反馈通知</a></li>
+                    </ul>
+                </li> -->
+    			<li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>课程体系维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">课程片段维护</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list">课程片段列表</a></li>
+                            <!--  -->
+		                       	<li ><a href="?c=lexam&m=list&flag=2">我的课程片段</a></li>
+		                       	<!--<li><a href="?c=lesson&m=save&type=1">添加图文课程片段</a></li>
+		                       	<li><a href="?c=lesson&m=save">添加视频课程片段</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">课程片段审核</a>
+                       		<ul class="submenu">
+                            <!--  -->
+		                       	<li><a href="?c=lexam&m=list&flag=3">课程片段审核列表</a></li>
+		                    </ul>
+                       	</li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>资源类别维护</a>
+                    <ul class="submenu">
+						<!--  -->
+                       	<li><a href="?c=dir&m=list">方向维护</a></li>
+						<!--  -->
+	            		<li><a href="?c=subject&m=demo">科目章节维护</a></li>
+                    </ul>
+                </li>
+                <li  class="act" >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>作者（讲师）信息维护</a>
+                    <ul class="submenu">
+						<!--  class="act"  -->
+                        <li><a href="?c=author&m=list">作者（讲师）列表</a></li>
+						<!--  -->
+	            		<!--<li><a href="?c=author&m=save">新增作者（讲师）</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>题库维护</a>
+                    <ul class="submenu">
+                       	<li ><a href="javascript:;">试题维护</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=questions&m=list&flag=1&status=2">试题列表</a></li>
+		                       	<li><a href="?c=questions&m=list&flag=2&status=2">我的试题</a></li>
+		                       	<!--<li><a href="?c=questions&m=save">添加试题</a></li>-->
+		                    </ul>
+                       	</li>
+                       	<li ><a href="javascript:;">试题审核</a>
+                       		<ul class="submenu">
+		                       	<li><a href="?c=qexam&m=list&status=2">试题审核列表</a></li>
+		                       	<!--<li><a href="javascript:;">试题审核</a></li>-->
+		                    </ul>
+                       	</li>
+                        <li ><a href="javascript:;">试卷维护</a>
+                          <ul class="submenu">
+                            <li><a href="?c=paper&m=list">试卷列表</a></li>
+                            <li><a href="?c=paper&m=list&flag=2&status=2">我的试卷</a></li>
+                            <li><a href="?c=paper&m=info">创建试卷</a></li>
+                            <li><a href="?c=paper&m=templatelist">模板列表</a></li>
+                            <!--<li><a href="javascript:;">试题审核</a></li>-->
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+		  	<div class="content-wrapper ">
+
+	  			<fieldset class="layui-elem-field">
+  					<legend>作者（讲师）列表</legend>
+  					<div class="layui-field-box">
+
+  						<form class="layui-form" style="margin-top:10px" action="" method="get">
+  							<input type="hidden" name="c" value="author" />
+  							<input type="hidden" name="m" value="list" />
+							<div class="layui-form-item">
+								<div class="layui-input-inline">
+									<input maxlength="12" type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input" value="">
+								</div>
+								<button class="layui-btn" lay-submit lay-filter="search">查询</button>
+																<a href="?c=author&m=save" class="layui-btn layui-btn-normal">新增作者（讲师）</a>
+															</div>
+						</form>
+
+
+  						<table class="layui-table">
+						  	<thead>
+							    <tr>
+							      	<th width="50px">序号</th>
+							      	<th width="50px">ID</th>
+							      	<th width="80px">姓名</th>
+							      	<th width="50px">性别</th>
+							      	<th width="50px">年龄</th>
+							      	<th>介绍信息</th>
+							    </tr>
+						  	</thead>
+							<tbody>
+																<tr>
+								    <td>1</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1023" >LA1023</a></td>
+								    <td>试试啊</td>
+								    <td>男</td>
+								    <td>11</td>
+								    <td><div class="txt-ellipsis"><div class="content">ff </div></div></td>
+								</tr>
+																<tr>
+								    <td>2</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1020" >LA1020</a></td>
+								    <td>机器人</td>
+								    <td>男</td>
+								    <td>23</td>
+								    <td><div class="txt-ellipsis"><div class="content">hjhh</div></div></td>
+								</tr>
+																<tr>
+								    <td>3</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1019" >LA1019</a></td>
+								    <td>很划算</td>
+								    <td>女</td>
+								    <td>19</td>
+								    <td><div class="txt-ellipsis"><div class="content">ddd147</div></div></td>
+								</tr>
+																<tr>
+								    <td>4</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1018" >LA1018</a></td>
+								    <td>啊啊</td>
+								    <td>男</td>
+								    <td>11</td>
+								    <td><div class="txt-ellipsis"><div class="content">ggg111122</div></div></td>
+								</tr>
+																<tr>
+								    <td>5</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1017" >LA1017</a></td>
+								    <td>颜群</td>
+								    <td>男</td>
+								    <td>30</td>
+								    <td><div class="txt-ellipsis"><div class="content">资深技术高手</div></div></td>
+								</tr>
+																<tr>
+								    <td>6</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1016" >LA1016</a></td>
+								    <td>聂德艳</td>
+								    <td>女</td>
+								    <td>32</td>
+								    <td><div class="txt-ellipsis"><div class="content">CEP课程负责人兼CEP讲师</div></div></td>
+								</tr>
+																<tr>
+								    <td>7</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1015" >LA1015</a></td>
+								    <td>郎崇元</td>
+								    <td>男</td>
+								    <td>28</td>
+								    <td><div class="txt-ellipsis"><div class="content">产品战线上奋战多年的人！</div></div></td>
+								</tr>
+																<tr>
+								    <td>8</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1014" >LA1014</a></td>
+								    <td>杨凯凯</td>
+								    <td>男</td>
+								    <td>28</td>
+								    <td><div class="txt-ellipsis"><div class="content"> 多次参与企业级软件的测试工作，熟悉软件从立项到开发、测试、实施以及交付的全流程；拥有比较丰富的业务流程、软件功能、硬件性能、系统接口测试工作经验。
+</div></div></td>
+								</tr>
+																<tr>
+								    <td>9</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1002" >LA1002</a></td>
+								    <td>郑未</td>
+								    <td>男</td>
+								    <td>32</td>
+								    <td><div class="txt-ellipsis"><div class="content">老司机</div></div></td>
+								</tr>
+																<tr>
+								    <td>10</td>
+								    <td><a class="c-link" href="?c=author&m=info&id=1001" >LA1001</a></td>
+								    <td>董皊</td>
+								    <td>女</td>
+								    <td>28</td>
+								    <td><div class="txt-ellipsis"><div class="content">董老师有多年软件测试经验。</div></div></td>
+								</tr>
+															</tbody>
+
+						</table>
+						
+						
+						<div class="pager fr">
+																							<span class="current prev">«</span>
+																															<span class="current">1</span>
+																															<a href="?c=author&m=list&p=1">2</a>
+																															<a href="?c=author&m=list&p=1">»</a>
+																					</div>
+						  					</div>
+	  			</fieldset>
+		 	</div><!-- content wrapper end-->
+		</div><!-- page wrapper end-->
+
+
+		<!--script-->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-accordion-menu.js"></script>
+		<script src="js/layui/layui.all.js"></script>
+		<script src="js/public.js"></script>
+
+	</body>
+</html>

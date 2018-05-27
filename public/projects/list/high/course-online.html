@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>线上课程管理</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/public.css">
+</head>
+<body class="online-course">
+	<div class="page">
+		
+		<div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>		
+		<input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li class="act">
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7-act.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>		
+		<div class="main">
+			<div class="page-title">内容管理</div>
+			<div class="filter clearfix">
+
+				<form action="?c=online&m=list" class="fl" method="get">
+					<input class="hidden" name="c" id="" value="online"/>
+					<input class="hidden" name="m" id="" value="list"/>
+					<input type="key" name="key" id="" value="" />
+					<button class="btn">搜索</button>
+				</form>
+				
+				<div class="fr">
+					<button class="btn btn-default" data-handle="?c=online&m=delegate"><img src="img/icon/del.png"/>删除</button>
+					<button class="btn btn-default" data-handle="?c=online&m=release">立即发布</button>
+					<button class="btn btn-default" data-handle="?c=online&m=cancel">取消发布</button>
+					<a href="?c=online&m=edit" class="btn btn-main"><img src="img/icon/add.png"/>新增</a>
+				</div>
+			</div>
+			<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<td style="width: 10%;"><label class="checkbox"><input type="checkbox" name="" id="checkedAll" value="" />全选</label></td>
+							<td style="width: 10%;"></td>
+							<td style="width: auto;">课程名称</td>
+							<td style="width: 10%;">创建人</td>
+							<td style="width: 10%;">创建时间</td>
+							<td style="width: 8%;">播放量</td>
+							<td style="width: 8%;">发布状态</td>
+							<td style="width: 18%;" class="text-c">操作</td>
+						</tr>
+					</thead>
+					<tbody>
+												<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="95" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/09/04/1504492231.5356.png" />
+							</td>
+							<td>0904-钱三</td>
+							<td>徐鹤松</td>
+							<td>2017-09-04</td>
+							<td>1</td>
+							<td>
+																<span class="c-main">待发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=95" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="95" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="89" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/09/01/1504256696.0304.png" />
+							</td>
+							<td>666</td>
+							<td>徐鹤松</td>
+							<td>2017-09-01</td>
+							<td></td>
+							<td>
+																<span class="c-main">待发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=89" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="89" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="85" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/08/30/1504074127.3794.gif" />
+							</td>
+							<td>线上课程</td>
+							<td>徐鹤松</td>
+							<td>2017-08-30</td>
+							<td></td>
+							<td>
+																<span class="c-info">已发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=85" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="85" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="82" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/08/30/1504062523.2174.png" />
+							</td>
+							<td>新的保过班</td>
+							<td>徐鹤松</td>
+							<td>2017-08-30</td>
+							<td></td>
+							<td>
+																<span class="c-main">待发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=82" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="82" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="80" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/09/01/1504246536.4057.jpg" />
+							</td>
+							<td>保过班</td>
+							<td>张三</td>
+							<td>2017-09-01</td>
+							<td></td>
+							<td>
+																<span class="c-info">已发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=80" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="80" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="77" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/08/29/1503999139.425.jpg" />
+							</td>
+							<td>ytest</td>
+							<td>徐鹤松</td>
+							<td>2017-08-29</td>
+							<td>3</td>
+							<td>
+																<span class="c-info">已发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=77" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="77" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+													<tr>
+							<td><label class="checkbox"><input type="checkbox" name="id"  value="71" /></label></td>
+							<td>
+								<img src="../../upload/photo/2017/08/29/1504002984.6451.jpg" />
+							</td>
+							<td>测试</td>
+							<td>徐鹤松</td>
+							<td>2017-08-29</td>
+							<td>14</td>
+							<td>
+																<span class="c-info">已发布</span>
+															</td>
+							<td class="text-c">
+								<a href="?c=online&m=edit&id=71" class="c-main">编辑</a>
+								<a href="javascript:;" data-id="71" data-handle="?c=online&m=delegate" class="c-danger">删除</a>
+							</td>
+						</tr>
+												</tbody>
+
+				</table>
+			</div>
+
+
+			<!--分页-->
+			<div class="pager">
+                                                        	                        									<span class="current prev">«</span>
+                        	                    						                                                        								<span class="current">1</span>
+                   	 						                                                        	                        									<span class="current prev">»</span>
+                        	                    						                			</div>
+		</div>
+		
+	</div>
+	
+	<script src="js/libs/require.min.js" data-main="js/app/listMng.js"></script>
+</body>
+</html>

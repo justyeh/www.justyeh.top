@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>编辑我的技能--有为</title>
+    <link rel="stylesheet" href="css/frozen.css">
+    <link rel="stylesheet" href="css/youwei.css"/>
+    <style type="text/css">
+        input { margin-top:12px;}
+        
+    </style>
+</head>
+<body ontouchstart="">
+<form method="post" name="skillForm">
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>我的技能</h1>
+    <button class="headerBtn">保存</button>
+</header>
+
+<section class="ui-container" id="editSkill">
+
+    <div class="ui-form ui-border-t" id="honor_box">
+					<div class="honor_block">
+				<div class="ui-border-b deleteDiv" >
+					<a href="javaScript:;"  data-id = "">删除</a>
+				</div>
+				<div class="ui-form-item  ui-border-b">
+					<label for="skillName">名称</label>
+					<input type="text" id="practiceName" name="info['a_0']">
+				</div>
+				<div class="ui-form-item ui-border-b">
+					<label for="userTime">使用时间</label>
+					<div class="ui-select">
+							<select name="entrance_time['a_0']><option value="一年以下" >一年以下</option><option value="一年" >一年</option><option value="二年" >二年</option><option value="三年" >三年</option><option value="四年" >四年</option><option value="五年" >五年</option><option value="六年" >六年</option><option value="七年" >七年</option><option value="八年" >八年</option><option value="九年" >九年</option><option value="十年" >十年</option><option value="十年以上" >十年以上</option></select>					</div>
+				</div>
+				<div class="ui-form-item  ui-border-b" >
+					<label for="useLevel">熟练程度</label>
+					<div class="ui-select">
+						<select name="level['a_0']" id="useLevel">
+							<option value="入门">入门</option>
+							<option value="熟练">熟练</option>
+							<option value="精通">精通</option>
+						</select>
+					</div>
+				</div>
+				<div style="height: 10px;width: 100%;background-color: #F5F5F5;"></div>
+			</div>	
+
+
+			    </div>
+
+        <div class="addContentDivLink" onclick="SetHonor();">
+            继续添加技能
+        </div>
+    <div class="ui-btn-wrap" id="submitBtnDiv">
+        <button class="ui-btn-lg ui-btn-primary">保存</button>
+    </div>
+
+		
+		<div class="customDialog">
+		    <div class="dialog-cnt">
+		        <div class="dialog-bd">
+		            <h4>系统消息</h4>
+		            <div>确定删除吗？</div>
+		        </div>
+		        <div class="dialog-ft">
+		            <button type="button" id="cancle" >取消</button>
+		            <button type="button" id="confirm" >确定</button>
+		        </div>
+		    </div>        
+		</div>
+
+
+
+</section>
+</form>
+
+<script src="js/jquery.js"></script>
+<script src="js/toast.js"></script>
+
+
+<script type="text/javascript">
+       
+		var i = 1;
+		function SetHonor() {
+			
+			var html = '<div class="honor_block"><div class="ui-border-b deleteDiv" ><a href="javaScript:;"  data-id = "">删除</a></div>'+
+        	'<div class="ui-form-item ui-form-item-show ui-border-b" id="honor_detail">'+
+			'<label for="skillName">名称</label><input type="text" id="practiceName" name="info[\'a_' + i + '\']"></div>'+
+			'<div class="ui-form-item ui-border-b"><label for="userTime">使用时间</label><div class="ui-select">'+
+	        '<select name="entrance_time[\'a_' + i + '\']" id="userTime"><option value="一年以下">一年以下</option>'+
+	        '<option value="一年">一年</option><option value="二年">二年</option><option value="三年">三年</option>'+
+	        '<option value="四年">四年</option><option value="五年">五年</option><option value="六年">六年</option>'+
+	        '<option value="七年">七年</option><option value="八年">八年</option><option value="九年">九年</option>'+
+	        '<option value="十年">十年</option><option value="十年以上">十年以上</option></select></div></div>'+
+			'<div class="ui-form-item ui-border-b" ><label for="height">熟练程度</label>'+
+			'<div class="ui-select"><select name="level[\'a_' + i + '\']" id="useLevel"><option value="入门">入门</option>'+
+			'<option value="熟练">熟练</option><option value="精通">精通</option></select></div></div>'+
+			'<div style="height: 10px;width: 100%;background-color: #F5F5F5;"></div></div>';
+
+			
+			
+			$("#honor_box").append(html);
+			i ++;
+			
+		}
+		
+		$(".customDialog .dialog-ft button").click(function(){
+				$(".customDialog").hide();
+		});
+
+
+		$(document).on('click', '.deleteDiv a', function () {
+			var thisObj = $(this);
+			$(".customDialog").fadeIn();
+			$(".customDialog #confirm").click(function(){
+				thisObj.parent().parent().remove();
+				var id = thisObj.attr("data-id");
+				if(id){
+					var url = "?c=user&m=delskill&id="+id;
+					$.get(url, {} , function(data) {
+						var obj = $.parseJSON(data);
+						toast(obj.msg,1000);
+						//alert(obj.msg);
+					});
+				}
+		   	})
+		});
+		
+		
+		 $("form[name='skillForm'] button").on("click",function(event){       	  
+		   	var num=0;
+	       	$("form input[type='text']").each(function(){
+			   var val = $.trim($(this).val());
+			   if(val == ""){				  
+				   var msg = $.trim($(this).parent().find("label").text());				  
+				   toast("请填写"+msg, 800);
+				   num++;				   
+				   return false;
+			   }
+		   	});
+		   	
+			if(num>0){					 
+				return false;
+			}else{
+				$("form[name='skillForm']").submit();
+			}
+		});
+		
+</script>
+</body>
+</html>
+</html>

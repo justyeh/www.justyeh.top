@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>新增/编辑新闻</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/wangEditor/css/wangEditor.min.css"/>
+</head>
+<body class="edit-news">
+<div class="page">
+    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li >
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li class="act">
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5-act.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>
+    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>    <div class="main">
+        <div class="page-title">新增/编辑新闻</div>
+        <div class="form pt50">
+            <form action="?c=news&m=save" enctype="multipart/form-data" method="post">
+                <div class="group">
+                    <label class="label">内容分类</label>
+                    <div class="input">
+                        <select name="type">
+                                                            <option value="1">领军动态</option>
+                                                                    <option value="1">领军动态</option>
+                                                                        <option value="2">领军成果</option>
+                                                                        <option value="3">领军风采</option>
+                                                                        <option value="4">领军活动</option>
+                                                                        <option value="5">其他</option>
+                                                                    <input class="hidden" name="id" value="33"/>
+                                                    </select>
+                    </div>
+                </div>
+                    <div class="group">
+                        <label class="label">标题</label>
+                        <div class="input">
+                            <input type="text" name="title" value="测试">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <label class="label">描述</label>
+                        <div class="input">
+                            <textarea name="desc" rows="" cols="">描述描述描述描述描述描述描述描述描述描述描述描述</textarea>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <label class="label">图片</label>
+                        <div class="input">
+                            <label class="file"  style="background-image: url(../../upload/photo/);">
+                                <input type="file" name="cover" accept="image/gif,image/jpeg,image/png,image/jpg"/>
+                            </label>
+                            <input type="hidden" id="img" name="img" value="../../upload/photo/">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <label class="label">内容</label>
+                        <div class="input">
+                            <textarea name="content" rows="" cols="" class="hidden"></textarea>
+                            <div id="news" class="news-wrap"><p>内容内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容内容<br></p><p>内容内容<br></p><p><br></p></div>
+                        </div>
+                    </div>
+
+                <div class="group">
+                    <button class="btn btn-main" type="submit">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/libs/require.min.js" data-main="js/app/news.js"></script>
+</body>
+</html>

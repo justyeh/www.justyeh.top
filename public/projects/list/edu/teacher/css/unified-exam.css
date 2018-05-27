@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/*宽度*/
+.w70{width: 70px !important;}
+.w120{width: 120px !important;}
+
+/*头部-tabs*/
+.link-tabs{border-bottom: solid 1px #dae0e6;margin: 0 -30px;padding: 0 30px;}
+.link-tabs a{display: inline-block;padding: 0 5px 10px 5px;border-bottom: solid 2px #fff;font-size:16px;color:#3f4a56;margin-right: 12px;}
+.link-tabs a:last-child{margin-right: 0;}
+.link-tabs a.act{border-color: #3dc8b4;color: #3dc8b4;}
+
+
+/*操作tips*/
+.handle{position: relative;background-repeat: no-repeat;background-position: center;width: 18px;height: 18px;display: inline-block;margin: 0 6px;}
+.handle.edit{background-image: url(../img/icon/icon-edit.png);}
+.handle.del{background-image: url(../img/icon/range-reduce.png);}
+.handle .y-tip{top: -53px;left: -46px;width: 110px;}
+.handle:hover .y-tip{display: block;}
+.handle.edit .y-tip{background: #313541;}
+.handle.edit .y-tip:after{border-top-color: #313541;}
+
+/*时间范围*/
+.time-range input{width: 90px !important;}
+.time-range span{display: inline-block;vertical-align: top;margin: 16px 5px 0 5px;background:#979797;width:9px;height:2px;}
+
+/*备注*/
+.dot{position: relative;}
+.dot span{cursor: pointer;}
+.dot:hover .content{display: block;}
+.dot .content{position: absolute;right: -11px;top: 15px;text-align: left;line-height: 18px;padding: 20px;background:#ffffff;border:1px solid #dfe6ee;box-shadow:0 0 12px 0 rgba(0,0,0,0.10);border-radius:1px;width:230px;display: none;}
+.dot .content p{padding-bottom: 10px;}
+.dot .content p:last-child{padding-bottom: 0;}
+
+/*我发布的*/
+.mine td .status p{line-height: 18px;}
+.mine td .before span{color: #63A8EB;}
+.mine td .ongoing span{color: #3DC8B4;}
+.mine td .after span{color: #8091A5;}
+.mine .search-box .btn{position: absolute;top: 20px;right: 0;margin: 0;}
+
+
+/*试卷-正式发布*/
+.paper-published .search-box .item{margin-right: 20px;}
+.paper-published .search-box input{width:200px;}
+.paper-published .search-box select{width: 120px;}
+.paper-published .scs label{padding-right: 13px;}
+
+
+/*试卷-被退回*/
+.paper-ban .search-box .item{margin-right: 20px;}
+.paper-ban .search-box input{width:200px;}
+.paper-ban .search-box select{width: 120px;}
+.paper-ban .scs label{padding-right: 13px;}
+.paper-ban .search-box .btn{position: absolute;bottom: 20px;right: 0;margin: 0;}
+
+/*试卷模板*/
+.paper-template input{width: 170px;}
+.paper-template select{width: 120px;}
+.paper-template .scs label{padding-right: 21px;}
+.paper-template .search-box .btn{position: absolute;bottom: 20px;right: 0;margin: 0;}
+
+/*试题-正式发布*/
+.question-published input{width: 170px;}
+.question-published .scs select{width: 105px;}
+.question-published .btn{position: absolute;bottom: 20px;right: 0;}
+.question-published .btn.mr5{width: 60px;right: 95px;}
+
+/*试题-其他*/
+.question-other input{width: 170px;}
+.question-other select{width: 120px;}
+.question-other .scs select{width: 120px;}
+.question-other .search-box button{position: absolute;bottom: 20px;right: 0;}

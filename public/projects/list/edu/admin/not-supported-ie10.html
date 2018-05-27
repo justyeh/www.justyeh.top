@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>蓝桥在线教育 - 低版本浏览器升级提醒</title>
+		<meta name="spm-id" content="a21bo">
+		<meta name="description" content="">
+		<meta name="keyword" content="蓝桥">
+		<link rel="stylesheet" href="//g.alicdn.com/tb-page/ali-page-updater/0.0.16/index-min.css" />
+	</head>
+ 
+	<body data-spm="45958">
+		<script>
+			with(document) with(body) with(insertBefore(createElement("script"), firstChild)) setAttribute("exparams", "category=&userid=&aplus&&yunid=&B7j48LzXccQF&trid=b4959b0314829771955778311e&asid=AQAAAACrb2RYlzePAwAAAAAzoLrfS/FAQA==&sidx=JG42+qtvZFgAAAAA9qR5Gq8LEUBzRoIM&ckx=wwwtmallcomwowportalactalipageupdater|", id = "tb-beacon-aplus", src = (location > "https" ? "//g" : "//g") + ".alicdn.com/alilog/mlog/aplus_v2.js")
+		</script>
+		<div class="container" data-spm="920906">
+			<div id="langs">[ <i class="zh on">中文</i> | <i class="en">English</i> ]</div>
+			<h1>
+				<i class="sprite"></i>
+				<span><i class="sprite warn"></i><em lang-zh="温馨提醒：您当前的浏览器版本过低，存在安全风险，建议升级浏览器" lang-en="Your browser is out-of-date. Please download one of the up-to-date, free and excellent browsers for better security, speed and comfort.">温馨提醒：您当前的浏览器版本过低，存在安全风险，建议升级浏览器</em></span>
+			</h1>
+			<div class="box pc-box">
+				<span class="box-title">
+				<i class="sprite pc"></i>
+				<b lang-zh="浏览器升级推荐" lang-en="browsers for pc">浏览器升级推荐</b>
+				<em class="arrow"></em>
+				</span>
+				<ul>
+					<li class="chrome-item">
+						<i class="sprite chrome"></i>
+						<p lang-zh="推荐选择" lang-en="Recommended Choice">推荐选择</p>
+						<a id="chrome" target="_blank" href-en="https://www.google.com/intl/en/chrome/browser/desktop/" href-zh="https://www.google.cn/intl/zh-CN/chrome/browser/desktop/" href="https://www.google.cn/intl/zh-CN/chrome/browser/desktop/" data-spm-click="gostr=/updater;locaid=d1;name=google">
+							<b lang-zh="谷歌浏览器" lang-en="Chrome">谷歌浏览器</b>
+							<em></em>
+							<i></i>
+						</a>
+					</li>
+					<li class="seperator"></li>
+					<li class="ff-item">
+						<i class="sprite ff"></i>
+						<p lang-zh="推荐选择" lang-en="Recommended Choice">推荐选择</p>
+						<a target="_blank" href="http://www.mozilla.com/firefox/" data-spm-click="gostr=/updater;locaid=d2;name=firefox">
+							<b lang-zh="火狐浏览器" lang-en="FireFox">火狐浏览器</b>
+							<em></em>
+							<i></i>
+						</a>
+					</li>
+					<li class="seperator"></li>
+					<li class="uc-item">
+						<i class="sprite uc"></i>
+						<p lang-zh="新锐用户选择" lang-en="Recommended Choice">推荐选择</p>
+						<a id="uc" target="_blank" href-zh="http://www.uc.cn/ucbrowser/download/" href-en="http://www.ucweb.com/ucbrowser/download/" href="http://www.uc.cn/ucbrowser/download/" data-spm-click="gostr=/updater;locaid=d3;name=uc">
+							<b lang-zh="UC浏览器" lang-en="UC browser">UC浏览器</b>
+							<em></em>
+							<i></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="box mobile-box" style="display: none;">
+				<span class="box-title">
+					<i class="sprite mobile"></i>
+					<b lang-zh="也可用手机扫码浏览" lang-en="scan code">也可用手机扫码浏览</b>
+					<em class="arrow"></em>
+				</span>
+				<ul>
+					<li>
+						<a target="_blank" onclick="return false;" href="//www.taobao.com/m"><i class="sprite taobao"></i></a>
+					</li>
+					<li>
+						<a target="_blank" onclick="return false;" href="//m.tmall.com"><i class="sprite tianmao"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="//g.alicdn.com/??kissy/k/6.2.4/seed-min.js"></script>
+		<script>
+			KISSY.use('node', function(S, Node) {
+				var curLang = 'zh';
+				var $ = Node.all;
+				var $langs = $('#langs i');
+				var $uc = $("#uc");
+				var $chrome = $("#chrome");
+				var $mobile = $(".mobile-box");
+				$langs.on('click', function() {
+					curLang = Node.one(this).hasClass('zh') ? 'zh' : 'en';
+					if(curLang === 'en') {
+						$mobile.hide();
+					} else {
+						$mobile.show();
+					}
+					$langs.removeClass("on");
+					$("." + curLang).addClass("on");
+					$uc.attr("href", $uc.attr('href-' + curLang));
+					$chrome.attr("href", $chrome.attr('href-' + curLang));
+					$('[lang-' + curLang + ']').each(function() {
+						var me = Node.one(this);
+						me.text(me.attr('lang-' + curLang));
+					});
+				});
+			});
+		</script>
+	</body>
+ 
+</html>

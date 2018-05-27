@@ -1,0 +1,69 @@
+﻿@charset "utf-8";
+a, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, html, img, input, label, legend, li, mark, ol, p, section, span, strong, textarea, time, ul, var{margin: 0; border: 0; padding: 0; font-style: normal;}
+input,textarea{margin:0;color:inherit;font-family:inherit;font-size:inherit;outline:none;border-radius:0;-webkit-appearance:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+a, button, cite, code, del, em, img, label, mark, small, strong, textarea, time, var{display: inline-block}
+footer, header, section{position: relative}
+ol, ul{list-style: none}
+button, input, textarea{border: 0; margin: 0; padding: 0; font-size: 1em; line-height: 1em; background-color: transparent}
+span{display: inline-block}
+a:active, a:hover{outline: 0}
+a, a:visited{text-decoration: none}
+table{border-collapse: collapse; border-spacing: 0}
+td, th{padding: 0}
+.clearfix:after{content: ' '; display: block; clear: both; visibility: hidden; line-height: 0; height: 0}
+.fl{float: left;}
+.fr{float: right;}
+*::after, *::before{box-sizing: border-box;}
+*{-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; outline: none !important; box-sizing: border-box;}
+img{display: inline-block;vertical-align: top;}
+body, html{-webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; background-color: #fff; font-family: "SimHei"; position: relative; height: 100%;}
+body{font-size: 12px; min-width: 320px; max-width: 540px; line-height: 1; background-color: #f4f4f4; margin: 0 auto; overflow-x: hidden; overflow-y: auto;}
+.ml0{margin-left: 0 !important;}
+.center{text-align: center;}
+.footer{position: fixed;left: 0;bottom: 0;width: 100%;background: #fff;}
+.footer>a{display: block;float: left;width: 33.3333%;text-align: center;color: #aeaeae;height: 50px;}
+.footer .img{height: 35px;padding-top: 5px;}
+.footer img{display: block;width: 24px;height: auto;margin: 0 auto;}
+.footer a.act{color: #ff643b;}
+.list a{float: left;display: block;}
+.list a>img{display: block;width: 100%;height: 100%;}
+.person .div1{height: 3.56rem;position: relative;}
+.person .div1>img{display: block;width: 100%;height: 100%;}
+.person .div1 p{position: absolute;bottom:0;left: 0;height: 20px;line-height: 18px;width: 100%;background: rgba(0,0,0,0.3);border-bottom: solid 2px #b2b2b2;color: #fff;}
+.person .div1 p img{height: 12px;width: auto;margin: -1px 5px 0 10px;vertical-align: middle;}
+.person .div2{height: 48px;width: 100%;background: #fff;padding-left: 8px;}
+.person .div2 .p1{font-size: 15px;color: #ff6a66;height: 30px;line-height: 30px;}
+.person .div2 .p2{font-size: 12px;color: #666;}
+/*优惠券*/
+.benefit .banner img{display: block;width: 100%;}
+.benefit .main{padding: 0 20px;background: #f31e38;}
+.benefit .desc{background: #fff;border-radius: 6px;-webkit-border-radius: 6px;padding: 0 15px;color: #58575e;}
+.benefit .desc .p1{font-size: 16px;height: 50px;line-height: 50px;font-weight: bold;}
+.benefit .desc .p2{line-height: 17px;}
+.benefit .desc .line{border-bottom: dotted 1px #bfbfbf;margin-top: 14px;position: relative;}
+.benefit .desc .line:after,
+.benefit .desc .line:before{content: '';position: absolute;width: 20px;height: 20px;background: #f31e38;border-radius: 50%;-webkit-border-radius: 50%;top: -10px;}
+.benefit .desc .line:before{left: -25px;}
+.benefit .desc .line:after{right: -25px;}
+.benefit .desc a{margin: 10px auto;display: block;width: 125px;height: 35px;line-height: 35px;background: #f31e38;border-radius: 4px;-webkit-border-radius: 4px;text-align: center;font-size: 16px;font-weight: bold;color: #fff;}
+.benefit .desc .p3{color: #999;padding-bottom: 10px;text-align: center;}
+.benefit .about-lq{padding-bottom: 80px;}
+.benefit .about-lq p{color: #fbced0;line-height: 18px;}
+.benefit .about-lq .p1{height: 55px;line-height: 55px;font-size: 15px;font-weight: bold;color: #fff;}
+.dialog{background: rgba(0,0,0,0.7);position: fixed;width: 100%;height: 100%;top: 0;left: 0;display: none;}
+.dialog .main{width: 320px;background: url(../img/benefit/form-bg.png) no-repeat top center;background-size: 100% auto;position: absolute;top: 60px;left: 0;right: 0;margin: auto;height: 350px;transition: top ease;-webkit-transition: top ease;}
+.dialog .form .t{text-align: center;font-size: 17px;color: #fff;padding: 55px 0 40px 0;}
+.dialog .form .form-group{padding-bottom: 10px;}
+.dialog .form label{display: inline-block;width: 88px;height: 40px;line-height: 40px;font-size: 14px;padding-left: 33px;color: #bf6924;vertical-align: top;}
+.dialog .form input{display: inline-block;height: 40px;vertical-align: top;width: 195px;background: #FFFFFF;border: none;color: #333;border-radius: 4px;-webkit-border-radius: 4px;text-indent: 10px;}
+.dialog .form button{display: block;background: #fb972c;width: 165px;height: 40px;font-size: 16px;color: #f6f7f7;font-weight: bold;display: block;margin: 20px auto 0 auto;border-radius: 4px;-webkit-border-radius: 4px;}
+.dialog .result{background-image: url(../img/benefit/dialog-bg2.png);height: 240px;}
+.dialog .result .t{font-size: 17px;color: #fff;padding:55px 0 40px 0;text-align: center;}
+.dialog .coupon{width: 160px;height: 70px;margin: 0 auto;background: url(../img/benefit/coupon-bg1.png) no-repeat center / cover;color: #fff;font-size: 13px;padding: 10px 0 0 5px;}
+.dialog .coupon.fail{background-image: url(../img/benefit/coupon-bg2.png);}
+.dialog .coupon .sp1{font-size: 17px;}
+.dialog .coupon .sp2{font-size: 34px;font-weight: bold;}
+.dialog .coupon .sp2{font-size: 34px;}
+.dialog .coupon p{letter-spacing: -1px;}
+.dialog .result .p1{padding-top: 15px;text-align: center;color: #dfba84;}
+.dialog .result .p1 a{color: #fa5843;}

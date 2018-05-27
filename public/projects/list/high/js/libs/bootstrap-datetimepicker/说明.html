@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			pre{
+				display: inline-block;
+				padding: 20px;
+				border-left: solid 5px #04acf5;
+				background: #eee;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h1>css</h1>
+		
+		<p>datetimepicker引用到了bootstrap中的一些样式：dropdown styles and alternative, text-based arrows</p>
+		<p>下面的文件将boostrap.css（需要的）和bootstrap-datetimepicker.css编译到一起了，所以引入这个就可以了</p>
+		
+		<pre><code>
+			&lt;link rel="stylesheet" type="text/css" href="js/libs/bootstrap-datetimepicker/build_standalone.min.css"/&gt;
+		</code></pre>
+		
+		
+		<h1>语言</h1>
+		
+		<p>直接用下面的代码覆盖了bootstrap-datetimepicker.min.js中关于语言的部分，所以直接就是中文</p>
+		
+<pre><code>
+en: {
+	days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+	daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+	daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+	months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+	monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+	today: "今天",
+	suffix: [],
+	meridiem: ["上午", "下午"],
+	clear: "Clear"
+}
+</code></pre>
+		
+		<h1>requirejs</h1>
+		
+<pre><code>
+	require.config({
+		urlArgs: "v=" +  (new Date()).getTime(),//上线时注意去掉
+	    paths: {
+		    'jquery': 'libs/jquery-1.9.1.min',
+		    'datetimepicker':'libs/pikaday/plugins/pikaday.jquery',
+		    'bootstrap': 'libs/bootstrap-datetimepicker/bootstrap/js/bootstrap.min',
+	        'boostrapDatePicker': 'libs/bootstrap-datetimepicker/bootstrap-datetimepicker.min',
+	    },
+	    shim:{
+	    	'bootstrap': {
+	            deps: ['jquery']
+	        },
+	        'boostrapDatePicker': {
+	            deps: ['jquery', 'bootstrap']
+	        }
+	    }
+	});
+	require(['jquery'','boostrapDatePicker'], function($) {
+		
+		$(function(){
+	       	$("#time").datetimepicker({
+	       		format:'yyyy-mm-dd'
+	       	})
+	    });
+	    
+	})
+</code></pre>
+		
+	</body>
+</html>

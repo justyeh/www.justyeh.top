@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title>
+			有为
+		</title>
+		<link rel="stylesheet" href="css/frozen.css">
+		<link rel="stylesheet" href="css/youwei.css"/>
+		<style type="text/css">
+			.ui-dialog{
+				z-index:111;
+			}
+			.close{				
+				color: #fff;						
+				display: block;
+				line-height: 30px;
+				position: absolute;
+				top: 0px;
+				right: 15px;
+				padding: 0px 7px;
+				background-color: #04acf7;
+				border-bottom-left-radius: 18px;
+				border-bottom-right-radius: 18px;
+				border: 0px;
+			}
+			.close img{
+				width:9px;
+				vertical-align:middle;
+			}
+			.ui-dialog-cnt{
+				width:90%;
+				color:#666;
+				background:#fff;
+				border-radius:10px;
+				top:5%;
+				left:5%;
+				/*height:90%;
+				overflow-y:auto;*/
+				
+			}			
+			.t30{
+				margin-top:30px;
+			}
+			.t15{
+				margin-top:15px;
+			}
+			.btn-blue{
+				background-color:#18b4ed;
+			}
+			.ui-dialog-hd{
+				height:58px;
+				line-height:78px;
+			}
+			.ui-dialog-hd h3{
+				font-size:18px;
+			}
+			.ui-dialog-ft{
+				border-top:0;
+				height:60px;
+				font-size:20px;
+				border-bottom-left-radius:10px;
+				border-bottom-right-radius:10px;
+			}
+			.ui-dialog-ft button {
+				color: #fff;
+			}
+			.ui-form .ui-form-item input{
+				color:#18b4ed;
+			}	
+			.ui-form-item{
+				height:44px;
+				line-height:44px;
+			}
+		</style>
+	</head>
+	<body ontouchstart="">
+		<header class="ui-header ui-header-positive ui-border-b">
+			<i class="ui-icon-return" onclick="history.back()">
+			</i>
+			<h1>
+				完善信息，各种好工作等着你
+			</h1>
+		</header>
+		<section class="ui-container" id="educationBG">
+			      	
+				<form method="post" name="addForm">
+				<div class="ui-form" style="padding:0 15px;background-image:none;margin-top:5px;">
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="username">姓名</label>
+						<input type="text" id="username" name="name">
+					</div>
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="man">性别</label>
+						<label class="ui-radio" for="man" style="margin-left:100px;">
+							<input type="radio" name="sex" id="man" checked="checked"  value="0">
+							<i style="margin-left: -7px;">男</i>
+						</label>
+						<span style="width: 18px; display: inline-block"></span>
+						<label class="ui-radio" for="woman">
+							<input type="radio" name="sex" id="woman" value="1">
+							<i style="margin-left: -7px;">女</i>
+						</label>
+					</div>
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="rank">学历</label>
+						<div class="ui-select">
+							<select name="rank">
+								<option value="1">
+									大专
+								</option>
+								<option value="2">
+									本科
+								</option>
+								<option value="3">
+									硕士研究生
+								</option>
+								<option value="4">
+									博士研究生
+								</option>
+							</select>
+						</div>
+
+
+					</div>
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="cmbProvince">院校地点</label>
+						
+						<div class="ui-select">
+							<select  id="cmbProvince" name="city"  onchange="GetCity();" >
+								<option value="0">
+									请选择
+								</option>
+								<option c_id="1" value="1">
+									安徽
+								</option>
+								<option c_id="19" value="19">
+									北京
+								</option>
+								<option c_id="38" value="38">
+									重庆
+								</option>
+								<option c_id="79" value="79">
+									福建
+								</option>
+								<option c_id="89" value="89">
+									甘肃
+								</option>
+								<option c_id="104" value="104">
+									广东
+								</option>
+								<option c_id="126" value="126">
+									广西
+								</option>
+								<option c_id="141" value="141">
+									贵州
+								</option>
+								<option c_id="151" value="151">
+									海南
+								</option>
+								<option c_id="155" value="155">
+									河北
+								</option>
+								<option c_id="167" value="167">
+									黑龙江
+								</option>
+								<option c_id="181" value="181">
+									河南
+								</option>
+								<option c_id="199" value="199">
+									湖北
+								</option>
+								<option c_id="213" value="213">
+									湖南
+								</option>
+								<option c_id="228" value="228">
+									内蒙古
+								</option>
+								<option c_id="241" value="241">
+									江苏
+								</option>
+								<option c_id="255" value="255">
+									江西
+								</option>
+								<option c_id="267" value="267">
+									吉林
+								</option>
+								<option c_id="277" value="277">
+									辽宁
+								</option>
+								<option c_id="292" value="292">
+									宁夏
+								</option>
+								<option c_id="297" value="297">
+									青海
+								</option>
+								<option c_id="306" value="306">
+									山西
+								</option>
+								<option c_id="318" value="318">
+									山东
+								</option>
+								<option c_id="336" value="336">
+									上海
+								</option>
+								<option c_id="356" value="356">
+									四川
+								</option>
+								<option c_id="378" value="378">
+									天津
+								</option>
+								<option c_id="397" value="397">
+									西藏
+								</option>
+								<option c_id="405" value="405">
+									新疆
+								</option>
+								<option c_id="420" value="420">
+									云南
+								</option>
+								<option c_id="437" value="437">
+									浙江
+								</option>
+								<option c_id="449" value="449">
+									陕西
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="institute">院校</label>
+						<div class="ui-select">
+							<select class="form-control activeBorder" id="collegeName" name="college" >
+								<option value="0">
+									请选择
+								</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="enrollmentDate">入学时间</label>
+						<input  class="dateTiemSelecter"  type="text" id="enrollmentDate" name="entrance_time">
+					</div>
+					<div class="ui-form-item ui-form-item-show ui-border-b">
+						<label for="institute">专业</label>
+						<input type="text" id="institute" name="professional">
+					</div>
+				</div>
+				<div class="ui-btn-wrap" id="submitBtnDiv">
+					<button type="button" class="ui-btn-lg ui-btn-primary" name="addBtn">
+						完成，各种大咖在等你
+					</button>
+				</div>
+				
+			</form>
+		</section>
+		<script src="js/jquery.js"></script>
+		<!--<script src="js/zepto.min.js"></script>
+		<script src="js/frozen.js"></script>-->
+		
+		<script src="dev/js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+		<script src="dev/js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+		<link href="dev/css/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css" />
+		<link href="dev/css/mobiscroll.animation-2.5.2.css" rel="stylesheet" type="text/css" />
+		<script src="dev/js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+		<script src="dev/js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+		
+		<script src="js/toast.js"></script>
+		
+		
+		<script>
+		function GetCity() {
+			var val = $("#cmbProvince").find("option:selected").attr("c_id");
+			var s_html = '';
+			$('#collegeName').html('<option value="0">正在加载数据...</option>');
+			if (val) {
+				var address = "?c=login&m=school&id=" + val;
+				$.get(address, '', function(data) {
+					if (data.error) {
+						alert(data.msg);
+					} else {
+						s_html += '<option value="0">全部</option>';
+						if (data) {
+							for (i = 0; i < data.length; i++) {
+								s_html += '<option s_id="' + data[i].cid + '" value="' + data[i].school + '">' + data[i].school + '</option>';
+							}
+						}
+						$('#collegeName').html(s_html);
+					}
+				}, 'json');
+			} else {
+				html = '';
+				$('#collegeName').html(html);
+			}
+		}
+		function showDate(){
+			var currYear = (new Date()).getFullYear();
+			var opt = {};
+			opt.date = {
+				preset: 'date'
+			};
+			//opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
+			opt.datetime = {
+				preset: 'datetime'
+			};
+			opt.time = {
+				preset: 'time'
+			};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+				display: 'modal', //显示方式
+				mode: 'scroller', //日期选择模式
+				lang: 'zh',
+				startYear: currYear - 50, //开始年份
+				endYear: currYear + 0 //结束年份
+			};
+			$(".dateTiemSelecter").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+		}
+		
+		$(function(){
+			//$(".addDialog").dialog("show");
+			//$(".addDialog").show();
+			//popup($(".ui-dialog-cnt"));
+			showDate();
+			//表单验证
+			$("button[name='addBtn']").on("click",function(){
+				var username = $('#username').val();
+				var institute = $('#institute').val();
+				var rank =  $("select[name='rank']").find("option:selected").text();
+				var entrance_time = $("#enrollmentDate").val();
+				var cmbProvince = $.trim($("#cmbProvince").find("option:selected").text());
+				//console.log(cmbProvince);
+				var collegeName = $.trim($("#collegeName").find("option:selected").text());
+				if(!username){
+					toast("请填写姓名",1000);
+					return ;
+				}else if(!rank){
+					toast("请选择学历",1000);
+					return ;
+				}
+				else if(!cmbProvince || cmbProvince == '请选择'){
+					toast("请选择院校地点",1000);
+					return ;
+				}
+				else if(!collegeName || collegeName == '请选择' || collegeName == '全部'){
+					toast("请选择院校",1000);
+					return ;
+					
+				}
+				else if(!entrance_time){
+					toast("请填写入学时间",1000);
+					return ;
+					
+				}
+				else if(!institute){
+					toast("请填写专业",1000);
+					return ;
+					
+				}
+				if(username && rank && institute && cmbProvince && (cmbProvince !='请选择') && collegeName && (cmbProvince !='请选择') && (cmbProvince !='全部')&& entrance_time){
+					$("form[name='addForm']").submit();
+				}
+				
+			});
+		})
+		
+		
+	</script>
+	
+	
+	
+	</body>
+</html>

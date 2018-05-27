@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="renderer" content="webkit">
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <title>学生管理</title>
+        <link href="" type="image/x-icon" rel="SHORTCUT ICON"/>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/pagination.css"/>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.pagination.js"></script>
+        <script src="js/public.js"></script>
+        <script src="js/student.js"></script>
+        <script src="js/third/laydate/laydate.js"></script>
+    </head>
+    <body>
+        <!--条件搜索容器-->
+        <div class="headerWarp">
+            <h2 class="mainTitle">检索</h2>
+            <input type="hidden" value="4" id="totalNum"/>
+            <div class="select select120 mright7">
+                <label></label>
+                <select id="province" onchange="getcity()">
+                    <option value="0">省</option>
+                </select>
+                <span class="dropdown"></span>
+            </div>
+            <div class="select select120 mright7">
+                <label></label>
+                <select id="citys">
+                    <option value="0">市/地区</option>
+                </select>
+                <span class="dropdown"></span>
+            </div>
+            <div class="search">
+                <input type="text" name="name" placeholder="ID/姓名/手机号" style="font-size: 14px;"/>
+                <button class="search_icon" type="button"></button>
+            </div>
+        </div>
+
+        <!--主容器》用于显示数据-->
+        <div class="mainWarp">
+            <h2 class="mainTitle">最新注册</h2>
+            <!--数据筛选-->
+            <!--div class="filter">
+                <a class="link_btn_active" data-typeid="1">未审核学生</a>
+                <a class="link_btn_info" data-typeid="2">审核未通过</a>
+            </div-->
+
+            <!--数据展示-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>头像</th>
+                        <th>手机号</th>
+                        <th>姓名</th>
+                        <th>大学</th>
+                        <th>专业</th>
+                        <th>籍贯</th>
+                        <th>关注职位</th>
+                        <th>投递职位</th>
+                        <th>站内信</th>
+                        <th>最后登录时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        <tr>
+                        <td>79</td>
+                        <td><img class="tab_img" src="../../upload/photo/2017/09/04/1504504921.6871.jpeg"/></td>
+                        <td>18856432079</td>
+                        <td>杨小测</td>
+                        <td>中华女子学院</td>
+                        <td>计算机</td>
+                        <td>北京</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>2017-09-04</td>
+                        <td><a class="tab_a" href="?c=student&m=detail&id=79">查看</a></td>
+                    </tr>
+                                        <tr>
+                        <td>70</td>
+                        <td><img class="tab_img" src="../../upload/photo/2017/08/30/1504079711.0908.jpg"/></td>
+                        <td>15090633139</td>
+                        <td>ROC</td>
+                        <td>清华大学</td>
+                        <td>计算机科学与技术</td>
+                        <td>安阳</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>2017-09-06</td>
+                        <td><a class="tab_a" href="?c=student&m=detail&id=70">查看</a></td>
+                    </tr>
+                                        <tr>
+                        <td>58</td>
+                        <td><img class="tab_img" src="../../upload/photo/2017/06/29/1498719482.8019.png"/></td>
+                        <td>15090630001</td>
+                        <td>ROC</td>
+                        <td>北京大学</td>
+                        <td>计算机科学与技术</td>
+                        <td>安阳</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>2017-06-29</td>
+                        <td><a class="tab_a" href="?c=student&m=detail&id=58">查看</a></td>
+                    </tr>
+                                        <tr>
+                        <td>53</td>
+                        <td><img class="tab_img" src="../../upload/photo/2017/06/29/1498725662.4733.jpg"/></td>
+                        <td>13166666666</td>
+                        <td>大鹏</td>
+                        <td>北京化工大学</td>
+                        <td>养殖业</td>
+                        <td>驻马店</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>2017-09-04</td>
+                        <td><a class="tab_a" href="?c=student&m=detail&id=53">查看</a></td>
+                    </tr>
+                                    </tbody>
+            </table>
+
+            <div class="pager mtop20">
+                  <ul>
+                  <li><a href="#" class="current"><span>&laquo;</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#" class="active">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#"><span>&raquo;</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            $(function () {
+                $(".filter a").click(function () {
+                    $(".mainWarp .mainTitle").text($(this).text())
+                });
+            });
+        </script>
+    </body>
+</html>

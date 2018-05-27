@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>考试回顾</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+	<div class="main-wrap clearfix">
+		<div class="logo">
+			<img src="img/logo.png" alt="蓝桥软件学院"/>
+		</div>
+		<div class="user-menu">
+			<a href="?c=home&m=info">个人首页</a>
+			<span class="username">刘夏天</span>
+			<img class="circle" src="img/head2.png"/>
+			<div class="user-second-menu">
+				<a href="?c=slogin&m=out">退出登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+    <div class="page-wrap">
+        <div class="side">
+				<img class="head circle" src="img/head2.png"/>
+				<p class="name">刘夏天</p>
+				<ul>
+					<li >
+						<a href="?c=home&m=list">
+							<i class="left-a"></i>
+							<span>学习路线</span>
+						</a>
+					</li>
+					<li >
+						<a href="?c=stu&m=info&id=670">
+							<i class="left-b"></i>							
+							<span>课堂</span>
+						</a>
+					</li>
+					<li  class="act" >
+						<a href="?c=stu&m=rlist">
+							<i class="left-c"></i>
+							<span>考试回顾</span>
+						</a>
+					</li>
+					<li>
+						<a href="?c=uexam&m=list">
+							<i class="left-d"></i>
+							<span>统一考试</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+        <div class="page-main tabMain">
+            <div class="chartMain">
+                <form action="?c=stu&m=rlist" method="get">
+                	<input type="hidden" name="c" value="stu"/>
+                	<input type="hidden" name="m" value="rlist"/>
+                    <input type="text" name="keyword" class="txtInput" placeholder="考试名称" value=""/>
+                    <div class="drop-menu noselect" id="sort">
+                    	<input type="hidden" name="sort"  value=""/>
+                        <p class="show">类别</p>
+                        <div class="drop-inner">
+                            <ul>
+                                <li><a href="javascript:;" data-val="0">全部</a></li>
+                                <li><a href="javascript:;" data-val="1">课堂练习</a></li>
+                                <li><a href="javascript:;" data-val="2">初级关卡</a></li>
+                                <li><a href="javascript:;" data-val="3">中级关卡</a></li>
+                                <li><a href="javascript:;" data-val="4">高级关卡</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-menu noselect" id="dSelect">
+                    	<input type="hidden" name="course"  value=""/>
+                        <p class="show">全部课程</p>
+                        <div class="drop-inner">
+                            <ul>
+                                                                    <li><a href="javascript:;" data-val="1" data-did="1">Java程序设计基础</a></li>
+                                                                    <li><a href="javascript:;" data-val="2" data-did="2">JAVASE综合项目</a></li>
+                                                                    <li><a href="javascript:;" data-val="3" data-did="3">JAVA进阶专题</a></li>
+                                                                    <li><a href="javascript:;" data-val="6" data-did="6">Oracle基础教程</a></li>
+                                                                    <li><a href="javascript:;" data-val="4" data-did="4">web前端入门教程</a></li>
+                                                                    <li><a href="javascript:;" data-val="9" data-did="9">JavaWeb核心技术</a></li>
+                                                                    <li><a href="javascript:;" data-val="5" data-did="5">持久层框架</a></li>
+                                                                    <li><a href="javascript:;" data-val="7" data-did="7">Spring框架</a></li>
+                                                                    <li><a href="javascript:;" data-val="11" data-did="11">测试使用课程</a></li>
+                                                                    <li><a href="javascript:;" data-val="8" data-did="8">终极挑战</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-menu noselect" id="cSelect">
+                    	<input type="hidden" name="chapter"  value=""/>
+                        <p class="show">全部章</p>
+                        <div class="drop-inner">
+                            <ul>
+                                                                    <li><a href="javascript:;" data-val="1" data-cid="1">0课程介绍</a></li>
+                                                                    <li><a href="javascript:;" data-val="5" data-cid="5">1Java简介</a></li>
+                                                                    <li><a href="javascript:;" data-val="13" data-cid="13">2环境搭建及第一个java程序</a></li>
+                                                                    <li><a href="javascript:;" data-val="335" data-cid="335">3程序设计基础</a></li>
+                                                                    <li><a href="javascript:;" data-val="360" data-cid="360">程序设计基础</a></li>
+                                                                    <li><a href="javascript:;" data-val="52" data-cid="52">6物以类聚——数组</a></li>
+                                                                    <li><a href="javascript:;" data-val="65" data-cid="65">7编程的艺术——方法和类的封装</a></li>
+                                                                    <li><a href="javascript:;" data-val="74" data-cid="74">8面向对象——程序设计</a></li>
+                                                                    <li><a href="javascript:;" data-val="90" data-cid="90">9常用的Java类——String</a></li>
+                                                                    <li><a href="javascript:;" data-val="102" data-cid="102">10可变长数组——ArrayList</a></li>
+                                                                    <li><a href="javascript:;" data-val="111" data-cid="111">11Java中的容器——集合框架的综合应用</a></li>
+                                                                    <li><a href="javascript:;" data-val="120" data-cid="120">12操作电脑中的数据——文件与I/O</a></li>
+                                                                    <li><a href="javascript:;" data-val="130" data-cid="130">13网络内通信——Java网络编程</a></li>
+                                                                    <li><a href="javascript:;" data-val="137" data-cid="137">14齐头并进——多线程编程</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-menu noselect" id="sSelect">
+                    	<input type="hidden" name="section"  value=""/>
+                        <p class="show">全部节</p>
+                        <div class="drop-inner">
+                            <ul>
+                                                                    <li><a href="javascript:;" data-val="2">谈谈课程</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-main">搜索</button>
+                </form>
+            </div>
+
+            <div class="table mt20">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th width="20%">考试名称</th>
+                        <th>挑战次数</th>
+                        <th>类别</th>
+                        <th>自类别</th>
+                        <th width="25%">课程-章-节</th>
+                        <th>得分率(%)</th>
+                        <th>考试时间</th>
+                    </tr>
+                                                                    <tr>
+                            <td>1</td>
+                            <td style="text-align:left;"><a href="?c=lesex&m=info&id=603" class="c-blue">流程控制-课后作业</a></td>
+                            <td>1</td>
+                            <td>课后作业</td>
+                            <td>课堂关卡</td>
+                            <td>Java程序设计基础-3程序设计基础-3.10循环结构-for</td>
+                            <td>0.0%</td>
+                            <td>1970-01-01</td>
+                        </tr>
+                                                <tr>
+                            <td>2</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=141&id=344" class="c-blue">初级进阶关卡</a></td>
+                            <td>1</td>
+                            <td>初级进阶关卡</td>
+                            <td>初级关卡</td>
+                            <td>Java程序设计基础-3程序设计基础-3.1基本数据类型</td>
+                            <td>0.0%</td>
+                            <td>1970-01-01</td>
+                        </tr>
+                                                <tr>
+                            <td>3</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=137&id=344" class="c-blue">初级进阶关卡</a></td>
+                            <td>1</td>
+                            <td>初级进阶关卡</td>
+                            <td>初级关卡</td>
+                            <td>Java程序设计基础-3程序设计基础-3.1基本数据类型</td>
+                            <td>45.0%</td>
+                            <td>1970-01-01</td>
+                        </tr>
+                                                <tr>
+                            <td>4</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=133&id=539" class="c-blue">基本查询语句-课后练习</a></td>
+                            <td>1</td>
+                            <td>课堂练习</td>
+                            <td>课堂关卡</td>
+                            <td>Oracle基础教程-基本数据查询-基础查询</td>
+                            <td>0.0%</td>
+                            <td>2017-09-07</td>
+                        </tr>
+                                                <tr>
+                            <td>5</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=130&id=356" class="c-blue">初级基础关卡</a></td>
+                            <td>2</td>
+                            <td>初级基础关卡</td>
+                            <td>初级关卡</td>
+                            <td>Java程序设计基础-1Java简介-1.4Java机制</td>
+                            <td>0.0%</td>
+                            <td>2017-08-28</td>
+                        </tr>
+                                                <tr>
+                            <td>6</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=105&id=359" class="c-blue">基础挑战</a></td>
+                            <td>2</td>
+                            <td>中级基础关卡</td>
+                            <td>中级关卡</td>
+                            <td>Java程序设计基础-程序设计基础-基础挑战</td>
+                            <td>21.0%</td>
+                            <td>2017-08-23</td>
+                        </tr>
+                                                <tr>
+                            <td>7</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=93&id=424" class="c-blue">变量-标识符-关键字-课后练习</a></td>
+                            <td>1</td>
+                            <td>课堂练习</td>
+                            <td>课堂关卡</td>
+                            <td>Java程序设计基础-3程序设计基础-3.2变量、标识符、关键字</td>
+                            <td>0.0%</td>
+                            <td>2017-06-30</td>
+                        </tr>
+                                                <tr>
+                            <td>8</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=91&id=359" class="c-blue">基础挑战</a></td>
+                            <td>1</td>
+                            <td>中级基础关卡</td>
+                            <td>中级关卡</td>
+                            <td>Java程序设计基础-程序设计基础-基础挑战</td>
+                            <td>40.0%</td>
+                            <td>2017-06-30</td>
+                        </tr>
+                                                <tr>
+                            <td>9</td>
+                            <td style="text-align:left;"><a href="?c=stu&m=rdetail&eid=75&id=356" class="c-blue">初级基础关卡</a></td>
+                            <td>1</td>
+                            <td>初级基础关卡</td>
+                            <td>初级关卡</td>
+                            <td>Java程序设计基础-1Java简介-1.4Java机制</td>
+                            <td>0.0%</td>
+                            <td>2017-06-30</td>
+                        </tr>
+                                                <tr>
+                            <td>10</td>
+                            <td style="text-align:left;"><a href="?c=lesex&m=info&id=357" class="c-blue">Windows开发环境-课后作业</a></td>
+                            <td>1</td>
+                            <td>课后作业</td>
+                            <td>课堂关卡</td>
+                            <td>Java程序设计基础-2环境搭建及第一个java程序-2.1Windows开发环境</td>
+                            <td>33.3%</td>
+                            <td>2017-06-29</td>
+                        </tr>
+                                            
+                </table>
+            </div>
+                            <div class="pager text-c">
+                                                                        <span class="current prev">«</span>
+                                                                                                <span class="current">1</span>
+                                                                                                <a href="?c=stu&m=rlist&p=1">2</a>
+                                                                                                <a href="?c=stu&m=rlist&p=1">»</a>
+                                                            </div>
+                    </div>
+
+    </div>
+
+    <div class="footer">	
+	<div class="main-wrap">
+		<ul class="link-item clearfix">
+			<li><a target="_blank" href="http://xueyuan.lanqiao.org/">蓝桥软件学院</a></li>
+			<li><a target="_blank" href="http://www.lanqiao.org/">蓝桥官网</a></li>
+			<li><a target="_blank" href="http://dasai.lanqiao.org/">蓝桥杯</a></li>
+			<li><a target="_blank" href="http://www.lanbaoshebao.com/">蓝保社保</a></li>
+			<li><a target="_blank" href="http://www.daxuechuangke.com/">大学创客</a></li>
+			<li><a target="_blank" href="http://www.lanshihui.com/">蓝师汇</a></li>
+			<li><a target="_blank" href="http://www.54youwei.com/">有为招聘</a></li>
+		</ul>
+		<div class="clearfix">			
+			<div class="info-box">
+				<p>电话：4006-588-662     传真：010-68208666 </p>
+				<p>主办：工业和信息化部人才交流中心  </p>
+				<p>京公网安备 11010802020352号 </p>
+			</div>
+			<div class="info-box">
+				<p>地址：北京市海淀区万寿路27号院工信部机关18#信箱 100846</p>
+				<p>支持：国信世纪人才服务（北京）有限公司</p>
+				<p>© Copyright 2016. 蓝桥网版权所有 | 京ICP备11024192号</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="return-top" title="返回顶部"><span>返回顶部</span></div>
+
+<script src="js/libs/require.min.js" data-main="js/examList.js"></script>
+</body>
+</html>

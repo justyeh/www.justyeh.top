@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>编辑我的基本信息--有为</title>
+    <link rel="stylesheet" href="themes/default/css/frozen.css">
+    <link rel="stylesheet" href="themes/default/css/youwei.css"/>
+    <style type="text/css">
+    </style>
+</head>
+<body ontouchstart="">
+<header class="ui-header ui-header-positive ui-border-b">
+    <form method="post">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>基本资料</h1>
+    <button class="headerBtn">保存</button>
+</header>
+
+<section class="ui-container" id="basicFile">
+
+    <div class="ui-form ui-border-t">
+
+            <div class="ui-form-item ui-border-b">
+                <label for="height">性别</label>
+                <div id="radioGroup">
+                    <label class="ui-radio" for="man">
+                        <input type="radio" name="sex" id="man" <?php if($this->info['sex'] == 0) { ?> checked="checked" <?php } ?> value="0">男
+                    </label>
+                    <label class="ui-radio" for="woman">
+                        <input type="radio" name="sex" id="woman" <?php if($this->info['sex'] == 1) { ?> checked="checked" <?php } ?> value="1">女
+                    </label>
+                </div>
+            </div>
+            <div class="ui-form-item ui-border-b">
+                <label for="height">身高</label>
+                <input type="number" id="height" name="height" value="<?php echo $this->info['height'];?>">
+            </div>
+            <div class="ui-form-item ui-border-b">
+                <label for="birthday">出生年月</label>
+                <input  class="dateTiemSelecter" type="text"  id="birthday" name="birthday" value="<?php echo $this->info['birthday'] > 0 ? date('Y-m-d', $this->info['birthday']) : '';?>">
+            </div>
+            <div class="spliter">
+                <h1>自我介绍</h1>
+            </div>
+            <div class="ui-form-item ui-form-item-pure ui-border-b" id="personaIntroduction">
+                <textarea placeholder="请输入个人介绍" name="info"><?php echo $this->info['info'];?></textarea>
+            </div>
+            
+            <div class="spliter">
+                <h1>兴趣爱好</h1>
+            </div>
+            
+            <div class="ui-form-item ui-form-item-pure ui-border-b" id="interest" >
+                <textarea placeholder="输入兴趣爱好，以逗号分隔" name="interest"><?php echo $this->info['interest'];?></textarea>
+            </div>
+
+    </div>
+
+    <div class="ui-btn-wrap" id="submitBtnDiv">
+        <button class="ui-btn-lg ui-btn-primary">保存</button>
+    </div>
+
+</section>
+</form>
+ <script src="themes/default/dev/jquery-1.9.1.js"></script>
+
+    <script src="themes/default/dev/js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+    <script src="themes/default/dev/js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+
+    <link href="themes/default/dev/css/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css" />
+	<link href="themes/default/dev/css/mobiscroll.animation-2.5.2.css" rel="stylesheet" type="text/css" />
+	<script src="themes/default/dev/js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+	<script src="themes/default/dev/js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+	<script type="text/javascript">
+       	$(function () {
+			var currYear = (new Date()).getFullYear();	
+			var opt={};
+			opt.date = {preset : 'date'};
+			//opt.datetime = { preset : 'datetime', minDate: new Date(2012,3,10,9,22), maxDate: new Date(2014,7,30,15,44), stepMinute: 5  };
+			opt.datetime = {preset : 'datetime'};
+			opt.time = {preset : 'time'};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+		        display: 'modal', //显示方式 
+		        mode: 'scroller', //日期选择模式
+				lang:'zh',
+		        startYear:currYear - 50, //开始年份
+		        endYear:currYear + 10 //结束年份
+			};
+			$(".dateTiemSelecter").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+       	 });
+       	 
+
+
+		$("form").submit(function(event){
+			var name = $("#name").val();
+			if(name == ""){
+				return false;
+				
+			}
+			return true;
+		});
+		
+		
+    </script>
+</body>
+</html>

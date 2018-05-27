@@ -1,0 +1,361 @@
+@charset "utf-8";
+html { cursor:default; }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,textarea,p,blockquote,th,td,a,img,span { margin:0; padding:0; }
+body { font-size:12px; font-family:"Microsoft YaHei","微软雅黑","Arial, Geneva, sans-serif";}
+address,caption,cite,code,dfn,em,th,var,i { font-style:normal; font-weight:normal; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+input,textarea,select { font-family:inherit; font-size:inherit; *font-size: 100%; font-weight:inherit; outline:none; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset,img,abbr,acronym { border:0; }
+ol,ul { list-style-type:none; }
+caption,th { text-align:left; }
+img{vertical-align:middle;border:0;}
+q:before,q:after { content:''; }
+a { text-decoration:none; color:#fff;outline:none; }
+a:link { text-decoration:none; }
+
+.clearfix:before,.clearfix:after{
+	content:"";
+	display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+	*zoom:1;/*IE/7/6*/
+}
+.fl{float:left;}
+.fr{float:right;}
+.mt10{margin-top:10px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.mr10{margin-right:10px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.pt10{padding-top:10px;}
+.pl10{padding-left:10px;}
+.mleft60{margin-left: 60px;}
+
+.bb{border-bottom: solid 1px #E3E3E3;}
+
+.bgInfo{background-color: #04ACF7;}
+.bgActive{background-color: #e34e42;}
+.bgPrimary{background-color: #428bca;}
+.bgSuccess{background-color: #5cb85c;}
+.bgWarming{background-color: #f0ad4e;}
+
+.w190{width:190px}
+
+/*弹出层*/
+.dialog{
+	position: fixed;
+	left: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+	display: none;
+}
+.box{
+	position: absolute;
+	top:10%;
+	left: 50%;
+	width:620px;
+	margin-left:-310px;
+	background: #fff;
+
+}
+.box-head{
+	height: 58px;
+	line-height: 58px;
+	overflow: hidden;
+	border-bottom:1px solid #e8e8e8;
+}
+.box-head p{
+	padding-left: 25px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #686767;
+}
+.box-head ul{
+	width:100%;
+	height: 58px;
+	background: #f0f2f5;
+	color: #686767;
+
+}
+.box-head ul li{
+	float: left;
+	width:150px;
+	text-align: center;
+	font-size: 14px;
+	border-right:1px solid #e8e8e8;
+	cursor: pointer;
+
+}
+.box-head ul li.active{
+	background: #fff;
+	height: 58px;
+	border-bottom:1px solid #fff;
+}
+.box-head ul li:last-child{
+	border-right: 0;
+}
+.box-body{
+	margin-top:20px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #868686;
+}
+.group{
+	margin-top:15px;
+}
+label.txtTop{
+	vertical-align: top;
+}
+.group label{
+	margin-left: 90px;
+	margin-right:20px;
+	width:50px;
+	vertical-align: middle;
+	display: inline-block;
+}
+.group input[type='text']{
+	height: 32px;
+	width:270px;
+	line-height: 32px;
+	border:1px solid #e7e7e7;
+	text-indent: 10px;
+}
+.errorMsg{
+	margin-left: 160px;
+	color: #ff0000;
+	margin-top:5px;
+}
+.group textarea{
+	width: 250px;
+	height: 106px;
+	border:1px solid #e7e7e7;
+	padding:10px;
+	line-height: 22px;
+}
+.group em{
+	margin-left:20px;
+	font-size: 14px;
+
+}
+.group .images{
+	margin-top:15px;
+	margin-left:164px;
+}
+.group .images li{
+	float: left;
+	width: 120px;
+	height: 110px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	position:relative;
+	background: #eff1f4;
+	overflow: hidden;
+}
+.group .images li img{
+	width:120px;
+	height: 110px;
+	overflow: hidden;
+}
+.group .img-close{
+	background: url(../images/close.png) no-repeat;
+	width:19px;
+	height: 19px;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 111;
+}
+.box-head .close{
+	background: url(../images/close.png) no-repeat;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	right: 25px;
+	top:22px;
+}
+.dialog .Btn{
+	margin-left:164px;
+	margin-top:15px;
+	height: 34px;
+	line-height: 34px;
+	padding:0 12px;
+	color: #fff;
+	background: #e34e42;
+	border: 0;
+	cursor: pointer;
+}
+.errorMsg label{
+	margin-left:0;
+	display: inline-block;
+	width:270px;
+	margin-right:0;
+	padding-right:10px;
+}
+/*上传*/
+.uploadify{
+	position: absolute;
+	left: 164px;
+	top:-20px;
+	cursor: pointer;
+}
+.uploadify-button {
+	background-color: #fff;
+	border: 0px;
+	background-image: none;
+	border-radius: 5px;
+	text-shadow: none;
+	color:#2c7edc;
+	font-size: 14px;
+	padding-bottom: 1px;
+}
+input [type='file']{
+	opacity: 0;
+	z-index: 111;
+}
+.uploadBtn{
+	margin-left:164px;
+	border:0;
+	background:#e34e42;
+	color: #fff;
+	padding: 5px 15px;
+	font-weight: bold;
+}
+.jobText{
+	width: 90px;
+}
+.jobName{
+	margin-left:15px;
+	margin-right:15px;
+}
+.jobD{
+	position: relative;
+}
+.addMore{
+	position: absolute;
+	right: 20px;
+	bottom:5px;
+	color: #2c7edc;
+	padding-bottom: 1px;
+	border-bottom:1px solid #2c7edc;
+}
+.dialog .button{
+	margin-top:15px;
+	padding:8px 30px;
+	color: #fff;
+	background: #e34e42;
+	border: 0;
+	cursor: pointer;
+}
+.text-center{
+	text-align: center;
+}
+.timer{
+	width:250px;
+	height: 32px;
+	line-height: 32px;
+}
+.laydate-icon{
+	border:1px solid #e7e7e7;
+}
+
+input[type=submit]{
+	cursor: pointer;
+}
+.span1{
+	line-height: 29px;
+	vertical-align: top;
+	margin-top: 20px;
+	display: inline-block;
+	font-size: 14px;
+}
+.textInput{
+	width: 158px;
+	height: 32px;
+	border: solid #E3E3E3 1px;
+	text-indent: 16px;
+	color: #999;
+	font-size: 14px;
+}
+/*职位管理弹窗*/
+.dialogDivBlock{
+	margin: 0 15px;
+	padding: 15px 0;
+}
+.dialogDivBlock>input[type=text]{
+	width: 158px;
+	height: 32px;
+	border: solid #E3E3E3 1px;
+	text-indent: 16px;
+	color: #333;
+	font-size: 14px;
+}
+
+
+/******通用的分页样式******/
+/*
+* <div class="ywPager">
+*	 <ul id="pagerWrap" class="clearfix">
+		<li class="disabled">«</li><li class="curr">1</li><li>2</li><li>3</li><li>»</li>
+*	 </ul>
+* </div>
+*/
+.ywPager {
+	display: inline-block;
+	padding-left: 0;
+	vertical-align: top;
+}
+.ywPager li {
+	display: block;
+	float: left;
+	font-size: 12px;
+	line-height: 12px;
+	margin-left: -1px;
+	padding: 8px 10px;
+	color: #e34e42;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+.ywPager li.curr,
+.ywPager li:hover {
+	color: #4972a0;
+	background-color: #eee;
+	border-color: #ddd;
+}
+.ywPager li.point{
+	cursor: auto;
+}
+.ywPager li.disabled {
+	color: #E0E0E0;
+	background-color: #fff;
+	border-color: #e0e0e0;
+	cursor: auto;
+}
+.overhide{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.page-back{
+	background-color: #fff;
+	border-radius: 25px;
+	height: 40px;
+	position: absolute;
+	right: -15px;
+	top: -15px;
+	width: 40px;
+}
+
+/*提示框*/
+.globalAlert{text-align: center;background:rgba(0,0,0,.7);border-radius:6px;color: #fff;  line-height:0.8rem;padding:0.26rem 0; position: fixed; top:40%; left: 0; right: 0; margin: auto; z-index: 99999; border-radius: 5px; -webkit-border-radius: 5px}
+.globalAlert>span{display: inline-block;font-size:16px}
+.globalAlert.alert-err>span{}

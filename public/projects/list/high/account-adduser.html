@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>账号管理</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="account">
+	<div class="page">
+	
+	    <input type="checkbox" class="toggleSide"/>
+<div class="side" id="side">
+	<ul>
+				<li class="act">
+			<a href="?c=account&m=list" title="账号管理"><img src="img/side/side1-act.png"/><span>账号管理</span></a>
+		</li>
+				<li >
+			<a href="?c=user&m=list" title="用户管理"><img src="img/side/side2.png"/><span>用户管理</span></a>
+		</li>
+		<li >
+			<a href="?c=company&m=list" title="企业管理"><img src="img/side/side3.png"/><span>企业管理</span></a>
+		</li>
+		<li >
+			<a href="?c=sign&m=list" title="报名管理"><img src="img/side/side4.png"/><span>报名管理</span></a>
+		</li >
+		<li >
+			<a href="?c=news&m=list" title="新闻管理"><img src="img/side/side5.png"/><span>新闻管理</span></a>
+		</li>
+		<li >
+			<a href="?c=public&m=list" title="公共课管理"><img src="img/side/side6.png"/><span>公共课管理</span></a>
+		</li>
+		<li >
+			<a href="?c=online&m=list" title="线上课程管理"><img src="img/side/side7.png"/><span>线上课程管理</span></a>
+		</li>
+		<li >
+			<a href="?c=analysis&m=list" title="数据分析"><img src="img/side/side8.png"/><span>数据分析</span></a>
+		</li>
+	</ul>
+</div>	
+	    <div class="header">
+	<div class="toggleImg"></div>
+	<a href="" class="logo">蓝桥</a>
+	<div class="user-menu">
+		<img class="circle" src="img/head.jpg"/>
+		<div class="drop">
+			<span>徐鹤松</span>
+			<ul>
+								<li><a href="?c=user&m=out">退出登录</a></li>
+				<li><a href="?c=user&m=pass">修改密码</a></li>
+							</ul>
+		</div>
+	</div>
+</div>	
+	    <div class="main">
+	        <div class="page-title">账号管理</div>
+	        <div class="filter">
+	            <form action="" method="get">
+	                <input type="text" name="keyword" id="" value=""/>
+	                <input class="hidden" name="c" id="" value="account"/>
+	                <input class="hidden" name="m" id="" value="list"/>
+	                <button class="btn">搜索</button>
+	            </form>
+	            <a class="btn btn-main abs-r" href="?c=account&m=add">添加账号</a>
+	        </div>
+	        <div class="table">
+	            <table>
+	                <thead>
+	                <tr>
+	                    <td style="width: 12%;">账号</td>
+	                    <td style="width: 12%;">姓名</td>
+	                    <td style="width: 12%;">账户权限</td>
+	                    <td style="width: 20%;">业务权限</td>
+	                    <td style="width: 12%;">注册日期</td>
+	                    <td style="width: auto;" class="text-c">操作</td>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                	                    <tr>
+	                        <td>123</td>
+	                        <td class="c-main">张三</td>
+	                        <td>A1</td>
+	                        	                            <td>管理员、用户管理</td>
+	                        	                        	                        <td>2017-06-01</td>
+	                        <td class="text-c">
+	                            <a href="javascript:;" data-id="16" data-handle="restPwd">重置密码</a>
+	                            <a href="javascript:;" data-id="16" data-handle="delAccount">删除</a>
+	                        </td>
+	                    </tr>
+	                    	                    <tr>
+	                        <td>zhangl</td>
+	                        <td class="c-main">张亮</td>
+	                        <td>A2</td>
+	                        	                        	                            <td>用户管理</td>
+	                        	                        <td>2017-06-01</td>
+	                        <td class="text-c">
+	                            <a href="javascript:;" data-id="13" data-handle="restPwd">重置密码</a>
+	                            <a href="javascript:;" data-id="13" data-handle="delAccount">删除</a>
+	                        </td>
+	                    </tr>
+	                    	                    <tr>
+	                        <td>xuhs</td>
+	                        <td class="c-main">徐鹤松</td>
+	                        <td>A1</td>
+	                        	                            <td>管理员、用户管理</td>
+	                        	                        	                        <td>2017-06-01</td>
+	                        <td class="text-c">
+	                            <a href="javascript:;" data-id="12" data-handle="restPwd">重置密码</a>
+	                            <a href="javascript:;" data-id="12" data-handle="delAccount">删除</a>
+	                        </td>
+	                    </tr>
+	                    	                    <tr>
+	                        <td>zhoul</td>
+	                        <td class="c-main">周</td>
+	                        <td>A1</td>
+	                        	                            <td>管理员、用户管理</td>
+	                        	                        	                        <td>1970-01-01</td>
+	                        <td class="text-c">
+	                            <a href="javascript:;" data-id="2" data-handle="restPwd">重置密码</a>
+	                            <a href="javascript:;" data-id="2" data-handle="delAccount">删除</a>
+	                        </td>
+	                    </tr>
+	                    	                    <tr>
+	                        <td>yangdm</td>
+	                        <td class="c-main">杨德明</td>
+	                        <td>A1</td>
+	                        	                            <td>管理员、用户管理</td>
+	                        	                        	                        <td>2017-08-30</td>
+	                        <td class="text-c">
+	                            <a href="javascript:;" data-id="1" data-handle="restPwd">重置密码</a>
+	                            <a href="javascript:;" data-id="1" data-handle="delAccount">删除</a>
+	                        </td>
+	                    </tr>
+	                    	
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	
+	</div>
+
+	<div class="modal confirm del-account" id="delAccount">
+		<div class="content">
+			<a href="javascript:;" class="close" data-method="close"></a>
+			<p>是否确认删除账号？</p>
+			<div class="btns">
+				<button class="btn btn-default" data-method="cancle">取消</button>
+				<button class="btn btn-main" data-method="ok">确定</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal confirm rest-pwd" id="restPwd">
+		<div class="content">
+			<a href="javascript:;" class="close" data-method="close"></a>
+			<p>是否确认重置为初始密码？</p>
+			<p class="fs14">初始密码：<span class="c-danger">123456</span></p>
+			<div class="btns">
+				<button class="btn btn-default" data-method="cancle">取消</button>
+				<button class="btn btn-main" data-method="ok">确定</button>
+			</div>
+		</div>
+	</div>
+
+<script src="js/libs/require.min.js" data-main="js/app/account.js"></script>
+</body>
+</html>

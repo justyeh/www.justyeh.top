@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>中秋</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--reset-->
+		<link href="css/public.css" rel="stylesheet">
+		<script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+		
+		<style>
+			
+			html{
+				height: 100%;
+			}
+			body.withBg{
+				height: 100%;
+				background: url(img/list-bg.jpg) no-repeat center / cover;
+			}
+			.top{
+				text-align: center;
+				padding: 45px 0 30px 0;
+			}
+			.top img{
+				width: 282px;
+				height: 119px;
+			}
+			.page{
+				background: url(img/list-bg.jpg) no-repeat center / cover;
+			}
+    		.main{
+    			background: url(img/list-txt-bg.jpg) repeat;
+    			margin: 0 27px;
+    			padding: 0 27px;
+    			border-radius: 6px 6px 0 0;
+    			-webkit-border-radius: 6px 6px 0 0;
+    		}
+    		.t{
+    			color: #000;
+    			font-size: 13px;
+    			padding: 23px 0 4px 0;
+    			border-bottom: solid 1px #d2d2d2;
+    		}
+    		.t span{
+    			color: #F1B40C;
+    			font-size: 20px;
+    		}
+    		.list-con{
+    			height: 330px;
+    			overflow: auto;
+    			-webkit-overflow-scrolling: touch;/*let scroll easy*/
+    		}
+    		.list-con .list:last-child{
+    			border: none;
+    		}
+    		.list{
+    			height: 90px;
+    			padding-top: 20px;
+    			border-bottom: solid 1px #a39e9d;
+    			position: relative;s
+    		}
+    		.list p{
+    			font-size: 12px;
+    			color: #626262;
+    			padding-bottom: 10px;
+    		}
+    		.list .who{
+    			position: absolute;
+    			bottom: 19px;
+    			right: 2px;
+    		}
+    		.foot{
+    			padding: 16px 27px 27px 27px;
+    		}
+    		.sub{
+    			display: block;
+    			width: 100%;
+    			height: 45px;
+    			line-height: 45px;
+    			color: #181201;
+    			font-size: 18px;
+    			text-align: center;
+    			background: #f1b40c;
+    		}
+    		.sub span{
+    			margin: -2px 10px 0 0;
+    			vertical-align: middle;
+    		}
+    		.dialog{
+    			position: fixed;
+    			top: 50%;
+    			left: 50%;
+    			width: 0;
+    			height: 0;
+    			background: rgba(100,100,100,0.8);
+    			opacity: 0;
+    			transition: all 0.3s ease-in;
+    			-webkit-transition: all 0.3s ease-in;  
+    		}
+    		.dialog.show{
+    			opacity: 1;
+    			left: 0;
+    			top: 0;
+    			width: 100%;
+    			height: 100%;
+    		}
+		</style>
+	<body>
+		<div class="page" id="page">
+			<div class="top">
+				<img src="img/list-img.png"/>
+			</div>
+			<div class="main">
+				<p class="t">蓝桥已为<span>8347628</span>人寄送了家书</p>
+				<div class="list-con" id="list-con">
+					<div class="list">
+						<p>回家的脚步近了</p>
+						<p>月亮也睡了</p>
+						<p>为我留的灯盏能不能别关</p>
+						<p class="who">@老大9412</p>
+					</div>
+					<div class="list">
+						<p>回家的脚步近了</p>
+						<p>月亮也睡了</p>
+						<p>为我留的灯盏能不能别关</p>
+						<p class="who">@老大9412</p>
+					</div>
+					<div class="list">
+						<p>回家的脚步近了</p>
+						<p>月亮也睡了</p>
+						<p>为我留的灯盏能不能别关</p>
+						<p class="who">@老大9412</p>
+					</div>
+					<div class="list">
+						<p>回家的脚步近了</p>
+						<p>月亮也睡了</p>
+						<p>为我留的灯盏能不能别关</p>
+						<p class="who">@老大9412</p>
+					</div>
+					<div class="list">
+						<p>回家的脚步近了</p>
+						<p>月亮也睡了</p>
+						<p>为我留的灯盏能不能别关</p>
+						<p class="who">@老大9412</p>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+				<!--<button class="sub"><img src="img/icon-mail.png" />我的家书</button>-->
+				<a href="list.html" class="sub"><span class="icon icon-mail"></span>我的家书</a>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+		
+			// 横屏监听 
+			var updateOrientation = function(){     
+				if(window.orientation=='-90' || window.orientation=='90'){         
+					alert('为了更好的体验，请将手机/平板竖过来！');     
+				}
+			};
+			window.onorientationchange = updateOrientation;
+		
+			window.addEventListener('DOMContentLoaded',function(){
+				var scaleH = window.innerHeight;
+				if(scaleH > 660){
+					$('body').addClass('withBg');
+					$('#page').css({
+						'background':'none',
+						'paddingTop':(scaleH-580)/2
+					});
+					page.style.background = 'none'
+				}
+			
+				var listCon = document.getElementById('list-con');
+				var hasDialogExecuted = false;
+				listCon.addEventListener('scroll',function(){
+					if(hasDialogExecuted){
+						//$('#dialog').addClass('show');
+						//hasDialogExecuted = true;
+					}
+				},false);
+				
+			},false);
+		
+		
+			
+			
+			
+		</script>
+	</body>
+</html>
