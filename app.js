@@ -6,9 +6,14 @@ var bodyParser = require('body-parser');
 
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
-
 });
-
+hbs.registerHelper('isArrayEmpty', function (arr, options) {
+    if (arr.length == 0) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
 
 var app = express();
 
@@ -42,14 +47,14 @@ app.use('/api', api);
 
 
 // 404
-app.use(function(req, res, next) {
-    var err = new Error('Page Not Found');
+app.use(function (req, res, next) {
+    var err = new Error('This page could not be found.');
     err.status = 404;
     next(err);
 });
 
 // 其他错误
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error', {

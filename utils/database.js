@@ -8,13 +8,19 @@ let pool = mysql.createPool({
 });
 
 
-exports.query = async(sql, params) => {
+exports.query = async (sql, params) => {
     try {
         var connection = await pool.getConnection();
-        var rows = await connection.query(sql, params);
+        var [rows, fields] = await connection.query(sql, params);
         connection.release();
-        return rows
+        if (rows) {
+            return rows
+        } else {
+            return false;
+        }
+
     } catch (error) {
+        console.log(error)
         return false;
     }
 }

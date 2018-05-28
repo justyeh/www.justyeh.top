@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /* reset*/
 
 body,
@@ -45,13 +44,12 @@ select {
 
 a {
     color: #3084bb;
+    text-decoration: none;
 }
 
-a,
 a:hover,
-a:focus,
-a:visited {
-    text-decoration: none;
+a:focus{
+    text-decoration: underline;
 }
 
 a:focus,
@@ -109,12 +107,32 @@ body {
     box-sizing: border-box;
 }
 
-
 /*error*/
 
-.error .page-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.error {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.error .code {
+    margin-top: 15px;
+    font-size: 5em;
+}
+
+.error .messgae {
+    font-weight: 300;
+    color: #9aabb1;
+}
+
+.error .empty-tip{
+    font-size: 30px;
+}
+.error a {
+    margin-top: 50px;
+    border: 1px solid #3084bb;
+    color: #3084bb;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
 }
