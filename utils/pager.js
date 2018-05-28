@@ -1,4 +1,5 @@
-var createPageHtml = (pageNo, pageCount, link_to) => {
+var createPageHtml = (pageNo, pageCount, linkTo) => {
+
     var opts = {
         items_per_page: 10,
         num_display_entries: 10,
@@ -8,90 +9,59 @@ var createPageHtml = (pageNo, pageCount, link_to) => {
         ellipse_text: "...",
     }
 
-    var pageHtml = ''
+    var pageHtml = '';
+    var pageNo = parseInt(pageNo);
+    var pageTotal = Math.ceil(parseInt(pageCount) / 1);
 
-    var pageTotal = Math.ceil(pageCount / 10);
+    if (pageNo < 1 || pageNo > pageCount) {
+        return '';
+    }
 
+
+    //前一页
     if (pageNo == 1) {
-        pageHtml += `<span class='prev'>${opts.prev_text}</span>`;
+        pageHtml += `<span class='prev current'>${opts.prev_text}</span>`;
     } else {
-        pageHtml += `<a class='prev' href='${link_to}${pageNo}'>${opts.prev_text}</a>`;
+        pageHtml += `<a class='prev' href='${linkTo}${pageNo-1}'>${opts.prev_text}</a>`;
     }
-
+    //中间页码
     drawLinks()
-    
-
+        //后一页
     if (pageNo == pageTotal) {
-        pageHtml += `<span class='next'>${opts.next_text}</span>`;
+        pageHtml += `<span class='next current'>${opts.next_text}</span>`;
     } else {
-        pageHtml += `<a class='next' href='${link_to}${pageNo}'>${opts.next_text}</a>`;
+        pageHtml += `<a class='next' href='${linkTo}${pageNo+1}'>${opts.next_text}</a>`;
     }
-   
 
     function drawLinks() {
+        //总页数小于5
         if (pageTotal <= 5) {
-            
+            for (let i = 1; i <= pageTotal; i++) {
+                pageHtml += `<a class='prev${pageNo == i ? " current":""}' href='${linkTo}${i}'>${i}</a>`;
+            }
+            return false;
         }
-    
-        if (pageNo >= pageTotal - 5) {
-    
-        }
 
-
-        /*var interval = getInterval();
-        var np = numPages();
-
-        var appendItem = function (page_id, appendopts) {
-            var appendopts = appendopts || { text: page_id, classes: "" };
-
-            if (page_id == pageNo) {
-                pageHtml += `<span class='current ${appendopts.classes}'>${appendopts.text}</span>`;
-            } else {
-                pageHtml += `<a class='${appendopts.classes}' href='${link_to}${page_id}'>${appendopts.text}</a>`
+        if (pageNo <= 5) {
+            console.log('pageNo < 5')
+            for (let i = 1; i <= 5; i++) {
+                pageHtml += `<a class='${pageNo == i ? " current":""}' href='${linkTo}${i}'>${i}</a>`;
+            }
+        } else if (pageNo > 5 && pageNo < pageTotal - 4) {
+            [pageNo - 2, pageNo - 1, pageNo, pageNo + 1, pageNo + 2].forEach(item => {
+                pageHtml += `<a class='${pageNo == item ? " current":""}' href='${linkTo}${item}'>${item}</a>`;
+            })
+        } else if (pageNo >= pageTotal - 4) {
+            for (let i = pageTotal - 4; i <= pageTotal; i++) {
+                pageHtml += `<a class='${pageNo == i ? " current":""}' href='${linkTo}${i}'>${i}</a>`;
             }
         }
-
-        // 产生"Previous"-链接
-        if (opts.prev_text && (pageNo > 0)) {
-            appendItem(pageNo, { text: opts.prev_text, classes: "prev" });
-        }
-
-        // 产生起始点
-        if (interval[0] > 0 && opts.num_edge_entries > 0) {
-            var end = Math.min(opts.num_edge_entries, interval[0]);
-            for (var i = 0; i < end; i++) {
-                appendItem(i);
-            }
-            if (opts.num_edge_entries < interval[0] && opts.ellipse_text) {
-                pageHtml += `<span>${opts.ellipse_text}</span>`;
-            }
-        }
-        // 产生内部的些链接
-        for (var i = interval[0]; i < interval[1]; i++) {
-            appendItem(i);
-        }
-        // 产生结束点
-        if (interval[1] < np && opts.num_edge_entries > 0) {
-            if (np - opts.num_edge_entries > interval[1] && opts.ellipse_text) {
-                pageHtml += `<span>${opts.ellipse_text}</span>`;
-            }
-            var begin = Math.max(np - opts.num_edge_entries, interval[1]);
-            for (var i = begin; i < np; i++) {
-                appendItem(i);
-            }
-        }
-        // 产生 "Next"-链接
-        if (opts.next_text) {
-            appendItem(pageNo + 1, { text: opts.next_text, classes: "next" });
-        }*/
     }
 
-
-    console.log(pageHtml)
     return pageHtml;
 }
 
 exports.createPageHtml = createPageHtml;
 
 
-createPageHtml(1, 1, '')
+createPageHtml(1, 10, '')
