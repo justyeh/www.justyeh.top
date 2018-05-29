@@ -1,0 +1,20 @@
+<div class="page post">
+    {{#if poster}}
+    <div class="poster" style="background-image:url({{poster}})"></div>
+    {{/if}}
+    <div class="title">{{title}}</div>
+    <div class="info">
+        <div>更新于：{{updatedAt}}</div>
+        {{#isArrayEmpty tags}}
+        <div>
+            标签：
+            {{#each tags}}
+            <a href='/tag/{{id}}'>{{tag.name}}</a>
+            {{/each}}
+        </div>
+        {{/isArrayEmpty}}
+    </div>
+    <div class="content">
+        <div class="md">{{{htmlConetnt}}}</div>
+    </div>
+</div>

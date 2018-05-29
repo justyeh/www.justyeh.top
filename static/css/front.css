@@ -16,28 +16,25 @@
 .page {
     width: 1200px;
     margin: 50px auto;
-    background: #fff;
     box-shadow: 0 0 6px rgba(100, 100, 100, 0.4);
 }
-
 @media screen and (max-width: 1200px) {
     .page {
         width: 1080px;
     }
 }
-
-@media screen and (max-width: 960px) {
-    body {
-        background: #fff;
+@media screen and (max-width: 1100px) {
+    .page {
+        width: 900px;
     }
+}
+@media screen and (max-width: 960px) {
     .page {
         width: 100%;
-        margin: 0 0;
-        border-radius: 0;
+        margin: 0;
         box-shadow: none;
     }
 }
-
 header {
     background: #263238;
     position: relative;
@@ -45,7 +42,6 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     padding: 0 100px;
 }
-
 header .site {
     font-size: 56px;
     color: rgba(250, 250, 250, 0.85);
@@ -53,13 +49,11 @@ header .site {
     display: flex;
     align-items: center;
 }
-
 header .site img {
     width: 120px;
     border-radius: 100%;
     margin-right: 20px;
 }
-
 header .nav {
     display: flex;
     align-items: center;
@@ -67,7 +61,6 @@ header .nav {
     background: rgb(38, 50, 56);
     font-size: 20px;
 }
-
 header .menu a {
     color: rgba(250, 250, 250, 0.4);
     margin-right: 20px;
@@ -160,13 +153,23 @@ footer a {
     }
 }
 
-.post-list {
-    padding: 60px 40px;
+
+/*post list page*/
+.post-list-page {
+    background: #fff;
+    padding: 40px 30px;
+}
+.post-list-page a:hover{
+    text-decoration: underline;
+}
+
+.post-list-page .pager {
+    padding-top: 10px;
 }
 
 .post-list .post-item {
+    padding: 0 0 5px 0;
     margin: 0 0 20px 0;
-    padding: 10px;
     border-bottom: solid 1px rgba(50, 50, 93, .15);
     display: flex;
 }
@@ -184,15 +187,20 @@ footer a {
 }
 
 .post-list .post-item .title {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.5;
 }
 
 .post-list .post-item .desc {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     color: #555;
-    padding: 10px 0;
+    padding-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .post-list .post-item .tags {
@@ -206,21 +214,77 @@ footer a {
     margin-right: 10px;
 }
 
+@media screen and (max-width:960px) {
+    .post-list-page {
+        padding: 10px 10px 30px 10px;
+    }
+    .post-list .post-item {
+        padding: 10px 0;
+    }
+    .post-list .post-item .poster {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .post-list-page{
+        padding: 0;
+    }
+    .post-list .post-item {
+        display: block;
+        padding: 10px;
+        margin: 0;
+        border: none;
+        border-bottom: solid 5px #f7f8fa;
+    }
+    .post-list .post-item:last-child{
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .post-list .post-item .poster {
+        width: 100%;
+        height: 0;
+        padding-top: 36%;
+        margin-bottom: 5px;
+    }
+    .post-list .post-item .title {
+        font-size: 16px;
+    }
+    .post-list .post-item .desc {
+        font-size: 12px;
+        padding-top: 0;
+        margin: 5px 0;
+    }
+    .post-list .post-item .tags {
+        position: relative;
+        bottom: auto;
+        font-size: 12px;
+    }
+    .post-list-page .pager{
+        padding: 10px 0 30px 0;
+    }
+}
+
+
+/*postdetail page*/
+.post{
+    background: #fff;
+}
 .post .poster {
-    height: 420px;
+    padding-top: 36%;
     background: no-repeat center / cover;
 }
 
 .post .title {
     padding: 20px;
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
 }
 
 .post .info {
     display: flex;
     font-size: 16px;
-    padding: 0 30px;
+    padding: 0 20px;
     color: #3084bb;
 }
 
@@ -238,8 +302,8 @@ footer a {
 }
 
 @media screen and (max-width: 960px) {
-    .post .poster {
-        height: 260px;
+    .post .poster{
+        display: none;
     }
     .post .title {
         font-size: 24px;
@@ -251,18 +315,9 @@ footer a {
         font-size: 14px;
     }
     .post .content {
-        padding: 15px;
+        padding: 15px 10px;
     }
-}
-
-@media screen and (max-width: 640px) {
-    .post .poster {
-        height: 220px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .post .poster {
-        height: 180px;
+    .post .md blockquote{
+        padding: 8px 10px;
     }
 }

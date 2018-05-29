@@ -46,7 +46,8 @@ exports.getPostListByTagId = async tagId => {
 }
 
 exports.getPostCount = async () => {
-    var result = await database.query('select count(id) as count from posts');
+    var result = await database.query('select count(id) as `count` from posts');
+    console.log(result)
     return result[0].count || 0
 }
 

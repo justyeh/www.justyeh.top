@@ -5,26 +5,28 @@
         <a href="/">首页</a>
     </div>
     {{else}}
-    <div class="post-list">
-        {{#each postList}}
-        <div class="post-item">
-            {{#if image}}
-            <div class="poster" style="background-image: url({{iamge}})"></div>
-            {{/if}}
-            <div class="content">
-                <a href="/post/{{id}}" class="title">{{title}}</a>
-                <div class="desc">{{meta_description}}</div>
-                <div class="tags">
-                    {{#each tags}}
-                    <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a>
-                    {{/each}}
+    <div class="post-list-page">
+        <div class="post-list">
+            {{#each postList}}
+            <div class="post-item">
+                {{#if image}}
+                <div class="poster" style="background-image: url({{iamge}})"></div>
+                {{/if}}
+                <div class="content">
+                    <a href="/post/{{id}}" class="title">{{title}}</a>
+                    <div class="desc">{{meta_description}}</div>
+                    <div class="tags">
+                        {{#each tags}}
+                        <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
-    </div>
-    <div class="pager">
-        {{{pageHtml}}}
+        <div class="pager">
+            {{{pageHtml}}}
+        </div>
     </div>
     {{/isArrayEmpty}}
 </div>

@@ -8,10 +8,9 @@ var helper = require('../utils/helper');
 var pager = require('../utils/pager');
 
 /* GET home page. */
-async function renderPostList(page, res) {
-    var result = await postSys.getPostListByPage(page);
+async function renderPostList(pageNo, res) {
+    var result = await postSys.getPostListByPage(pageNo);
     var postCount = await postSys.getPostCount();
-    console.log(postCount)
     if (result.code !== 200) {
         errorRender(res, result)
     } else {
@@ -19,7 +18,7 @@ async function renderPostList(page, res) {
             title: 'justyeh的前端博客',
             layout: 'front-layout',
             postList: result.data,
-            pageHtml: pager.createPageHtml(1, 1, '/page/')
+            pageHtml: pager.createPageHtml(pageNo, postCount, '/page/')
         });
     }
 }
@@ -27,40 +26,22 @@ router.get('/', (req, res, next) => {
     renderPostList(1, res)
 });
 
-router.get('/pager/:page', (req, res, next) => {
-    res.render('front/pager', {
-        pageHtml: pager.createPageHtml(req.params.page, 6, '/pager/')
-    });
-});
-
 router.get('/page/:pageNo', (req, res, next) => {
     renderPostList(req.params.pageNo, res)
-        /*var result = await postSys.getPostListByPage();
-        var postCount = await postSys.getPostCount();
-        if (result.code !== 200) {
-            errorRender(res, result)
-        } else {
-            res.render('front/index', {
-                title: 'justyeh的前端博客',
-                layout: 'front-layout',
-                postList: result.data,
-                pageHtml:pager.ceatePageHtml(1,postCount,'/page/')
-            });
-        }*/
 });
 
 
 router.get('/post/:postId', async(req, res, next) => {
     var result = await postSys.getPostById(req.params.postId);
-
+    console.log(result)
     if (result.code == 200) {
         res.render('front/post', {
             layout: 'front-layout',
-            title: result.data.meta_title,
+            title: result.data.title,
             description: result.data.meta_description,
             keywords: helper.setHtmlKeyword(result.data.tagList),
-            poster: '',
-            updateAt: '',
+            poster: result.data.image,
+            updatedAt: helper.timeago(result.data.updated_at),
             tags: result.data.tagList,
             htmlConetnt: helper.markdown2Htm(result.data.markdown),
             commentList: []

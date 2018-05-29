@@ -47,11 +47,6 @@ a {
     text-decoration: none;
 }
 
-a:hover,
-a:focus{
-    text-decoration: underline;
-}
-
 a:focus,
 a:active,
 button::-moz-focus-inner,
@@ -124,9 +119,10 @@ body {
     color: #9aabb1;
 }
 
-.error .empty-tip{
+.error .empty-tip {
     font-size: 30px;
 }
+
 .error a {
     margin-top: 50px;
     border: 1px solid #3084bb;
@@ -135,4 +131,47 @@ body {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 4px;
+}
+
+.pager {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pager a {
+    text-decoration: none;
+    border: 1px solid #3084bb;
+    color: #3084bb;
+}
+
+.pager a,
+.pager span {
+    padding: 0.4em 1em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pager .current {
+    background: #3084bb;
+    color: #fff;
+    border: 1px solid #3084bb;
+}
+
+.pager .current.prev,
+.pager .current.next {
+    color: #999;
+    border-color: #999;
+    background: #fff;
+}
+
+@media screen and (max-width:768px) {
+    .pager {
+        font-size: 12px;
+    }
+    .pager a,
+    .pager span {
+        padding: 0.3em 0.6em;
+    }
 }
