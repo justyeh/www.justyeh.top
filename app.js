@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
+    console.log('app.js line 9')
 });
 hbs.registerHelper('isArrayEmpty', function (arr, options) {
     if (arr.length == 0) {

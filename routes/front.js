@@ -31,9 +31,8 @@ router.get('/page/:pageNo', (req, res, next) => {
 });
 
 
-router.get('/post/:postId', async(req, res, next) => {
+router.get('/post/:postId', async (req, res, next) => {
     var result = await postSys.getPostById(req.params.postId);
-    console.log(result)
     if (result.code == 200) {
         res.render('front/post', {
             layout: 'front-layout',
@@ -51,14 +50,43 @@ router.get('/post/:postId', async(req, res, next) => {
     }
 });
 
-router.get('/tool', async(req, res, next) => {
+router.get('/tag/:tagId', async (req, res, next) => {
+    var result = await postSys.getPostListByTagId(req.params.tagId);
+    if (result.code == 200) {
+        res.render('front/tag', {
+            layout: 'front-layout',
+            title: result.data.name + '的相关文章',
+            tagName: result.data.name,
+            description: result.data.description,
+            keywords: result.data.name,
+            postList: result.data.postList
+        });
+    } else {
+        errorRender(res, result)
+    }
+});
+
+router.get('/search', async (req, res, next) => {
+    /*res.json({
+        keyword:req.query.keyword
+    })*/
+    var result = await postSys.getPostListByKeyword(req.query.keyword || '');
+    if (result.code == 200) {
+        res.json(result);
+    } else {
+        errorRender(res, result)
+    }
+})
+
+
+router.get('/tool', async (req, res, next) => {
     res.render('front/tool', {
         title: '工具',
         layout: 'front-layout'
     });
 });
 
-router.get('/about', async(req, res, next) => {
+router.get('/about', async (req, res, next) => {
     res.render('front/about', {
         title: '关于我',
         layout: 'front-layout'

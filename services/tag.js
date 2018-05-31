@@ -9,3 +9,8 @@ exports.getPostTags = async (postId) => {
     });
     return helper.reduceArrayDimension(await Promise.all(queryList));
 }
+
+
+exports.getTagById = async (tagId) => {
+    return await database.query('select id,name,description from tags where id = ?', tagId);
+}
