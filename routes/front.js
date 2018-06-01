@@ -7,10 +7,18 @@ var postSys = require('../services/post');
 var helper = require('../utils/helper');
 var pager = require('../utils/pager');
 
-/* GET home page. */
+
+router.get('/', (req, res, next) => {
+    renderPostList(1, res)
+});
+
+router.get('/page/:pageNo', (req, res, next) => {
+    renderPostList(req.params.pageNo, res)
+});
+
 async function renderPostList(pageNo, res) {
-    var result = await postSys.getPostListByPage(pageNo);
-    var postCount = await postSys.getPostCount();
+    var result = await postSys.getPostListByPage('published', pageNo);
+    var postCount = await postSys.getPostCount('published', );
     if (result.code !== 200) {
         errorRender(res, result)
     } else {
@@ -22,22 +30,15 @@ async function renderPostList(pageNo, res) {
         });
     }
 }
-router.get('/', (req, res, next) => {
-    renderPostList(1, res)
-});
-
-router.get('/page/:pageNo', (req, res, next) => {
-    renderPostList(req.params.pageNo, res)
-});
 
 
 router.get('/post/:postId', async (req, res, next) => {
-    var result = await postSys.getPostById(req.params.postId);
+    var result = await postSys.getPostById('published', req.params.postId);
     if (result.code == 200) {
         res.render('front/post', {
             layout: 'front-layout',
             title: result.data.title,
-            description: result.data.meta_description,
+            description: result.data.summary,
             keywords: helper.setHtmlKeyword(result.data.tagList),
             poster: result.data.image,
             updatedAt: helper.timeago(result.data.updated_at),
@@ -51,14 +52,15 @@ router.get('/post/:postId', async (req, res, next) => {
 });
 
 router.get('/tag/:tagId', async (req, res, next) => {
-    var result = await postSys.getPostListByTagId(req.params.tagId);
+    var result = await postSys.getPostListByTagId('published', req.params.tagId);
     if (result.code == 200) {
         res.render('front/tag', {
             layout: 'front-layout',
             title: result.data.name + '的相关文章',
-            tagName: result.data.name,
-            description: result.data.description,
+            description: result.data.name + '的相关文章',
             keywords: result.data.name,
+
+            tagName: result.data.name,
             postList: result.data.postList
         });
     } else {
@@ -67,17 +69,21 @@ router.get('/tag/:tagId', async (req, res, next) => {
 });
 
 router.get('/search', async (req, res, next) => {
-    /*res.json({
-        keyword:req.query.keyword
-    })*/
-    var result = await postSys.getPostListByKeyword(req.query.keyword || '');
+    var result = await postSys.getPostListBySearch('published', req.query.search || '');
     if (result.code == 200) {
-        res.json(result);
+        res.render('front/search', {
+            layout: 'front-layout',
+            title: result.data.search + '的搜索结果',
+            description: result.data.search + '的搜索结果',
+            keywords: result.data.search,
+
+            search: result.data.search,
+            postList: result.data.postList
+        });
     } else {
         errorRender(res, result)
     }
 })
-
 
 router.get('/tool', async (req, res, next) => {
     res.render('front/tool', {

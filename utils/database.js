@@ -4,9 +4,8 @@ let pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '123456',
-    database: 'justyeh'
+    database: 'justyeh.com'
 });
-
 
 exports.query = async (sql, params) => {
     try {
@@ -18,7 +17,6 @@ exports.query = async (sql, params) => {
         } else {
             return false;
         }
-
     } catch (error) {
         console.log(error)
         return false;

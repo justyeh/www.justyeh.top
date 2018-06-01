@@ -3,18 +3,30 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
 
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
     console.log('app.js line 9')
 });
 hbs.registerHelper('isArrayEmpty', function (arr, options) {
-    if (arr.length == 0) {
+    if (arr && arr.length > 0) {
+        return options.inverse(this);
+    } else {
+        return options.fn(this);
+    }
+});
+
+hbs.registerHelper('equals', function (val1,val2, options) {
+    if (val1 === val2) {
         return options.fn(this);
     } else {
         return options.inverse(this);
     }
 });
+
+
 
 var app = express();
 
@@ -35,6 +47,14 @@ app.use(cookieParser());
 //设置静态文件目录
 app.use(express.static(path.join(__dirname, './public'))); //html,pdf,project
 app.use(express.static(path.join(__dirname, './static'))); //image,css,js
+
+//session中间件
+app.use(session({
+    secret: 'justyeh.com',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 } //设置一天有效期
+}));
 
 
 //路由

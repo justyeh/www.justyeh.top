@@ -10,11 +10,11 @@
             {{#each postList}}
             <div class="post-item">
                 {{#if image}}
-                <div class="poster" style="background-image: url({{iamge}})"></div>
+                <div class="poster" style="background-image: url({{poster}})"></div>
                 {{/if}}
                 <div class="content">
                     <a href="/post/{{id}}" class="title">{{title}}</a>
-                    <div class="desc">{{meta_description}}</div>
+                    <div class="desc">{{summary}}</div>
                     <div class="tags">
                         {{#each tags}}
                         <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a>

@@ -21,16 +21,51 @@
     <title>{{pageTitle}}</title>
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 
 </head>
 
 <body>
-    <div class="admin">
-        {{>admin_header}} 
-        {{>admin_sidebar}}
+    <div class="admin-page">
+        <header class="header">
+            <div class="side-right">
+                <img src="/image/head.jpg">
+                <div>
+                    <p>email</p>
+                    <a href="/admin/logout">退出
+                        <i class="fa fa-"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="site-name">博客后台管理系统</div>
+            <ul>
+                <li>
+                    <a href="/admin" class="{{#equals activeSidebar 'post'}} active{{/equals}}">
+                        <i class="fa fa-book"></i>
+                        <span>博客管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/tag" class="{{#equals activeSidebar 'tag'}} active{{/equals}}">
+                        <i class="fa fa-tags"></i>
+                        <span>标签管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/message" class="{{#equals activeSidebar 'message'}} active{{/equals}}">
+                        <i class="fa fa-comments"></i>
+                        <span>消息管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <div class="page-main">
-            {{{body}}}
+            <div class="app">
+                {{{body}}}
+            </div>
         </div>
     </div>
 </body>

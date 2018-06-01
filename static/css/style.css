@@ -93,6 +93,7 @@ body {
 
 body {
     font-size: 14px;
+    line-height: 1;
     overflow-x: hidden;
     word-break: break-all;
     background: #f7f8fa;
@@ -104,6 +105,10 @@ body {
     box-sizing: border-box;
 }
 
+button {
+    border: none;
+}
+
 /*mobile reset*/
 
 input[type=search]::-webkit-search-cancel-button,
@@ -111,14 +116,17 @@ input[type=search]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
-
 /* tool */
-.ani{
-    transition: all 0.3s ease-in-out;
+
+.ani {
+    transition: all 0.25s ease-in-out;
 }
 
-
-
+a,
+button {
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
 /*error*/
 

@@ -10,7 +10,7 @@ exports.getPostById = async (postId) => {
         return { code: 500, message: '无效的ID' }
     }
 
-    let postInfo = await database.query('select * from posts where id = ?', postId);
+    let postInfo = await database.query('select * from post where id = ?', postId);
     if (!postInfo) {
         return { code: 500, message: '服务器错误' }
     }
@@ -25,28 +25,30 @@ exports.getPostById = async (postId) => {
     }
 }
 
-exports.getPostListByPage = async (pageNo, pageSize) => {
+exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
+
     if (!helper.isInteger(pageNo)) {
         return { code: 500, message: '无效的页码' }
     }
-    var pageSize = pageSize || 10;
-    let postList = await database.query('select id,title,image,meta_description from posts  order by id desc limit ?,?', [((pageNo - 1) * pageSize), pageSize]);
+
+    let postList = await database.query('select id,title,image,summary from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search}%`, ((pageNo - 1) * pageSize), pageSize]);
     if (!postList) {
         return { code: 500, message: '服务器错误' }
     }
 
-    searchList = [];
+    getTagsList = [];
     postList.forEach(item => {
-        searchList.push(tagSys.getPostTags(item.id))
+        getTagsList.push(tagSys.getPostTags(item.id))
     });
-    tagList = await Promise.all(searchList);
+    tagList = await Promise.all(getTagsList);
     postList.map((item, index) => {
         item.tags = tagList[index]
-    })
+    });
+
     return { code: 200, data: postList, message: 'success' };
 }
 
-exports.getPostListByTagId = async tagId => {
+exports.getPostListByTagId = async (postStatus, tagId) => {
     if (!helper.isInteger(tagId)) {
         return { code: 500, message: '无效的ID' }
     }
@@ -56,7 +58,7 @@ exports.getPostListByTagId = async tagId => {
         return { code: 400, message: '没有相关数据' }
     }
 
-    var postList = await database.query('select * from posts where id in (select post_id from post_tags where tag_id = ?)', tagId);
+    var postList = await database.query('select * from post where  status = ? and id in (select post_id from post_tag where tag_id = ?)', [postStatus, tagId]);
 
     if (!postList) {
         return { code: 500, message: '服务器错误' }
@@ -81,39 +83,12 @@ exports.getPostListByTagId = async tagId => {
     }
 }
 
-exports.getPostListByKeyword = async keyword => {
-
-    var postList = await database.query('select * from posts where meta_title LIKE "%?%"', keyword);
-
-    if (!postList) {
-        return { code: 500, message: '服务器错误' }
-    }
-
-    searchList = [];
-    postList.forEach(item => {
-        searchList.push(tagSys.getPostTags(item.id))
-    });
-    tagList = await Promise.all(searchList);
-    postList.map((item, index) => {
-        item.tags = tagList[index]
-    });
-
-    return {
-        code: 200,
-        data: {
-            keyword,
-            postList
-        },
-        message: 'success'
-    }
-
-}
-
-exports.getPostCount = async () => {
-    var result = await database.query('select count(id) as `count` from posts');
+exports.getPostCountWithSearch = async (postStatus, search) => {
+    var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search}%`]);
     return result[0].count || 0
 }
 
 exports.addPost = async post => {
+    var result = await database.query('insert into post() values()');
 }
 

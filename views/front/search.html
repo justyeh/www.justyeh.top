@@ -6,13 +6,13 @@
         <a href="/">首页</a>
     </div>
     {{else}}
-    <div class="post-list-page tag-page">
-        <div class="tag-tip">关于<span>{{tagName}}</span>的相关文章</div>
+    <div class="post-list-page search-page">
+        <div class="search-tip">关于<span>{{keyword}}</span>的搜索结果</div>
         <div class="post-list">
             {{#each postList}}
             <div class="post-item">
                 {{#if image}}
-                <div class="poster" style="background-image: url({{poster}})"></div>
+                <div class="poster" style="background-image: url({{iamge}})"></div>
                 {{/if}}
                 <div class="content">
                     <a href="/post/{{id}}" class="title">{{title}}</a>
