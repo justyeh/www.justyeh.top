@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL COMMENT '标题',
-  `image` varchar(100) DEFAULT NULL COMMENT '海报图片',
+  `poster` varchar(100) DEFAULT NULL COMMENT '海报图片',
   `summary` text DEFAULT NULL COMMENT '摘要',
   `markdown` text DEFAULT NULL COMMENT 'markdown文件',
   `status` varchar(20) DEFAULT 'draft' COMMENT '状态（draft草稿，published已发布，offline下线）',

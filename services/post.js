@@ -1,10 +1,9 @@
-
 let database = require('../utils/database');
 let tagSys = require('./tag');
 
 let helper = require('../utils/helper');
 
-exports.getPostById = async (postId) => {
+exports.getPostById = async(postId) => {
 
     if (!helper.isInteger(postId)) {
         return { code: 500, message: '无效的ID' }
@@ -20,18 +19,18 @@ exports.getPostById = async (postId) => {
     let tagList = await tagSys.getPostTags(postId);
     return {
         code: 200,
-        data: { ...postInfo[0], tagList },
+        data: {...postInfo[0], tagList },
         message: 'success'
     }
 }
 
-exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
+exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
 
     if (!helper.isInteger(pageNo)) {
         return { code: 500, message: '无效的页码' }
     }
 
-    let postList = await database.query('select id,title,image,summary from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search}%`, ((pageNo - 1) * pageSize), pageSize]);
+    let postList = await database.query('select id,title,image,summary from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search || ''}%`, ((pageNo - 1) * pageSize), pageSize]);
     if (!postList) {
         return { code: 500, message: '服务器错误' }
     }
@@ -48,7 +47,7 @@ exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
     return { code: 200, data: postList, message: 'success' };
 }
 
-exports.getPostListByTagId = async (postStatus, tagId) => {
+exports.getPostListByTagId = async(postStatus, tagId) => {
     if (!helper.isInteger(tagId)) {
         return { code: 500, message: '无效的ID' }
     }
@@ -83,12 +82,11 @@ exports.getPostListByTagId = async (postStatus, tagId) => {
     }
 }
 
-exports.getPostCountWithSearch = async (postStatus, search) => {
-    var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search}%`]);
+exports.getPostCount = async(postStatus, search) => {
+    var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
     return result[0].count || 0
 }
 
 exports.addPost = async post => {
     var result = await database.query('insert into post() values()');
 }
-

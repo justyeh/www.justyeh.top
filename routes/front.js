@@ -17,7 +17,7 @@ router.get('/page/:pageNo', (req, res, next) => {
 });
 
 async function renderPostList(pageNo, res) {
-    var result = await postSys.getPostListByPage('published', pageNo);
+    var result = await postSys.getPostList('published', null, pageNo, 10);
     var postCount = await postSys.getPostCount('published', );
     if (result.code !== 200) {
         errorRender(res, result)
@@ -32,7 +32,7 @@ async function renderPostList(pageNo, res) {
 }
 
 
-router.get('/post/:postId', async (req, res, next) => {
+router.get('/post/:postId', async(req, res, next) => {
     var result = await postSys.getPostById('published', req.params.postId);
     if (result.code == 200) {
         res.render('front/post', {
@@ -40,7 +40,7 @@ router.get('/post/:postId', async (req, res, next) => {
             title: result.data.title,
             description: result.data.summary,
             keywords: helper.setHtmlKeyword(result.data.tagList),
-            poster: result.data.image,
+            poster: result.data.poster,
             updatedAt: helper.timeago(result.data.updated_at),
             tags: result.data.tagList,
             htmlConetnt: helper.markdown2Htm(result.data.markdown),
@@ -51,7 +51,7 @@ router.get('/post/:postId', async (req, res, next) => {
     }
 });
 
-router.get('/tag/:tagId', async (req, res, next) => {
+router.get('/tag/:tagId', async(req, res, next) => {
     var result = await postSys.getPostListByTagId('published', req.params.tagId);
     if (result.code == 200) {
         res.render('front/tag', {
@@ -68,7 +68,7 @@ router.get('/tag/:tagId', async (req, res, next) => {
     }
 });
 
-router.get('/search', async (req, res, next) => {
+router.get('/search', async(req, res, next) => {
     var result = await postSys.getPostListBySearch('published', req.query.search || '');
     if (result.code == 200) {
         res.render('front/search', {
@@ -85,14 +85,14 @@ router.get('/search', async (req, res, next) => {
     }
 })
 
-router.get('/tool', async (req, res, next) => {
+router.get('/tool', async(req, res, next) => {
     res.render('front/tool', {
         title: '工具',
         layout: 'front-layout'
     });
 });
 
-router.get('/about', async (req, res, next) => {
+router.get('/about', async(req, res, next) => {
     res.render('front/about', {
         title: '关于我',
         layout: 'front-layout'

@@ -1,7 +1,7 @@
 let database = require('../utils/database');
 
 let helper = require('../utils/helper');
-exports.getPostTags = async (postId) => {
+exports.getPostTags = async(postId) => {
     var tagRows = await database.query('select tag_id from post_tag where post_id = ?', postId);
     var queryList = [];
     tagRows.forEach(item => {
@@ -10,7 +10,22 @@ exports.getPostTags = async (postId) => {
     return helper.reduceArrayDimension(await Promise.all(queryList));
 }
 
+exports.getTagById = async(tagId) => {
+    return await database.query('select id,name from tag where id = ?', tagId);
+}
 
-exports.getTagById = async (tagId) => {
-    return await database.query('select id,name,description from tag where id = ?', tagId);
+exports.getTagByName = async name => {
+    var tagList = await database.query('select id,name from tag where name like ?', `%${name}%`);
+    if (!tagList) {
+        return { code: 500, message: '服务器错误' }
+    }
+    return { code: 200, data: tagList, message: 'success' }
+}
+
+exports.addTag = async tag => {
+    var tagId = await database.query('insert into tag(name,) id,name from tag where name like ?', `%${name}%`);
+    if (!tagList) {
+        return { code: 500, message: '服务器错误' }
+    }
+    return { code: 200, data: tagList, message: 'success' }
 }

@@ -10,7 +10,7 @@ var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
     console.log('app.js line 9')
 });
-hbs.registerHelper('isArrayEmpty', function (arr, options) {
+hbs.registerHelper('isArrayEmpty', function(arr, options) {
     if (arr && arr.length > 0) {
         return options.inverse(this);
     } else {
@@ -18,7 +18,7 @@ hbs.registerHelper('isArrayEmpty', function (arr, options) {
     }
 });
 
-hbs.registerHelper('equals', function (val1,val2, options) {
+hbs.registerHelper('equals', function(val1, val2, options) {
     if (val1 === val2) {
         return options.fn(this);
     } else {
@@ -39,7 +39,6 @@ app.engine('html', hbs.__express);
 // 设置favicon.ico
 app.use(favicon(path.join(__dirname, './static/favicon.ico')));
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -47,6 +46,7 @@ app.use(cookieParser());
 //设置静态文件目录
 app.use(express.static(path.join(__dirname, './public'))); //html,pdf,project
 app.use(express.static(path.join(__dirname, './static'))); //image,css,js
+app.use(express.static(path.join(__dirname, './uploads'))); //image upload dir
 
 //session中间件
 app.use(session({
@@ -68,14 +68,14 @@ app.use('/api', api);
 
 
 // 404
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     var err = new Error('This page could not be found.');
     err.status = 404;
     next(err);
 });
 
 // 其他错误
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error', {
