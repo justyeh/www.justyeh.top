@@ -1,7 +1,7 @@
 <div class="tab">
-    <a href="/admin?status=published" class="{{#equals postStatus 'published'}} active{{/equals}}">已发布</a>
-    <a href="/admin?status=draft" class="{{#equals postStatus 'draft'}} active{{/equals}}">草稿</a>
-    <a href="/admin?status=offline" class="{{#equals postStatus 'offline'}} active{{/equals}}">被下线</a>
+    <a href="/admin/post?status=published" class="{{#equals postStatus 'published'}} active{{/equals}}">已发布</a>
+    <a href="/admin/post?status=draft" class="{{#equals postStatus 'draft'}} active{{/equals}}">草稿</a>
+    <a href="/admin/post?status=offline" class="{{#equals postStatus 'offline'}} active{{/equals}}">被下线</a>
 </div>
 <div class="handle-box">
     <form class="search" action="/admin" method="GET">
@@ -33,16 +33,16 @@
             {{else}} {{#each postList}}
             <tr>
                 <td style="width: 20%">
-                    <div class="poster" style="background-image: url(/image/head.jpg)"></div>
+                    <div class="poster" style="background-image: url({{poster}})"></div>
                 </td>
                 <td>
                     <p class="title">{{title}}</p>
                 </td>
                 <td style="width: 20%">
-                    {{tags}}吧是fv
+                    {{#isArrayEmpty postList}}--{{else}} {{tags.length}} {{/isArrayEmpty}}
                 </td>
                 <td style="width: 10%">
-                    <a href="/admin/post/{{id}}">编辑</a>
+                    <a href="/admin/post/edit?id={{id}}">编辑</a>
                 </td>
             </tr>
             {{/each}} {{/isArrayEmpty}}

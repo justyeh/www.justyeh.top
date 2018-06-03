@@ -30,7 +30,8 @@ exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
         return { code: 500, message: '无效的页码' }
     }
 
-    let postList = await database.query('select id,title,image,summary from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search || ''}%`, ((pageNo - 1) * pageSize), pageSize]);
+    let postList = await database.query('select * from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search || ''}%`, ((pageNo - 1) * pageSize), pageSize]);
+
     if (!postList) {
         return { code: 500, message: '服务器错误' }
     }
@@ -88,5 +89,51 @@ exports.getPostCount = async(postStatus, search) => {
 }
 
 exports.addPost = async post => {
-    var result = await database.query('insert into post() values()');
+    var insertRow = await database.query('insert into post(title,poster,summary,markdown,status,updated_at) values(?,?,?,?,?,?)', [
+        post.title,
+        post.poster,
+        post.summary,
+        post.markdown,
+        post.status,
+        new Date().getTime()
+    ]);
+
+    if (insertRow && insertRow.insertId) {
+        return { code: 200, data: { id: insertRow.insertId }, message: 'insert success' }
+    } else {
+        return { code: 500, message: 'insert fail' }
+    }
+}
+
+exports.updatePost = async post => {
+    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=?,updated_at=? where id = ?', [
+        post.title,
+        post.poster,
+        post.summary,
+        post.markdown,
+        post.status,
+        new Date().getTime(),
+        post.id
+    ]);
+    if (result && result.affectedRows > 0) {
+        return { code: 200, message: 'update success' }
+    } else {
+        return { code: 500, message: 'update fail' }
+    }
+}
+
+exports.updatePostTag = async(postId, tagList) => {
+    var deleteOldTag = await database.query('delete post_tag where post_id = ?', postId);
+    if (deleteOldTag) {
+        var insertList = tagList.map(item => {
+            return database.query('insert into post_tag(post_id,tag_id) values(?,?)', [postId, item])
+        });
+        if (insertList.length == 0) {
+            return { code: 200, message: 'update success' }
+        }
+        var insertNewTag = await Promise.all(insertList);
+        console.log(insertNewTag)
+    }
+
+    return { code: 500, message: 'update fail' }
 }

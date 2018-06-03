@@ -133,7 +133,6 @@ header .search button {
     background: transparent;
     color: rgba(250, 250, 250, 0.4);
     font-size: 18px;
-    
 }
 
 @media screen and (max-width: 960px) {
@@ -196,6 +195,7 @@ footer a {
         margin-right: 10px;
     }
 }
+
 
 /*post list page*/
 
@@ -309,6 +309,7 @@ footer a {
     }
 }
 
+
 /*post by tag page*/
 
 .tag-page .tag-tip {
@@ -341,6 +342,7 @@ footer a {
         font-size: 16px;
     }
 }
+
 
 /*search result page*/
 
@@ -375,6 +377,7 @@ footer a {
     }
 }
 
+
 /*post detail page*/
 
 .post {
@@ -395,7 +398,7 @@ footer a {
 .post .info {
     display: flex;
     font-size: 16px;
-    padding: 0 20px;
+    padding: 0 30px;
     color: #3084bb;
 }
 
@@ -421,7 +424,7 @@ footer a {
         padding: 15px 0
     }
     .post .info {
-        padding: 0 10px;
+        padding: 0;
         justify-content: center;
         font-size: 14px;
     }

@@ -1,7 +1,7 @@
 <div class="page">
     {{#isArrayEmpty postList}}
     <div class="error">
-        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有数据了</div>
+        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有数据!</div>
         <a href="/">首页</a>
     </div>
     {{else}}
@@ -9,7 +9,7 @@
         <div class="post-list">
             {{#each postList}}
             <div class="post-item">
-                {{#if image}}
+                {{#if poster}}
                 <div class="poster" style="background-image: url({{poster}})"></div>
                 {{/if}}
                 <div class="content">
@@ -17,8 +17,7 @@
                     <div class="desc">{{summary}}</div>
                     <div class="tags">
                         {{#each tags}}
-                        <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a>
-                        {{/each}}
+                        <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a> {{/each}}
                     </div>
                 </div>
             </div>

@@ -307,18 +307,18 @@
     color: #1b8afa;
 }
 
-.post-table td {
+.table td {
     height: 60px;
 }
 
-.post-table .poster {
-    height: 50px;
-    width: 50px;
+.table .poster {
+    height: 45px;
+    width: 45px;
     margin: 0 auto;
-    background: no-repeat center / cover;
+    background: #eee no-repeat center / cover;
 }
 
-.post-table .title {
+.table .title {
     padding: 0 20px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -330,7 +330,6 @@
 
 .error .empty-tip {
     font-size: 20px;
-    padding: 60px 0;
 }
 
 .pager {

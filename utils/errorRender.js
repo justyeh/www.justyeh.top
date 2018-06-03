@@ -1,3 +1,4 @@
 exports.errorRender = (res, error) => {
-    res.render('error', {...error, layout: 'front-layout' })
+    console.log(error)
+    res.render('error', {...error })
 }
