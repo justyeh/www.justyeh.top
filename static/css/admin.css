@@ -151,6 +151,7 @@
     overflow-y: auto;
     font-size: 14px;
     box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    z-index: 200;
 }
 
 .sidebar .site-name {
@@ -376,6 +377,8 @@
 .form-box .form-group textarea {
     height: 80px;
     resize: none;
+    line-height: 16px;
+    padding: 10px 0;
 }
 
 .form-box .form-group textarea.markdown {
@@ -476,4 +479,58 @@
 
 .form-box .editor-toolbar a {
     margin-right: 2px;
+}
+
+.tag-input {
+    position: relative;
+}
+
+.tag-input ul {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    z-index: 110;
+    box-shadow: 0 0 6px rgba(100, 100, 100, 0.45);
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.tag-input li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.tag-input li span {
+    color: #1b8afa;
+}
+
+.tag-input li:hover,
+.tag-input li.active {
+    background: rgba(100, 100, 100, 0.1)
+}
+
+.post-edit-page .tags {
+    display: flex;
+    align-items: center;
+}
+
+.post-edit-page .tags div {
+    height: 26px;
+    line-height: 26px;
+    padding: 0 8px;
+    margin: 5px 10px 5px 0;
+    background: rgba(100, 100, 100, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.post-edit-page .tags i {
+    color: rgb(255, 64, 129);
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 16px;
 }

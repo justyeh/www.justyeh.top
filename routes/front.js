@@ -33,7 +33,7 @@ async function renderPostList(pageNo, res) {
 
 
 router.get('/post/:postId', async(req, res, next) => {
-    var result = await postSys.getPostById('published', req.params.postId);
+    var result = await postSys.getPostById(req.params.postId);
     if (result.code == 200) {
         res.render('front/post', {
             layout: 'front-layout',

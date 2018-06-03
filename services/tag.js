@@ -22,10 +22,12 @@ exports.getTagByName = async name => {
     return { code: 200, data: tagList, message: 'success' }
 }
 
-exports.addTag = async tag => {
-    var tagId = await database.query('insert into tag(name,) id,name from tag where name like ?', `%${name}%`);
-    if (!tagList) {
-        return { code: 500, message: '服务器错误' }
+exports.addTag = async tagName => {
+    var insertRow = await database.query('insert into tag(name) values(?)', tagName);
+
+    if (insertRow && insertRow.insertId) {
+        return { code: 200, data: { id: insertRow.insertId }, message: 'insert success' }
+    } else {
+        return { code: 500, message: 'insert fail' }
     }
-    return { code: 200, data: tagList, message: 'success' }
 }

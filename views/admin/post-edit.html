@@ -1,74 +1,165 @@
 <link href="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js"></script>
 
-<form action="/admin/post/add" method="POST" enctype="multipart/form-data" class="form-box">
-    <div class="form">
-        <div class="form-group">
-            <label>标题</label>
-            <div class="input">
-                <input type="text" name="title" autocomplete="off">
+<script src="/js/jquery.autoComplete.js"></script>
+
+<div class="post-edit-page">
+    <form action="/admin/post/edit" method="POST" enctype="multipart/form-data" class="form-box">
+        <div class="form">
+            <input type="hidden" value="{{post.id}}">
+            <div class="form-group">
+                <label>标题</label>
+                <div class="input">
+                    <input autocomplete="off" type="text" name="title" value="{{post.title}}">
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>封面</label>
-            <div class="input">
-                <input type="hidden" id="posterVal" value="{{post.poster}}"> {{#if post.poster}}
-                <label class="file with-value" style="background-image: url({{post.poster}})">
+            <div class="form-group">
+                <label>封面</label>
+                <div class="input">
+                    <input type="hidden" id="posterVal" value="{{post.poster}}"> {{#if post.poster}}
+                    <label class="file with-value" style="background-image: url({{post.poster}})">
                 {{else}}
                 <label class="file">
                 {{/if}}
                     <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" name="poster">
                     <i class="fa fa-image"></i>
                 </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>摘要</label>
-            <div class="input">
-                <textarea name="summary"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>标签</label>
-            <div class="input">
-                <div class="tag-input">
-                    <input type="text" name="tags" autocomplete="off">
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>正文</label>
-            <div class="input">
-                <textarea name="markdown" id="markdown" class="markdown"></textarea>
+            <div class="form-group">
+                <label>摘要</label>
+                <div class="input">
+                    <textarea name="summary" value="{{post.summary}}"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>状态</label>
-            <div class="input">
-                <!--
-                <div class="radio-group">
-                    <label class="radio">
+            <div class="form-group">
+                <label>标签</label>
+                <div class="input">
+                    <input type="hidden" name="tag_ids">
+                    <div class="tags">
+                        {{#each poster.tagList}}
+                        <div data-id="{{id}}"><span>{{name}}</span><i class="fa fa-trash-alt"></i></div>
+                        {{/each}}
+                    </div>
+                    <div class="tag-input">
+                        <input type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>正文</label>
+                <div class="input">
+                    <textarea name="markdown" value="{{post.markdown}}" id="markdown" class="markdown"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>状态</label>
+                <div class="input">
+                    <div class="radio-group">
+                        <label class="radio">
                         <input type="radio" name="status" value="published" {{#equals post.status 'published'}}checked="checked"{{/equals}}">
                         <span>发布</span>
                     </label>
-                    <label class="radio">
+                        <label class="radio">
                         <input type="radio" name="status" value="draft" {{#equals post.status 'draft'}}checked="checked"{{/equals}}">
                         <span>草稿</span>
                     </label>
-                    <label class="radio">
+                        <label class="radio">
                         <input type="radio" name="status" value="offline" {{#equals post.status 'offline'}}checked="checked"{{/equals}}">
                         <span>下线</span>
                     </label>
+                    </div>
                 </div>
-                -->
+            </div>
+            <div class="form-handle">
+                <button type="submit">保存</button>
             </div>
         </div>
-        <div class="form-handle">
-            <button type="submit">保存</button>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
 
+
+
+<script>
+    var tagIds = [];
+    $(function() {
+        if ($("form input[type='radio']:checked").length == 0) {
+            $("form input[type='radio'][value='published']").attr('checked', true)
+        }
+
+        //init tags
+        setTagIds();
+
+        $(".tag-input").autoComplete({
+            url: '/api/tag/search?name=',
+            selected: function($li) {
+                var _val = $li.data('name');
+                if ($li.hasClass("add")) {
+                    $.post('/api/tag/add', {
+                        name: _val
+                    }, function(res) {
+                        if (res.code == 200) {
+                            $('.tags').append('<div data-id="' + res.data.id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>')
+                        }
+                    });
+                } else {
+                    var id = $li.data("id");
+                    if (tagIds.indexOf(id) < 0) {
+                        $('.tags').append('<div data-id="' + id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>')
+                    }
+                }
+                $(".tag-input input").val('');
+                setTagIds();
+            }
+        });
+
+        $(".tags").on("click", ".fa-trash", function() {
+            $(this).parent().remove();
+        })
+
+        $("form").on("change", "input[type='file']", function() {
+            var $file = $('.file');
+            var fileInput = $(this)[0];
+            var isPassVerify = true;
+            var simpleFile = fileInput.files[0];
+            if (!simpleFile) {
+                isPassVerify = false;
+            }
+            if (simpleFile && simpleFile.size > 1024 * 1024 * 5) {
+                alert("图片的大小限制为5M");
+                isPassVerify = false;
+            }
+            if (!isPassVerify) {
+                //清空input的值
+                if (fileInput.outerHTML) {
+                    fileInput.outerHTML = fileInput.outerHTML;
+                } else {
+                    fileInput.value = '';
+                }
+
+                if ($("#posterVal").val()) {
+                    $file.css('background-image', 'url(' + $("#posterVal").val() + ')')
+                } else {
+                    $file.removeClass('with-value').removeAttr('style')
+                }
+
+                return false;
+            }
+
+            var reader = new FileReader();
+            reader.readAsDataURL(simpleFile);
+            reader.onload = function(e) {
+                $file.addClass('with-value').css("background-image", "url(" + e.target.result + ")");
+            };
+        });
+    });
+
+    function setTagIds() {
+        $(".tags div").each(function() {
+            tagIds.push($(this).data("id"));
+        })
+    }
+</script>
 
 <script>
     //document：https://github.com/sparksuite/simplemde-markdown-editor
@@ -141,45 +232,5 @@
                 title: "边写边看",
             }
         ]
-    });
-</script>
-
-<script>
-    $(function() {
-        $("form").on("change", "input[type='file']", function() {
-            var $file = $('.file');
-            var fileInput = $(this)[0];
-            var isPassVerify = true;
-            var simpleFile = fileInput.files[0];
-            if (!simpleFile) {
-                isPassVerify = false;
-            }
-            if (simpleFile && simpleFile.size > 1024 * 1024 * 5) {
-                alert("图片的大小限制为5M");
-                isPassVerify = false;
-            }
-            if (!isPassVerify) {
-                //清空input的值
-                if (fileInput.outerHTML) {
-                    fileInput.outerHTML = fileInput.outerHTML;
-                } else {
-                    fileInput.value = '';
-                }
-
-                if ($("#posterVal").val()) {
-                    $file.css('background-image', 'url(' + $("#posterVal").val() + ')')
-                } else {
-                    $file.removeClass('with-value').removeAttr('style')
-                }
-
-                return false;
-            }
-
-            var reader = new FileReader();
-            reader.readAsDataURL(simpleFile);
-            reader.onload = function(e) {
-                $file.addClass('with-value').css("background-image", "url(" + e.target.result + ")");
-            };
-        });
     });
 </script>

@@ -39,9 +39,9 @@ router.get('/post', async(req, res, next) => {
     var result = await postSys.getPostList(postStatus, search, pageNo, 20);
     res.render('admin/post-list', {
         layout: 'admin-layout',
-        title: '????',
-        ...req.session.user,
+        title: '文章管理',
         activeSidebar: 'post',
+        ...req.session.user,
         postStatus,
         search,
         postList: result.date,
@@ -49,17 +49,19 @@ router.get('/post', async(req, res, next) => {
     });
 });
 
-router.get('/post/add', async(req, res, next) => {
+router.get('/post/eidt', async(req, res, next) => {
+    var result = await postSys.getPostById(req.query.postId);
     res.render('admin/post-edit', {
         layout: 'admin-layout',
+        title: '文章管理',
         activeSidebar: 'post',
-        post: null
+        post: result.code == 200 ? result.data : null
     });
 });
 
-//var upload = multer.single('poster')
 
-router.post('/post/add', multer.single('poster'), async(req, res, next) => {
+
+router.post('/post/edit', multer.single('poster'), async(req, res, next) => {
     var post = {
         title: req.body.title,
         poster: req.file ? `/uploads/${req.file.filename}` : '',

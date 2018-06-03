@@ -114,8 +114,7 @@ CREATE TABLE `post_tag` (
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL COMMENT '名称',
-  `hidden` tinyint(1) DEFAULT '0' COMMENT '是否隐藏（0显示，1隐藏）',
+  `name` varchar(50) NOT NULL UNIQUE COMMENT '名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='标签表';
 

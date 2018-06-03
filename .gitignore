@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+#file uploads
+/uploads
+
 # misc
 .DS_Store
 .env.local

@@ -81,7 +81,6 @@ app.use(function(err, req, res, next) {
     res.render('error', {
         message: err.message,
         code: req.app.get('env') === 'development' ? err.status : null,
-        layout: 'front-layout'
     });
 });
 
