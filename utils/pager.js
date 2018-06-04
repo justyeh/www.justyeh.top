@@ -1,4 +1,4 @@
-var createPageHtml = (pageNo, pageCount, linkTo) => {
+var createPageHtml = (pageNo, pageCount, pageSize, linkTo) => {
 
     var opts = {
         items_per_page: 10,
@@ -11,7 +11,7 @@ var createPageHtml = (pageNo, pageCount, linkTo) => {
 
     var pageHtml = '';
     var pageNo = parseInt(pageNo);
-    var pageTotal = Math.ceil(parseInt(pageCount) / 10);
+    var pageTotal = Math.ceil(parseInt(pageCount) / pageSize);
 
     if (pageNo < 1 || pageNo > pageCount) {
         return '';
@@ -26,7 +26,7 @@ var createPageHtml = (pageNo, pageCount, linkTo) => {
     }
     //中间页码
     drawLinks()
-    //后一页
+        //后一页
     if (pageNo == pageTotal) {
         pageHtml += `<span class='next current'>${opts.next_text}</span>`;
     } else {
@@ -53,13 +53,13 @@ var createPageHtml = (pageNo, pageCount, linkTo) => {
         } else if (pageNo > 5 && pageNo < pageTotal - 4) {
             pageHtml += `<a href='${linkTo}${1}'>${1}</a>`;
             pageHtml += `<span>${opts.ellipse_text}</span>`;
-            [ pageNo - 1, pageNo, pageNo + 1, ].forEach(item => {
+            [pageNo - 1, pageNo, pageNo + 1, ].forEach(item => {
                 pageHtml += `<a class='${pageNo == item ? " current" : ""}' href='${linkTo}${item}'>${item}</a>`;
             });
             pageHtml += `<span>${opts.ellipse_text}</span>`;
             pageHtml += `<a href='${linkTo}${pageTotal}'>${pageTotal}</a>`;
         } else if (pageNo >= pageTotal - 4) {
-            if(pageTotal - 4 > 2){
+            if (pageTotal - 4 > 2) {
                 pageHtml += `<a href='${linkTo}${1}'>${1}</a>`;
                 pageHtml += `<span>${opts.ellipse_text}</span>`;
             }
@@ -72,4 +72,3 @@ var createPageHtml = (pageNo, pageCount, linkTo) => {
 }
 
 exports.createPageHtml = createPageHtml;
-

@@ -17,6 +17,32 @@ router.get('/page/:pageNo', (req, res, next) => {
 });
 
 async function renderPostList(pageNo, res) {
+
+    /*
+    var postStatus = req.query.status || 'published';
+    var search = req.query.search || '';
+    var pageNo = req.query.page || 1;
+
+    var postCount = await postSys.getPostCount(postStatus, search);
+    var result = await postSys.getPostList(postStatus, search, pageNo, 3);
+
+    if (result.code == 200) {
+        res.render('admin/post-list', {
+            layout: 'admin-layout',
+            title: '文章管理',
+            activeSidebar: 'post',
+            ...req.session.user,
+            postStatus,
+            search,
+            postList: result.data,
+            pageNo,
+            pageHtml: pager.createPageHtml(pageNo, postCount, 3, `?status=${postStatus}&search=${search}&page=`)
+        });
+    } else {
+        errorRender(res, result)
+    }
+    */
+
     var result = await postSys.getPostList('published', null, pageNo, 10);
     var postCount = await postSys.getPostCount('published', );
     if (result.code !== 200) {
@@ -26,7 +52,7 @@ async function renderPostList(pageNo, res) {
             title: 'justyeh的前端博客',
             layout: 'front-layout',
             postList: result.data,
-            pageHtml: pager.createPageHtml(pageNo, postCount, '/page/')
+            pageHtml: pager.createPageHtml(pageNo, postCount, 15, '/page/')
         });
     }
 }

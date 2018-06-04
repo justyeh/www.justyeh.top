@@ -1,4 +1,8 @@
-/*ç™»å½•*/
+.c-red {
+    color: rgb(255, 64, 129)；
+}
+
+/*login page*/
 
 .login {
     background-color: #193c6d;
@@ -304,6 +308,8 @@
 }
 
 .table a {
+    display: inline-block;
+    margin: 0 3px;
     color: #1b8afa;
 }
 
@@ -326,6 +332,15 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-height: 1.4;
+}
+
+.table .tag {
+    display: inline-block;
+    margin: 0 2px;
+    background: #efefef;
+    color: #666;
+    font-size: 12px;
+    padding: 3px 5px;
 }
 
 .error .empty-tip {
@@ -532,4 +547,81 @@
     cursor: pointer;
     margin-left: 5px;
     font-size: 16px;
+}
+
+.post-edit-page .CodeMirror {
+    line-height: 1.5;
+}
+
+.tag-list-page {
+    padding: 40px 0;
+}
+
+.tag-list-page .page-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    padding: 0 0 20px 20px;
+}
+
+.tag-list-page .table td {
+    height: auto;
+    padding: 10px 0;
+}
+
+.tag-list-page .post-list p {
+    padding: 0 20px;
+    text-align: left;
+    line-height: 1.5;
+    color: #000;
+    font-weight: bold;
+}
+
+.tag-list-page input {
+    border: solid 1px transparent;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    background: #efefef;
+}
+
+.tag-list-page .edit input {
+    border-color: #1b8afa;
+    background: #fff;
+}
+
+.tag-list-page .m-save {
+    display: none;
+}
+
+.tag-list-page .edit .m-edit {
+    display: none;
+}
+
+.tag-list-page .edit .m-save {
+    display: inline;
+}
+
+.setting-page {
+    padding: 40px 20px;
+}
+
+.setting-page a {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    background: #1b8afa;
+    color: #fff;
+}
+
+.setting-page .tip {
+    padding-top: 10px;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.setting-page .tip:last-child {
+    margin-bottom: 0
 }

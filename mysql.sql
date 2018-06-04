@@ -91,6 +91,7 @@ CREATE TABLE `post` (
   `summary` text DEFAULT NULL COMMENT '摘要',
   `markdown` text DEFAULT NULL COMMENT 'markdown文件',
   `status` varchar(20) DEFAULT 'draft' COMMENT '状态（draft草稿，published已发布，offline下线）',
+  `allow_comment` int(1) DEFAULT 1 COMMENT '是否允许评论（1允许，0禁止）',
   `updated_at` bigint(20) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='文章表';

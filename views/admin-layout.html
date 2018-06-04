@@ -33,7 +33,7 @@
             <div class="side-right">
                 <img src="/image/head.jpg">
                 <div>
-                    <p>email</p>
+                    <p>{{email}}</p>
                     <a href="/admin/logout">退出
                         <i class="fa fa-"></i>
                     </a>
@@ -56,9 +56,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/message" class="{{#equals activeSidebar 'message'}} active{{/equals}}">
+                    <a href="/admin/comment" class="{{#equals activeSidebar 'comment'}} active{{/equals}}">
                         <i class="fa fa-comments"></i>
-                        <span>消息管理</span>
+                        <span>评论管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/setting" class="{{#equals activeSidebar 'setting'}} active{{/equals}}">
+                        <i class="fa fa-cogs"></i>
+                        <span>系统设置</span>
                     </a>
                 </li>
             </ul>

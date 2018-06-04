@@ -19,6 +19,7 @@ hbs.registerHelper('isArrayEmpty', function(arr, options) {
 });
 
 hbs.registerHelper('equals', function(val1, val2, options) {
+    console.log(val1 === val2)
     if (val1 === val2) {
         return options.fn(this);
     } else {

@@ -11,7 +11,7 @@ marked.setOptions({
 });
 
 exports.markdown2Htm = markdown => {
-    if(markdown){
+    if (markdown) {
         return marked(markdown)
     }
     return ''
@@ -27,7 +27,7 @@ exports.reduceArrayDimension = arr => {
 }
 
 exports.setHtmlKeyword = tagList => {
-    if(tagList.length == 0){
+    if (tagList.length == 0) {
         return ''
     }
     return tagList.reduce((previousValue, currentValue) => {
@@ -73,7 +73,7 @@ exports.timeago = timestamp => {
         var date = new Date(timestamp);
         return date.getFullYear() + '-' + zero(date.getMonth() + 1) + '-' + zero(date.getDate());
     } else if (monthC >= 1) {
-        return parseInt(monthC) + "月前";
+        return parseInt(monthC) + "个月前";
     } else if (weekC >= 1) {
         return parseInt(weekC) + "周前";
     } else if (dayC >= 1) {

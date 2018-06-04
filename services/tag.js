@@ -1,33 +1,74 @@
 let database = require('../utils/database');
-
 let helper = require('../utils/helper');
-exports.getPostTags = async(postId) => {
-    var tagRows = await database.query('select tag_id from post_tag where post_id = ?', postId);
+
+let postSys = require('./post');
+
+exports.getPostTags = async (postId) => {
+    var tagRows = await database.query('select tag_id from post_tag where post_id = ?', [postId]);
     var queryList = [];
     tagRows.forEach(item => {
-        queryList.push(database.query('select id,name from tag where id = ?', item.tag_id))
+        queryList.push(database.query('select id,name from tag where id = ?', [item.tag_id]))
     });
     return helper.reduceArrayDimension(await Promise.all(queryList));
 }
 
-exports.getTagById = async(tagId) => {
-    return await database.query('select id,name from tag where id = ?', tagId);
+exports.getTagList = async () => {
+    var tagRows = await database.query('select * from tag');
+    if (tagRows) {
+        var queryList = [];
+        tagRows.forEach(item => {
+            queryList.push(database.query('select id,title from post where id in (select post_id from post_tag where tag_id = ?)', [item.id]))
+        });
+        var postList = await Promise.all(queryList);
+        tagRows.forEach((item, index) => {
+            item.posts = postList[index] || []
+        });
+        return { code: 200, data: tagRows, message: 'success' }
+    }
+    return { code: 500, message: '服务器错误' };
+}
+
+exports.getTagById = async (tagId) => {
+    return await database.query('select id,name from tag where id = ?', [tagId]);
 }
 
 exports.getTagByName = async name => {
-    var tagList = await database.query('select id,name from tag where name like ?', `%${name}%`);
-    if (!tagList) {
-        return { code: 500, message: '服务器错误' }
+    var tagRows = await database.query('select id,name from tag where name like ?', `%${name}%`);
+    if (tagRows) {
+        return { code: 200, data: tagRows, message: 'success' }
     }
-    return { code: 200, data: tagList, message: 'success' }
+    return { code: 500, message: '服务器错误' };
 }
 
 exports.addTag = async tagName => {
-    var insertRow = await database.query('insert into tag(name) values(?)', tagName);
+    var insertRow = await database.query('insert into tag(name) values(?)', [tagName]);
 
     if (insertRow && insertRow.insertId) {
         return { code: 200, data: { id: insertRow.insertId }, message: 'insert success' }
     } else {
         return { code: 500, message: 'insert fail' }
     }
+}
+
+exports.updateTag = async (tagName, tagId) => {
+    var updateRow = await database.query('update tag set name = ? where id = ?', [tagName, tagId]);
+    if (updateRow && updateRow.affectedRows > 0) {
+        return { code: 200, message: 'update success' }
+    } else {
+        return { code: 500, message: 'update fail' }
+    }
+}
+
+exports.deleteTag = async (tagId) => {
+    if (!helper.isInteger(tagId)) {
+        return { code: 500, message: '无效的ID' }
+    }
+    var deletePostTag = await database.query('delete from post_tag where tag_id = ?', [tagId]);
+    if (deletePostTag) {
+        var deleteTag = await database.query('delete from tag where id = ?', [tagId]);
+        if (deleteTag) {
+            return { code: 200, message: 'delete success!' }
+        }
+    }
+    return { code: 200, message: 'delete faild!' }
 }

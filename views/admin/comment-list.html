@@ -1,13 +1,19 @@
 <link rel="stylesheet" href="/js/jquery-toast/jquery.toast.min.css">
 <script src="/js/jquery-toast/jquery.toast.min.js"></script>
 
+<div class="tab">
+    <a href="/admin/comment?is_read=0" {{#equals isRead 0}}class="active"{{/equals}}>未读</a>
+    <a href="/admin/comment?is_read=1" {{#equals isRead 1}}class="active"{{/equals}}>已读</a>
+</div>
+
 <div class="tag-list-page">
     <div class="page-title">标签列表</div>
     <div class="table">
         <table>
             <thead>
-                <th>名称</th>
-                <th>关联的文章</th>
+                <th>评论内容</th>
+                <th>文章</th>
+                <th>状态</th>
                 <th>操作</th>
             </thead>
             <tbody>
@@ -34,10 +40,15 @@
                                 {{/each}} 
                             {{/isArrayEmpty}}
                         </td>
+                        <td>
+                            {{#equals isRead 0}}
+                            <a href="">标记为已读</a>
+                            {{else}}
+                            已读
+                            {{/equals}}
+                        </td>
                         <td style="width: 160px">
-                            <a href="javascript:;" onclick="editTr(this)" class="m-edit">编辑</a>
-                            <a href="javascript:;" onclick="saveTr(this)" class="m-save">保存</a>
-                            <a href="/admin/tag/del?id={{id}}" class="c-red">删除</a>
+                            <a href="javascript:;" class="c-red">删除</a>
                         </td>
                     </tr>
                     {{/each}} 
@@ -47,6 +58,7 @@
     </div>
 </div>
 <script>
+    
     function showToast(msg,icon) {
         $.toast({
             text: msg,
@@ -58,19 +70,8 @@
             icon: icon
         });
     }
-
-    function editTr(obj) {
-        var $tr = $(obj).closest("tr");
-        var $input = $tr.find("input");
-        var $a = $tr.find("a");
-
-        $tr.addClass("edit");
-        $input.removeAttr("disabled").focus();
-        $input[0].setSelectionRange($input.val().length, $input.val().length);
-    }
-
+    
     function saveTr(obj) {
-
 
         var $tr = $(obj).closest("tr");
         var $input = $tr.find("input");
@@ -95,13 +96,5 @@
             showToast( '修改失败！','error')
         })
     }
-
-    function resetTr(obj) {
-        var $tr = $(obj).closest("tr");
-        var $input = $tr.find("input");
-        var $a = $tr.find("a");
-        $input.addClass("disabled").attr("disabled", "disabled").val($input.data("value"));
-        $a.eq(0).show();
-        $a.eq(1).hide();
-    }
+   
 </script>

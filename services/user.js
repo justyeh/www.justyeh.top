@@ -18,8 +18,3 @@ exports.login = async (email, password) => {
         return { code: 400, message: '邮箱或密码错误' }
     }
 }
-
-
-exports.getTagById = async (tagId) => {
-    return await database.query('select id,name,description from tag where id = ?', tagId);
-}

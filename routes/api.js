@@ -22,5 +22,9 @@ router.post('/tag/add', async(req, res, next) => {
     res.json(await tagSys.addTag(req.body.name));
 });
 
+router.post('/tag/update', async(req, res, next) => {
+    res.json(await tagSys.updateTag(req.body.name, req.body.id));
+});
+
 
 module.exports = router;

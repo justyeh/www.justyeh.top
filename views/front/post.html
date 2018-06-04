@@ -7,8 +7,7 @@
         <div>更新于：{{updatedAt}}</div>
         {{#isArrayEmpty tags}}
         <div>
-            标签：
-            {{#each tags}}
+            标签： {{#each tags}}
             <a href='/tag/{{id}}'>{{tag.name}}</a>
             {{/each}}
         </div>
@@ -16,5 +15,23 @@
     </div>
     <div class="content">
         <div class="md">{{{htmlConetnt}}}</div>
+    </div>
+
+    <div class="comment">
+        <div class="form">
+            <div class="form-group">
+                <label>称呼</label>
+                <div class="input">
+                    <input autocomplete="off" type="text" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>内容</label>
+                <div class="input">
+                    <textarea name="content"></textarea>
+                </div>
+            </div>
+            <button>提交</button>
+        </div>
     </div>
 </div>

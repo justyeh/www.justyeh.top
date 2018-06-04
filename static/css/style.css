@@ -127,10 +127,14 @@ input[type=search]::-webkit-search-decoration {
     transition: all 0.25s ease-in-out;
 }
 
-a,
-button {
-    cursor: pointer;
-    transition: all 0.25s ease;
+.text-over {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-left {
+    text-align: left;
 }
 
 

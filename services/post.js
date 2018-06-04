@@ -9,7 +9,7 @@ exports.getPostById = async(postId) => {
         return { code: 500, message: '无效的ID' }
     }
 
-    let postInfo = await database.query('select * from post where id = ?', postId);
+    let postInfo = await database.query('select * from post where id = ?', [postId]);
     if (!postInfo) {
         return { code: 500, message: '服务器错误' }
     }
@@ -85,16 +85,17 @@ exports.getPostListByTagId = async(postStatus, tagId) => {
 
 exports.getPostCount = async(postStatus, search) => {
     var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
-    return result[0].count || 0
+    return result ? result[0].count : 0
 }
 
 exports.addPost = async post => {
-    var insertRow = await database.query('insert into post(title,poster,summary,markdown,status,updated_at) values(?,?,?,?,?,?)', [
+    var insertRow = await database.query('insert into post(title,poster,summary,markdown,status,allow_comment,updated_at) values(?,?,?,?,?,?,?)', [
         post.title,
         post.poster,
         post.summary,
         post.markdown,
         post.status,
+        post.allow_comment,
         new Date().getTime()
     ]);
 
@@ -106,16 +107,17 @@ exports.addPost = async post => {
 }
 
 exports.updatePost = async post => {
-    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=?,updated_at=? where id = ?', [
+    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=?,allow_comment=?,updated_at=? where id = ?', [
         post.title,
         post.poster,
         post.summary,
         post.markdown,
         post.status,
+        post.allow_comment,
         new Date().getTime(),
         post.id
     ]);
-    if (result && result.affectedRows > 0) {
+    if (result && result.affectedRows >= 0) {
         return { code: 200, message: 'update success' }
     } else {
         return { code: 500, message: 'update fail' }
@@ -123,17 +125,18 @@ exports.updatePost = async post => {
 }
 
 exports.updatePostTag = async(postId, tagList) => {
-    var deleteOldTag = await database.query('delete post_tag where post_id = ?', postId);
+    var deleteOldTag = await database.query('delete from post_tag where post_id = ?', [postId]);
+    if (tagList.length == 0) {
+        return { code: 200, message: 'update success' }
+    }
     if (deleteOldTag) {
         var insertList = tagList.map(item => {
-            return database.query('insert into post_tag(post_id,tag_id) values(?,?)', [postId, item])
+            return database.query('insert into post_tag(post_id,tag_id) values(?,?)', [postId, parseInt(item)])
         });
-        if (insertList.length == 0) {
+        var insertNewTag = await Promise.all(insertList);
+        if (insertNewTag) {
             return { code: 200, message: 'update success' }
         }
-        var insertNewTag = await Promise.all(insertList);
-        console.log(insertNewTag)
     }
-
     return { code: 500, message: 'update fail' }
 }

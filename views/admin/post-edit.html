@@ -6,8 +6,8 @@
 <div class="post-edit-page">
     <form action="/admin/post/edit" method="POST" enctype="multipart/form-data" class="form-box">
         <div class="form">
-
-            {{#if post.id}}
+            <input type="hidden" name="postStatus" value="{{postStatus}}">
+            <input type="hidden" name="pageNo" value="{{pageNo}}"> {{#if post.id}}
             <input type="hidden" name="id" value="{{post.id}}"> {{/if}}
             <div class="form-group">
                 <label>标题</label>
@@ -18,11 +18,12 @@
             <div class="form-group">
                 <label>封面</label>
                 <div class="input">
-                    <input type="hidden" id="posterVal" name="poster_url" value="{{post.poster}}"> {{#if post.poster}}
+                    <input type="hidden" id="posterVal" name="poster_url" value="{{post.poster}}"> 
+                    {{#if post.poster}}
                     <label class="file with-value" style="background-image: url({{post.poster}})">
-                {{else}}
-                <label class="file">
-                {{/if}}
+                    {{else}}
+                    <label class="file">
+                    {{/if}}
                     <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" name="poster">
                     <i class="fa fa-image"></i>
                 </label>
@@ -39,8 +40,8 @@
                 <div class="input">
                     <input type="hidden" name="tags">
                     <div class="tags">
-                        {{#each poster.tagList}}
-                        <div data-id="{{id}}"><span>{{name}}</span><i class="fa fa-trash-alt"></i></div>
+                        {{#each post.tagList}}
+                        <div data-id="{{id}}"><span>{{name}}</span><i class="fa fa-trash"></i></div>
                         {{/each}}
                     </div>
                     <div class="tag-input">
@@ -54,6 +55,22 @@
                     <textarea name="markdown" id="markdown" class="markdown">{{post.markdown}}</textarea>
                 </div>
             </div>
+            <div class="form-group">
+                <label>评论 </label>
+                <div class="input">
+                    <div class="radio-group">
+                        <label class="radio">
+                            <input type="radio" name="allow_comment" value="1" {{#equals post.allow_comment 1}}checked="checked"{{/equals}}">
+                            <span>开启</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="allow_comment" value="0" {{#equals post.allow_comment 0}}checked="checked"{{/equals}}">
+                            <span>关闭</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label>状态</label>
                 <div class="input">
@@ -85,9 +102,14 @@
 <script>
     var tagIds = [];
     $(function() {
-        if ($("form input[type='radio']:checked").length == 0) {
-            $("form input[type='radio'][value='published']").attr('checked', true)
+
+        if ($("form input[name='status']:checked").length == 0) {
+            $("form input[name='status'][value='published']").attr('checked', true)
         }
+        console.log($("form input[name='allow_comment']:checked").length)
+        /*if ($("form input[name='allow_comment']:checked").length == 0) {
+            $("form input[name='allow_comment'][value='1']").attr('checked', true)
+        }*/
 
         //init tags
         setTagIds();
@@ -101,22 +123,24 @@
                         name: _val
                     }, function(res) {
                         if (res.code == 200) {
-                            $('.tags').append('<div data-id="' + res.data.id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>')
+                            $('.tags').append('<div data-id="' + res.data.id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>');
+                            setTagIds();
                         }
                     });
                 } else {
                     var id = $li.data("id");
                     if (tagIds.indexOf(id) < 0) {
-                        $('.tags').append('<div data-id="' + id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>')
+                        $('.tags').append('<div data-id="' + id + '"><span>' + _val + '</span><i class="fa fa-trash"></i></div>');
+                        setTagIds();
                     }
                 }
                 $(".tag-input input").val('');
-                setTagIds();
             }
         });
 
         $(".tags").on("click", ".fa-trash", function() {
             $(this).parent().remove();
+            setTagIds();
         })
 
         $("form").on("change", "input[type='file']", function() {
@@ -157,6 +181,7 @@
     });
 
     function setTagIds() {
+        tagIds = [];
         $(".tags div").each(function() {
             tagIds.push($(this).data("id"));
         });
