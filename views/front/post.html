@@ -5,10 +5,12 @@
     <div class="title">{{title}}</div>
     <div class="info">
         <div>更新于：{{updatedAt}}</div>
-        {{#isArrayEmpty tags}}
+        {{#isArrayEmpty tagList}}
+        {{else}}
         <div>
-            标签： {{#each tags}}
-            <a href='/tag/{{id}}'>{{tag.name}}</a>
+            标签： 
+            {{#each tagList}}
+            <a href='/tag/{{id}}'>{{name}}</a>
             {{/each}}
         </div>
         {{/isArrayEmpty}}
@@ -16,22 +18,114 @@
     <div class="content">
         <div class="md">{{{htmlConetnt}}}</div>
     </div>
+    <style>
+        .comment-box {
+            padding: 40px 20px;
+            font-size: 16px;
+            color: #263238;
+        }
 
-    <div class="comment">
+        .comment-box .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .comment-box .form-group>label {
+            height: 36px;
+            line-height: 36px;
+            width: 50px;
+        }
+
+        .comment-box input,
+        .comment-box textarea {
+            display: block;
+            flex: 1;
+            border: solid 2px #263238;
+            text-indent: 10px
+        }
+
+        .comment-box input {
+            height: 36px;
+        }
+
+        .comment-box textarea {
+            height: 100px;
+            resize: none;
+            padding: 10px 0;
+        }
+
+        .comment-box button {
+            margin-left: 50px;
+            height: 36px;
+            background: #263238;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        @media screen and (max-width: 960px) {
+            .comment-box {
+                padding: 20px 10px;
+            }
+            .comment-box .form-group {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <div class="comment-box">
         <div class="form">
+            <input type="hidden" value="{{id}}" id="postId">
             <div class="form-group">
-                <label>称呼</label>
-                <div class="input">
-                    <input autocomplete="off" type="text" name="name">
-                </div>
+                <label>称呼:</label>
+                <input autocomplete="off" type="text" id="commentName" placeholder="">
             </div>
             <div class="form-group">
-                <label>内容</label>
-                <div class="input">
-                    <textarea name="content"></textarea>
-                </div>
+                <label>内容:</label>
+                <textarea id="commentContent" placeholder=""></textarea>
             </div>
-            <button>提交</button>
+            <button type="button" id="submitComment">提交</button>
+        </div>
+
+        <div class="comment-list">
+                {{#each commentList}}
+                <div class="item">
+                    <p>{{name}}</p>
+                    <div>{{content}}</div>
+                </div>
+                {{/each}}
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function () {
+        var postId = document.querySelector("#postId");
+        var name = document.querySelector("#commentName");
+        var content = document.querySelector("#commentContent");
+        document.querySelector("#submitComment").onclick = function () {
+            if (name.value.trim() == '') {
+                name.focus();
+                return false;
+            }
+            if (content.value.trim() == '') {
+                content.focus();
+                return false;
+            }
+            post('/api/comment/add', 'id=' + postId.value + '&name=' + name.value + '&content=' + content.value, function (res) {
+                console.log(res)
+            });
+        }
+    }
+
+    function post(url, data, success) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', url);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                success(JSON.parse(xhr.responseText))
+            }
+        };
+    }
+</script>

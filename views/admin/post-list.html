@@ -39,7 +39,7 @@
                     <p class="title"><a href="/post/{{id}}" target="_blank">{{title}}</a></p>
                 </td>
                 <td style="width: 20%">
-                    {{#isArrayEmpty tags}} -- {{else}} {{#each tags}}<span class="tag">{{name}}</span>{{/each}} {{/isArrayEmpty}}
+                    {{#isArrayEmpty tagList}} -- {{else}} {{#each tagList}}<span class="tag">{{name}}</span>{{/each}} {{/isArrayEmpty}}
                 </td>
                 <td style="width: 10%">
                     <a href="/admin/post/edit?id={{id}}&status={{../postStatus}}&page={{../pageNo}}">编辑</a>

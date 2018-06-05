@@ -63,14 +63,15 @@ router.get('/post/:postId', async(req, res, next) => {
     if (result.code == 200) {
         res.render('front/post', {
             layout: 'front-layout',
+            id:result.data.id,
             title: result.data.title,
             description: result.data.summary,
             keywords: helper.setHtmlKeyword(result.data.tagList),
             poster: result.data.poster,
             updatedAt: helper.timeago(result.data.updated_at),
-            tags: result.data.tagList,
             htmlConetnt: helper.markdown2Htm(result.data.markdown),
-            commentList: []
+            tagList: result.data.tagList,
+            commentList: result.data.commentList
         });
     } else {
         errorRender(res, result)

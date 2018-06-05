@@ -130,5 +130,6 @@ CREATE TABLE `comment` (
   `content` varchar(100) DEFAULT NULL COMMENT '访问地址',
   `updated_at` varchar(100) DEFAULT NULL COMMENT '密码',
   `is_read` int(1) DEFAULT 0 COMMENT '是否阅读（0未读，1已读）',
+  `is_show` int(1) DEFAULT 1 COMMENT '是否显示（0影藏，1显示）',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='文章评论表';

@@ -138,7 +138,7 @@ router.get('/comment', async (req, res, next) => {
             layout: 'admin-layout',
             title: '评论管理',
             activeSidebar: 'comment',
-            isRead:parseInt(isRead) || 0,
+            isRead:isRead || 0,
             commentList: result.data,
             pageNo,
             pageHtml: pager.createPageHtml(pageNo, commentCount, 3, `?is_read=${isRead}&page=`)

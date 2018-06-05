@@ -106,10 +106,9 @@
         if ($("form input[name='status']:checked").length == 0) {
             $("form input[name='status'][value='published']").attr('checked', true)
         }
-        console.log($("form input[name='allow_comment']:checked").length)
-        /*if ($("form input[name='allow_comment']:checked").length == 0) {
+        if ($("form input[name='allow_comment']:checked").length == 0) {
             $("form input[name='allow_comment'][value='1']").attr('checked', true)
-        }*/
+        }
 
         //init tags
         setTagIds();

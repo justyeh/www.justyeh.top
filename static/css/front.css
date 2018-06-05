@@ -409,6 +409,13 @@ footer a {
 .post .info div:last-child {
     padding-right: 0;
 }
+.post .info div a{
+    display: inline-block;
+    margin-right: 5px;
+}
+.post .info div a:last-of-type{
+    margin-right: 0;
+}
 
 .post .content {
     padding: 20px 30px;

@@ -1,30 +1,38 @@
 let database = require('../utils/database');
 let tagSys = require('./tag');
+let commentSys = require('./comment');
 
 let helper = require('../utils/helper');
 
-exports.getPostById = async(postId) => {
+exports.getPostById = async (postId) => {
 
     if (!helper.isInteger(postId)) {
         return { code: 500, message: '无效的ID' }
     }
 
     let postInfo = await database.query('select * from post where id = ?', [postId]);
-    if (!postInfo) {
-        return { code: 500, message: '服务器错误' }
+    if (postInfo) {
+        if (postInfo.length == 0) {
+            return { code: 400, message: '没有相关数据' }
+        }
+
+        let postTag = await tagSys.getTagListByPostId(postId);
+        let postComment = await commentSys.getCommentListByPostId(postId, 0, 1);
+        return {
+            code: 200,
+            data: {
+                ...postInfo[0],
+                tagList: postTag.code == 200 ? postTag.data : [],
+                commentList: postComment.code == 200 ? postComment.data : [],
+            },
+            message: 'success'
+        }
     }
-    if (postInfo.length == 0) {
-        return { code: 400, message: '没有相关数据' }
-    }
-    let tagList = await tagSys.getPostTags(postId);
-    return {
-        code: 200,
-        data: {...postInfo[0], tagList },
-        message: 'success'
-    }
+
+    return { code: 500, message: '服务器错误' }
 }
 
-exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
+exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
 
     if (!helper.isInteger(pageNo)) {
         return { code: 500, message: '无效的页码' }
@@ -36,19 +44,19 @@ exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
         return { code: 500, message: '服务器错误' }
     }
 
-    getTagsList = [];
+    queryList = [];
     postList.forEach(item => {
-        getTagsList.push(tagSys.getPostTags(item.id))
+        queryList.push(tagSys.getTagListByPostId(item.id))
     });
-    tagList = await Promise.all(getTagsList);
+    tagList = await Promise.all(queryList);
     postList.map((item, index) => {
-        item.tags = tagList[index]
+        item.tagList = tagList[index].code == 200 ? tagList[index].data : []
     });
 
     return { code: 200, data: postList, message: 'success' };
 }
 
-exports.getPostListByTagId = async(postStatus, tagId) => {
+exports.getPostListByTagId = async (postStatus, tagId) => {
     if (!helper.isInteger(tagId)) {
         return { code: 500, message: '无效的ID' }
     }
@@ -66,11 +74,11 @@ exports.getPostListByTagId = async(postStatus, tagId) => {
 
     searchList = [];
     postList.forEach(item => {
-        searchList.push(tagSys.getPostTags(item.id))
+        searchList.push(tagSys.getTagListByPostId(item.id))
     });
     tagList = await Promise.all(searchList);
     postList.map((item, index) => {
-        item.tags = tagList[index]
+        item.tags = tagList[index].code == 200 ? tagList[index].data : []
     });
 
     return {
@@ -83,7 +91,7 @@ exports.getPostListByTagId = async(postStatus, tagId) => {
     }
 }
 
-exports.getPostCount = async(postStatus, search) => {
+exports.getPostCount = async (postStatus, search) => {
     var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
     return result ? result[0].count : 0
 }
@@ -124,7 +132,7 @@ exports.updatePost = async post => {
     }
 }
 
-exports.updatePostTag = async(postId, tagList) => {
+exports.updatePostTag = async (postId, tagList) => {
     var deleteOldTag = await database.query('delete from post_tag where post_id = ?', [postId]);
     if (tagList.length == 0) {
         return { code: 200, message: 'update success' }
