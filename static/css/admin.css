@@ -573,8 +573,6 @@
     padding: 0 20px;
     text-align: left;
     line-height: 1.5;
-    color: #000;
-    font-weight: bold;
 }
 
 .tag-list-page input {
@@ -624,4 +622,11 @@
 
 .setting-page .tip:last-child {
     margin-bottom: 0
+}
+
+.comment-list-page .page-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    padding: 30px 0 20px 20px;
 }

@@ -9,13 +9,25 @@ exports.getCommentCount = async (isRead) => {
 
 exports.getCommentList = async (isRead, pageNo, pageSize) => {
 
+    console.log(isRead, pageNo, pageSize)
+
     if (!helper.isInteger(pageNo)) {
         return { code: 500, message: '无效的页码' }
     }
 
-    let commentList = await database.query('select * from comment where is_read = ? group by post_id order by updated_at desc limit ?,?', [isRead, ((pageNo - 1) * pageSize), pageSize]);
+    let commentList = await database.query('select * from comment where is_read = ? order by updated_at desc limit ?,?', [isRead, ((pageNo - 1) * pageSize), pageSize]);
 
     if (commentList) {
+
+        var queryList = commentList.map(item => {
+            return database.query('select id,title from post where id = ?', [item.post_id])
+        });
+
+        var commentWithPost = await Promise.all(queryList);
+        commentList.forEach((item, index) => {
+            item.post = commentWithPost[index] ? commentWithPost[index][0] : {}
+        })
+
         return { code: 200, data: commentList, message: 'success' }
     }
 

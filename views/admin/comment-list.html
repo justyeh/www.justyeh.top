@@ -6,48 +6,36 @@
     <a href="/admin/comment?is_read=1" {{#equals isRead 1}}class="active"{{/equals}}>已读</a>
 </div>
 
-<div class="tag-list-page">
-    <div class="page-title">标签列表</div>
+<div class="comment-list-page">
+    <div class="page-title">评论列表</div>
     <div class="table">
         <table>
             <thead>
+                <th>评论人</th>
                 <th>评论内容</th>
-                <th>文章</th>
+                <th>对应的文章</th>
                 <th>状态</th>
                 <th>操作</th>
             </thead>
             <tbody>
-                {{#isArrayEmpty tagList}}
+                {{#isArrayEmpty commentList}}
                 <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                         <div class="error">
                             <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
                         </div>
                     </td>
                 </tr>
                 {{else}} 
-                    {{#each tagList}}
+                    {{#each commentList}}
                     <tr>
-                        <td style="width: 200px;">
-                            <input class="disabled" type="text" data-id="{{id}}" data-value="{{name}}" value="{{name}}">
-                        </td>
-                        <td class="post-list" style="width: auto">
-                            {{#isArrayEmpty posts}}
-                            -- 
-                            {{else}} 
-                                {{#each posts}}
-                                <p class="text-over"><span>{{id}}：</span><span class="post">{{title}}</span></p>
-                                {{/each}} 
-                            {{/isArrayEmpty}}
-                        </td>
+                        <td>{{name}}</td>
+                        <td>{{content}}</td>
                         <td>
-                            {{#equals isRead 0}}
-                            <a href="">标记为已读</a>
-                            {{else}}
-                            已读
-                            {{/equals}}
+                            <a href="/post/{{post.id}}" target="_blank">{{post.title}}</a>
                         </td>
-                        <td style="width: 160px">
+                        <td>{{isRead}}</td>
+                        <td style="width: 100px">
                             <a href="javascript:;" class="c-red">删除</a>
                         </td>
                     </tr>
@@ -57,6 +45,11 @@
         </table>
     </div>
 </div>
+
+<div class="pager">
+    {{{pageHtml}}}
+</div>
+
 <script>
     
     function showToast(msg,icon) {
