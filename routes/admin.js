@@ -80,7 +80,7 @@ router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
         summary: req.body.summary,
         markdown: req.body.markdown,
         status: req.body.status || 'published',
-        allow_comment:req.body.allow_comment || 1
+        allow_comment: req.body.allow_comment || 1
     }
 
     var result = null;
@@ -131,14 +131,13 @@ router.get('/comment', async (req, res, next) => {
     var pageNo = req.query.page || 1;
 
     var commentCount = await commentSys.getCommentCount(isRead);
-    var result = await commentSys.getCommentList(isRead, pageNo, 3);
-
+    var result = await commentSys.getCommentList(isRead, pageNo, 15);
     if (result.code == 200) {
         res.render('admin/comment-list', {
             layout: 'admin-layout',
             title: '评论管理',
             activeSidebar: 'comment',
-            isRead:isRead || 0,
+            isRead: isRead || 0,
             commentList: result.data,
             pageNo,
             pageHtml: pager.createPageHtml(pageNo, commentCount, 3, `?is_read=${isRead}&page=`)

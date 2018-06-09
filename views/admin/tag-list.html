@@ -30,7 +30,9 @@
                             -- 
                             {{else}} 
                                 {{#each posts}}
-                                <p class="text-over"><span>{{id}}：</span><span class="post">{{title}}</span></p>
+                                <p class="text-over">
+                                    <a href="/post/{{id}}" target="_blank">{{title}}</a>
+                                </p>
                                 {{/each}} 
                             {{/isArrayEmpty}}
                         </td>
