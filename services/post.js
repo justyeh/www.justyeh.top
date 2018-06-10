@@ -4,7 +4,6 @@ let tagSys = require('./tag');
 let helper = require('../utils/helper');
 
 exports.getPostById = async(postId) => {
-
     if (!helper.isInteger(postId)) {
         return { code: 500, message: '无效的ID' }
     }
@@ -16,7 +15,7 @@ exports.getPostById = async(postId) => {
     if (postInfo.length == 0) {
         return { code: 400, message: '没有相关数据' }
     }
-    let tagList = await tagSys.getPostTags(postId);
+    let tagList = await tagSys.getTagById(postId);
     return {
         code: 200,
         data: {...postInfo[0], tagList },
@@ -38,7 +37,7 @@ exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
 
     getTagsList = [];
     postList.forEach(item => {
-        getTagsList.push(tagSys.getPostTags(item.id))
+        getTagsList.push(tagSys.getTagById(item.id))
     });
     tagList = await Promise.all(getTagsList);
     postList.map((item, index) => {
