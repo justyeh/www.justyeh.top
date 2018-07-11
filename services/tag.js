@@ -18,17 +18,23 @@ exports.getTagList = async () => {
             queryList.push(database.query('select id,title from post where id in (select post_id from post_tag where tag_id = ?)', [item.id]))
         });
         var postList = await Promise.all(queryList);
-        tagRows.forEach((item, index) => {
-            item.posts = postList[index] || []
-        });
-        return { code: 200, data: tagRows, message: 'success' }
+        if(postList){
+            tagRows.forEach((item, index) => {
+                item.posts = postList[index] || []
+            });
+            return { code: 200, data: tagRows, message: 'success' }
+        }
     }
     return { code: 500, message: '服务器错误' };
 }
 
 
 exports.getTagById = async (tagId) => {
-    return await database.query('select id,name from tag where id = ?', [tagId]);
+    var tagRows =  await database.query('select id,name from tag where id = ?', [tagId]);
+    if (tagRows) {
+        return { code: 200, data: tagRows, message: 'success' }
+    }
+    return { code: 500, message: '服务器错误' };
 }
 
 exports.getTagByName = async name => {
@@ -41,7 +47,6 @@ exports.getTagByName = async name => {
 
 exports.addTag = async tagName => {
     var insertRow = await database.query('insert into tag(name) values(?)', [tagName]);
-
     if (insertRow && insertRow.insertId) {
         return { code: 200, data: { id: insertRow.insertId }, message: 'insert success' }
     } else {

@@ -9,7 +9,7 @@ var commentSys = require('../services/comment')
 //router.use(apiAuthMiddleware.apiAuth)
 
 router.get('/', function(req, res, next) {
-    res.json({ message: "welcome to justyeh.com api server" })
+    res.json({ message: "welcome to justyeh.top api server" })
 });
 
 router.get('/test401', function(req, res, next) {

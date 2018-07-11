@@ -5,11 +5,9 @@
     <div class="title">{{title}}</div>
     <div class="info">
         <div>更新于：{{updatedAt}}</div>
-        {{#isArrayEmpty tagList}}
-        {{else}}
+        {{#isArrayEmpty tagList}} {{else}}
         <div>
-            标签： 
-            {{#each tagList}}
+            标签： {{#each tagList}}
             <a href='/tag/{{id}}'>{{name}}</a>
             {{/each}}
         </div>
@@ -63,6 +61,13 @@
             padding: 0 20px;
         }
 
+        .comment-list{
+            padding: 20px 0;
+        }
+        .comment-list item{
+            display: flex;
+        }
+
         @media screen and (max-width: 960px) {
             .comment-box {
                 padding: 20px 10px;
@@ -72,12 +77,11 @@
             }
         }
     </style>
-    <div class="comment-box">
+    <div class="comment-box" id="commentApp">
         <div class="form">
-            <input type="hidden" value="{{id}}" id="postId">
             <div class="form-group">
                 <label>称呼:</label>
-                <input autocomplete="off" type="text" id="commentName" placeholder="">
+                <input autocomplete="off" type="text" v-model="" placeholder="">
             </div>
             <div class="form-group">
                 <label>内容:</label>
@@ -85,21 +89,26 @@
             </div>
             <button type="button" id="submitComment">提交</button>
         </div>
-
         <div class="comment-list">
-                {{#each commentList}}
-                <div class="item">
-                    <p>{{name}}</p>
-                    <div>{{content}}</div>
+            <div class="item" v-for="item in commentList">
+                <div>
+                    <div :style="avatar">{{name | }}</div>
+                    <div>
+                        <p class="name">{{name}}</p>
+                        <p class="time">{{updated_at}}</p>
+                    </div>
                 </div>
-                {{/each}}
+                <div>{{content}}</div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    window.postId = {{id}};
     window.onload = function () {
-        var postId = document.querySelector("#postId");
+
+        /* var postId = document.querySelector("#postId");
         var name = document.querySelector("#commentName");
         var content = document.querySelector("#commentContent");
         document.querySelector("#submitComment").onclick = function () {
@@ -112,9 +121,17 @@
                 return false;
             }
             post('/api/comment/add', 'id=' + postId.value + '&name=' + name.value + '&content=' + content.value, function (res) {
-                console.log(res)
+                if (res.code == 200) {
+                    var html = '<div class="item">' +
+                        '<p>' + name.value + '</p>' +
+                        '<div>' + content.value + '</div>' +
+                        ' </div>';
+                    name.value = '';
+                    content.value = ''
+                    document.querySelector(".comment-list").insertBefore(html);
+                }
             });
-        }
+        } */
     }
 
     function post(url, data, success) {

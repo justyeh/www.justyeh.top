@@ -14,11 +14,11 @@ Date: 2017-07-11 14:27:55
 */
 
 
-DROP DATABASE `justyeh.com`;
+DROP DATABASE `justyeh.top`;
 
-CREATE DATABASE IF NOT EXISTS `justyeh.com` DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `justyeh.top` DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
-USE `justyeh.com`;
+USE `justyeh.top`;
 
 
 -- ----------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (null, '叶文祥', '99926e3dab995487ceab34ec1c8b2fd7f99392da', null, 'justyeh@163.com', '码畜，其他没什么好说的！', 'http://www.justyeh.com', '暂住北京');
+INSERT INTO `user` VALUES (null, '叶文祥', '99926e3dab995487ceab34ec1c8b2fd7f99392da', null, 'justyeh@163.com', '码畜，其他没什么好说的！', 'http://www.justyeh.top', '暂住北京');
 
 
 -- ----------------------------

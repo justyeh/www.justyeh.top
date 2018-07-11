@@ -8,7 +8,6 @@ var session = require('express-session');
 
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
-    console.log('app.js line 9')
 });
 hbs.registerHelper('isArrayEmpty', function(arr, options) {
     if (arr && arr.length > 0) {
@@ -50,7 +49,7 @@ app.use(express.static(path.join(__dirname, './uploads'))); //image upload dir
 
 //session中间件
 app.use(session({
-    secret: 'justyeh.com',
+    secret: 'justyeh.top',
     resave: true,
     saveUninitialized: true,
     cookie: { maxAge: 1000 * 60 * 60 * 24 } //设置一天有效期

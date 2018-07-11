@@ -1,53 +1,56 @@
 let database = require('../utils/database');
 let tagSys = require('./tag');
+let commentSys = require('./comment');
 
 let helper = require('../utils/helper');
 
-exports.getPostById = async(postId) => {
+exports.getPostById = async (postId) => {
     if (!helper.isInteger(postId)) {
         return { code: 500, message: '无效的ID' }
     }
-
-    let postInfo = await database.query('select * from post where id = ?', postId);
+    var postInfo = await database.query('select * from post where id = ?', postId);
     if (!postInfo) {
         return { code: 500, message: '服务器错误' }
     }
     if (postInfo.length == 0) {
         return { code: 400, message: '没有相关数据' }
     }
-    let tagList = await tagSys.getTagById(postId);
+    var post = postInfo[0];
+    //post tag
+    var tagResult = await tagSys.getTagListByPostId(postId);
+    post.tagList = tagResult.data || [];
+    //post comment
+    var commentResult = await commentSys.getCommentListByPostId(postId);
+    post.commentList = commentResult.data || [];
     return {
         code: 200,
-        data: {...postInfo[0], tagList },
+        data: { ...post },
         message: 'success'
     }
 }
 
-exports.getPostList = async(postStatus, search, pageNo, pageSize) => {
-
+exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
     if (!helper.isInteger(pageNo)) {
         return { code: 500, message: '无效的页码' }
     }
-
     let postList = await database.query('select * from post where status = ? and title like ? order by id desc limit ?,?', [postStatus, `%${search || ''}%`, ((pageNo - 1) * pageSize), pageSize]);
-
-    if (!postList) {
-        return { code: 500, message: '服务器错误' }
+    if (postList) {
+        getTagsList = [];
+        postList.forEach(item => {
+            getTagsList.push(tagSys.getTagListByPostId(item.id));
+        });
+        tagList = await Promise.all(getTagsList);
+        if (tagList) {
+            postList.map((item, index) => {
+                item.tagList = tagList[index].data || []
+            });
+            return { code: 200, data: postList, message: 'success' };
+        }
     }
-
-    getTagsList = [];
-    postList.forEach(item => {
-        getTagsList.push(tagSys.getTagById(item.id))
-    });
-    tagList = await Promise.all(getTagsList);
-    postList.map((item, index) => {
-        item.tags = tagList[index]
-    });
-
-    return { code: 200, data: postList, message: 'success' };
+    return { code: 500, message: '服务器错误' }
 }
 
-exports.getPostListByTagId = async(postStatus, tagId) => {
+exports.getPostListByTagId = async (postStatus, tagId) => {
     if (!helper.isInteger(tagId)) {
         return { code: 500, message: '无效的ID' }
     }
@@ -68,10 +71,12 @@ exports.getPostListByTagId = async(postStatus, tagId) => {
         searchList.push(tagSys.getPostTags(item.id))
     });
     tagList = await Promise.all(searchList);
+    if (!tagList) {
+        return { code: 500, message: '服务器错误' }
+    }
     postList.map((item, index) => {
         item.tags = tagList[index]
     });
-
     return {
         code: 200,
         data: {
@@ -82,7 +87,7 @@ exports.getPostListByTagId = async(postStatus, tagId) => {
     }
 }
 
-exports.getPostCount = async(postStatus, search) => {
+exports.getPostCount = async (postStatus, search) => {
     var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
     return result[0].count || 0
 }
@@ -121,18 +126,19 @@ exports.updatePost = async post => {
     }
 }
 
-exports.updatePostTag = async(postId, tagList) => {
-    var deleteOldTag = await database.query('delete post_tag where post_id = ?', postId);
+exports.updatePostTag = async (postId, tagList) => {
+    var deleteOldTag = await database.query('delete from post_tag where post_id = ?', postId);
     if (deleteOldTag) {
         var insertList = tagList.map(item => {
             return database.query('insert into post_tag(post_id,tag_id) values(?,?)', [postId, item])
         });
         if (insertList.length == 0) {
-            return { code: 200, message: 'update success' }
+            return { code: 200, message: 'update post_tag success' }
         }
         var insertNewTag = await Promise.all(insertList);
-        console.log(insertNewTag)
+        if (insertNewTag) {
+            return { code: 200, message: 'update post_tag success' }
+        }
     }
-
-    return { code: 500, message: 'update fail' }
+    return { code: 500, message: 'update post_tag fail' }
 }

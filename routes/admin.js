@@ -42,7 +42,6 @@ router.get('/post', async (req, res, next) => {
 
     var postCount = await postSys.getPostCount(postStatus, search);
     var result = await postSys.getPostList(postStatus, search, pageNo, 10);
-
     if (result.code == 200) {
         res.render('admin/post-list', {
             layout: 'admin-layout',
@@ -62,14 +61,19 @@ router.get('/post', async (req, res, next) => {
 
 router.get('/post/edit', async (req, res, next) => {
     var result = await postSys.getPostById(req.query.id);
-    res.render('admin/post-edit', {
-        layout: 'admin-layout',
-        title: '文章管理',
-        activeSidebar: 'post',
-        postStatus: req.query.status || 'published',
-        pageNo: req.query.page || 1,
-        post: result.code == 200 ? result.data : null
-    });
+    if(result.code == 200){
+        res.render('admin/post-edit', {
+            layout: 'admin-layout',
+            title: '文章管理',
+            activeSidebar: 'post',
+            postStatus: req.query.status || 'published',
+            pageNo: req.query.page || 1,
+            post: result.code == 200 ? result.data : null
+        });
+    }else{
+        errorRender(res, result);
+    }
+   
 });
 
 router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
@@ -84,13 +88,15 @@ router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
     }
 
     var result = null;
-    if (req.body.id) {
+    if (post.id) {
         result = await postSys.updatePost(post);
     } else {
         result = await postSys.addPost(post);
+        post.id = result.data.id
     }
+
     if (result.code == 200) {
-        var updatePostTagResult = await postSys.updatePostTag(req.body.id || result.data.id, req.body.tags ? req.body.tags.split(',') : []);
+        var updatePostTagResult = await postSys.updatePostTag(post.id, req.body.tags ? req.body.tags.split(',') : []);
         if (updatePostTagResult.code == 200) {
             res.redirect(`/admin/post?status=${req.body.postStatus}&page=${req.body.pageNo}`);
         } else {
