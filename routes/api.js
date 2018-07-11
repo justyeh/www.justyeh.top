@@ -31,9 +31,17 @@ router.post('/tag/update', async(req, res, next) => {
     res.json(await tagSys.updateTag(req.body.name, req.body.id));
 });
 
+
+router.get('/comment/:postId', async(req, res, next) => {
+    res.json(await commentSys.getCommentListByPostId(req.params.postId));
+});
+
 router.post('/comment/add', async(req, res, next) => {
     res.json(await commentSys.addComment(req.body.id, req.body.name, req.body.content));
 });
+
+
+
 
 
 

@@ -17,132 +17,132 @@
         <div class="md">{{{htmlConetnt}}}</div>
     </div>
     <style>
-        .comment-box {
-            padding: 40px 20px;
-            font-size: 16px;
-            color: #263238;
-        }
-
-        .comment-box .form-group {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .comment-box .form-group>label {
-            height: 36px;
-            line-height: 36px;
-            width: 50px;
-        }
-
-        .comment-box input,
-        .comment-box textarea {
-            display: block;
-            flex: 1;
-            border: solid 2px #263238;
-            text-indent: 10px
-        }
-
-        .comment-box input {
-            height: 36px;
-        }
-
-        .comment-box textarea {
-            height: 100px;
-            resize: none;
-            padding: 10px 0;
-        }
-
-        .comment-box button {
-            margin-left: 50px;
-            height: 36px;
-            background: #263238;
-            color: #fff;
-            padding: 0 20px;
-        }
-
-        .comment-list{
-            padding: 20px 0;
-        }
-        .comment-list item{
-            display: flex;
-        }
-
-        @media screen and (max-width: 960px) {
-            .comment-box {
-                padding: 20px 10px;
-            }
-            .comment-box .form-group {
-                margin-bottom: 10px;
-            }
+        [v-cloak] {
+            opacity: 0;
         }
     </style>
     <div class="comment-box" id="commentApp">
-        <div class="form">
+        <div class="form" v-cloak>
             <div class="form-group">
                 <label>称呼:</label>
-                <input autocomplete="off" type="text" v-model="" placeholder="">
+                <input autocomplete="off" type="text" v-model.trim="name">
             </div>
             <div class="form-group">
                 <label>内容:</label>
-                <textarea id="commentContent" placeholder=""></textarea>
+                <textarea v-model.trim="content"></textarea>
             </div>
-            <button type="button" id="submitComment">提交</button>
+            <button type="button" @click="submitComment">提交</button>
         </div>
         <div class="comment-list">
             <div class="item" v-for="item in commentList">
-                <div>
-                    <div :style="avatar">{{name | }}</div>
-                    <div>
-                        <p class="name">{{name}}</p>
-                        <p class="time">{{updated_at}}</p>
-                    </div>
+                <div class="avatar" :style="item.avatar">${item.name.charAt(0)}</div>
+                <div class="comment-main">
+                    <p class="name">${item.name}</p>
+                    <p class="time">${item.updated_at | timeFormat}</p>
+                    <div>${item.content}</div>
                 </div>
-                <div>{{content}}</div>
             </div>
+            <div class="tip" v-if="commentList.length == 0">暂无评论！</div>
         </div>
     </div>
 </div>
 
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 <script>
-    window.postId = {{id}};
     window.onload = function () {
-
-        /* var postId = document.querySelector("#postId");
-        var name = document.querySelector("#commentName");
-        var content = document.querySelector("#commentContent");
-        document.querySelector("#submitComment").onclick = function () {
-            if (name.value.trim() == '') {
-                name.focus();
-                return false;
-            }
-            if (content.value.trim() == '') {
-                content.focus();
-                return false;
-            }
-            post('/api/comment/add', 'id=' + postId.value + '&name=' + name.value + '&content=' + content.value, function (res) {
-                if (res.code == 200) {
-                    var html = '<div class="item">' +
-                        '<p>' + name.value + '</p>' +
-                        '<div>' + content.value + '</div>' +
-                        ' </div>';
-                    name.value = '';
-                    content.value = ''
-                    document.querySelector(".comment-list").insertBefore(html);
+        var app = new Vue({
+            el: "#commentApp",
+            delimiters: ['${', '}'],//修改vue花括号，避免和handbars冲突
+            data: {
+                commentList: [],
+                id: {{id}},
+                name: '',
+                content: ''
+            },
+            created() {
+                this.getCommentList();
+            },
+            filter:{
+                timeFormat:function(timeStamp){
+                    var add0 = function(val){
+                        return val < 10  ? '0'+val : val;
+                    }
+                    var time = new Date(timeStamp / 1000);
+                    var y = time.getFullYear();
+                    var m = time.getMonth()+1;
+                    var d = time.getDate();
+                    var h = time.getHours();
+                    var mm = time.getMinutes();
+                    var s = time.getSeconds();
+                    console.log(11)
+                    return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
                 }
-            });
-        } */
+            },
+            methods: {
+                getCommentList: function () {
+                    var self = this;
+                    ajax.get('/api/comment/' + this.id, function (res) {
+                        res.data.forEach(function(item){
+                            item.avatar = self.bindAvatar(item.updated_at)
+                        });
+                        self.commentList = res.data || []
+                    })
+                },
+                submitComment: function () {
+                    var self = this;
+                    ajax.post('/api/comment/add', 'id=' + self.id + '&name=' + self.name + '&content=' + self.content, function (res) {
+                        if(res.code == 200){
+                            var updated_at = new Date().getTime() + '';
+                            self.commentList.unshift({
+                                name:self.name,
+                                content:self.content,
+                                updated_at:updated_at,
+                                avatar : self.bindAvatar(updated_at)
+                            });
+                        }
+                    });
+                },
+                bindAvatar:function(updated_at){
+                    var materialUlColors = ['#f44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B']
+                    var index = parseInt(updated_at.charAt(updated_at.length-1)) + parseInt(updated_at.charAt(updated_at.length-2));
+                    return{
+                        'background-color':materialUlColors[index]
+                    }
+                }
+            }
+        })
+
     }
 
-    function post(url, data, success) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('post', url);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send(data);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                success(JSON.parse(xhr.responseText))
+    var ajax = {
+        getXhr: function () {
+            if (!window.xhr) {
+                window.xhr = new XMLHttpRequest();
             }
-        };
+            return window.xhr
+        },
+        get: function (url, success) {
+            var xhr = this.getXhr();
+            xhr.open('get', url);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    success(JSON.parse(xhr.responseText))
+                }
+            };
+        },
+        post: function (url, data, success) {
+            var xhr = this.getXhr();
+            xhr.open('post', url);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    success(JSON.parse(xhr.responseText))
+                }
+            };
+        }
     }
+
 </script>
