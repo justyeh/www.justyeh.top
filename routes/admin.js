@@ -60,19 +60,25 @@ router.get('/post', async (req, res, next) => {
 
 
 router.get('/post/edit', async (req, res, next) => {
-    var result = await postSys.getPostById(req.query.id);
-    if(result.code == 200){
-        res.render('admin/post-edit', {
-            layout: 'admin-layout',
-            title: '文章管理',
-            activeSidebar: 'post',
-            postStatus: req.query.status || 'published',
-            pageNo: req.query.page || 1,
-            post: result.code == 200 ? result.data : null
-        });
-    }else{
-        errorRender(res, result);
+    var params = {
+        layout: 'admin-layout',
+        title: '文章管理',
+        activeSidebar: 'post',
+        postStatus: req.query.status || 'published',
+        pageNo: req.query.page || 1,
     }
+    if(req.query.id){
+        var result = await postSys.getPostById(req.query.id);
+        if(result.code == 200){
+            params.post = result.data;
+            res.render('admin/post-edit', params)
+        }else{
+            errorRender(res, result);
+        }
+    }else{
+        res.render('admin/post-edit', params)
+    }
+    
    
 });
 
