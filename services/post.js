@@ -42,7 +42,8 @@ exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
         tagList = await Promise.all(getTagsList);
         if (tagList) {
             postList.map((item, index) => {
-                item.tagList = tagList[index].data || []
+                item.tagList = tagList[index].data || [],
+                item.updatedAt = helper.timeago(item.updated_at)
             });
             return { code: 200, data: postList, message: 'success' };
         }
@@ -60,35 +61,31 @@ exports.getPostListByTagId = async (postStatus, tagId) => {
         return { code: 400, message: '没有相关数据' }
     }
 
-    var postList = await database.query('select * from post where  status = ? and id in (select post_id from post_tag where tag_id = ?)', [postStatus, tagId]);
-
-    if (!postList) {
-        return { code: 500, message: '服务器错误' }
+    var postList = await database.query('select * from post where status = ? and id in (select post_id from post_tag where tag_id = ?) order by id desc', [postStatus, tagId]);
+    if (postList) {
+        getTagsList = [];
+        postList.forEach(item => {
+            getTagsList.push(tagSys.getTagListByPostId(item.id));
+        });
+        tagList = await Promise.all(getTagsList);
+        if(tagList){
+            postList.map((item, index) => {
+                item.tagList = tagList[index].data || [],
+                item.updatedAt = helper.timeago(item.updated_at)
+            });
+            return {code: 200,data: {...tagInfo.data[0],postList},message: 'success'}
+        }
     }
-
-    searchList = [];
-    postList.forEach(item => {
-        searchList.push(tagSys.getPostTags(item.id))
-    });
-    tagList = await Promise.all(searchList);
-    if (!tagList) {
-        return { code: 500, message: '服务器错误' }
-    }
-    postList.map((item, index) => {
-        item.tags = tagList[index]
-    });
-    return {
-        code: 200,
-        data: {
-            ...tagInfo[0],
-            postList
-        },
-        message: 'success'
-    }
+    return { code: 500, message: '服务器错误' }
 }
 
 exports.getPostCount = async (postStatus, search) => {
-    var result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
+    var result = null;
+    if(search){
+        result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
+    }else{
+        result = await database.query('select count(id) as `count` from post where status = ?', [postStatus]);
+    }
     return result[0].count || 0
 }
 
@@ -110,13 +107,12 @@ exports.addPost = async post => {
 }
 
 exports.updatePost = async post => {
-    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=?,updated_at=? where id = ?', [
+    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=? where id = ?', [
         post.title,
         post.poster,
         post.summary,
         post.markdown,
         post.status,
-        new Date().getTime(),
         post.id
     ]);
     if (result && result.affectedRows > 0) {

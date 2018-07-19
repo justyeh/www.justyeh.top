@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /* reset*/
 
 body,
@@ -46,6 +45,7 @@ select {
 a {
     color: #3084bb;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:focus,
@@ -96,10 +96,12 @@ body {
     font-size: 14px;
     line-height: 1;
     overflow-x: hidden;
-    word-break: break-all;
     background: #f7f8fa;
     -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    word-break: break-word;
+    min-width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 *,
@@ -112,14 +114,12 @@ button {
     border: none;
 }
 
-
 /*mobile reset*/
 
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
-
 
 /* tool */
 
@@ -136,7 +136,6 @@ input[type=search]::-webkit-search-decoration {
 .text-left {
     text-align: left;
 }
-
 
 /*error*/
 

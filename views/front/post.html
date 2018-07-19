@@ -1,49 +1,55 @@
-<div class="page post">
-    {{#if poster}}
-    <div class="poster" style="background-image:url({{poster}})"></div>
-    {{/if}}
-    <div class="title">{{title}}</div>
-    <div class="info">
-        <div>更新于：{{updatedAt}}</div>
-        {{#isArrayEmpty tagList}} {{else}}
-        <div>
-            标签： {{#each tagList}}
-            <a href='/tag/{{id}}'>{{name}}</a>
-            {{/each}}
-        </div>
-        {{/isArrayEmpty}}
-    </div>
-    <div class="content">
-        <div class="md">{{{htmlConetnt}}}</div>
-    </div>
-    <style>
-        [v-cloak] {
-            opacity: 0;
-        }
-    </style>
-    <div class="comment-box" id="commentApp">
-        <div class="form" v-cloak>
-            <div class="form-group">
-                <label>称呼:</label>
-                <input autocomplete="off" type="text" v-model.trim="name">
+<div class="container page">
+    <div class="post-detail-page">
+        {{#if poster}}
+        <div class="poster" style="background-image:url({{poster}})"></div>
+        {{/if}}
+        <div class="title">{{title}}</div>
+        <div class="info">
+            <i class="fa fa-clock-o"></i>
+            <p>{{updatedAt}}</p>
+            {{#isArrayEmpty tagList}} {{else}}
+            <i class="fa fa-tag"></i>
+            <div>
+                {{#each tagList}}
+                <a href='/tag/{{id}}'>{{name}}</a>
+                {{/each}}
             </div>
-            <div class="form-group">
-                <label>内容:</label>
-                <textarea v-model.trim="content"></textarea>
-            </div>
-            <button type="button" @click="submitComment">提交</button>
+            {{/isArrayEmpty}}
         </div>
-        <div class="comment-list">
-            <div class="item" v-for="item in commentList">
-                <div class="avatar" :style="item.avatar">${item.name.charAt(0)}</div>
-                <div class="comment-main">
-                    <p class="name">${item.name}</p>
-                    <p class="time">${item.updated_at | timeFormat}</p>
-                    <div>${item.content}</div>
+        <div class="content">
+            <div class="md">{{{htmlConetnt}}}</div>
+        </div>
+        {{#equals allowComment 1}}
+        <style>
+            [v-cloak] {
+                opacity: 0;
+            }
+        </style>
+        <div class="comment-box" id="commentApp">
+            <div class="form" v-cloak>
+                <div class="form-group">
+                    <label>称呼:</label>
+                    <input autocomplete="off" type="text" v-model.trim="name">
                 </div>
+                <div class="form-group">
+                    <label>内容:</label>
+                    <textarea v-model.trim="content"></textarea>
+                </div>
+                <button type="button" @click="submitComment">提交</button>
             </div>
-            <div class="tip" v-if="commentList.length == 0">暂无评论！</div>
+            <div class="comment-list">
+                <div class="item" v-for="item in commentList">
+                    <div class="avatar" :style="item.avatar">${item.name.charAt(0)}</div>
+                    <div class="comment-main">
+                        <p class="name">${item.name}</p>
+                        <p class="time">${item.updated_at | timeFormat}</p>
+                        <div>${item.content}</div>
+                    </div>
+                </div>
+                <div class="tip" v-if="commentList.length == 0">暂无评论！</div>
+            </div>
         </div>
+        {{/equals}}
     </div>
 </div>
 
@@ -55,34 +61,34 @@
             delimiters: ['${', '}'],//修改vue花括号，避免和handbars冲突
             data: {
                 commentList: [],
-                id: {{id}},
+                id: {{ id }},
                 name: '',
                 content: ''
             },
             created() {
                 this.getCommentList();
             },
-            filter:{
-                timeFormat:function(timeStamp){
-                    var add0 = function(val){
-                        return val < 10  ? '0'+val : val;
+            filter: {
+                timeFormat: function(timeStamp) {
+                    var add0 = function (val) {
+                        return val < 10 ? '0' + val : val;
                     }
                     var time = new Date(timeStamp / 1000);
                     var y = time.getFullYear();
-                    var m = time.getMonth()+1;
+                    var m = time.getMonth() + 1;
                     var d = time.getDate();
                     var h = time.getHours();
                     var mm = time.getMinutes();
                     var s = time.getSeconds();
                     console.log(11)
-                    return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+                    return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
                 }
             },
             methods: {
                 getCommentList: function () {
                     var self = this;
                     ajax.get('/api/comment/' + this.id, function (res) {
-                        res.data.forEach(function(item){
+                        res.data.forEach(function (item) {
                             item.avatar = self.bindAvatar(item.updated_at)
                         });
                         self.commentList = res.data || []
@@ -91,27 +97,26 @@
                 submitComment: function () {
                     var self = this;
                     ajax.post('/api/comment/add', 'id=' + self.id + '&name=' + self.name + '&content=' + self.content, function (res) {
-                        if(res.code == 200){
+                        if (res.code == 200) {
                             var updated_at = new Date().getTime() + '';
                             self.commentList.unshift({
-                                name:self.name,
-                                content:self.content,
-                                updated_at:updated_at,
-                                avatar : self.bindAvatar(updated_at)
+                                name: self.name,
+                                content: self.content,
+                                updated_at: updated_at,
+                                avatar: self.bindAvatar(updated_at)
                             });
                         }
                     });
                 },
-                bindAvatar:function(updated_at){
-                    var materialUlColors = ['#f44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B']
-                    var index = parseInt(updated_at.charAt(updated_at.length-1)) + parseInt(updated_at.charAt(updated_at.length-2));
-                    return{
-                        'background-color':materialUlColors[index]
+                bindAvatar: function(updated_at) {
+                    var materialUlColors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
+                    var index = parseInt(updated_at.charAt(updated_at.length - 1)) + parseInt(updated_at.charAt(updated_at.length - 2));
+                    return {
+                        'background-color': materialUlColors[index]
                     }
                 }
             }
         })
-
     }
 
     var ajax = {

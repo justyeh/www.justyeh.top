@@ -30,6 +30,11 @@ router.post('/login', async (req, res, next) => {
     }
 });
 
+router.get('/logout', async (req, res, next) => {
+    req.session.user = null;
+    res.redirect('/admin');
+});
+
 router.get('/', async (req, res, next) => {
     res.redirect('/admin/post')
 });
@@ -78,8 +83,6 @@ router.get('/post/edit', async (req, res, next) => {
     }else{
         res.render('admin/post-edit', params)
     }
-    
-   
 });
 
 router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
@@ -112,6 +115,20 @@ router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
         errorRender(res, result);
     }
 
+});
+
+router.get('/tool', async (req, res, next) => {
+    //var result = await tagSys.getTagList();
+    //if (result.code == 200) {
+        res.render('admin/tool', {
+            layout: 'admin-layout',
+            title: 'Tool管理',
+            activeSidebar: 'tool',
+            //tool:{}
+        });
+   // } else {
+    //    errorRender(res, result)
+   // }
 });
 
 router.get('/tag', async (req, res, next) => {

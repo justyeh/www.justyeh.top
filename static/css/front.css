@@ -1,3 +1,7 @@
+a:hover {
+    text-decoration: underline;
+}
+
 .app {
     height: 100%;
     display: flex;
@@ -13,38 +17,34 @@
     flex: 0 0 auto;
 }
 
-.page {
+.container {
     width: 1200px;
-    margin: 50px auto;
-    box-shadow: 0 0 6px rgba(100, 100, 100, 0.4);
+    margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px) {
-    .page {
+@media screen and (max-width: 1366px) {
+    .container {
         width: 1080px;
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .page {
-        width: 900px;
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 960px;
     }
 }
 
-@media screen and (max-width: 960px) {
-    .page {
+@media screen and (max-width: 1000px) {
+    .container {
         width: 100%;
         margin: 0;
-        box-shadow: none;
     }
 }
 
 header {
     background: #263238;
-    position: relative;
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    padding: 0 100px;
 }
 
 header .site {
@@ -65,17 +65,23 @@ header .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     background: rgb(38, 50, 56);
     font-size: 20px;
+    padding: 0 0 30px 0;
 }
 
 header .menu a {
     color: rgba(250, 250, 250, 0.4);
     margin-right: 20px;
-    line-height: 60px;
-    height: 60px;
+    line-height: 32px;
+    height: 32px;
     position: relative;
     transition: all 0.2s ease-in;
+}
+
+header .menu a:hover {
+    text-decoration: none;
 }
 
 header .menu a:last-child {
@@ -96,10 +102,9 @@ header menu a.active::after {
     background: rgba(250, 250, 250, 0.8);
 }
 
-header .nav a:hover {
+header .menu a:hover {
     color: rgba(250, 250, 250, 1);
 }
-
 
 header .search form {
     display: flex;
@@ -136,14 +141,17 @@ header .search button {
     font-size: 18px;
 }
 
-@media screen and (max-width: 1000px) {
-    header {
-        padding: 0;
+@media screen and (min-width: 1366px) {
+    header .container {
+        width: 100%;
+        padding: 0 50px;
     }
+}
+
+@media screen and (max-width: 1000px) {
     header .site {
         flex-direction: column;
         font-size: 24px;
-        padding: 20px 0 0 0;
     }
     header .site img {
         width: 100px;
@@ -151,11 +159,24 @@ header .search button {
         margin: 0 0 10px 0;
     }
     header .nav {
-        justify-content: center;
         font-size: 14px;
+    }
+    header .nav>div {
+        width: 100%;
+    }
+    header .menu {
+        display: flex;
+        justify-content: center;
     }
     header .menu a {
         margin-right: 15px;
+    }
+    header .search {
+        padding: 15px 15px 0 15px;
+    }
+    header .search input {
+        width: auto;
+        flex: 1;
     }
 }
 
@@ -165,70 +186,83 @@ footer {
     color: #fff;
 }
 
-footer div {
+footer>div {
     padding-bottom: 20px;
 }
 
-footer div:last-child {
+footer>div:last-child {
     padding-bottom: 0;
 }
 
 footer p {
     font-size: 16px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+footer .links {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 footer a {
-    margin-right: 20px;
+    margin: 5px 20px 0 0;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
     footer {
-        padding: 20px 10px;
+        padding: 20px 15px;
     }
-    footer div {
-        padding-bottom: 10px
+    footer>div {
+        padding-bottom: 15px
     }
     footer p {
         font-size: 14px;
     }
     footer a {
-        margin-right: 10px;
+        margin: 5px 10px 0 0;
     }
 }
 
-/*post list page*/
+.container.page {
+    margin: 50px auto;
+    box-shadow: 0 0 6px rgba(100, 100, 100, 0.4);
+}
+
+@media screen and (max-width: 1000px) {
+    .container.page {
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+/*index page*/
 
 .post-list-page {
     background: #fff;
     padding: 40px 30px;
 }
 
-.post-list-page a:hover {
-    text-decoration: underline;
-}
-
 .post-list-page .pager {
-    padding-top: 10px;
+    padding-top: 40px;
 }
 
 .post-list .post-item {
-    padding: 0 0 5px 0;
-    margin: 0 0 20px 0;
-    border-bottom: solid 1px rgba(50, 50, 93, .15);
+    padding: 20px 0;
+    border-bottom: solid 1px #f7f8fa;
     display: flex;
 }
 
 .post-list .post-item .poster {
     background: rgba(50, 50, 93, .15) no-repeat center / cover;
-    width: 300px;
-    height: 200px;
+    width: 260px;
+    height: 180px;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .post-list .post-item .content {
-    flex: 1;
     position: relative;
+    padding-bottom: 25px;
 }
 
 .post-list .post-item .title {
@@ -237,10 +271,10 @@ footer a {
 }
 
 .post-list .post-item .desc {
+    width: 100%;
     font-size: 14px;
     line-height: 1.5;
     color: #555;
-    padding-top: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -248,36 +282,35 @@ footer a {
     -webkit-box-orient: vertical;
 }
 
-.post-list .post-item .tags {
+.post-list .post-item .info {
     position: absolute;
     left: 0;
-    bottom: 5px;
+    bottom: 0;
 }
 
-.post-list .post-item .tags a {
-    display: inline-block;
-    margin-right: 10px;
+.post-list .post-item .info,
+.post-list .post-item .info div {
+    display: flex;
+    align-content: center;
+    color: #999;
 }
 
-@media screen and (max-width:960px) {
-    .post-list-page {
-        padding: 10px 10px 30px 10px;
-    }
-    .post-list .post-item {
-        padding: 10px 0;
-    }
-    .post-list .post-item .poster {
-        width: 200px;
-    }
+.post-list .post-item .info p {
+    margin: 0 10px 0 5px;
 }
 
-@media screen and (max-width:768px) {
+.post-list .post-item .info a {
+    color: #999;
+    margin-left: 5px;
+}
+
+@media screen and (max-width:1000px) {
     .post-list-page {
         padding: 0;
     }
     .post-list .post-item {
         display: block;
-        padding: 10px;
+        padding: 15px;
         margin: 0;
         border-bottom: solid 5px #f7f8fa;
     }
@@ -294,14 +327,8 @@ footer a {
     .post-list .post-item .title {
         font-size: 16px;
     }
+    .post-list .post-item .info,
     .post-list .post-item .desc {
-        font-size: 12px;
-        padding-top: 0;
-        margin: 5px 0;
-    }
-    .post-list .post-item .tags {
-        position: relative;
-        bottom: auto;
         font-size: 12px;
     }
     .post-list-page .pager {
@@ -309,67 +336,30 @@ footer a {
     }
 }
 
-/*post by tag page*/
+/* post filter page*/
 
-.tag-page .tag-tip {
+.filter-page .filter-tip {
     text-align: center;
     font-size: 20px;
     padding-bottom: 20px
 }
 
-.tag-page .tag-tip span {
+.filter-page .filter-tip span {
     display: inline-block;
     color: #3084bb;
     font-weight: bold;
     padding: 0 2px;
 }
 
-.tag-page .post-list .post-item:last-child {
-    margin-bottom: 0;
-}
-
 @media screen and (min-width: 768px) {
-    .tag-page .post-list .post-item:last-child {
+    .filter-page .post-list .post-item:last-child {
         border-bottom: none;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .tag-page .tag-tip {
-        padding: 10px 0;
-        border-bottom: solid 1px #f7f8fa;
-        font-size: 16px;
-    }
-}
-
-/*search result page*/
-
-.search-page .search-tip {
-    text-align: center;
-    font-size: 20px;
-    padding-bottom: 20px
-}
-
-.search-page .search-tip span {
-    display: inline-block;
-    color: #3084bb;
-    font-weight: bold;
-    padding: 0 2px;
-}
-
-.search-page .post-list .post-item:last-child {
-    margin-bottom: 0;
-}
-
-@media screen and (min-width: 768px) {
-    .search-page .post-list .post-item:last-child {
-        border-bottom: none;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .search-page .search-tip {
-        padding: 10px 0;
+@media screen and (max-width: 1000px) {
+    .filter-page .filter-tip {
+        padding: 15px 0;
         border-bottom: solid 1px #f7f8fa;
         font-size: 16px;
     }
@@ -377,75 +367,71 @@ footer a {
 
 /*post detail page*/
 
-.post {
+.post-detail-page {
     background: #fff;
+    padding: 0 30px;
 }
 
-.post .poster {
-    padding-top: 36%;
+.post-detail-page .poster {
+    padding-top: 32%;
+    margin: 0 -30px;
     background: no-repeat center / cover;
 }
 
-.post .title {
-    padding: 20px;
+.post-detail-page .title {
     font-size: 22px;
     text-align: center;
+    padding: 40px 0;
 }
 
-.post .info {
+.post-detail-page .info,
+.post-detail-page .info div {
     display: flex;
-    font-size: 16px;
-    padding: 0 30px;
-    color: #3084bb;
+    align-content: center;
+    color: #999;
 }
 
-.post .info div {
-    padding-right: 20px;
+.post-detail-page .info p {
+    margin: 0 10px 0 5px;
 }
 
-.post .info div:last-child {
-    padding-right: 0;
+.post-detail-page .info a {
+    color: #999;
+    margin-left: 5px;
 }
 
-.post .info div a {
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.post .info div a:last-of-type {
-    margin-right: 0;
-}
-
-.post .content {
-    padding: 20px 30px;
+.post-detail-page .content {
+    padding: 40px 0;
     line-height: 26px;
 }
 
-@media screen and (max-width: 960px) {
-    /*.post .poster{
-        display: none;
-    }*/
-    .post .title {
+@media screen and (max-width: 1000px) {
+    .post-detail-page {
+        padding: 0 15px;
+    }
+    .post-detail-page .poster {
+        padding-top: 40%;
+        margin: 0 -15px;
+    }
+    .post-detail-page .title {
         font-size: 24px;
-        padding: 15px 0
+        padding: 20px 0;
     }
-    .post .info {
-        padding: 0;
-        justify-content: center;
-        font-size: 14px;
+    .post-detail-page .info {
+        font-size: 12px;
     }
-    .post .content {
-        padding: 15px 10px;
+    .post-detail-page .content {
+        padding: 20px 0;
     }
-    .post .md blockquote {
+    .post-detail-page .md blockquote {
         padding: 8px 10px;
     }
 }
 
-
 /* comment box */
+
 .comment-box {
-    padding: 40px 20px;
+    padding: 40px 0;
     font-size: 16px;
     color: #263238;
 }
@@ -489,7 +475,7 @@ footer a {
 }
 
 .comment-list {
-    padding-top: 30px;
+    padding: 30px 0;
 }
 
 .comment-list .item {
@@ -499,8 +485,6 @@ footer a {
     display: flex;
     align-items: center;
 }
-
-
 
 .comment-list .avatar {
     flex-shrink: 0;
@@ -519,7 +503,7 @@ footer a {
     flex: 1;
 }
 
-.comment-list .name{
+.comment-list .name {
     padding: 15px 0 0 0;
 }
 
@@ -529,14 +513,40 @@ footer a {
     padding: 5px 0 10px 0;
 }
 
-.comment-list .tip{
+.comment-list .tip {
     text-align: center;
 }
-@media screen and (max-width: 960px) {
-    .comment-box {
-        padding: 20px 10px;
-    }
+
+@media screen and (max-width: 1000px) {
     .comment-box .form-group {
         margin-bottom: 10px;
+    }
+}
+
+/* about page */
+
+.about-page {
+    padding: 20px 30px;
+    background: #fff;
+}
+
+.about-page h2 {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.about-page p {
+    line-height: 1.6;
+    padding: 5px 0;
+    font-size: 16px;
+    text-indent: 2em;
+}
+.about-page p:last-child{
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1000px) {
+    .about-page {
+        padding: 15px;
     }
 }

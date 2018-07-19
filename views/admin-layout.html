@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.min-3.3.1.js"></script>
 </head>
 
 <body>
@@ -34,14 +34,12 @@
                 <img src="/image/head.jpg">
                 <div>
                     <p>{{email}}</p>
-                    <a href="/admin/logout">退出
-                        <i class="fa fa-"></i>
-                    </a>
+                    <a href="/admin/logout">退出</a>
                 </div>
             </div>
         </header>
         <div class="sidebar">
-            <div class="site-name">博客后台管理系统</div>
+            <div class="site-name"><!-- 博客后台管理系统 --></div>
             <ul>
                 <li>
                     <a href="/admin" class="{{#equals activeSidebar 'post'}} active{{/equals}}">
@@ -49,6 +47,12 @@
                         <span>博客管理</span>
                     </a>
                 </li>
+                <li>
+                        <a href="/admin/tool" class="{{#equals activeSidebar 'tool'}} active{{/equals}}">
+                            <i class="fa fa-cogs"></i>
+                            <span>Tools管理</span>
+                        </a>
+                    </li>
                 <li>
                     <a href="/admin/tag" class="{{#equals activeSidebar 'tag'}} active{{/equals}}">
                         <i class="fa fa-tags"></i>

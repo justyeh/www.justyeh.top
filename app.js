@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials', () => {
+    //console.log(new Date())
 });
 hbs.registerHelper('isArrayEmpty', function(arr, options) {
     if (arr && arr.length > 0) {
@@ -25,15 +25,12 @@ hbs.registerHelper('equals', function(val1, val2, options) {
     }
 });
 
-
-
 var app = express();
 
 // 设置模板引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
-
 
 // 设置favicon.ico
 app.use(favicon(path.join(__dirname, './static/favicon.ico')));

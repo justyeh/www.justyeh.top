@@ -1,5 +1,5 @@
-<link href="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js"></script>
+<link href="/js/simplemde/simplemde.min.css" rel="stylesheet">
+<script src="/js/simplemde/simplemde.min.js"></script>
 
 <script src="/js/jquery.autoComplete.js"></script>
 
@@ -60,11 +60,11 @@
                 <div class="input">
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="allow_comment" value="1" {{#equals post.allow_comment 1}}checked="checked"{{/equals}}">
+                            <input type="radio" name="allow_comment" value="1" {{#equals post.allow_comment 1}}checked="checked"{{/equals}}>
                             <span>开启</span>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="allow_comment" value="0" {{#equals post.allow_comment 0}}checked="checked"{{/equals}}">
+                            <input type="radio" name="allow_comment" value="0" {{#equals post.allow_comment 0}}checked="checked"{{/equals}}>
                             <span>关闭</span>
                         </label>
                     </div>
@@ -76,15 +76,15 @@
                 <div class="input">
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="status" value="published" {{#equals post.status 'published'}}checked="checked"{{/equals}}">
+                            <input type="radio" name="status" value="published" {{#equals post.status 'published'}}checked="checked"{{/equals}}>
                             <span>发布</span>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="status" value="draft" {{#equals post.status 'draft'}}checked="checked"{{/equals}}">
+                            <input type="radio" name="status" value="draft" {{#equals post.status 'draft'}}checked="checked"{{/equals}}>
                             <span>草稿</span>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="status" value="offline" {{#equals post.status 'offline'}}checked="checked"{{/equals}}">
+                            <input type="radio" name="status" value="offline" {{#equals post.status 'offline'}}checked="checked"{{/equals}}>
                             <span>下线</span>
                         </label>
                     </div>

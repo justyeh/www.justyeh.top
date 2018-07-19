@@ -1,30 +1,37 @@
-<div class="page">
-
-    {{#isArrayEmpty postList}}
-    <div class="error">
-        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据</div>
-        <a href="/">首页</a>
-    </div>
-    {{else}}
-    <div class="post-list-page search-page">
-        <div class="search-tip">关于<span>{{keyword}}</span>的搜索结果</div>
+<div class="container page">
+    <div class="post-list-page filter-page">
+        {{#isArrayEmpty postList}}
+        <div class="error">
+            <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据</div>
+            <a href="/">首页</a>
+        </div>
+        {{else}}
+        <div class="filter-tip">关于<span>{{keyword}}</span>的搜索结果</div>
         <div class="post-list">
             {{#each postList}}
             <div class="post-item">
-                {{#if image}}
+                {{#if poster}}
                 <div class="poster" style="background-image: url({{poster}})"></div>
                 {{/if}}
                 <div class="content">
                     <a href="/post/{{id}}" class="title">{{title}}</a>
-                    <div class="desc">{{meta_description}}</div>
-                    <div class="tags">
-                        {{#each tags}}
-                        <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a> {{/each}}
+                    <div class="desc">{{summary}}</div>
+                    <div class="info">
+                        <i class="fa fa-clock-o"></i>
+                        <p>{{updatedAt}}</p>
+                        {{#isArrayEmpty tagList}} {{else}}
+                        <i class="fa fa-tag"></i>
+                        <div>
+                            {{#each tagList}}
+                            <a href='/tag/{{id}}'>{{name}}</a>
+                            {{/each}}
+                        </div>
+                        {{/isArrayEmpty}}
                     </div>
                 </div>
             </div>
             {{/each}}
         </div>
+        {{/isArrayEmpty}}
     </div>
-    {{/isArrayEmpty}}
 </div>

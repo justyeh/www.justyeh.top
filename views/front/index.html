@@ -1,10 +1,10 @@
-<div class="page">
-    {{#isArrayEmpty postList}}
-    <div class="error">
-        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有数据!</div>
-    </div>
-    {{else}}
+<div class="container page">
     <div class="post-list-page">
+        {{#isArrayEmpty postList}}
+        <div class="error">
+            <div class="empty-tip">'(*&gt;﹏&lt;*)'没有数据!</div>
+        </div>
+        {{else}}
         <div class="post-list">
             {{#each postList}}
             <div class="post-item">
@@ -14,9 +14,17 @@
                 <div class="content">
                     <a href="/post/{{id}}" class="title">{{title}}</a>
                     <div class="desc">{{summary}}</div>
-                    <div class="tags">
-                        {{#each tags}}
-                        <a href="/tag/{{id}}" class="btn btn-small btn-default">{{name}}</a> {{/each}}
+                    <div class="info">
+                        <i class="fa fa-clock-o"></i>
+                        <p>{{updatedAt}}</p>
+                        {{#isArrayEmpty tagList}} {{else}}
+                        <i class="fa fa-tag"></i>
+                        <div>
+                            {{#each tagList}}
+                            <a href='/tag/{{id}}'>{{name}}</a>
+                            {{/each}}
+                        </div>
+                        {{/isArrayEmpty}}
                     </div>
                 </div>
             </div>
@@ -25,6 +33,6 @@
         <div class="pager">
             {{{pageHtml}}}
         </div>
+        {{/isArrayEmpty}}
     </div>
-    {{/isArrayEmpty}}
 </div>

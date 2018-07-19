@@ -31,6 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent;
 }
 
 .login .head {
@@ -77,6 +78,15 @@
     background: transparent;
     border: solid 1px #f7fafc;
     text-indent: 30px;
+}
+
+.login input::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.login input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #fff;
 }
 
 .login button:focus,
@@ -624,9 +634,21 @@
     margin-bottom: 0
 }
 
-.comment-list-page .page-title{
+.comment-list-page .page-title {
     font-size: 16px;
     font-weight: bold;
     color: #000000;
     padding: 30px 0 20px 20px;
+}
+
+.editor-toolbar.fullscreen,
+.CodeMirror.CodeMirror-fullscreen,
+.editor-preview-side.editor-preview-active-side {
+    z-index: 1000 !important;
+}
+
+/*tool management page*/
+.tool-page aside{
+    background: #fff;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
 }

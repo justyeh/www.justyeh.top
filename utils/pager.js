@@ -17,7 +17,6 @@ var createPageHtml = (pageNo, pageCount, pageSize, linkTo) => {
         return '';
     }
 
-
     //前一页
     if (pageNo == 1) {
         pageHtml += `<span class='prev current'>${opts.prev_text}</span>`;

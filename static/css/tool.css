@@ -1,0 +1,31 @@
+aside {
+    flex-shrink: 0;
+    background: #001529;
+    width: 200px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+aside>ul>li>p {
+    display: block;
+    text-indent: 10px;
+    height: 40px;
+    line-height: 40px;
+    color: rgba(250, 250, 250, 0.7);
+    transition: all 0.2s;
+}
+
+aside>ul>li>a:hover,
+aside>ul>li>a.active {
+    background: #1b8afa;
+    color: #fff;
+}
+
+aside ul ul {
+    padding-left: 15px;
+}
+
+.main {
+    flex: 1;
+}
