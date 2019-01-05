@@ -1,8 +1,0 @@
-{
-    "apps" : [{
-        "name" : "blog",
-        "script" : "bin/www",
-        "watch" : true
-    }]
-}
-  
