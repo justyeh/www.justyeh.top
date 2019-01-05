@@ -20,7 +20,7 @@ exports.getTagList = async () => {
         var postList = await Promise.all(queryList);
         if(postList){
             tagRows.forEach((item, index) => {
-                item.posts = postList[index] || []
+                item.postList = postList[index] || []
             });
             return { code: 200, data: tagRows, message: 'success' }
         }

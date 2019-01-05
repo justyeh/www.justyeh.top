@@ -14,7 +14,15 @@ var helper = require('../utils/helper');
 var pager = require('../utils/pager');
 var multer = require('../utils/fileUpload')
 
-//router.use(sessionMiddleware.sessionAuth)
+router.use(sessionMiddleware.sessionAuth);
+
+router.get('/', async (req, res, next) => {
+    res.redirect('/admin/post');
+});
+
+router.get('/login', async (req, res, next) => {
+    res.render('admin/login');
+});
 
 router.post('/login', async (req, res, next) => {
     var result = await userSys.login(req.body.email, req.body.password);
@@ -26,37 +34,34 @@ router.post('/login', async (req, res, next) => {
         });
     } else {
         req.session.user = result.data;
-        res.redirect('/admin');
+        res.redirect('/admin/post');
     }
 });
 
 router.get('/logout', async (req, res, next) => {
     req.session.user = null;
-    res.redirect('/admin');
+    res.redirect('/admin/login');
 });
 
-router.get('/', async (req, res, next) => {
-    res.redirect('/admin/post')
-});
+
 
 router.get('/post', async (req, res, next) => {
-
     var postStatus = req.query.status || 'published';
-    var search = req.query.search || '';
+    var keyword = req.query.keyword || '';
     var pageNo = req.query.page || 1;
 
-    var postCount = await postSys.getPostCount(postStatus, search);
-    var result = await postSys.getPostList(postStatus, search, pageNo, 10);
+    var postCount = await postSys.getPostCount(postStatus, keyword);
+    var result = await postSys.getPostList(postStatus, keyword, pageNo, 10);
     if (result.code == 200) {
         res.render('admin/post-list', {
-            layout: 'admin-layout',
+            user: req.session.user,
             title: '文章管理',
             activeSidebar: 'post',
             postStatus,
-            search,
+            keyword,
             postList: result.data,
             pageNo,
-            pageHtml: pager.createPageHtml(pageNo, postCount, 10, `?status=${postStatus}&search=${search}&page=`)
+            pageHtml: pager.createPageHtml(pageNo, postCount, 10, `?status=${postStatus}&keyword=${keyword}&page=`)
         });
     } else {
         errorRender(res, result)
@@ -64,78 +69,85 @@ router.get('/post', async (req, res, next) => {
 });
 
 
-router.get('/post/edit', async (req, res, next) => {
-    var params = {
-        layout: 'admin-layout',
+router.get('/post/form', async (req, res, next) => {
+    var renderData = {
+        user: req.session.user,
         title: '文章管理',
         activeSidebar: 'post',
-        postStatus: req.query.status || 'published',
-        pageNo: req.query.page || 1,
+        post: {}
     }
-    if(req.query.id){
+    if (req.query.id) {
         var result = await postSys.getPostById(req.query.id);
-        if(result.code == 200){
-            params.post = result.data;
-            res.render('admin/post-edit', params)
-        }else{
+        if (result.code == 200) {
+            renderData.post = result.data;
+            res.render('admin/post-form', renderData)
+        } else {
             errorRender(res, result);
         }
-    }else{
-        res.render('admin/post-edit', params)
+    } else {
+        res.render('admin/post-form', renderData)
     }
 });
 
 router.post('/post/edit', multer.single('poster'), async (req, res, next) => {
     var post = {
-        id: req.body.id || null,
+        id: req.body.id || '',
         title: req.body.title,
         poster: req.file ? '/' + req.file.filename : req.body.poster_url || '',
         summary: req.body.summary,
         markdown: req.body.markdown,
         status: req.body.status || 'published',
-        allow_comment: req.body.allow_comment || 1
+        allow_comment: req.body.allow_comment.length > 0 ? parseInt(req.body.allow_comment) : 1
     }
-
     var result = null;
     if (post.id) {
         result = await postSys.updatePost(post);
     } else {
         result = await postSys.addPost(post);
-        post.id = result.data.id
     }
-
     if (result.code == 200) {
-        var updatePostTagResult = await postSys.updatePostTag(post.id, req.body.tags ? req.body.tags.split(',') : []);
+        var updatePostTagResult = await postSys.updatePostTag(post.id || result.data.id, req.body.tags ? req.body.tags.split(',') : []);
         if (updatePostTagResult.code == 200) {
-            res.redirect(`/admin/post?status=${req.body.postStatus}&page=${req.body.pageNo}`);
+            let query = req.headers.referer.split('?');
+            if (query.length > 0) {
+                res.redirect(`/admin/post?${query[1]}`);
+            } else {
+                res.redirect(`/admin/post`);
+            }
         } else {
             errorRender(res, updatePostTagResult);
         }
     } else {
         errorRender(res, result);
     }
-
 });
 
-router.get('/tool', async (req, res, next) => {
-    //var result = await tagSys.getTagList();
-    //if (result.code == 200) {
-        res.render('admin/tool', {
-            layout: 'admin-layout',
-            title: 'Tool管理',
-            activeSidebar: 'tool',
-            //tool:{}
+router.get('/post/delete', async (req, res, next) => {
+    if (req.query.id) {
+        var result = await postSys.deletePost(req.query.id);
+        if (result.code == 200) {
+            let query = req.headers.referer.split('?');
+            if (query.length > 0) {
+                res.redirect(`/admin/post?${query[1]}`);
+            } else {
+                res.redirect(`/admin/post`);
+            }
+        } else {
+            errorRender(res, result);
+        }
+    } else {
+        errorRender(res, {
+            code: 500,
+            message: '参数异常'
         });
-   // } else {
-    //    errorRender(res, result)
-   // }
+    }
 });
 
 router.get('/tag', async (req, res, next) => {
     var result = await tagSys.getTagList();
     if (result.code == 200) {
         res.render('admin/tag-list', {
-            layout: 'admin-layout',
+            user: req.session.user,
             title: '标签管理',
             activeSidebar: 'tag',
             tagList: result.data
@@ -155,18 +167,21 @@ router.get('/tag/del', async (req, res, next) => {
 });
 
 router.get('/comment', async (req, res, next) => {
-
     var isRead = req.query.is_read || '0';
     var pageNo = req.query.page || 1;
 
     var commentCount = await commentSys.getCommentCount(isRead);
     var result = await commentSys.getCommentList(isRead, pageNo, 15);
     if (result.code == 200) {
+        result.data.forEach(item => {
+            item.updatedAt = helper.formatTimestamp('yyyy-MM-dd hh:mm:ss', item.updated_at);
+            delete item.updated_at;
+        });
         res.render('admin/comment-list', {
-            layout: 'admin-layout',
+            user: req.session.user,
             title: '评论管理',
             activeSidebar: 'comment',
-            isRead: isRead || 0,
+            isRead,
             commentList: result.data,
             pageNo,
             pageHtml: pager.createPageHtml(pageNo, commentCount, 3, `?is_read=${isRead}&page=`)
@@ -176,9 +191,12 @@ router.get('/comment', async (req, res, next) => {
     }
 });
 
+
+
 router.get('/setting', async (req, res, next) => {
     res.render('admin/setting', {
-        layout: 'admin-layout',
+        title: '系统设置',
+        user: req.session.user,
         activeSidebar: 'setting',
     });
 });

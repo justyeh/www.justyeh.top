@@ -1,11 +1,30 @@
-<div class="setting-page">
-    <a href="/admin/setting/backup">导出markdown文件</a>
-    <div class="tip">
-        <p>将文章导出为单独的markdown文件</p>
-    </div>
+<!DOCTYPE html>
+<html>
 
-    <a href="/admin/setting/backup">导出数据库</a>
-    <div class="tip">
-        <p>将数据库导出为sql文件</p>
+<head>
+    <%-include('template/html-head.html', {title: title});%>
+</head>
+
+<body>
+    <div class="admin-page">
+        <%-include('template/header.html',{user:user});%>
+        <%-include('template/sidebar.html',{activeSidebar:activeSidebar});%>
+        <div class="page-main">
+            <div class="app">
+                <div class="setting-page">
+                    <a href="/admin/setting/backup">导出markdown文件</a>
+                    <div class="tip">
+                        <p>将文章导出为单独的markdown文件</p>
+                    </div>
+
+                    <a href="/admin/setting/backup">导出数据库</a>
+                    <div class="tip">
+                        <p>将数据库导出为sql文件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>
+
+</html>

@@ -43,7 +43,7 @@ exports.getPostList = async (postStatus, search, pageNo, pageSize) => {
         if (tagList) {
             postList.map((item, index) => {
                 item.tagList = tagList[index].data || [],
-                item.updatedAt = helper.timeago(item.updated_at)
+                    item.updatedAt = helper.timeago(item.updated_at)
             });
             return { code: 200, data: postList, message: 'success' };
         }
@@ -68,12 +68,12 @@ exports.getPostListByTagId = async (postStatus, tagId) => {
             getTagsList.push(tagSys.getTagListByPostId(item.id));
         });
         tagList = await Promise.all(getTagsList);
-        if(tagList){
+        if (tagList) {
             postList.map((item, index) => {
                 item.tagList = tagList[index].data || [],
-                item.updatedAt = helper.timeago(item.updated_at)
+                    item.updatedAt = helper.timeago(item.updated_at)
             });
-            return {code: 200,data: {...tagInfo.data[0],postList},message: 'success'}
+            return { code: 200, data: { ...tagInfo.data[0], postList }, message: 'success' }
         }
     }
     return { code: 500, message: '服务器错误' }
@@ -81,22 +81,23 @@ exports.getPostListByTagId = async (postStatus, tagId) => {
 
 exports.getPostCount = async (postStatus, search) => {
     var result = null;
-    if(search){
+    if (search) {
         result = await database.query('select count(id) as `count` from post where status = ? and title like ?', [postStatus, `%${search || ''}%`]);
-    }else{
+    } else {
         result = await database.query('select count(id) as `count` from post where status = ?', [postStatus]);
     }
     return result[0].count || 0
 }
 
 exports.addPost = async post => {
-    var insertRow = await database.query('insert into post(title,poster,summary,markdown,status,updated_at) values(?,?,?,?,?,?)', [
+    var insertRow = await database.query('insert into post(title,poster,summary,markdown,status,allow_comment,updated_at) values(?,?,?,?,?,?,?)', [
         post.title,
         post.poster,
         post.summary,
         post.markdown,
         post.status,
-        new Date().getTime()
+        post.allow_comment,
+        new Date().getTime(),
     ]);
 
     if (insertRow && insertRow.insertId) {
@@ -107,18 +108,29 @@ exports.addPost = async post => {
 }
 
 exports.updatePost = async post => {
-    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=? where id = ?', [
+    var result = await database.query('update post set title=?,poster=?,summary=?,markdown=?,status=?,allow_comment=?,updated_at=? where id = ?', [
         post.title,
         post.poster,
         post.summary,
         post.markdown,
         post.status,
-        post.id
+        post.allow_comment,
+        new Date().getTime(),
+        post.id,
     ]);
     if (result && result.affectedRows > 0) {
         return { code: 200, message: 'update success' }
     } else {
         return { code: 500, message: 'update fail' }
+    }
+}
+
+exports.deletePost = async postId =>{
+    var result = await database.query('delete from post where id = ?', [postId]);
+    if (result && result.affectedRows > 0) {
+        return { code: 200, message: 'delete success' }
+    } else {
+        return { code: 500, message: 'delete fail' }
     }
 }
 

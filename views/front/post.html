@@ -1,153 +1,180 @@
-<div class="container page">
-    <div class="post-detail-page">
-        {{#if poster}}
-        <div class="poster" style="background-image:url({{poster}})"></div>
-        {{/if}}
-        <div class="title">{{title}}</div>
-        <div class="info">
-            <i class="fa fa-clock-o"></i>
-            <p>{{updatedAt}}</p>
-            {{#isArrayEmpty tagList}} {{else}}
-            <i class="fa fa-tag"></i>
-            <div>
-                {{#each tagList}}
-                <a href='/tag/{{id}}'>{{name}}</a>
-                {{/each}}
-            </div>
-            {{/isArrayEmpty}}
-        </div>
-        <div class="content">
-            <div class="md">{{{htmlConetnt}}}</div>
-        </div>
-        {{#equals allowComment 1}}
-        <style>
-            [v-cloak] {
-                opacity: 0;
-            }
-        </style>
-        <div class="comment-box" id="commentApp">
-            <div class="form" v-cloak>
-                <div class="form-group">
-                    <label>称呼:</label>
-                    <input autocomplete="off" type="text" v-model.trim="name">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('template/html-head.html', {seo: seo});%>
+</head>
+
+<body>
+    <div class="app">
+        <%-include('template/header.html');%>
+        <div class="container page">
+            <div class="post-detail-page">
+                <%if(poster){ %>
+                <div class="poster" style="background-image:url(<%=poster%>)"></div>
+                <%}%>
+                <div class="title">
+                    <%=title%>
                 </div>
-                <div class="form-group">
-                    <label>内容:</label>
-                    <textarea v-model.trim="content"></textarea>
+                <div class="info">
+                    <i class="fa fa-clock-o"></i>
+                    <p>
+                        <%=updatedAt%>
+                    </p>
+                    <%if(tagList.length > 0){%>
+                    <i class="fa fa-tag"></i>
+                    <div>
+                        <%tagList.forEach(tag=>{%>
+                        <a href='/tag/<%=tag.id%>'>
+                            <%=tag.name%></a>
+                        <%})%>
+                    </div>
+                    <%}%>
                 </div>
-                <button type="button" @click="submitComment">提交</button>
-            </div>
-            <div class="comment-list">
-                <div class="item" v-for="item in commentList">
-                    <div class="avatar" :style="item.avatar">${item.name.charAt(0)}</div>
-                    <div class="comment-main">
-                        <p class="name">${item.name}</p>
-                        <p class="time">${item.updated_at | timeFormat}</p>
-                        <div>${item.content}</div>
+                <div class="content">
+                    <div class="md">
+                        <%-content%>
                     </div>
                 </div>
-                <div class="tip" v-if="commentList.length == 0">暂无评论！</div>
+                <div class="comment-box" id="commentApp">
+                    <%if(allowComment == 1){%>
+                    <style>[v-cloak] { opacity: 0;} </style>
+                    <div class="form" v-cloak>
+                        <div class="form-group">
+                            <label>称呼:</label>
+                            <input autocomplete="off" type="text" v-model.trim="name">
+                        </div>
+                        <div class="form-group">
+                            <label>内容:</label>
+                            <textarea v-model.trim="content"></textarea>
+                        </div>
+                        <button type="button" @click="submitComment">提交</button>
+                    </div>
+                    <%}%>
+                    <div class="comment-list" v-cloak>
+                        <div class="item" v-for="item in commentList">
+                            <div class="avatar" :style="item.avatar">{{item.name.charAt(0)}}</div>
+                            <div class="comment-main">
+                                <p class="name">{{item.name}}</p>
+                                <p class="time">{{item.updated_at | timeFormat}}</p>
+                                <div>{{item.content}}</div>
+                            </div>
+                        </div>
+                        <div class="tip" v-if="commentList.length == 0">暂无评论！</div>
+                    </div>
+                </div>
             </div>
         </div>
-        {{/equals}}
-    </div>
-</div>
+        <%-include('template/footer.html');%>
+        <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 
-<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
-<script>
-    window.onload = function () {
-        var app = new Vue({
-            el: "#commentApp",
-            delimiters: ['${', '}'],//修改vue花括号，避免和handbars冲突
-            data: {
-                commentList: [],
-                id: {{ id }},
-                name: '',
-                content: ''
-            },
-            created() {
-                this.getCommentList();
-            },
-            filter: {
-                timeFormat: function(timeStamp) {
-                    var add0 = function (val) {
-                        return val < 10 ? '0' + val : val;
-                    }
-                    var time = new Date(timeStamp / 1000);
-                    var y = time.getFullYear();
-                    var m = time.getMonth() + 1;
-                    var d = time.getDate();
-                    var h = time.getHours();
-                    var mm = time.getMinutes();
-                    var s = time.getSeconds();
-                    console.log(11)
-                    return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
-                }
-            },
-            methods: {
-                getCommentList: function () {
-                    var self = this;
-                    ajax.get('/api/comment/' + this.id, function (res) {
-                        res.data.forEach(function (item) {
-                            item.avatar = self.bindAvatar(item.updated_at)
-                        });
-                        self.commentList = res.data || []
-                    })
-                },
-                submitComment: function () {
-                    var self = this;
-                    ajax.post('/api/comment/add', 'id=' + self.id + '&name=' + self.name + '&content=' + self.content, function (res) {
-                        if (res.code == 200) {
-                            var updated_at = new Date().getTime() + '';
-                            self.commentList.unshift({
-                                name: self.name,
-                                content: self.content,
-                                updated_at: updated_at,
-                                avatar: self.bindAvatar(updated_at)
-                            });
+        <script>
+            window.onload = function () {
+                var app = new Vue({
+                    el: "#commentApp",
+                    data: {
+                        commentList: [],
+                        id:  <%=id%>,
+                        name: '',
+                        content: ''
+                    },
+                    created() {
+                        this.getCommentList();
+                    },
+                    filters: {
+                        timeFormat: function (timeStamp) {
+                            var add0 = function (val) {
+                                return val < 10 ? '0' + val : val;
+                            }
+                            var time = new Date(parseInt(timeStamp));
+                            var y = time.getFullYear();
+                            var m = time.getMonth() + 1;
+                            var d = time.getDate();
+                            var h = time.getHours();
+                            var mm = time.getMinutes();
+                            var s = time.getSeconds();
+                            return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
                         }
-                    });
-                },
-                bindAvatar: function(updated_at) {
-                    var materialUlColors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
-                    var index = parseInt(updated_at.charAt(updated_at.length - 1)) + parseInt(updated_at.charAt(updated_at.length - 2));
-                    return {
-                        'background-color': materialUlColors[index]
+                    },
+                    methods: {
+                        getCommentList: function () {
+                            var self = this;
+                            ajax.get('/api/getCommentByPostId?postId=' + this.id, function (res) {
+                                res.data.forEach(function (item) {
+                                    item.avatar = self.bindAvatar(item.updated_at)
+                                });
+                                self.commentList = res.data || []
+                            })
+                        },
+                        submitComment: function () {
+                            var self = this;
+                            if(!self.name.trim()){
+                                alert('请输入称呼！');
+                                return false;
+                            }
+                            if(!self.content.trim()){
+                                alert('请输入内容！');
+                                return false;
+                            }
+                            var updated_at = new Date().getTime();
+                            ajax.post('/api/comment/add',`postId=${self.id}&name=${self.name}&content=${self.content}&updated_at=${updated_at}`, function (res) {
+                                if (res.code == 200) {
+                                    self.commentList.unshift({
+                                        name: self.name,
+                                        content: self.content,
+                                        updated_at: updated_at,
+                                        avatar: self.bindAvatar(updated_at)
+                                    });
+                                }else{
+                                    alert('提交失败！');
+                                }
+                            });
+                        },
+                        bindAvatar: function (updated_at) {
+                            updated_at = updated_at + '';
+                            var materialUlColors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
+                            var index = parseInt(updated_at.charAt(updated_at.length - 1)) + parseInt(updated_at.charAt(updated_at.length - 2));
+                            return {
+                                'background-color': materialUlColors[index]
+                            }
+                        }
                     }
+                })
+            }
+
+            var ajax = {
+                getXhr: function () {
+                    if (!window.xhr) {
+                        window.xhr = new XMLHttpRequest();
+                    }
+                    return window.xhr
+                },
+                get: function (url, success) {
+                    var xhr = this.getXhr();
+                    xhr.open('get', url);
+                    xhr.setRequestHeader("Content-type", "application/json");
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            success(JSON.parse(xhr.responseText))
+                        }
+                    };
+                },
+                post: function (url, data, success) {
+                    var xhr = this.getXhr();
+                    xhr.open('post', url);
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhr.send(data);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            success(JSON.parse(xhr.responseText))
+                        }
+                    };
                 }
             }
-        })
-    }
 
-    var ajax = {
-        getXhr: function () {
-            if (!window.xhr) {
-                window.xhr = new XMLHttpRequest();
-            }
-            return window.xhr
-        },
-        get: function (url, success) {
-            var xhr = this.getXhr();
-            xhr.open('get', url);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    success(JSON.parse(xhr.responseText))
-                }
-            };
-        },
-        post: function (url, data, success) {
-            var xhr = this.getXhr();
-            xhr.open('post', url);
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send(data);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    success(JSON.parse(xhr.responseText))
-                }
-            };
-        }
-    }
+        </script>
+    </div>
+</body>
 
-</script>
+</html>

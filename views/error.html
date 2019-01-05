@@ -17,26 +17,26 @@
     <meta name="browsermode" content="application" />
     <meta name="x5-page-mode" content="app" />
     <meta name="theme-color" content="#263238" />
-    <meta data-hid="description" name="description" content="{{description}}" />
-    <meta name="keywords" content="{{keywords}}" />
-    <title>{{code}}</title>
+    <title>
+        <%=code%>
+    </title>
 
     <link rel="stylesheet" href="/css/style.css">
-
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/front.css">
-    <link rel="stylesheet" href="/css/yeh-md-theme.css">
-
-    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-    <script src="/js/public.js"></script>
 
     <style>
+        .app {
+            align-items: center;
+            justify-content: center;
+
+        }
+
         .error {
             background: #fff;
+            width: 80%;
+            padding: 90px 20px;
         }
-        
+
         .error .code {
             font-size: 40px;
             padding-bottom: 10px;
@@ -47,14 +47,14 @@
 
 <body>
     <div class="app">
-        <div class="page-main">
-            <div class="page ">
-                <div class="error">
-                    <div class="code">{{code}}</div>
-                    <div class="messgae">{{message}}</div>
-                    <a href="javascript:;" onclick="window.history.go(-1)">返回上级</a>
-                </div>
+        <div class="error">
+            <div class="code">
+                <%=code%>
             </div>
+            <div class="messgae">
+                <%=message%>
+            </div>
+            <a href="javascript:;" onclick="window.history.go(-1)">返回上级</a>
         </div>
     </div>
 </body>

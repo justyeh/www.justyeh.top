@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <div class="site-name">
+        博客后台管理系统
+    </div>
+    <ul>
+        <li>
+            <a href="/admin" class="<%if(activeSidebar=='post'){%>active<%}%>">
+                <i class="fa fa-book"></i>
+                <span>博客管理</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/tag" class="<%if(activeSidebar=='tag'){%>active<%}%>">
+                <i class="fa fa-tags"></i>
+                <span>标签管理</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/comment" class="<%if(activeSidebar=='comment'){%>active<%}%>">
+                <i class="fa fa-comments"></i>
+                <span>评论管理</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/setting" class="<%if(activeSidebar=='setting'){%>active<%}%>">
+                <i class="fa fa-cogs"></i>
+                <span>系统设置</span>
+            </a>
+        </li>
+    </ul>
+</div>

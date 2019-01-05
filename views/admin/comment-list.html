@@ -1,93 +1,131 @@
-<link rel="stylesheet" href="/js/jquery-toast/jquery.toast.min.css">
-<script src="/js/jquery-toast/jquery.toast.min.js"></script>
+<!DOCTYPE html>
+<html>
 
-<div class="tab">
-    <a href="/admin/comment?is_read=0" {{#equals isRead 0}}class="active"{{/equals}}>未读</a>
-    <a href="/admin/comment?is_read=1" {{#equals isRead 1}}class="active"{{/equals}}>已读</a>
-</div>
+<head>
+    <%-include('template/html-head.html', {title: title});%>
+    <link rel="stylesheet" href="/js/jquery-toast/jquery.toast.min.css">
+    <script src="/js/jquery-toast/jquery.toast.min.js"></script>
+</head>
 
-<div class="comment-list-page">
-    <div class="page-title">评论列表</div>
-    <div class="table">
-        <table>
-            <thead>
-                <th>评论人</th>
-                <th>评论内容</th>
-                <th>对应的文章</th>
-                <th>状态</th>
-                <th>操作</th>
-            </thead>
-            <tbody>
-                {{#isArrayEmpty commentList}}
-                <tr>
-                    <td colspan="5">
-                        <div class="error">
-                            <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
-                        </div>
-                    </td>
-                </tr>
-                {{else}} 
-                    {{#each commentList}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{content}}</td>
-                        <td>
-                            <a href="/post/{{post.id}}" target="_blank">{{post.title}}</a>
-                        </td>
-                        <td>{{isRead}}</td>
-                        <td style="width: 100px">
-                            <a href="javascript:;" class="c-red">删除</a>
-                        </td>
-                    </tr>
-                    {{/each}} 
-                {{/isArrayEmpty}}
-            </tbody>
-        </table>
+<body>
+    <div class="admin-page">
+        <%-include('template/header.html',{user:user});%>
+        <%-include('template/sidebar.html',{activeSidebar:activeSidebar});%>
+        <div class="page-main">
+            <div class="app">
+
+                <div class="tab">
+                    <a href="/admin/comment?is_read=0" <%if(isRead==0){%>class="active"
+                        <%}%> >未读</a>
+                    <a href="/admin/comment?is_read=1" <%if(isRead==1){%>class="active"
+                        <%}%> >已读</a>
+                </div>
+
+                <div class="comment-list-page">
+                    <div class="page-title">评论列表</div>
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <th>评论人</th>
+                                <th>评论内容</th>
+                                <th>对应的文章</th>
+                                <th>发表时间</th>
+                                <th>操作</th>
+                            </thead>
+                            <tbody>
+                                <%if(commentList.length == 0){%>
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="error">
+                                            <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <%}%>
+
+                                <%commentList.forEach(comment=>{%>
+                                <tr>
+                                    <td>
+                                        <%=comment.name%>
+                                    </td>
+                                    <td>
+                                        <%=comment.content%>
+                                    </td>
+                                    <td>
+                                        <a href="/post/<%=comment.post.id%>" target="_blank">
+                                            <%=comment.post.title%></a>
+                                    </td>
+                                    <td>
+                                        <%=comment.updatedAt%>
+                                    </td>
+                                    <td style="width: 100px">
+                                        <%if(isRead==0){%>
+                                        <a href="javascript:;" onclick="setRead(<%=comment.id%>,this)">设置已读</a>
+                                        <%}%>
+                                        <a href="javascript:;" onclick="updateStatus(<%=comment.id%>,<%=comment.is_show%>,this)">
+                                            <%if(comment.is_show == 0){%>显示
+                                            <%}else{%>影藏
+                                            <%}%>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% })%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <%if(pageHtml){%>
+                <div class="pager">
+                    <%-pageHtml%>
+                </div>
+                <%}%>
+            </div>
+        </div>
     </div>
-</div>
+    <script>
 
-<div class="pager">
-    {{{pageHtml}}}
-</div>
-
-<script>
-    
-    function showToast(msg,icon) {
-        $.toast({
-            text: msg,
-            heading:icon.toUpperCase(),
-            allowToastClose: false,
-            hideAfter: 2000,
-            loader:true,
-            loaderBg:'#fff',
-            icon: icon
-        });
-    }
-    
-    function saveTr(obj) {
-
-        var $tr = $(obj).closest("tr");
-        var $input = $tr.find("input");
-        var $a = $tr.find("a");
-
-        var val = $input.val().trim();
-        if (val.length == 0 || val == $input.data("value")) {
-            showToast( '无效的修改','error');
-            editTr(obj)
-            return
+        function showToast(msg, icon) {
+            $.toast({
+                text: msg,
+                heading: icon.toUpperCase(),
+                allowToastClose: false,
+                hideAfter: 1200,
+                loader: true,
+                loaderBg: '#fff',
+                icon: icon
+            });
         }
 
-        $.post('/api/tag/update', {
-            id: $input.data("id"),
-            name: val
-        }, function(res) {
-            if (res.code == 200) {
-                $tr.removeClass("edit");
-                $input.attr("disabled", "disabled").blur();
-                showToast( '修改成功！','success')
-            }
-            showToast( '修改失败！','error')
-        })
-    }
-   
-</script>
+        function setRead(id, obj) {
+            $.post('/api/comment/setRead', {
+                id: id,
+            }, function (res) {
+                if (res.code == 200) {
+                    $(obj).closest('tr').remove();
+                    showToast('修改成功！', 'success');
+                } else {
+                    showToast('修改失败！', 'error');
+                }
+
+            })
+        }
+
+        function updateStatus(id, showCode, obj) {
+            $.post('/api/comment/updateShowCode', {
+                id: id,
+                showCode: 1 - showCode
+            }, function (res) {
+                if (res.code == 200) {
+                  location.reload();
+                } 
+
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

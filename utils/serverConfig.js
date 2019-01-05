@@ -1,3 +1,3 @@
 exports.jwtSecret = 'justyeh'
 
-exports.apiNeedAuth = ['/api/', '/api/tag/add']
+exports.apiWhiteList = ['/api/','/api/tag/search','/api/getCommentByPostId','/api/comment/add']

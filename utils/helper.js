@@ -10,7 +10,7 @@ marked.setOptions({
     smartypants: false
 });
 
-exports.markdown2Htm = markdown => {
+exports.markdown2Html = markdown => {
     if (markdown) {
         return marked(markdown)
     }
@@ -62,7 +62,7 @@ exports.timeago = timestamp => {
     var minC = diffValue / minute;
 
     // 数值补0方法
-    var zero = function(value) {
+    var zero = function (value) {
         if (value < 10) {
             return '0' + value;
         }
@@ -84,4 +84,33 @@ exports.timeago = timestamp => {
         return parseInt(minC) + "分钟前";
     }
     return '刚刚';
+}
+
+
+exports.formatTimestamp = (fmt, timestamp) => {
+    try {
+        if (!timestamp) {
+            return '';
+        }
+        timestamp = parseInt(timestamp);
+        timestamp = timestamp.toString().length == 10 ? timestamp * 1000 : timestamp;
+        var date = new Date(timestamp);
+        var o = {
+            "M+": date.getMonth() + 1,                 //月份   
+            "d+": date.getDate(),                    //日   
+            "h+": date.getHours(),                   //小时   
+            "m+": date.getMinutes(),                 //分   
+            "s+": date.getSeconds(),                 //秒   
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度   
+            "S": date.getMilliseconds()             //毫秒   
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    } catch (error) {
+        return timestamp
+    }
 }

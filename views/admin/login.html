@@ -2,29 +2,8 @@
 <html>
 
 <head>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="renderer" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="justyeh,justyeh@163.com" />
-    <meta name="apple-mobile-web-app-title" content="justyeh的前端博客" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="#263238" />
-    <meta name="screen-orientation" content="portrait" />
-    <meta name="x5-orientation" content="portrait" />
-    <meta name="full-screen" content="yes" />
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="browsermode" content="application" />
-    <meta name="x5-page-mode" content="app" />
-    <meta name="theme-color" content="#263238" />
-    <title>登录</title>
-
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/admin.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <%-include('template/html-head.html', {title: '登录'});%>
     <script src="https://cdn.bootcss.com/three.js/56/three.min.js"></script>
-
 </head>
 
 <body class="login">
@@ -37,18 +16,22 @@
                 <label for="account">
                     <i class="fa fa-envelope"></i>
                 </label>
-                <input type="text" autofocus='autofocus' placeholder="Email" autocomplete="off" name="email" value="{{email}}">
+                <input type="text" autofocus='autofocus' placeholder="Email" autocomplete="off" name="email" value="<%if(locals.email){%><%=email%><%}%>">
             </div>
             <div class="form-group">
                 <label for="password">
                     <i class="fa fa-lock"></i>
                 </label>
-                <input type="password" placeholder="Password" autocomplete="off" name="password" value="{{password}}">
+                <input type="password" placeholder="Password" autocomplete="off" name="password" value="<%if(locals.password){%><%=password%><%}%>">
             </div>
             <div class="form-group">
                 <button class="btn" type="submit">Sign in</button>
             </div>
-            <div class="error-tip">{{error}}</div>
+            <div class="error-tip">
+                <%if(locals.error){%>
+                    <span><%=error%></span>
+                <%}%>
+            </div>
         </form>
     </div>
     <script>

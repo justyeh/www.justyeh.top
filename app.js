@@ -5,32 +5,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var hbs = require('hbs');
-hbs.registerPartials(__dirname + '/views/partials', () => {
-    //console.log(new Date())
-});
-hbs.registerHelper('isArrayEmpty', function(arr, options) {
-    if (arr && arr.length > 0) {
-        return options.inverse(this);
-    } else {
-        return options.fn(this);
-    }
-});
-
-hbs.registerHelper('equals', function(val1, val2, options) {
-    if (val1 == val2) {
-        return options.fn(this);
-    } else {
-        return options.inverse(this);
-    }
-});
-
 var app = express();
 
 // 设置模板引擎
+var ejs = require('ejs'); 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
-app.engine('html', hbs.__express);
+app.set('view engine', 'html');+
+app.engine('html', ejs.__express);
 
 // 设置favicon.ico
 app.use(favicon(path.join(__dirname, './static/favicon.ico')));
@@ -57,6 +38,7 @@ app.use(session({
 var front = require('./routes/front');
 var admin = require('./routes/admin');
 var api = require('./routes/api');
+
 
 app.use('/', front);
 app.use('/admin', admin);

@@ -1,19 +1,35 @@
-<div class="container page">
-    <div class="about-page">
-        <h2>关于这个网站</h2>
-        <p>大家好，我是justyeh，一位前端码畜！</p>
-        <p>之前这个博客是使用nuxt.js做的，当时包括nuxt.js和我的个人技术一直不太成熟，所以还是有不少缺憾，趁着换服务器（Vultr-->Bandwagon）的契机，决定将网站重构一次！</p>
-        <p>我做博客的目的一直很简单，就是通过实践来学习和检验个人技术，还有在上面放一些博客，做备忘积累用！出于这个目的，这个网站也许会有node、vue(ssr)、react(ssr)等各种版本!</p>
-        <p>nuxt.js的版本先暂告一段落，之后我会重新考查ssr或nuxtjs，并推出一个新的Vue服务端渲染的版本，如果你对以前的代码感兴趣，请查看这个链接<a target="_blank" href="https://github.com/justyeh/nuxt.justyeh.top">nuxt.justyeh.top</a></p>
-        <p>目前已基本完成了node版本的代码，技术栈：nodejs、expressjs、mysql、handlebars，项目地址<a target="_blank" href="https://github.com/justyeh/www.justyeh.top">www.justyeh.top</a></p>
-        <p>由于技术水平有限，目前应该还有许多不足，如果你有什么好的建议和意见，欢迎和我联系！</p>
-        <p>
-            Email：
-            <a href="mailto:justyeh@163.com">justyeh@163.com</a>
-        </p>
-        <p>
-            Github：
-            <a target="_blank" href="https://github.com/justyeh">https://github.com/justyeh</a>
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('template/html-head.html', {seo: seo});%>
+</head>
+
+<body>
+    <div class="app">
+        <%-include('template/header.html');%>
+        <div class="container page">
+            <div class="about-page">
+                <h2>关于这个网站</h2>
+                <p>大家好，我是justyeh，一位前端码畜！</p>
+                <p>之前这个博客是使用nuxt.js做的，当时包括nuxt.js和我的个人技术一直不太成熟，所以还是有不少缺憾，趁着换服务器（Vultr-->Bandwagon）的契机，决定将网站重构一次！</p>
+                <p>我做博客的目的一直很简单，就是通过实践来学习和检验个人技术，还有在上面放一些博客，做备忘积累用！出于这个目的，这个网站也许会有node、vue(ssr)、react(ssr)等各种版本!</p>
+                <p>nuxt.js的版本先暂告一段落，之后我会重新考查ssr或nuxtjs，并推出一个新的Vue服务端渲染的版本，如果你对以前的代码感兴趣，请查看这个链接<a target="_blank"
+                        href="https://github.com/justyeh/nuxt.justyeh.top">nuxt.justyeh.top</a></p>
+                <p>目前已基本完成了node版本的代码，技术栈：nodejs、expressjs、mysql、handlebars，项目地址<a target="_blank" href="https://github.com/justyeh/www.justyeh.top">www.justyeh.top</a></p>
+                <p>由于技术水平有限，目前应该还有许多不足，如果你有什么好的建议和意见，欢迎和我联系！</p>
+                <p>
+                    Email：
+                    <a href="mailto:justyeh@163.com">justyeh@163.com</a>
+                </p>
+                <p>
+                    Github：
+                    <a target="_blank" href="https://github.com/justyeh">https://github.com/justyeh</a>
+                </p>
+            </div>
+        </div>
+        <%-include('template/footer.html');%>
     </div>
-</div>
+</body>
+
+</html>

@@ -3,22 +3,19 @@ var serverConfig = require('../utils/serverConfig');
 exports.apiAuth = (req, res, next) => {
     //有session：放行
     if (req.session.user) {
-        next()
+        return next()
     }
-
-    let path = req.originalUrl;
-
+    
+    let path = req.originalUrl.split("?")[0] || '';
     var reject = { code: 403, message: 'you dont have permission to access folder on this server' }
 
     //接口不需要登陆：放行
-    console.log(path, serverConfig.apiNeedAuth.indexOf(path) < 0)
-    if (serverConfig.apiNeedAuth.indexOf(path) < 0) {
+    if (serverConfig.apiWhiteList.indexOf(path) > -1) {
         return next();
     }
 
     //接口需要登陆
     var token = req.headers['authorization'];
-    console.log(token)
     if (!token) {
         return res.json(reject)
     }

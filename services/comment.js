@@ -35,7 +35,7 @@ exports.getCommentListByPostId = async (postId) => {
     return { code: 500, message: '系统错误' }
 }
 
-exports.addComment = async (postId, name, content) => {
+exports.addComment = async (postId, name, content,updated_at) => {
     if (!postId || !name || !content) {
         return { code: 500, message: '参数错误' }
     }
@@ -43,7 +43,7 @@ exports.addComment = async (postId, name, content) => {
         postId,
         name,
         content,
-        new Date().getTime(),
+        updated_at || new Date().getTime(),
     ]);
 
     if (insertRow && insertRow.insertId) {
@@ -53,8 +53,17 @@ exports.addComment = async (postId, name, content) => {
     }
 }
 
-exports.updateComment = async (isShow, commentId) => {
-    var result = await database.query(`insert into comment(update comment set is_show = ? where id = ?`, [isShow, commentId])
+exports.updateShowCode = async (showCode,commentId) => {
+    var result = await database.query(`update comment set is_show = ? where id = ?`, [showCode,commentId])
+    if (result && result.affectedRows > 0) {
+        return { code: 200, message: 'delete success' }
+    } else {
+        return { code: 500, message: 'delete fail' }
+    }
+}
+
+exports.setCommentRead = async commentId =>{
+    var result = await database.query(`update comment set is_read = 1 where id = ?`, [commentId])
     if (result && result.affectedRows >= 0) {
         return { code: 200, message: 'update success' }
     } else {

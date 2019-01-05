@@ -1,0 +1,38 @@
+<% if(postList.length == 0){ %>
+<div class="error">
+    <div class="empty-tip">'(*&gt;﹏&lt;*)'没有数据!</div>
+</div>
+<% }else{ %>
+<div class="post-list">
+    <% postList.forEach(post=>{ %>
+    <div class="post-item">
+        <% if(post.poster){ %>
+        <div class="poster" style="background-image: url(<%=post.poster%>)"></div>
+        <%}%>
+        <div class="content">
+            <a href="/post/<%=post.id%>" class="title">
+                <%=post.title%>
+            </a>
+            <div class="desc">
+                <%=post.summary%>
+            </div>
+            <div class="info">
+                <i class="fa fa-clock-o"></i>
+                <p>
+                    <%=post.updatedAt%>
+                </p>
+                <%if(post.tagList.length > 0){%>
+                <i class="fa fa-tag"></i>
+                <div>
+                    <%post.tagList.forEach(tag=>{%>
+                    <a href='/tag/<%=tag.id%>'>
+                        <%=tag.name%></a>
+                    <%})%>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+<%}%>

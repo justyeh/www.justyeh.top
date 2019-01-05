@@ -52,7 +52,6 @@ function showInfo(aid) {
 		});
 	}, 'json')
 	isFormSave = !0;
-	//console.log(isFormSave);
 
 }
 
@@ -94,7 +93,6 @@ function selectSublist() {
 			name += '<p><input type="hidden" name="sub[]" value="' + $(this).find('td:first input').val() + '" />' + $(this).find('td:not(:first)').text() + '</p>';
 		});		
 		$("#addForm .accounts").html('').append(name);
-		//console.log(name);
 	
 }
 

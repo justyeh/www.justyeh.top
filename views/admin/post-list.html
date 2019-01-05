@@ -1,55 +1,94 @@
-<div class="tab">
-    <a href="/admin/post?status=published" {{#equals postStatus 'published'}}class="active"{{/equals}}>已发布</a>
-    <a href="/admin/post?status=draft" {{#equals postStatus 'draft'}}class="active"{{/equals}}>草稿</a>
-    <a href="/admin/post?status=offline" {{#equals postStatus 'offline'}}class="active"{{/equals}}>被下线</a>
-</div>
-<div class="handle-box">
-    <form class="search" action="/admin/post" method="GET">
-        <input type="hidden" name="status" value="{{postStatus}}">
-        <input type="search" autocomplete="off" placeholder="文章标题" name="search" value="{{search}}">
-        <button type="submit" class="btn btn-">搜索</button>
-    </form>
-    <a href="/admin/post/edit" class="add-link">新增</a>
-</div>
+<!DOCTYPE html>
+<html>
 
+<head>
+    <%-include('template/html-head.html', {title: title});%>
+</head>
 
-<div class="table">
-    <table>
-        <thead>
-            <th>图片</th>
-            <th>标题</th>
-            <th>标签</th>
-            <th>操作</th>
-        </thead>
-        <tbody>
-            {{#isArrayEmpty postList}}
-            <tr>
-                <td colspan="4">
-                    <div class="error">
-                        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
-                    </div>
-                </td>
-            </tr>
-            {{else}} {{#each postList}}
-            <tr>
-                <td style="width: 20%">
-                    <div class="poster" style="background-image: url({{poster}})"></div>
-                </td>
-                <td>
-                    <p class="title"><a href="/post/{{id}}" target="_blank">{{title}}</a></p>
-                </td>
-                <td style="width: 20%">
-                    {{#isArrayEmpty tagList}} -- {{else}} {{#each tagList}}<span class="tag">{{name}}</span>{{/each}} {{/isArrayEmpty}}
-                </td>
-                <td style="width: 10%">
-                    <a href="/admin/post/edit?id={{id}}&status={{../postStatus}}&page={{../pageNo}}">编辑</a>
-                </td>
-            </tr>
-            {{/each}} {{/isArrayEmpty}}
-        </tbody>
-    </table>
-</div>
+<body>
+    <div class="admin-page">
+        <%-include('template/header.html',{user:user});%>
+        <%-include('template/sidebar.html',{activeSidebar:activeSidebar});%>
+        <div class="page-main">
+            <div class="app">
+                <div class="tab">
+                    <a href="/admin/post?status=published" <%if(postStatus=='published' ){%> class="active"
+                        <%}%> >已发布</a>
+                    <a href="/admin/post?status=draft" <%if(postStatus=='draft' ){%> class="active"
+                        <%}%> >草稿</a>
+                    <a href="/admin/post?status=offline" <%if(postStatus=='offline' ){%> class="active"
+                        <%}%> >被下线</a>
+                </div>
+                <div class="handle-box">
+                    <form class="search" action="/admin/post" method="GET">
+                        <input type="hidden" name="status" value="<%=postStatus%>">
+                        <input type="search" autocomplete="off" placeholder="文章标题" name="keyword" value="<%=keyword%>">
+                        <button type="submit" class="btn btn-">搜索</button>
+                    </form>
+                    <a href="/admin/post/form" class="add-link">新增</a>
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <th>图片</th>
+                            <th>标题</th>
+                            <th>标签</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                            <%if(postList.length == 0){%>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="error">
+                                        <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <%}%>
+                            <%postList.forEach(post=>{%>
+                            <tr>
+                                <td style="width: 20%">
+                                    <div class="poster" style="background-image: url(<%=post.poster%>)"></div>
+                                </td>
+                                <td>
+                                    <p class="title" style="text-align: left;"><a href="/post/<%=post.id%>" target="_blank"><%=post.title%></a></p>
+                                </td>
+                                <td style="width: 20%;">
+                                    <%if(post.tagList.length == 0){%>
+                                        <span>--</span>
+                                    <%}%>
+                                    <%post.tagList.forEach(tag=>{%>
+                                    <span class="tag">
+                                        <%=tag.name%></span>
+                                    <% })%>
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/admin/post/form?id=<%=post.id%>&status=<%=postStatus%>&page=<%=pageNo%>&keyword=<%=keyword%>">编辑</a>
+                                    <%if(postStatus=='offline' ){%>
+                                    <a data-href="/admin/post/delete?id=<%=post.id%>" href="javascript:;" onclick="showConfirm(this)">删除</a>
+                                    <%}%>
+                                </td>
+                            </tr>
+                            <% })%>
+                        </tbody>
+                    </table>
+                </div>
 
-<div class="pager">
-    {{{pageHtml}}}
-</div>
+                <%if(pageHtml){%>
+                <div class="pager">
+                    <%-pageHtml%>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    <script>
+    function showConfirm(obj){
+        if(confirm("确定要删除该博文吗？")){
+            location.href = $(obj).data('href');
+        }
+    }
+    </script>
+</body>
+
+</html>

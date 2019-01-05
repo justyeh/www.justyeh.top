@@ -5,7 +5,7 @@ exports.login = async (email, password) => {
     if (email == '' || password == '') {
         return { code: 400, message: '账户信息不完整' }
     }
-    var user = await database.query('select name,image from user where email = ? and password = ?', [email, crypto.createHash('sha1').update(password).digest('hex')]);
+    var user = await database.query('select name,image,email from user where email = ? and password = ?', [email, crypto.createHash('sha1').update(password).digest('hex')]);
     if (!user) {
         return { code: 500, message: '服务器错误！' }
     }
