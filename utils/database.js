@@ -3,9 +3,9 @@ const mysql = require('mysql2/promise');
 let pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '123456',
+    password: 'mysql123456',
     port: 3306,
-    database: 'justyeh_temp'
+    database: 'justyeh'
 });
 
 exports.query = async (sql, params) => {
