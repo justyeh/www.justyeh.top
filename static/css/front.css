@@ -297,6 +297,7 @@ footer a {
 
 .post-list .post-item .info p {
     margin: 0 10px 0 5px;
+    flex-shrink: 0;
 }
 
 .post-list .post-item .info a {
