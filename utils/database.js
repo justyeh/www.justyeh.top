@@ -5,7 +5,7 @@ let pool = mysql.createPool({
     user: 'root',
     password: '123456',
     port: 3306,
-    database: 'justyeh_temp'
+    database: 'test'
 });
 
 exports.query = async (sql, params) => {

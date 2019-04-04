@@ -63,7 +63,7 @@
                                     <% })%>
                                 </td>
                                 <td style="width: 10%">
-                                    <a href="/admin/post/form?id=<%=post.id%>&status=<%=postStatus%>&page=<%=pageNo%>&keyword=<%=keyword%>">编辑</a>
+                                    <a href="/admin/post/form?id=<%=post.id%>&status=<%=postStatus%>&page=<%=pageIndex%>&keyword=<%=keyword%>">编辑</a>
                                     <%if(postStatus=='offline' ){%>
                                     <a data-href="/admin/post/delete?id=<%=post.id%>" href="javascript:;" onclick="showConfirm(this)">删除</a>
                                     <%}%>

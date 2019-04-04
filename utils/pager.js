@@ -41,7 +41,6 @@ var createPageHtml = (pageNo, pageCount, pageSize, linkTo) => {
             return false;
         }
         if (pageNo <= 5) {
-            console.log('pageNo < 5')
             for (let i = 1; i <= 5; i++) {
                 pageHtml += `<a class='${pageNo == i ? " current" : ""}' href='${linkTo}${i}'>${i}</a>`;
             }

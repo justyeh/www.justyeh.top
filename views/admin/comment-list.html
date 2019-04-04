@@ -15,10 +15,8 @@
             <div class="app">
 
                 <div class="tab">
-                    <a href="/admin/comment?is_read=0" <%if(isRead==0){%>class="active"
-                        <%}%> >未读</a>
-                    <a href="/admin/comment?is_read=1" <%if(isRead==1){%>class="active"
-                        <%}%> >已读</a>
+                    <a href="/admin/comment?is_read=0" <%if(isRead==0){%>class="active" <%}%> >未读</a>
+                    <a href="/admin/comment?is_read=1" <%if(isRead==1){%>class="active" <%}%> >已读</a>
                 </div>
 
                 <div class="comment-list-page">
@@ -26,60 +24,61 @@
                     <div class="table">
                         <table>
                             <thead>
-                                <th>评论人</th>
-                                <th>评论内容</th>
-                                <th>对应的文章</th>
-                                <th>发表时间</th>
-                                <th>操作</th>
+                                <th style="width: 100px">评论人</th>
+                                <th style="text-align:left">评论内容</th>
+                                <th style="width:400px;">对应的文章</th>
+                                <th style="width: 140px">发表时间</th>
+                                <th style="width: 200px">操作</th>
                             </thead>
                             <tbody>
-                                <%if(commentList.length == 0){%>
-                                <tr>
-                                    <td colspan="5">
-                                        <div class="error">
-                                            <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <%}%>
+                                <%if(commentList.length == 0){%> <tr>
+                        <td colspan="5">
+                            <div class="error">
+                                <div class="empty-tip">'(*&gt;﹏&lt;*)'没有相关数据！</div>
+                            </div>
+                        </td>
+                        </tr>
+                        <%}%>
 
                                 <%commentList.forEach(comment=>{%>
-                                <tr>
-                                    <td>
-                                        <%=comment.name%>
-                                    </td>
-                                    <td>
-                                        <%=comment.content%>
-                                    </td>
-                                    <td>
-                                        <a href="/post/<%=comment.post.id%>" target="_blank">
-                                            <%=comment.post.title%></a>
-                                    </td>
-                                    <td>
-                                        <%=comment.updatedAt%>
-                                    </td>
-                                    <td style="width: 100px">
-                                        <%if(isRead==0){%>
-                                        <a href="javascript:;" onclick="setRead(<%=comment.id%>,this)">设置已读</a>
-                                        <%}%>
-                                        <a href="javascript:;" onclick="updateStatus(<%=comment.id%>,<%=comment.is_show%>,this)">
-                                            <%if(comment.is_show == 0){%>显示
-                                            <%}else{%>影藏
-                                            <%}%>
+                        <tr>
+                            <td>
+                                <%=comment.name%>
+                            </td>
+                            <td style="text-align:left">
+                                <%=comment.content%>
+                            </td>
+                            <td>
+                                <a href="/post/<%=comment.postId%>" target="_blank">
+                                    <%=comment.postTitle%></a>
+                            </td>
+                            <td>
+                                <%=comment.updatedAt%>
+                            </td>
+                            <td style="width: 100px">
+                                <%if(isRead==0){%>
+                                <a href="javascript:;" onclick="setRead(<%=comment.id%>,this)">设置已读</a>
+                                <%}%>
+                                 <a href="javascript:;" onclick="updateStatus(<%=comment.id%>,<%=comment.is_show%>,this)">
+                                <%if(comment.is_show == 0){%>显示该评论
+                                <%}else{%>影藏该评论
+                                <%}%>
                                         </a>
-                                    </td>
-                                </tr>
-                                <% })%>
-                            </tbody>
-                        </table>
-                    </div>
+                                        <a href="javascript:;" onclick="delete(<%=comment.id%>,this)">删除
+                    </a>
+                    </td>
+                    </tr>
+                    <% })%>
+                    </tbody>
+                    </table>
                 </div>
+            </div>
 
-                <%if(pageHtml){%>
-                <div class="pager">
-                    <%-pageHtml%>
-                </div>
-                <%}%>
+            <%if(pageHtml){%>
+            <div class="pager">
+                <%-pageHtml%>
+            </div>
+            <%}%>
             </div>
         </div>
     </div>
@@ -117,11 +116,22 @@
                 showCode: 1 - showCode
             }, function (res) {
                 if (res.code == 200) {
-                  location.reload();
-                } 
+                    location.reload();
+                }
 
             })
         }
+
+        function delete (id, obj) {
+            $.post('/api/comment/id', {
+                id: id,
+            }, function (res) {
+                if (res.code == 200) {
+                    console.log(obj)
+                }
+            })
+        }
+
 
 
 
