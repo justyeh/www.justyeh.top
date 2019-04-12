@@ -19,3 +19,6 @@ yarn-error.log*
 
 # database config
 /utils/database.js
+
+
+/backup/markdown/

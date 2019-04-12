@@ -53,7 +53,7 @@ let getPostList = async params => {
         ]
     );
 
-    let postCount = await getPostCount(params.status,params.keyword);
+    let postCount = await getPostCount(params.status, params.keyword);
 
     if (postList) {
         getTagsList = [];
@@ -79,38 +79,12 @@ let getPostList = async params => {
     return { code: 500, message: "服务器错误" };
 };
 
-let getPostListByTagId = async (postStatus, tagId) => {
-    if (!helper.isInteger(tagId)) {
-        return { code: 500, message: "无效的ID" };
-    }
-
-    var tagInfo = await tagSys.getTagById(tagId);
-    if (!tagInfo || tagInfo.length == 0) {
-        return { code: 400, message: "没有相关数据" };
-    }
-
-    var postList = await database.query(
-        "select * from post where status = ? and id in (select post_id from post_tag where tag_id = ?) order by id desc",
-        [postStatus, tagId]
-    );
+let getAllPost = async () => {
+    let postList = await database.query("select title,markdown from post ");
     if (postList) {
-        getTagsList = [];
-        postList.forEach(item => {
-            getTagsList.push(tagSys.getTagListByPostId(item.id));
-        });
-        tagList = await Promise.all(getTagsList);
-        if (tagList) {
-            postList.map((item, index) => {
-                (item.tagList = tagList[index].data || []),
-                    (item.updatedAt = helper.timeago(item.updated_at));
-            });
-            return {
-                code: 200,
-                data: { ...tagInfo.data[0], postList },
-                message: "success"
-            };
-        }
+        return { code: 200, data: { list: postList }, message: "success" };
     }
+    console.log(postList.length)
     return { code: 500, message: "服务器错误" };
 };
 
@@ -212,7 +186,7 @@ let updatePostTag = async (postId, tagList) => {
 
 exports.getPostById = getPostById;
 exports.getPostList = getPostList;
-exports.getPostListByTagId = getPostListByTagId;
+exports.getAllPost = getAllPost;
 exports.getPostCount = getPostCount;
 exports.addPost = addPost;
 exports.updatePost = updatePost;

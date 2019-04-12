@@ -13,7 +13,7 @@ let getTagListByPostId = async postId => {
 };
 
 let getTagList = async () => {
-    var tagRows = await database.query("select * from tag");
+    var tagRows = await database.query("select * from tag order by id desc");
     if (tagRows) {
         var queryList = [];
         tagRows.forEach(item => {

@@ -98,7 +98,7 @@
 
         function setRead(id, obj) {
             $.post('/api/comment/setRead', {
-                id: id,
+                ids: [id],
             }, function (res) {
                 if (res.code == 200) {
                     $(obj).closest('tr').remove();
@@ -110,30 +110,16 @@
             })
         }
 
-        function updateStatus(id, showCode, obj) {
-            $.post('/api/comment/updateShowCode', {
-                id: id,
-                showCode: 1 - showCode
-            }, function (res) {
-                if (res.code == 200) {
-                    location.reload();
-                }
 
-            })
-        }
-
-        function delete (id, obj) {
+        function delete(id, obj) {
             $.post('/api/comment/id', {
-                id: id,
+                ids: [id],
             }, function (res) {
                 if (res.code == 200) {
                     console.log(obj)
                 }
             })
         }
-
-
-
 
     </script>
 </body>

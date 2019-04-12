@@ -13,13 +13,13 @@ exports.apiAuth = (req, res, next) => {
         message: "you dont have permission to access folder on this server"
     };
 
-    //接口不需要登陆：放行
+    //接口在白名单，不需要登陆：放行
     if (serverConfig.apiWhiteList.indexOf(path) > -1) {
         return next();
     }
 
     //接口需要登陆
-    var token = req.headers["authorization"];
+    var token = req.headers["authorization"] || req.query.token;
     if (!token) {
         return res.json(reject);
     }

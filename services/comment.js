@@ -71,22 +71,12 @@ let addComment = async (postId, name, content, updated_at) => {
     }
 };
 
-let updateShowCode = async (showCode, commentId) => {
-    var result = await database.query(
-        `update comment set is_show = ? where id = ?`,
-        [showCode, commentId]
-    );
-    if (result && result.affectedRows > 0) {
-        return { code: 200, message: "delete success" };
-    } else {
-        return { code: 500, message: "delete fail" };
-    }
-};
 
-let setCommentRead = async commentId => {
+
+let setCommentRead = async commentIds => {
     var result = await database.query(
-        `update comment set is_read = 1 where id = ?`,
-        [commentId]
+        `update comment set is_read = 1 where id in (?)`,
+        [commentIds]
     );
     if (result && result.affectedRows >= 0) {
         return { code: 200, message: "update success" };
@@ -95,9 +85,9 @@ let setCommentRead = async commentId => {
     }
 };
 
-let deleteComment = async commentId => {
-    var result = await database.query(`delete comment where where id = ?`, [
-        commentId
+let deleteComment = async commentIds => {
+    var result = await database.query(`delete from comment where id in (?)`, [
+        commentIds
     ]);
     if (result && result.affectedRows >= 0) {
         return { code: 200, message: "update success" };
@@ -110,6 +100,5 @@ exports.getCommentCount = getCommentCount;
 exports.getCommentList = getCommentList;
 exports.getCommentListByPostId = getCommentListByPostId;
 exports.addComment = addComment;
-exports.updateShowCode = updateShowCode;
 exports.setCommentRead = setCommentRead;
 exports.deleteComment = deleteComment;

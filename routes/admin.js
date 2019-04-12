@@ -52,11 +52,12 @@ router.get("/post", async (req, res, next) => {
     let pageSize = 15;
 
     var result = await postSys.getPostList({
-        postStatus,
+        status:postStatus,
         keyword,
         pageIndex,
         pageSize
     });
+
 
     if (result.code == 200) {
         res.render("admin/post-list", {
@@ -186,8 +187,6 @@ router.get("/comment", async (req, res, next) => {
     var isRead = req.query.is_read || "0";
     var pageIndex = req.query.page || 1;
 
-    var commentCount = await commentSys.getCommentCount(isRead);
-
     let pageSize = 20;
     var result = await commentSys.getCommentList({
         isRead,
@@ -227,11 +226,6 @@ router.get("/setting", async (req, res, next) => {
         user: req.session.user,
         activeSidebar: "setting"
     });
-});
-
-router.get("/setting/backup", async (req, res, next) => {
-    //res.sendFile();
-    res.end("developmenting");
 });
 
 module.exports = router;
