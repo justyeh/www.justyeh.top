@@ -63,7 +63,7 @@ router.get("/search", async (req, res, next) => {
                 keywords: keyword
             },
             keyword: keyword,
-            postList: result.data.list,
+            postList: result.data.list
         });
     } else {
         errorRender(res, result);
@@ -98,15 +98,16 @@ router.get("/tag/:tagId", async (req, res, next) => {
         "published",
         req.params.tagId
     );
+    let tagName = result.data.name;
     if (result.code == 200) {
         res.render("front/tag", {
             seo: {
-                title: result.data.name + "的相关文章",
-                description: result.data.name + "的相关文章",
-                keywords: result.data.name
+                title: tagName + "的相关文章",
+                description: tagName + "的相关文章",
+                keywords: tagName
             },
-            tagName: result.data.name,
-            postList: result.data.postList
+            tagName,
+            postList: result.data.list
         });
     } else {
         errorRender(res, result);

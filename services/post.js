@@ -79,6 +79,39 @@ let getPostList = async params => {
     return { code: 500, message: "服务器错误" };
 };
 
+let getPostListByTagId = async (status, tagId) => {
+    let tag = await database.query("SELECT name FROM tag WHERE id = ?", [
+        tagId
+    ]);
+    let postList = await database.query(
+        "SELECT post.* from post,post_tag WHERE post.id = post_tag.post_id AND post.status = ? AND post_tag.tag_id = ? order by id desc",
+        [status, tagId]
+    );
+    if (tag && postList) {
+        getTagsList = [];
+        postList.forEach(item => {
+            getTagsList.push(tagSys.getTagListByPostId(item.id));
+        });
+        tagList = await Promise.all(getTagsList);
+
+        if (tagList) {
+            postList.map((item, index) => {
+                (item.tagList = tagList[index].data || []),
+                    (item.updatedAt = helper.timeago(item.updated_at));
+            });
+            return {
+                code: 200,
+                data: {
+                    name: tag[0].name,
+                    list: postList
+                },
+                message: "success"
+            };
+        }
+    }
+    return { code: 500, message: "服务器错误" };
+};
+
 let getAllPost = async () => {
     let postList = await database.query("select title,markdown from post ");
     if (postList) {
@@ -207,6 +240,7 @@ let updatePostTag = async (postId, tagList) => {
 
 exports.getPostById = getPostById;
 exports.getPostList = getPostList;
+exports.getPostListByTagId = getPostListByTagId;
 exports.getAllPost = getAllPost;
 exports.getPostCount = getPostCount;
 exports.addPost = addPost;
