@@ -4,8 +4,16 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var history = require('connect-history-api-fallback');
 
 var app = express();
+
+//部署react单页应用
+app.use(history({
+    rewrites: [
+      { from: /^\/admin$/, to: '/' }
+    ]
+  }))
 
 // 设置模板引擎
 var ejs = require('ejs'); 
