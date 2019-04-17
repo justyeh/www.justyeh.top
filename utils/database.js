@@ -10,8 +10,8 @@ let pool = mysql.createPool({
 
 exports.query = async (sql, params) => {
     try {
-        var connection = await pool.getConnection();
-        var [rows, fields] = await connection.query(sql, params);
+        let connection = await pool.getConnection();
+        let [rows] = await connection.query(sql, params);
         connection.release();
         if (rows) {
             return rows

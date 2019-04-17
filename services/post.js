@@ -84,7 +84,6 @@ let getAllPost = async () => {
     if (postList) {
         return { code: 200, data: { list: postList }, message: "success" };
     }
-    console.log(postList.length)
     return { code: 500, message: "服务器错误" };
 };
 
@@ -162,22 +161,44 @@ let deletePost = async postId => {
 };
 
 let updatePostTag = async (postId, tagList) => {
-    var deleteOldTag = await database.query(
+    let insertTags = [];
+    let existTags = [];
+    tagList.forEach(item => {
+        if (parseInt(item.id) === -1) {
+            insertTags.push(item.name);
+        } else {
+            existTags.push(item.id);
+        }
+    });
+
+    if (insertTags.length > 0) {
+        let insertValus = insertTags.map(item => [item]);
+        let insertRes = await database.query("INSERT INTO tag(name) VALUES ?", [
+            insertValus
+        ]);
+
+        if (insertRes && insertRes.insertId) {
+            for (let i = 0; i < insertRes.affectedRows; i++) {
+                existTags.push(insertRes.insertId + i);
+            }
+        }
+    }
+
+    let deleteRes = await database.query(
         "delete from post_tag where post_id = ?",
         postId
     );
-    if (deleteOldTag) {
-        var insertList = tagList.map(item => {
-            return database.query(
-                "insert into post_tag(post_id,tag_id) values(?,?)",
-                [postId, item]
+    if (deleteRes) {
+        if (existTags.length > 0) {
+            let values = existTags.map(item => [postId, item]);
+            let insertTags = await database.query(
+                "insert into post_tag(post_id,tag_id) values ?",
+                [values]
             );
-        });
-        if (insertList.length == 0) {
-            return { code: 200, message: "update post_tag success" };
-        }
-        var insertNewTag = await Promise.all(insertList);
-        if (insertNewTag) {
+            if (insertTags) {
+                return { code: 200, message: "update post_tag success" };
+            }
+        } else {
             return { code: 200, message: "update post_tag success" };
         }
     }

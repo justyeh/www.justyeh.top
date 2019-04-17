@@ -51,13 +51,13 @@ let getCommentListByPostId = async postId => {
     return { code: 500, message: "系统错误" };
 };
 
-let addComment = async (postId, name, content, updated_at) => {
+let addComment = async (postId, name, contacts, content, updated_at) => {
     if (!postId || !name || !content) {
         return { code: 500, message: "参数错误" };
     }
     var insertRow = await database.query(
-        "insert into comment(post_id,name,content,updated_at) values(?,?,?,?)",
-        [postId, name, content, updated_at || new Date().getTime()]
+        "insert into comment(post_id,name,contacts,content,updated_at) values(?,?,?,?,?)",
+        [postId, name, contacts, content, updated_at || Date.now()]
     );
 
     if (insertRow && insertRow.insertId) {
@@ -70,8 +70,6 @@ let addComment = async (postId, name, content, updated_at) => {
         return { code: 500, message: "insert fail" };
     }
 };
-
-
 
 let setCommentRead = async commentIds => {
     var result = await database.query(

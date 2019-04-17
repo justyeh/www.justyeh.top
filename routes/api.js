@@ -11,6 +11,7 @@ var tagSys = require("../services/tag");
 var commentSys = require("../services/comment");
 var postSys = require("../services/post");
 var userSys = require("../services/user");
+var multer = require("../utils/fileUpload");
 
 router.use(apiAuthMiddleware.apiAuth);
 
@@ -26,14 +27,13 @@ router.post("/user/login", async function(req, res, next) {
     res.json(await userSys.login(req.body.email, req.body.password));
 });
 
-
-
 //前台-发表评论
 router.post("/comment/add", async (req, res, next) => {
     res.json(
         await commentSys.addComment(
             req.body.postId,
             req.body.name,
+            req.body.contacts,
             req.body.content,
             req.body.updated_at
         )
@@ -76,6 +76,32 @@ router.get("/post/detail/:id", async (req, res, next) => {
     res.json(await postSys.getPostById(req.params.id));
 });
 
+//添加Post
+router.post("/post/add", multer.single("poster"), async (req, res, next) => {
+    let post = req.body;
+    post.poster = req.file ? "/" + req.file.filename : req.body.poster || "";
+    let addRes = await postSys.addPost(post);
+    if (addRes.code === 200) {
+        postSys.updatePostTag(addRes.data.id, JSON.parse(post.tag));
+    }
+    res.json(addRes);
+});
+
+//编辑Post
+router.post("/post/update", multer.single("poster"), async (req, res, next) => {
+    let post = req.body;
+    post.poster = req.file ? "/" + req.file.filename : req.body.poster || "";
+    let updateRes = await postSys.updatePost(post);
+    if (updateRes.code === 200) {
+        postSys.updatePostTag(post.id, JSON.parse(post.tag));
+    }
+    res.json(updateRes);
+});
+
+//获取post的comment
+router.get("/postComment", async (req, res, next) => {
+    res.json(await commentSys.getCommentListByPostId(req.query.id));
+});
 
 //获取标签列表
 router.get("/tag/list", async (req, res, next) => {
@@ -98,6 +124,7 @@ router.get("/tag/search", async (req, res, next) => {
     res.json(await tagSys.getTagByName(req.query.name));
 });
 
+//系统设置
 router.get("/setting/backup", async (req, res, next) => {
     try {
         //get post list

@@ -44,7 +44,6 @@ app.use('/', front);
 app.use('/admin', admin);
 app.use('/api', api);
 
-
 // 404
 app.use(function(req, res, next) {
     var err = new Error('This page could not be found.');

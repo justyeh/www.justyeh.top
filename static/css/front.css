@@ -32,6 +32,7 @@ a:hover {
         box-shadow: none;
     }
 }
+
 @media screen and (max-width: 800px) {
     .container.page {
         margin: 0;
@@ -178,32 +179,40 @@ header .search button {
         font-size: 24px;
         padding: 50px 0;
     }
+
     header .site img {
         width: 100px;
         height: 100px;
         margin: 0 0 10px 0;
     }
+
     header .nav {
         font-size: 14px;
     }
+
     header .nav>div {
         width: 100%;
     }
+
     header .menu {
         display: flex;
         justify-content: center;
     }
+
     header .menu a {
         margin-right: 15px;
     }
+
     header .search {
         padding: 15px 15px 0 15px;
     }
+
     header .search input {
         width: auto;
         flex: 1;
     }
 }
+
 /* 尾 */
 footer {
     background: rgb(38, 50, 56);
@@ -237,12 +246,15 @@ footer a {
     footer {
         padding: 20px 15px;
     }
+
     footer>div {
         padding-bottom: 15px
     }
+
     footer p {
         font-size: 14px;
     }
+
     footer a {
         margin: 5px 10px 0 0;
     }
@@ -277,6 +289,7 @@ footer a {
 
 .post-list .post-item .content {
     position: relative;
+    width: 100%;
     padding-bottom: 25px;
 }
 
@@ -324,29 +337,35 @@ footer a {
     .post-list-page {
         padding: 0;
     }
+
     .post-list .post-item {
         display: block;
         padding: 15px;
         margin: 0;
         border-bottom: solid 10px #f7f8fa;
     }
+
     .post-list .post-item:last-child {
         border-bottom: none;
         margin-bottom: 0;
     }
+
     .post-list .post-item .poster {
         width: 100%;
         height: 0;
         padding-top: 36%;
         margin-bottom: 5px;
     }
+
     .post-list .post-item .title {
         font-size: 16px;
     }
+
     .post-list .post-item .info,
     .post-list .post-item .desc {
         font-size: 12px;
     }
+
     .post-list-page .pager {
         padding: 10px 0 30px 0;
     }
@@ -425,20 +444,25 @@ footer a {
     .post-detail-page {
         padding: 0 25px;
     }
+
     .post-detail-page .poster {
         padding-top: 40%;
         margin: 0 -25px;
     }
+
     .post-detail-page .title {
         font-size: 24px;
         padding: 20px 0;
     }
+
     .post-detail-page .info {
         font-size: 12px;
     }
+
     .post-detail-page .content {
         padding: 20px 0;
     }
+
     .post-detail-page .md blockquote {
         padding: 8px 10px;
     }
@@ -448,10 +472,12 @@ footer a {
     .post-detail-page {
         padding: 0 15px;
     }
+
     .post-detail-page .poster {
         margin: 0 -15px;
     }
 }
+
 /* comment box */
 
 .comment-box {
@@ -469,7 +495,7 @@ footer a {
 .comment-box .form-group>label {
     height: 36px;
     line-height: 36px;
-    width: 50px;
+    width: 80px;
 }
 
 .comment-box input,
@@ -491,11 +517,15 @@ footer a {
 }
 
 .comment-box button {
-    margin-left: 50px;
+    margin-left: 80px;
     height: 36px;
     background: #263238;
     color: #fff;
     padding: 0 20px;
+}
+
+.comment-box button:disabled {
+    opacity: 0.6;
 }
 
 .comment-list {
@@ -547,6 +577,36 @@ footer a {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .comment-box {
+        font-size: 12px;
+    }
+
+    .comment-box .form-group>label {
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .comment-box input,
+    .comment-box textarea {
+        border-width: 1px;
+    }
+
+    .comment-box input {
+        height: 30px;
+    }
+
+    .comment-box textarea {
+        padding: 6px 0;
+    }
+
+    .comment-box button {
+        margin-left: 60px;
+        height: 30px;
+    }
+}
+
 /* about page */
 
 .about-page {
@@ -565,7 +625,8 @@ footer a {
     font-size: 16px;
     text-indent: 2em;
 }
-.about-page p:last-child{
+
+.about-page p:last-child {
     padding-bottom: 40px;
 }
 

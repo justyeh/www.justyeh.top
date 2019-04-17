@@ -15,42 +15,50 @@
                 <%}%>
                 <div class="title">
                     <%=title%>
+            </div>
+            <div class="info">
+                <i class="fa fa-clock-o"></i>
+                <p>
+                    <%=updatedAt%>
+                </p>
+                <%if(tagList.length > 0){%>
+                <i class="fa fa-tag"></i>
+                <div>
+                    <%tagList.forEach(tag=>{%>
+                    <a href='/tag/<%=tag.id%>'>
+                        <%=tag.name%></a>
+                    <%})%>
                 </div>
-                <div class="info">
-                    <i class="fa fa-clock-o"></i>
-                    <p>
-                        <%=updatedAt%>
-                    </p>
-                    <%if(tagList.length > 0){%>
-                    <i class="fa fa-tag"></i>
-                    <div>
-                        <%tagList.forEach(tag=>{%>
-                        <a href='/tag/<%=tag.id%>'>
-                            <%=tag.name%></a>
-                        <%})%>
-                    </div>
-                    <%}%>
+                <%}%>
                 </div>
                 <div class="content">
                     <div class="md">
                         <%-content%>
-                    </div>
+            </div>
+        </div>
+        <div class="comment-box" id="commentApp">
+            <%if(allowComment == 1){%>
+            <style>
+                [v-cloak] {
+                    opacity: 0;
+                }
+            </style>
+            <div class="form" v-cloak>
+                <div class="form-group">
+                    <label>称&emsp;&emsp;呼:</label>
+                    <input autocomplete="off" type="text" v-model.trim="name" placeholder="称呼">
                 </div>
-                <div class="comment-box" id="commentApp">
-                    <%if(allowComment == 1){%>
-                    <style>[v-cloak] { opacity: 0;} </style>
-                    <div class="form" v-cloak>
-                        <div class="form-group">
-                            <label>称呼:</label>
-                            <input autocomplete="off" type="text" v-model.trim="name">
-                        </div>
-                        <div class="form-group">
-                            <label>内容:</label>
-                            <textarea v-model.trim="content"></textarea>
-                        </div>
-                        <button type="button" @click="submitComment">提交</button>
-                    </div>
-                    <%}%>
+                <div class="form-group">
+                    <label>联系方式:</label>
+                    <input autocomplete="off" type="text" v-model.trim="contacts" placeholder="非必填，不会再前台展示，仅用于联系">
+                </div>
+                <div class="form-group">
+                    <label>评论内容:</label>
+                    <textarea v-model.trim="content" placeholder="请尽量让自己的评论能够对别人有帮助"></textarea>
+                </div>
+                <button type="button" :disabled="submitDisable" @click="submitComment">提交</button>
+            </div>
+            <%}%>
                     <div class="comment-list" v-cloak>
                         <div class="item" v-for="item in commentList">
                             <div class="avatar" :style="item.avatar">{{item.name.charAt(0)}}</div>
@@ -66,115 +74,127 @@
             </div>
         </div>
         <%-include('template/footer.html');%>
-        <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+            <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 
-        <script>
-            window.onload = function () {
-                var app = new Vue({
-                    el: "#commentApp",
-                    data: {
-                        commentList: [],
-                        id:  <%=id%>,
-                        name: '',
-                        content: ''
-                    },
-                    created() {
-                        this.getCommentList();
-                    },
-                    filters: {
-                        timeFormat: function (timeStamp) {
-                            var add0 = function (val) {
-                                return val < 10 ? '0' + val : val;
-                            }
-                            var time = new Date(parseInt(timeStamp));
-                            var y = time.getFullYear();
-                            var m = time.getMonth() + 1;
-                            var d = time.getDate();
-                            var h = time.getHours();
-                            var mm = time.getMinutes();
-                            var s = time.getSeconds();
-                            return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
-                        }
-                    },
-                    methods: {
-                        getCommentList: function () {
-                            var self = this;
-                            ajax.get('/api/getCommentByPostId?postId=' + this.id, function (res) {
-                                res.data.forEach(function (item) {
-                                    item.avatar = self.bindAvatar(item.updated_at)
-                                });
-                                self.commentList = res.data || []
-                            })
+            <script>
+                var postId =  <%=id%>;
+                window.onload = function () {
+                    var app = new Vue({
+                        el: "#commentApp",
+                        data: {
+                            commentList: [],
+                            submitDisable: false,
+                            name: '',
+                            contacts: '',
+                            email: '',
+                            content: ''
                         },
-                        submitComment: function () {
-                            var self = this;
-                            if(!self.name.trim()){
-                                alert('请输入称呼！');
-                                return false;
-                            }
-                            if(!self.content.trim()){
-                                alert('请输入内容！');
-                                return false;
-                            }
-                            var updated_at = new Date().getTime();
-                            ajax.post('/api/comment/add',`postId=${self.id}&name=${self.name}&content=${self.content}&updated_at=${updated_at}`, function (res) {
-                                if (res.code == 200) {
-                                    self.commentList.unshift({
-                                        name: self.name,
-                                        content: self.content,
-                                        updated_at: updated_at,
-                                        avatar: self.bindAvatar(updated_at)
-                                    });
-                                }else{
-                                    alert('提交失败！');
+                        created() {
+                            this.getCommentList();
+                        },
+                        filters: {
+                            timeFormat: function (timeStamp) {
+                                var add0 = function (val) {
+                                    return val < 10 ? '0' + val : val;
                                 }
-                            });
+                                var time = new Date(parseInt(timeStamp));
+                                var y = time.getFullYear();
+                                var m = time.getMonth() + 1;
+                                var d = time.getDate();
+                                var h = time.getHours();
+                                var mm = time.getMinutes();
+                                var s = time.getSeconds();
+                                return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
+                            }
                         },
-                        bindAvatar: function (updated_at) {
-                            updated_at = updated_at + '';
-                            var materialUlColors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
-                            var index = parseInt(updated_at.charAt(updated_at.length - 1)) + parseInt(updated_at.charAt(updated_at.length - 2));
-                            return {
-                                'background-color': materialUlColors[index]
+                        methods: {
+                            getCommentList: function () {
+                                ajax.get('/api/postComment?id=' + postId, res => {
+                                    res.data.forEach(item => {
+                                        item.avatar = this.bindAvatar(item.updated_at)
+                                    });
+                                    this.commentList = res.data || []
+                                })
+                            },
+                            submitComment: function () {
+                                if (this.submitDisable) {
+                                    return false
+                                }
+                                this.submitDisable = true;
+
+                                if (!this.name.trim()) {
+                                    alert('请输入称呼！');
+                                    return false;
+                                }
+                                if (!this.content.trim()) {
+                                    alert('请输入内容！');
+                                    return false;
+                                }
+
+                                var updated_at = new Date().getTime();
+                                ajax.post('/api/comment/add', `postId=${postId}&name=${this.name}&contacts=${this.contacts}&content=${this.content}&updated_at=${updated_at}`, res => {
+                                    if (res.code == 200) {
+                                        this.commentList.unshift({
+                                            name: this.name,
+                                            contacts: this.contacts,
+                                            content: this.content,
+                                            updated_at: updated_at,
+                                            avatar: this.bindAvatar(updated_at)
+                                        });
+                                        this.name = '';
+                                        this.contacts = '';
+                                        this.content = '';
+                                    } else {
+                                        alert('提交失败！');
+                                    }
+                                    this.submitDisable = false;
+                                });
+                            },
+                            bindAvatar: function (updated_at) {
+                                updated_at = updated_at + '';
+                                var materialUlColors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
+                                var index = parseInt(updated_at.charAt(updated_at.length - 1)) + parseInt(updated_at.charAt(updated_at.length - 2));
+                                return {
+                                    'background-color': materialUlColors[index]
+                                }
                             }
                         }
-                    }
-                })
-            }
-
-            var ajax = {
-                getXhr: function () {
-                    if (!window.xhr) {
-                        window.xhr = new XMLHttpRequest();
-                    }
-                    return window.xhr
-                },
-                get: function (url, success) {
-                    var xhr = this.getXhr();
-                    xhr.open('get', url);
-                    xhr.setRequestHeader("Content-type", "application/json");
-                    xhr.send();
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            success(JSON.parse(xhr.responseText))
-                        }
-                    };
-                },
-                post: function (url, data, success) {
-                    var xhr = this.getXhr();
-                    xhr.open('post', url);
-                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    xhr.send(data);
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            success(JSON.parse(xhr.responseText))
-                        }
-                    };
+                    })
                 }
-            }
 
-        </script>
-    </div>
+                var ajax = {
+                    getXhr: function () {
+                        if (!window.xhr) {
+                            window.xhr = new XMLHttpRequest();
+                        }
+                        return window.xhr
+                    },
+                    get: function (url, success) {
+                        var xhr = this.getXhr();
+                        xhr.open('get', url);
+                        xhr.setRequestHeader("Content-type", "application/json");
+                        xhr.send();
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                success(JSON.parse(xhr.responseText))
+                            }
+                        };
+                    },
+                    post: function (url, data, success) {
+                        var xhr = this.getXhr();
+                        xhr.open('post', url);
+                        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhr.send(data);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                success(JSON.parse(xhr.responseText))
+                            }
+                        };
+                    }
+                }
+
+            </script>
+        </div>
 </body>
 
 </html>
