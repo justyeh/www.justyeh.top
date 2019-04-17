@@ -83,6 +83,9 @@ let getPostListByTagId = async (status, tagId) => {
     let tag = await database.query("SELECT name FROM tag WHERE id = ?", [
         tagId
     ]);
+    if (tag || tag.length == 0) {
+        return { code: 400, message: "没有相关数据" };
+    }
     let postList = await database.query(
         "SELECT post.* from post,post_tag WHERE post.id = post_tag.post_id AND post.status = ? AND post_tag.tag_id = ? order by id desc",
         [status, tagId]
