@@ -20,5 +20,8 @@ yarn-error.log*
 # database config
 /utils/database.js
 
-
+# backup file
 /backup/markdown/
+
+#static demo
+/public/demo/
