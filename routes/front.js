@@ -98,8 +98,8 @@ router.get("/tag/:tagId", async (req, res, next) => {
         "published",
         req.params.tagId
     );
-    let tagName = result.data.name;
     if (result.code == 200) {
+        let tagName = result.data.name;
         res.render("front/tag", {
             seo: {
                 title: tagName + "的相关文章",
