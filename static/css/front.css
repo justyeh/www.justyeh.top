@@ -537,7 +537,7 @@ footer a {
     font-size: 14px;
     color: #666;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .comment-list .avatar {
@@ -558,7 +558,7 @@ footer a {
 }
 
 .comment-list .name {
-    padding: 15px 0 0 0;
+    padding: 5px 0 0 0;
 }
 
 .comment-list .time {
