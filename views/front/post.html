@@ -120,7 +120,6 @@
                                 if (this.submitDisable) {
                                     return false
                                 }
-                                this.submitDisable = true;
 
                                 if (!this.name.trim()) {
                                     alert('请输入称呼！');
@@ -130,7 +129,8 @@
                                     alert('请输入内容！');
                                     return false;
                                 }
-
+                               
+                                this.submitDisable = true;
                                 var updated_at = new Date().getTime();
                                 ajax.post('/api/comment/add', `postId=${postId}&name=${this.name}&contacts=${this.contacts}&content=${this.content}&updated_at=${updated_at}`, res => {
                                     if (res.code == 200) {
