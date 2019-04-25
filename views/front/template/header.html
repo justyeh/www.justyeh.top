@@ -25,7 +25,7 @@
 </header>
 <script>
     function goAdmin() {
-        let pathArr = window.location.pathname.split('/')[2];
+        let pathArr = window.location.pathname.split('/');
         if (pathArr[1] == 'post' && pathArr[2]) {
             window.location.href = 'http://admin.justyeh.top/post-form?id=' + pathArr[2]
         } else {
