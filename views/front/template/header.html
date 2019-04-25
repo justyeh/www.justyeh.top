@@ -1,6 +1,6 @@
 <header>
     <div class="container">
-        <div class="site" ondblclick="location.href='http://admin.justyeh.top/'">
+        <div class="site" ondblclick="goAdmin()">
             <img src="/image/head.jpg" />
             <p>JustYeh的前端博客</p>
         </div>
@@ -23,3 +23,13 @@
         </div>
     </div>
 </header>
+<script>
+    function goAdmin() {
+        let pathArr = window.location.pathname.split('/')[2];
+        if (pathArr[1] == 'post' && pathArr[2]) {
+            window.location.href = 'http://admin.justyeh.top/post-form?id=' + pathArr[2]
+        } else {
+            window.location.href = 'http://admin.justyeh.top'
+        }
+    }
+</script>
