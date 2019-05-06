@@ -7,12 +7,11 @@ var session = require("express-session");
 
 var app = express();
 
-
 // 设置模板引擎
 var ejs = require("ejs");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "html");
-+app.engine("html", ejs.__express);
+app.engine("html", ejs.__express);
 
 // 设置favicon.ico
 app.use(favicon(path.join(__dirname, "./static/favicon.ico")));
